@@ -474,6 +474,106 @@ export function presentProduct(productOrSlug) {
   };
 }
 
+const SPEC_GROUPS = [
+  {
+    id: 'display',
+    title: 'Экран',
+    test: /(диагонал|монитор|разрешен|яркость|контраст|отклик|сенсорн|касани|соотношен|глубина цвета|частота разверт)/i,
+  },
+  {
+    id: 'body',
+    title: 'Корпус',
+    test: /(материал|корпус|габарит|толщин|высот|ширин|глубин|вес|угол|установк|цвет|ral|панел)/i,
+  },
+  {
+    id: 'pc',
+    title: 'Компьютер',
+    test: /(процессор|память|диск|видеокарт|материнск|ядер|частота процес)/i,
+  },
+  {
+    id: 'audio',
+    title: 'Аудио',
+    test: /(аудио|динамик)/i,
+  },
+  {
+    id: 'power',
+    title: 'Питание и связь',
+    test: /(кабель|энерго|электри|автомат|порт|разъем|wi-?fi|условия работы)/i,
+  },
+  {
+    id: 'options',
+    title: 'Опции',
+    test: /(опци|датчик|принтер|сканер|nfc|камер|клавиатур|дополнительн)/i,
+  },
+];
+
+function normalizeSpecKey(key) {
+  return oneLine(key)
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/\(.*?\)/g, ' ')
+    .replace(/[,./]/g, ' ')
+    .replace(/\b(мм|кг|гц|вт|кд|м\s*2|дюйм|шт|серия|модель)\b/giu, ' ')
+    .replace(/\s+/g, '');
+}
+
+/** Dedupe + group scraped specs into readable cards. No invented values. */
+export function groupProductSpecs(specs) {
+  const entries = Object.entries(specs || {})
+    .map(([key, value]) => [oneLine(key), oneLine(value)])
+    .filter(([k, v]) => k && v);
+
+  const seen = new Set();
+  const unique = [];
+  for (const [key, value] of entries) {
+    const nk = normalizeSpecKey(key);
+    if (!nk || seen.has(nk)) continue;
+    seen.add(nk);
+    unique.push([key, value]);
+  }
+
+  const buckets = new Map(SPEC_GROUPS.map((g) => [g.id, { id: g.id, title: g.title, rows: [] }]));
+  const other = { id: 'other', title: 'Прочее', rows: [] };
+
+  for (const [key, value] of unique) {
+    const group = SPEC_GROUPS.find((g) => g.test.test(key)) || null;
+    (group ? buckets.get(group.id) : other).rows.push({ key, value });
+  }
+
+  return [...buckets.values(), other].filter((g) => g.rows.length > 0);
+}
+
+/** Compact “at a glance” chips from known spec keys. */
+export function presentSpecGlance(specs) {
+  const map = new Map(
+    Object.entries(specs || {}).map(([k, v]) => [normalizeSpecKey(k), { key: oneLine(k), value: oneLine(v) }]),
+  );
+  const pick = (...keys) => {
+    for (const k of keys) {
+      const hit = map.get(normalizeSpecKey(k));
+      if (hit?.value) return hit;
+    }
+    return null;
+  };
+
+  const chips = [];
+  const diagonal = pick('Диагональ', 'Диагональ, дюйм', 'Монитор');
+  if (diagonal) {
+    const n = diagonal.value.match(/\d+(?:[.,]\d+)?/);
+    chips.push({
+      label: 'Диагональ',
+      value: n ? `${n[0]}″` : diagonal.value,
+    });
+  }
+  const install = pick('Тип установки');
+  if (install) chips.push({ label: 'Установка', value: install.value });
+  const weight = pick('Вес, кг', 'Вес нетто, кг');
+  if (weight) chips.push({ label: 'Вес', value: /кг/i.test(weight.value) ? weight.value : `${weight.value} кг` });
+  const touch = pick('Количество одновременных касаний');
+  if (touch) chips.push({ label: 'Касания', value: touch.value });
+  return chips.slice(0, 4);
+}
+
 const CATEGORY_SEO_CUT =
   /\s*(?:[-–—:.]\s*)?(?:купить|производство и продажа|у производителя|от производителя|от российского производителя|с доставкой|большой (?:ассортимент|выбор)|гарантия|проектирование).*$/iu;
 

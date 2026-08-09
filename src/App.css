@@ -2478,6 +2478,139 @@
   font-weight: 500;
 }
 
+.spec-glance {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.spec-glance li {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-tile);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 32, 0.06);
+  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.03);
+}
+
+.spec-glance span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spec-glance strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.spec-groups {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.spec-group-reveal {
+  min-width: 0;
+  height: 100%;
+}
+
+.spec-card {
+  height: 100%;
+  padding: 1.15rem 1.2rem 1.05rem;
+  border-radius: var(--radius-tile);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 32, 0.06);
+  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.03);
+}
+
+.spec-card h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.specs--card th,
+.specs--card td {
+  padding: 0.55rem 0;
+  border-bottom-color: rgba(15, 23, 32, 0.06);
+  font-size: 0.9rem;
+}
+
+.specs--card tr:last-child th,
+.specs--card tr:last-child td {
+  border-bottom: 0;
+}
+
+.specs--card th {
+  width: 48%;
+  padding-right: 0.75rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.specs--card td {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.specs--card tbody tr {
+  animation: specRowIn 0.45s var(--ease-out) both;
+  animation-delay: calc(var(--spec-i, 0) * 28ms);
+}
+
+.spec-flag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 32, 0.05);
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.spec-flag--opt {
+  background: rgba(42, 170, 221, 0.1);
+  color: var(--cyan-deep);
+}
+
+.spec-flag--yes {
+  background: rgba(34, 140, 92, 0.1);
+  color: #1f7a4d;
+}
+
+@keyframes specRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specs--card tbody tr {
+    animation: none;
+  }
+}
+
 .prose {
   max-width: 52rem;
   line-height: 1.65;
@@ -2523,6 +2656,14 @@
   .category-head,
   .product-hero,
   .detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-glance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spec-groups {
     grid-template-columns: 1fr;
   }
 
@@ -2690,6 +2831,19 @@
 
   .content-tile {
     grid-template-rows: 180px auto;
+  }
+
+  .spec-glance {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .spec-glance strong {
+    font-size: 1.05rem;
+  }
+
+  .spec-card {
+    padding: 1rem 1rem 0.9rem;
   }
 
   .detail-hero-copy .actions,

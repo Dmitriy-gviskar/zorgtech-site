@@ -1,6 +1,22 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProduct, getCategory, productGallery, presentProduct } from '../lib/data';
+import Reveal from '../components/Reveal';
+import {
+  getProduct,
+  getCategory,
+  productGallery,
+  presentProduct,
+  groupProductSpecs,
+  presentSpecGlance,
+} from '../lib/data';
+
+function SpecValue({ value }) {
+  const v = String(value || '').trim();
+  if (/^опция$/i.test(v)) return <span className="spec-flag spec-flag--opt">Опция</span>;
+  if (/^наличие$/i.test(v)) return <span className="spec-flag spec-flag--yes">Есть</span>;
+  if (/^отсутствует$/i.test(v)) return <span className="spec-flag">Нет</span>;
+  return v;
+}
 
 export default function ProductPage() {
   const { slug } = useParams();
@@ -21,7 +37,6 @@ export default function ProductPage() {
   }
 
   const cat = getCategory(product.categorySlug);
-  const specs = Object.entries(product.specs || {});
   const gallery = productGallery(product);
   const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
   const copy = presentProduct(product);
@@ -35,6 +50,8 @@ export default function ProductPage() {
     Boolean(htmlPlain) &&
     htmlPlain.length > covered.length + 48 &&
     !covered.includes(htmlPlain.slice(24, 96));
+  const specGroups = groupProductSpecs(product.specs);
+  const glance = presentSpecGlance(product.specs);
 
   return (
     <div className="page product product-page">
@@ -106,9 +123,9 @@ export default function ProductPage() {
             </ul>
           ) : null}
 
-          {showStory ? (
-            <a className="product-readmore" href="#product-story">
-              Читать описание <span aria-hidden="true">↓</span>
+          {showStory || specGroups.length ? (
+            <a className="product-readmore" href={showStory ? '#product-story' : '#product-specs'}>
+              {showStory ? 'Читать описание' : 'К характеристикам'} <span aria-hidden="true">↓</span>
             </a>
           ) : null}
         </div>
@@ -128,22 +145,45 @@ export default function ProductPage() {
         </section>
       ) : null}
 
-      {specs.length ? (
-        <section className="sec product-specs">
+      {specGroups.length ? (
+        <section className="sec product-specs" id="product-specs">
           <header className="sec-head">
             <p className="chapter-kicker">Спецификация</p>
             <h2>Характеристики</h2>
           </header>
-          <table className="specs">
-            <tbody>
-              {specs.map(([k, v]) => (
-                <tr key={k}>
-                  <th>{k}</th>
-                  <td>{v}</td>
-                </tr>
+
+          {glance.length ? (
+            <ul className="spec-glance">
+              {glance.map((chip) => (
+                <li key={chip.label}>
+                  <span>{chip.label}</span>
+                  <strong>{chip.value}</strong>
+                </li>
               ))}
-            </tbody>
-          </table>
+            </ul>
+          ) : null}
+
+          <div className="spec-groups">
+            {specGroups.map((group, i) => (
+              <Reveal key={group.id} delay={Math.min(i, 4) * 0.05} y={18} className="spec-group-reveal">
+                <article className="spec-card">
+                  <h3>{group.title}</h3>
+                  <table className="specs specs--card">
+                    <tbody>
+                      {group.rows.map((row, ri) => (
+                        <tr key={row.key} style={{ '--spec-i': ri }}>
+                          <th scope="row">{row.key}</th>
+                          <td>
+                            <SpecValue value={row.value} />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </section>
       ) : null}
 
