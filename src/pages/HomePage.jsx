@@ -7,10 +7,10 @@ import { assetUrl, categoryList, getProduct, productCover, products, projects } 
 const HERO_PRODUCT = getProduct('diamant-32-fe') || getProduct('diamant-43-f') || Object.values(products)[0];
 
 const CHAPTERS = [
-  { slug: 'diamant-32-fe', kicker: 'Флагман', tone: 'dark' },
-  { slug: 'diamant-55-n', kicker: 'Сенсорный стол', tone: 'light' },
-  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный', tone: 'dark' },
-  { slug: 'apriori-22', kicker: 'Apriori', tone: 'light' },
+  { slug: 'diamant-32-fe', kicker: 'Флагман', tone: 'soft', cta: 'Смотреть модель' },
+  { slug: 'diamant-55-n', kicker: 'Сенсорный стол', tone: 'white', cta: 'Смотреть модель' },
+  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный', tone: 'soft', cta: 'Смотреть модель' },
+  { slug: 'apriori-22', kicker: 'Apriori', tone: 'white', cta: 'Смотреть модель' },
 ]
   .map((item) => ({ ...item, product: getProduct(item.slug) }))
   .filter((item) => item.product);
@@ -119,10 +119,15 @@ export default function HomePage() {
             <Reveal>
               <p className="chapter-kicker">{chapter.kicker}</p>
               <h2 className="chapter-title">{chapter.product.title}</h2>
-              <p className="chapter-line">{clip(chapter.product.lead, 140)}</p>
-              <Link className="chapter-link" to={`/product/${chapter.product.slug}`}>
-                Подробнее <span aria-hidden="true">→</span>
-              </Link>
+              <p className="chapter-line">{clip(chapter.product.lead, 120)}</p>
+              <div className="chapter-actions">
+                <Link className="btn primary" to={`/product/${chapter.product.slug}`}>
+                  {chapter.cta} →
+                </Link>
+                <Link className="btn secondary" to="/catalog">
+                  В каталог
+                </Link>
+              </div>
             </Reveal>
           </div>
         </section>

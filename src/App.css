@@ -483,19 +483,19 @@
   animation: scrollLine 2.2s var(--ease-out) infinite;
 }
 
-/* Full-viewport product chapters — DJI rhythm */
+/* Product chapters — DJI rhythm on seamless studio (no white box on black) */
 .chapter {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.75fr);
   align-items: center;
   overflow: hidden;
 }
 
 .chapter--flip {
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: minmax(18rem, 0.75fr) minmax(0, 1.35fr);
 }
 
 .chapter--flip .chapter-media {
@@ -506,14 +506,25 @@
   order: 1;
 }
 
-.chapter--dark {
-  background: #07090c;
-  color: #fff;
+.chapter--soft {
+  /* same family as white product plates — no black “frame” around photo */
+  background: #f3f5f7;
+  color: var(--ink);
+}
+
+.chapter--white {
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.chapter--dark,
+.chapter--light {
+  background: #f3f5f7;
+  color: var(--ink);
 }
 
 .chapter--light {
   background: #ffffff;
-  color: var(--ink);
 }
 
 .chapter-media {
@@ -521,51 +532,50 @@
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: clamp(2rem, 5vw, 4.5rem) 1rem;
-}
-
-.chapter--dark .chapter-media {
-  background:
-    radial-gradient(ellipse at 50% 48%, rgba(42, 170, 221, 0.12), transparent 58%),
-    #07090c;
-}
-
-.chapter--light .chapter-media {
-  background: #ffffff;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: inherit;
 }
 
 .chapter-media img {
-  width: min(100%, 680px);
-  max-height: min(80vh, 780px);
+  width: min(100%, 760px);
+  max-height: min(86vh, 860px);
   object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(15, 23, 32, 0.1));
 }
 
 .chapter-copy {
-  padding: clamp(2.25rem, 6vw, 5.5rem);
-  max-width: 30rem;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  max-width: 28rem;
 }
 
 .chapter-kicker {
   color: var(--cyan-deep);
+  margin-bottom: 0;
 }
 
-.chapter--dark .chapter-kicker,
 .shot-on .chapter-kicker {
   color: var(--cyan);
 }
 
+.chapter-title {
+  margin-top: 0.65rem;
+}
+
 .chapter-line {
-  margin: 1.15rem 0 0;
+  margin: 1rem 0 0;
   font-family: var(--font-body);
-  font-size: var(--text-lead);
+  font-size: 1.02rem;
   font-weight: 400;
   line-height: 1.55;
   color: var(--ink-soft);
-  max-width: 26rem;
+  max-width: 24rem;
 }
 
-.chapter--dark .chapter-line {
-  color: rgba(255, 255, 255, 0.68);
+.chapter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
 }
 
 .chapter-link {
