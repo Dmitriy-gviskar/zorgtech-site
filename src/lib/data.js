@@ -606,3 +606,74 @@ export function presentCategoryBlurb(category) {
   if (text.length > 160) text = firstSentences(text, 160, 1);
   return text;
 }
+
+function stripTags(html) {
+  return oneLine(
+    String(html || '')
+      .replace(/<br\s*\/?>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&gt;/gi, '>')
+      .replace(/&lt;/gi, '<')
+      .replace(/&amp;/gi, '&'),
+  );
+}
+
+/** Structured About page from scraped HTML — drops forms, nav tabs, broken tails. */
+export function presentAboutPage(page) {
+  const html = page?.html || '';
+  const cut = html.search(/class="widget widget-begin"|Закажите обратный|id="form_4"|modal standard/i);
+  const main = cut > 0 ? html.slice(0, cut) : html;
+
+  const paragraphs = [];
+  for (const raw of main.matchAll(/<p(?![^>]*achievement)[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const t = stripTags(raw[1]);
+    if (t.length < 40) continue;
+    if (/о zorgtech/i.test(t) && /партнер/i.test(t)) continue;
+    if (/нажимая кнопку|как вас зовут|не знаете/i.test(t)) continue;
+    if (paragraphs.includes(t)) continue;
+    paragraphs.push(t);
+  }
+
+  const services = [];
+  const svc = main.match(/спектр услуг:([\s\S]*?)<\/ul>/i);
+  if (svc) {
+    for (const raw of svc[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)) {
+      const t = stripTags(raw[1]).replace(/[;.\s]+$/u, '');
+      if (t.length >= 12) services.push(t);
+    }
+  }
+
+  const stats = [];
+  for (const raw of html.matchAll(
+    /achievement-number[^>]*>([\s\S]*?)<\/p>\s*<p[^>]*achievement-title[^>]*>([\s\S]*?)<\/p>/gi,
+  )) {
+    const value = stripTags(raw[1]);
+    const label = stripTags(raw[2]);
+    if (value && label) stats.push({ value, label });
+  }
+
+  const next = [];
+  const begin = html.match(/begin-links[\s\S]*?<\/ul>/i);
+  if (begin) {
+    for (const raw of begin[0].matchAll(/<li[^>]*>[\s\S]*?<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>\s*<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+      const href = raw[1];
+      const title = stripTags(raw[2]);
+      const text = stripTags(raw[3]);
+      if (!title || !text) continue;
+      let to = null;
+      if (/gotovye-resheniya|solutions/i.test(href)) to = '/solutions';
+      else if (/catalog/i.test(href)) to = '/catalog';
+      else to = '/contacts';
+      next.push({ title, text, to });
+    }
+  }
+
+  return {
+    lead: firstSentences(paragraphs[0] || '', 170, 1),
+    paragraphs,
+    services,
+    stats,
+    next,
+  };
+}
