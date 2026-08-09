@@ -4,8 +4,20 @@ import projects from '../data/projects.json';
 import solutions from '../data/solutions.json';
 import pages from '../data/pages.json';
 import areas from '../data/areas.json';
+import mediaWebp from '../data/media-webp.json';
 
 export { categories, products, projects, solutions, pages, areas };
+
+const WEBP_PATHS = new Set(
+  (Array.isArray(mediaWebp) ? mediaWebp : []).map((p) => String(p).replace(/^\/+/, '')),
+);
+
+/** Prefer sibling .webp when optimize:images produced one. Original PNG/JPG stays on disk. */
+function preferWebp(cleanPath) {
+  if (!/\.(png|jpe?g)$/i.test(cleanPath)) return cleanPath;
+  const webp = cleanPath.replace(/\.(png|jpe?g)$/i, '.webp');
+  return WEBP_PATHS.has(webp) ? webp : cleanPath;
+}
 
 /** Prefix public asset paths for GitHub Pages base (`/zorgtech-site/`). Idempotent. */
 export function assetUrl(path) {
@@ -16,8 +28,13 @@ export function assetUrl(path) {
   if (base !== '/' && (value.startsWith(base) || value.startsWith(base.replace(/\/$/, '')))) {
     return value.startsWith('/') ? value : `/${value}`;
   }
-  const clean = value.replace(/^\/+/, '');
+  const clean = preferWebp(value.replace(/^\/+/, ''));
   return `${base}${clean}`;
+}
+
+/** Alias — same as assetUrl (webp preference is built-in). */
+export function mediaUrl(path) {
+  return assetUrl(path);
 }
 
 /**
@@ -300,12 +317,239 @@ export function getSolution(slug) {
   return solutions.find((s) => s.slug === slug) || null;
 }
 
+/** Presentation helper for scraped solution pages. */
+export function presentSolution(solutionOrSlug) {
+  const solution =
+    typeof solutionOrSlug === 'string' ? getSolution(solutionOrSlug) : solutionOrSlug;
+  if (!solution) {
+    return {
+      title: '',
+      lead: '',
+      story: [],
+      features: [],
+      blocks: [],
+      images: [],
+      icon: null,
+    };
+  }
+
+  let lead = oneLine(solution.lead || '');
+  lead = lead
+    .replace(/\s*[-–—]\s*большой выбор.*$/iu, '')
+    .replace(/\s*с доставкой по России.*$/iu, '')
+    .replace(/\s*от производителя.*$/iu, '')
+    .trim();
+
+  const story = String(solution.text || '')
+    .split(/\n+/)
+    .map((p) => oneLine(p))
+    .filter((p) => p.length > 40);
+
+  const features = (solution.features || []).map(oneLine).filter(Boolean).slice(0, 6);
+
+  const usedTitles = new Set();
+  const blocks = [];
+  const pushBlock = (title, items) => {
+    const list = (items || []).map(oneLine).filter((i) => i.length >= 8);
+    if (!title || !list.length) return;
+    const key = title.toLowerCase();
+    if (usedTitles.has(key)) return;
+    usedTitles.add(key);
+    blocks.push({ title, items: list.slice(0, 10) });
+  };
+
+  pushBlock('Решаемые задачи', solution.tasks);
+  pushBlock('Преимущества', solution.advantages);
+  pushBlock('Возможности', solution.capabilities);
+  pushBlock('Применение', solution.applications);
+
+  // leftover named sections from scrape (hotel/med pages etc.)
+  for (const [title, items] of Object.entries(solution.sections || {})) {
+    const t = oneLine(title).replace(/:$/, '');
+    if (/техническ/i.test(t)) {
+      pushBlock('Технические характеристики', items);
+      continue;
+    }
+    if (/что вы получите|преимуществ/i.test(t)) {
+      pushBlock('Преимущества', items);
+      continue;
+    }
+    if (/функционал|возможност/i.test(t)) {
+      pushBlock('Возможности', items);
+      continue;
+    }
+    if (/решаемые|задач/i.test(t)) {
+      pushBlock('Решаемые задачи', items);
+      continue;
+    }
+    if (/применен/i.test(t)) {
+      pushBlock('Применение', items);
+      continue;
+    }
+    pushBlock(t, items);
+  }
+
+  return {
+    title: oneLine(solution.title),
+    lead,
+    story,
+    features,
+    blocks,
+    images: solution.images || [],
+    icon: solution.icon || null,
+  };
+}
+
 export function getPage(key) {
   return pages[key] || null;
 }
 
 export function getArea(slug) {
   return areas.find((a) => a.slug === slug) || null;
+}
+
+function cleanSeoLead(lead) {
+  let text = oneLine(lead || '')
+    .replace(/\u00ad/g, '')
+    .replace(/\s*[-–—]\s*большой выбор.*$/iu, '')
+    .replace(/\s*с доставкой по России.*$/iu, '')
+    .replace(/\s*от производителя[^.]*\.?/iu, '')
+    .replace(/\s*купить сенсорн.*$/iu, '')
+    .replace(/\s*готовое решение для вашего бизнеса.*$/iu, '')
+    .replace(/\s*Интеграция программн.*$/iu, '')
+    .trim();
+  text = text.replace(/[.\s]+$/u, '').trim();
+  return text;
+}
+
+function htmlSectionsByH2(html) {
+  const cut = cutPageChrome(html);
+  const sections = [];
+  const re = /<h2[^>]*>([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2|$)/gi;
+  for (const raw of cut.matchAll(re)) {
+    const title = stripTags(raw[1])
+      .replace(/^Назад к.*/i, '')
+      .trim();
+    if (!title || title.length > 120) continue;
+    const body = raw[2] || '';
+    const textParts = htmlParagraphs(body);
+    const items = htmlListItems(body);
+    if (!textParts.length && !items.length) continue;
+    sections.push({
+      title,
+      text: textParts.join('\n\n'),
+      paragraphs: textParts,
+      items,
+    });
+  }
+  return sections;
+}
+
+/** Application area presentation from scraped HTML (or baked `presented`). */
+export function presentArea(areaOrSlug) {
+  const area = typeof areaOrSlug === 'string' ? getArea(areaOrSlug) : areaOrSlug;
+  if (!area) {
+    return { title: '', lead: '', story: [], sections: [], images: [] };
+  }
+
+  if (area.presented) {
+    return {
+      ...area.presented,
+      images: area.images || area.presented.images || [],
+    };
+  }
+
+  const title = oneLine(area.title).replace(/&quot;/g, '"').replace(/\u00a0/g, ' ');
+  const lead = cleanSeoLead(area.lead);
+  const main = cutPageChrome(area.html || '');
+  const sections = htmlSectionsByH2(main);
+  const beforeH2 = main.split(/<h2/i)[0] || main;
+  const intro = htmlParagraphs(beforeH2)
+    .filter((p) => p.length > 40)
+    .filter((p) => !/скачать презентацию/i.test(p))
+    .slice(0, 4);
+
+  const named = sections.filter((s) => {
+    if (/скачать презентацию/i.test(s.title)) return false;
+    if (title && s.title.toLowerCase().startsWith(title.toLowerCase().slice(0, 20))) return false;
+    return true;
+  });
+
+  return {
+    title,
+    lead: lead || firstSentences(intro[0] || named[0]?.paragraphs?.[0] || '', 170, 1),
+    story: intro,
+    sections: named.slice(0, 8),
+    images: area.images || [],
+  };
+}
+
+/** Project presentation: задача / решение + gallery (or baked `presented`). */
+export function presentProject(projectOrSlug) {
+  const project =
+    typeof projectOrSlug === 'string' ? getProject(projectOrSlug) : projectOrSlug;
+  if (!project) {
+    return { title: '', lead: '', task: '', solution: [], story: [], sections: [], images: [] };
+  }
+
+  if (project.presented) {
+    return {
+      ...project.presented,
+      images: project.images || project.presented.images || [],
+    };
+  }
+
+  const title = oneLine(project.title).replace(/&quot;/g, '"').replace(/\u00a0/g, ' ');
+  let lead = cleanSeoLead(project.lead);
+  if (lead && title && lead.toLowerCase().startsWith(title.toLowerCase().slice(0, 24))) {
+    // lead often repeats title + SEO — prefer first story sentence later
+    lead = '';
+  }
+
+  const sections = htmlSectionsByH2(project.html || '');
+  let task = '';
+  let solution = [];
+  const other = [];
+
+  for (const sec of sections) {
+    if (/^задача$/i.test(sec.title)) {
+      task = sec.paragraphs[0] || sec.text;
+      continue;
+    }
+    if (/^решение$/i.test(sec.title)) {
+      solution = sec.paragraphs;
+      continue;
+    }
+    if (/назад к/i.test(sec.title)) continue;
+    if (sec.title === title) continue;
+    other.push(sec);
+  }
+
+  if (!solution.length && !task) {
+    const story = htmlParagraphs(cutPageChrome(project.html || ''))
+      .filter((p) => p.length > 40)
+      .filter((p) => !/назад к реализованным/i.test(p))
+      .slice(0, 6);
+    return {
+      title,
+      lead: lead || firstSentences(story[0] || '', 170, 1),
+      task: '',
+      solution: story,
+      story,
+      sections: other.slice(0, 6),
+      images: project.images || [],
+    };
+  }
+
+  return {
+    title,
+    lead: lead || firstSentences(task || solution[0] || '', 170, 1),
+    task,
+    solution,
+    story: [],
+    sections: other.slice(0, 6),
+    images: project.images || [],
+  };
 }
 
 export function categoryList() {
@@ -621,6 +865,8 @@ function stripTags(html) {
 
 /** Structured About page from scraped HTML — drops forms, nav tabs, broken tails. */
 export function presentAboutPage(page) {
+  if (page?.presented) return page.presented;
+
   const html = page?.html || '';
   const cut = html.search(/class="widget widget-begin"|Закажите обратный|id="form_4"|modal standard/i);
   const main = cut > 0 ? html.slice(0, cut) : html;
@@ -708,5 +954,268 @@ export function presentAboutPage(page) {
     production,
     clients,
     tabs,
+  };
+}
+
+function cutPageChrome(html) {
+  const cut = String(html || '').search(
+    /class="widget widget-begin"|НЕ ЗНАЕТЕ|Закажите обратный|id="form_|modal standard|Нажимая кнопку/i,
+  );
+  return cut > 0 ? html.slice(0, cut) : html || '';
+}
+
+function htmlParagraphs(html) {
+  const out = [];
+  for (const raw of String(html || '').matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+    const t = stripTags(raw[1]);
+    if (t.length < 35) continue;
+    if (/нажимая кнопку|как вас зовут|не знаете|заказать звонок/i.test(t)) continue;
+    if (out.includes(t)) continue;
+    out.push(t);
+  }
+  return out;
+}
+
+function htmlListItems(html) {
+  const out = [];
+  for (const raw of String(html || '').matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)) {
+    const t = stripTags(raw[1]).replace(/[;.\s]+$/u, '');
+    if (t.length < 8) continue;
+    if (/закажите обратный|изучите готовые|посетите каталог|нажимая кнопку/i.test(t)) continue;
+    if (out.includes(t)) continue;
+    out.push(t);
+  }
+  return out;
+}
+
+/** Delivery / support / rent / policy — structured from scraped HTML. */
+export function presentServicePage(pageKey, page) {
+  if (page?.presented) return page.presented;
+
+  const html = cutPageChrome(page?.html || '');
+  const title = oneLine(page?.title || '');
+  const metaLead = cleanSeoLead(page?.lead || '');
+
+  if (pageKey === 'delivery') {
+    const paras = htmlParagraphs(html).filter((p) => !/^доставка сенсорных/i.test(p));
+    const carriersMatch = (paras[0] || '').match(/компаниями:\s*(.+?)(?:\.|$)/i);
+    const carriers = carriersMatch
+      ? carriersMatch[1]
+          .replace(/\s*а также любыми другими компаниями.*$/i, '')
+          .split(/,\s*/)
+          .map(oneLine)
+          .filter((c) => c && !/^а также/i.test(c))
+      : [];
+
+    const facts = [];
+    const pushFact = (label, value) => {
+      const v = oneLine(value);
+      if (!v || facts.some((f) => f.label === label)) return;
+      facts.push({ label, value: v });
+    };
+    for (const p of paras) {
+      if (/упаковываем|деревянн/i.test(p)) pushFact('Упаковка', p);
+      if (/возврат и обмен/i.test(p)) {
+        pushFact('Возврат', p.replace(/\s*Адрес самовывоза:.*$/i, '').trim());
+      }
+      if (/адрес самовывоза/i.test(p)) {
+        const addr = (p.match(/Адрес самовывоза:\s*(.+)$/i) || [])[1] || p;
+        pushFact('Самовывоз', addr);
+      }
+      if (/стоимость доставки по г\.?\s*москва/i.test(p)) pushFact('Москва', p);
+      if (/100%\s*предоплат/i.test(p)) pushFact('Оплата', p);
+    }
+
+    const story = paras.filter(
+      (p) =>
+        !/адрес самовывоза|стоимость доставки по г|100%\s*предоплат|возврат и обмен|упаковываем|рассчит/i.test(
+          p,
+        ),
+    );
+
+    return {
+      title: 'Доставка и сервис',
+      lead: firstSentences(metaLead || story[0] || '', 180, 2),
+      story,
+      facts,
+      carriers,
+      sections: [],
+      prices: [],
+      lists: [],
+      images: page?.images || [],
+      hotline: null,
+    };
+  }
+
+  if (pageKey === 'support') {
+    const sections = [];
+    for (const raw of html.matchAll(/<p[^>]*>\s*<strong>([\s\S]*?)<\/strong>([\s\S]*?)<\/p>/gi)) {
+      const heading = stripTags(raw[1]).replace(/:$/, '');
+      const text = stripTags(raw[2]);
+      if (!heading || heading.length > 80) continue;
+      sections.push({ title: heading, text, items: [] });
+    }
+
+    // attach software support list to matching section
+    const softItems = htmlListItems(
+      (html.match(/Поддержка программного обеспечения[\s\S]*?<\/ul>/i) || [])[0] || '',
+    );
+    const soft = sections.find((s) => /поддержка программного/i.test(s.title));
+    if (soft) soft.items = softItems;
+
+    const corpItems = htmlListItems(
+      (html.match(/Сервис для корпоративных клиентов[\s\S]*?<\/ul>/i) ||
+        html.match(/widget-service[\s\S]*?<\/ul>/i) ||
+        [])[0] || '',
+    );
+    const corpTextMatch = html.match(
+      /Сервис для корпоративных клиентов[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/i,
+    );
+    const corpText = corpTextMatch ? stripTags(corpTextMatch[1]) : '';
+    if (corpItems.length || corpText) {
+      sections.push({
+        title: 'Сервис для корпоративных клиентов',
+        text: corpText,
+        items: corpItems,
+      });
+    }
+
+    const phoneMatch = html.match(/8[\s\u00a0]*800[\s\u00a0]*550[\s\u00a0]*26[\s\u00a0]*45/);
+    const hotline = phoneMatch ? '8 800 550 26 45' : null;
+
+    return {
+      title: 'Поддержка',
+      lead: firstSentences(metaLead || sections[0]?.text || '', 180, 2),
+      story: [],
+      facts: [],
+      carriers: [],
+      sections,
+      prices: [],
+      lists: [],
+      images: page?.images || [],
+      hotline,
+    };
+  }
+
+  if (pageKey === 'rent') {
+    const paras = htmlParagraphs(html).filter((p) => !/^аренда интерактивных/i.test(p));
+    const prices = [];
+    const story = [];
+    for (const p of paras) {
+      if (/стоимость аренды терминала/i.test(p) || /диагональ/i.test(p)) {
+        const m = p.match(/диагональю\s*([^—\-]+)\s*[-–—]\s*(.+)$/i);
+        if (m) {
+          prices.push({ label: oneLine(m[1]), value: oneLine(m[2]) });
+        } else if (/от\s*8\s*000/i.test(p)) {
+          prices.push({ label: 'от', value: p.replace(/^Стоимость аренды терминала\s*/i, '') });
+        } else {
+          prices.push({ label: 'Тариф', value: p });
+        }
+      } else if (!/не входит оплата доставки|скидку до 30/i.test(p)) {
+        story.push(p);
+      }
+    }
+
+    const note =
+      paras.find((p) => /не входит оплата доставки/i.test(p)) ||
+      paras.find((p) => /скидку до 30/i.test(p)) ||
+      '';
+
+    const softList = htmlListItems(
+      (html.match(/Список готовых программных решений[\s\S]*?<\/ul>/i) || [])[0] || '',
+    );
+    const serviceList = htmlListItems(
+      (html.match(/Стоимость на отдельные услуги[\s\S]*?<\/ul>/i) ||
+        html.match(/Доставка и техническое сопровождение[\s\S]*?<\/ul>/i) ||
+        [])[0] || '',
+    );
+
+    const sections = [];
+    const softIntro = paras.find((p) => /программн/i.test(p) && /информационную систему/i.test(p));
+    if (softIntro || softList.length) {
+      sections.push({
+        title: 'Программное обеспечение',
+        text: softIntro || '',
+        items: softList,
+      });
+    }
+    const deliveryIntro = paras.find((p) => /доставку и разгрузку/i.test(p));
+    if (deliveryIntro || serviceList.length) {
+      sections.push({
+        title: 'Доставка и техническое сопровождение',
+        text: deliveryIntro || '',
+        items: serviceList,
+      });
+    }
+
+    return {
+      title: 'Аренда',
+      lead: firstSentences(metaLead || story[0] || '', 180, 2),
+      story: story.filter(
+        (p) =>
+          !/программн|информационную систему|доставку и разгрузку|готовые программные|или любая другая/i.test(
+            p,
+          ),
+      ),
+      facts: note ? [{ label: 'Условия', value: note }] : [],
+      carriers: [],
+      sections,
+      prices,
+      lists: [],
+      images: page?.images || [],
+      hotline: '8 800 550 26 45',
+    };
+  }
+
+  if (pageKey === 'policy') {
+    const marked = String(page?.html || '')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<\/p>/gi, '\n')
+      .replace(/<[^>]+>/g, '')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\n+/g, '\n')
+      .trim();
+
+    const sections = [];
+    const parts = marked.split(/(?=^\d+\.\s+[А-ЯA-Z])/m).filter(Boolean);
+    for (const part of parts) {
+      const m = part.match(/^(\d+)\.\s+([^\n]+)\n?([\s\S]*)$/);
+      if (!m) continue;
+      const heading = oneLine(m[2]);
+      const body = oneLine(m[3]);
+      if (!heading || heading.length < 3 || !body) continue;
+      sections.push({
+        title: `${m[1]}. ${heading}`,
+        text: body,
+        items: [],
+      });
+    }
+
+    return {
+      title: 'Политика конфиденциальности',
+      lead: firstSentences(sections[0]?.text || metaLead || '', 200, 2),
+      story: [],
+      facts: [],
+      carriers: [],
+      sections: sections.slice(0, 16),
+      prices: [],
+      lists: [],
+      images: [],
+      hotline: null,
+    };
+  }
+
+  return {
+    title,
+    lead: metaLead,
+    story: htmlParagraphs(html),
+    facts: [],
+    carriers: [],
+    sections: [],
+    prices: [],
+    lists: [],
+    images: page?.images || [],
+    hotline: null,
   };
 }

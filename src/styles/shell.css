@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.page-fallback {
+  min-height: 40vh;
+}
+
 .wrap,
 .page,
 .top-inner,
