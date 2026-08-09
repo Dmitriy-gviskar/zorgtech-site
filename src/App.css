@@ -1,0 +1,20 @@
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.shell h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.03em;
+}
+
+.shell p {
+  margin: 0;
+  color: #5b6472;
+  max-width: 36rem;
+}
