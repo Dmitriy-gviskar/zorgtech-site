@@ -66,7 +66,7 @@ export default function Layout() {
               ))}
             </div>
           </details>
-          <Link className="btn top-cta" to="/contacts">Связаться</Link>
+          <Link className="btn primary top-cta" to="/contacts">Связаться</Link>
         </div>
       </header>
       <main className="main">

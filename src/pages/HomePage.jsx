@@ -82,11 +82,11 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.26 }}
           >
             {HERO_PRODUCT ? (
-              <Link className="btn primary" to={`/product/${HERO_PRODUCT.slug}`}>
+              <Link className="btn primary btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
                 Подробнее
               </Link>
             ) : null}
-            <Link className="btn ghost" to="/catalog">
+            <Link className="btn ghost btn--lg" to="/catalog">
               Вся продукция
             </Link>
           </motion.div>
@@ -178,10 +178,10 @@ export default function HomePage() {
               Проектируем, производим и обслуживаем сенсорные системы для бизнеса, государства и образования.
             </p>
             <div className="hero-actions">
-              <Link className="btn primary" to="/contacts">
+              <Link className="btn primary btn--lg" to="/contacts">
                 Обсудить задачу
               </Link>
-              <Link className="btn" to="/about">
+              <Link className="btn secondary btn--lg" to="/about">
                 О компании
               </Link>
             </div>

@@ -14,22 +14,52 @@
   --cyan-deep: #1a8fb8;
   --cyan-soft: #c5eaf7;
   --cyan-glow: rgba(42, 170, 221, 0.16);
+  --cyan-ink: #041018;
   --dark: #050607;
   --dark-2: #111418;
   --footer: #050607;
   --radius: 0;
   --radius-lg: 0;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  /* Type families */
   --font-display: "Syne", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Type scale */
+  --text-hero: clamp(3rem, 9vw, 6.2rem);
+  --text-display: clamp(2.2rem, 4.5vw, 3.6rem);
+  --text-title: clamp(1.85rem, 3.2vw, 2.75rem);
+  --text-subtitle: clamp(1.2rem, 2vw, 1.55rem);
+  --text-lead: 1.08rem;
+  --text-body: 1rem;
+  --text-small: 0.92rem;
+  --text-kicker: 0.72rem;
+  --text-btn: 0.9rem;
+  --leading-tight: 1.02;
+  --leading-snug: 1.25;
+  --leading-body: 1.55;
+  --track-display: -0.04em;
+  --track-kicker: 0.16em;
+  --track-btn: 0.03em;
+
+  /* Buttons */
+  --btn-height: 2.85rem;
+  --btn-height-lg: 3.25rem;
+  --btn-height-sm: 2.4rem;
+  --btn-pad-x: 1.4rem;
+  --btn-pad-x-lg: 1.7rem;
+  --btn-pad-x-sm: 1.05rem;
+
   --max: 1320px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   color: var(--ink);
   background: var(--bg);
   font-family: var(--font-body);
-  line-height: 1.55;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -63,7 +93,13 @@ h3,
 .logo,
 .hero-brand {
   font-family: var(--font-display);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--track-display);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+p {
+  margin: 0;
 }
 
 button,

@@ -76,7 +76,7 @@ export default function ProductPage() {
               Запросить цену
             </Link>
             {cat ? (
-              <Link className="btn" to={`/catalog/${cat.slug}`}>
+              <Link className="btn secondary" to={`/catalog/${cat.slug}`}>
                 Вся линейка
               </Link>
             ) : null}
