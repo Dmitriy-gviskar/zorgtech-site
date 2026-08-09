@@ -25,6 +25,16 @@ export default function ProductPage() {
   const gallery = productGallery(product);
   const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
   const copy = presentProduct(product);
+  const showStory = copy.story.length > 0;
+  const covered = [copy.slogan, copy.hook, ...copy.story].filter(Boolean).join(' ');
+  const htmlPlain = String(product.descriptionHtml || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const showExtraHtml =
+    Boolean(htmlPlain) &&
+    htmlPlain.length > covered.length + 48 &&
+    !covered.includes(htmlPlain.slice(24, 96));
 
   return (
     <div className="page product product-page">
@@ -60,36 +70,70 @@ export default function ProductPage() {
             </div>
           ) : null}
         </div>
+
         <div className="product-hero-copy">
           <p className="chapter-kicker">{cat?.name || 'Zorgtech'}</p>
           <h1>{product.title}</h1>
+
           {copy.slogan ? <p className="product-slogan">{copy.slogan}</p> : null}
-          {copy.lead ? <p className="lead">{copy.lead}</p> : null}
-          <p className="price">{copy.price}</p>
-          {copy.gift ? <p className="product-gift">ПО в подарок</p> : null}
+          {copy.hook ? <p className="product-hook">{copy.hook}</p> : null}
+
+          <div className="product-buy">
+            <div className="product-buy-meta">
+              <p className="price">{copy.price}</p>
+              {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
+            </div>
+            <div className="actions">
+              <Link className="btn primary btn--lg" to="/contacts">
+                Запросить цену
+              </Link>
+              {cat ? (
+                <Link className="btn secondary btn--lg" to={`/catalog/${cat.slug}`}>
+                  Вся линейка
+                </Link>
+              ) : null}
+            </div>
+          </div>
+
           {copy.features.length ? (
-            <ul className="features">
+            <ul className="feature-anchors">
               {copy.features.map((f) => (
-                <li key={f}>{f}</li>
+                <li key={f.full}>
+                  <strong>{f.label}</strong>
+                  {f.detail ? <span>{f.detail}</span> : null}
+                </li>
               ))}
             </ul>
           ) : null}
-          <div className="actions">
-            <Link className="btn primary btn--lg" to="/contacts">
-              Запросить цену
-            </Link>
-            {cat ? (
-              <Link className="btn secondary btn--lg" to={`/catalog/${cat.slug}`}>
-                Вся линейка
-              </Link>
-            ) : null}
-          </div>
+
+          {showStory ? (
+            <a className="product-readmore" href="#product-story">
+              Читать описание <span aria-hidden="true">↓</span>
+            </a>
+          ) : null}
         </div>
       </section>
 
+      {showStory ? (
+        <section className="sec product-story" id="product-story">
+          <header className="sec-head">
+            <p className="chapter-kicker">О модели</p>
+            <h2>Описание</h2>
+          </header>
+          <div className="product-story-body">
+            {copy.story.map((p) => (
+              <p key={p.slice(0, 48)}>{p}</p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {specs.length ? (
         <section className="sec product-specs">
-          <h2>Характеристики</h2>
+          <header className="sec-head">
+            <p className="chapter-kicker">Спецификация</p>
+            <h2>Характеристики</h2>
+          </header>
           <table className="specs">
             <tbody>
               {specs.map(([k, v]) => (
@@ -103,8 +147,8 @@ export default function ProductPage() {
         </section>
       ) : null}
 
-      {product.descriptionHtml ? (
-        <section className="sec prose" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+      {showExtraHtml ? (
+        <section className="sec prose product-extra" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
       ) : null}
     </div>
   );

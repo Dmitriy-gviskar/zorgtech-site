@@ -418,22 +418,59 @@ export function presentFeatures(features, limit = 4) {
   return { gift, items: cleaned };
 }
 
+function splitSentences(text) {
+  return oneLine(text)
+    .split(/(?<=[.!?…])\s+/u)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/** Split a feature into short label + detail for scanability. */
+export function presentFeatureAnchor(feature) {
+  const full = oneLine(feature);
+  if (!full) return null;
+  const comma = full.match(/^(.{6,72}?),\s+(.+)$/u);
+  if (comma) return { label: comma[1].trim(), detail: comma[2].trim(), full };
+  const head = full.match(
+    /^((?:[«"]?[A-Za-zА-Яа-яЁё0-9-][A-Za-zА-Яа-яЁё0-9»"]*(?:\s+[A-Za-zА-Яа-яЁё0-9-][A-Za-zА-Яа-яЁё0-9»"]*){0,3}))(\s+(?:с|на|из|для|и|от)\s+.+)$/u,
+  );
+  if (head && head[1].length >= 8 && head[1].length <= 42) {
+    return { label: head[1].trim(), detail: head[2].trim(), full };
+  }
+  return { label: full, detail: '', full };
+}
+
 /** Presentation-ready product copy from scraped fields only. */
 export function presentProduct(productOrSlug) {
   const product = typeof productOrSlug === 'string' ? getProduct(productOrSlug) : productOrSlug;
   if (!product) {
-    return { slogan: '', lead: '', price: 'Цена по запросу', gift: false, features: [] };
+    return {
+      slogan: '',
+      hook: '',
+      lead: '',
+      story: [],
+      price: 'Цена по запросу',
+      gift: false,
+      features: [],
+    };
   }
   const raw = product.lead || product.description || '';
   const { slogan, body } = splitProductCopy(raw);
-  const lead = firstSentences(body || raw, 210, 2);
-  const { gift, items } = presentFeatures(product.features, 4);
+  const source = body || raw;
+  const sentences = splitSentences(source);
+  const hook = sentences[0] ? clipSentence(sentences[0], 160) : firstSentences(source, 160, 1);
+  const story = sentences.slice(1).filter((s) => s.length > 28);
+  // Longer lead kept for places that still want 1–2 sentences
+  const lead = firstSentences(source, 210, 2);
+  const { gift, items } = presentFeatures(product.features, 3);
   return {
     slogan,
+    hook,
     lead,
+    story,
     price: presentPrice(product.price),
     gift,
-    features: items,
+    features: items.map(presentFeatureAnchor).filter(Boolean),
   };
 }
 
