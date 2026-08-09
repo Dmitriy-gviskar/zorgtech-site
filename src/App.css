@@ -360,15 +360,16 @@
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  place-items: end center;
+  align-content: start;
+  justify-items: center;
   overflow: hidden;
-  color: var(--ink);
-  background: #ffffff;
+  color: #fff;
+  background: #07090c;
   text-align: center;
 }
 
-.hero--studio {
-  background: #ffffff;
+.hero--cinema {
+  background: #07090c;
 }
 
 .hero-stage {
@@ -376,28 +377,28 @@
   inset: 0;
   will-change: transform;
   display: grid;
-  place-items: center;
+  place-items: end center;
+  padding: clamp(7rem, 14vh, 10rem) 0 clamp(5rem, 10vh, 7rem);
 }
 
 .hero-stage-bg {
   position: absolute;
   inset: 0;
-  /* keep center pure white so studio PNG plate dissolves (no floating card) */
+  /* spotlight stage: dissolves white studio PNG into a lit floor, dark vignette edges */
   background:
-    radial-gradient(ellipse 42% 38% at 50% 34%, rgba(42, 170, 221, 0.07), transparent 60%),
-    radial-gradient(ellipse 90% 70% at 50% 55%, #ffffff 0%, #ffffff 58%, #f5f6f7 100%);
+    radial-gradient(ellipse 55% 42% at 50% 58%, rgba(42, 170, 221, 0.12), transparent 62%),
+    radial-gradient(ellipse 48% 40% at 50% 62%, #e8eaed 0%, #b8bcc2 28%, #3a3f48 52%, #12151a 72%, #07090c 100%);
 }
 
 .hero-stage-product {
   position: relative;
   z-index: 1;
-  width: min(72vw, 560px);
-  height: min(66vh, 680px);
-  max-height: 66dvh;
+  width: min(78vw, 620px);
+  height: min(58vh, 640px);
+  max-height: 58dvh;
   object-fit: contain;
-  object-position: center center;
-  transform: translateY(-8%);
-  /* no drop-shadow — opaque white PNGs become a floating plate */
+  object-position: center bottom;
+  /* no drop-shadow: studio PNGs are opaque white plates */
 }
 
 .hero-stage-veil {
@@ -406,46 +407,79 @@
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 18%, transparent 46%, rgba(255, 255, 255, 0.82) 74%, #ffffff 100%);
+    linear-gradient(180deg, rgba(7, 9, 12, 0.72) 0%, rgba(7, 9, 12, 0.35) 18%, transparent 38%),
+    linear-gradient(180deg, transparent 55%, rgba(7, 9, 12, 0.55) 82%, #07090c 100%);
+}
+
+.hero-stage-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  z-index: 1;
+  width: min(52vw, 420px);
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45), transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
 }
 
 .hero-copy {
   position: relative;
   z-index: 3;
-  width: min(40rem, calc(100% - 2rem));
+  width: min(44rem, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 0 0 4.25rem;
+  padding: clamp(5.5rem, 12vh, 7.5rem) 0 0;
   display: grid;
   justify-items: center;
+  pointer-events: none;
 }
 
-.hero-brand {
+.hero-copy-inner {
+  display: grid;
+  justify-items: center;
+  pointer-events: auto;
+}
+
+.hero-brand-mark {
   margin: 0;
-  font-size: var(--text-hero);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  color: var(--ink);
+  letter-spacing: 0.22em;
+  line-height: 1;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-kicker {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .hero-product-name {
-  margin: 0.4rem 0 0;
+  margin: 0.55rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--ink);
-  text-transform: none;
+  font-size: clamp(2.4rem, 6.5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .hero-lead {
-  margin: 0.55rem 0 0;
-  max-width: 24rem;
-  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+  max-width: 26rem;
+  color: rgba(255, 255, 255, 0.72);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.45;
 }
@@ -455,38 +489,126 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.7rem;
-  margin-top: 1.65rem;
+  margin-top: 1.5rem;
 }
 
-.hero-scroll {
+.hero--cinema .btn.ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+}
+
+.hero--cinema .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+.hero-rail {
   position: absolute;
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: 1.6rem;
-  z-index: 4;
+  left: clamp(1rem, 3vw, 2.25rem);
+  bottom: clamp(1.6rem, 4vh, 2.6rem);
+  z-index: 5;
   display: grid;
-  justify-items: center;
-  gap: 0.55rem;
-  color: var(--muted);
+  gap: 0.65rem;
+  justify-items: start;
+  text-align: left;
+}
+
+.hero-rail-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  margin: 0;
+  border-left: 2px solid transparent;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, font-size 0.25s ease;
+}
+
+.hero-rail-btn:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hero-rail-btn.is-active {
+  color: #fff;
+  border-left-color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hero-arrows {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
   pointer-events: none;
 }
 
-.hero-scroll span {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+.hero-arrow {
+  position: absolute;
+  top: 52%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  appearance: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(7, 9, 12, 0.25);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.hero-scroll i {
+.hero-arrow:first-child {
+  left: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.hero-arrow:last-child {
+  right: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.hero-progress {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  z-index: 5;
+  width: min(10rem, 28vw);
+  height: 2px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.hero-progress i {
   display: block;
-  width: 1px;
-  height: 2.4rem;
-  background: linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.35));
-  transform-origin: top;
-  animation: scrollLine 2.2s var(--ease-out) infinite;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  transform-origin: left center;
+  animation-name: heroProgress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heroProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* DJI-style featured product cards — title inside, juicy product + shadow */
@@ -2108,15 +2230,15 @@
   }
 
   .hero-stage-product {
-    width: min(100vw, 820px);
-    height: min(74vh, 740px);
+    width: min(88vw, 560px);
+    height: min(48vh, 520px);
   }
 
   .hero-copy {
-    padding-bottom: 4rem;
+    padding-top: clamp(5rem, 11vh, 6.5rem);
   }
 
-  .hero-scroll {
+  .hero-arrows {
     display: none;
   }
 
@@ -2165,13 +2287,21 @@
   }
 
   .hero-stage-product {
-    width: min(78vw, 420px);
-    height: min(56vh, 480px);
-    transform: translateY(-2%);
+    width: min(86vw, 380px);
+    height: min(42vh, 380px);
   }
 
-  .hero-brand {
-    font-size: clamp(2.6rem, 15vw, 3.8rem);
+  .hero-product-name {
+    font-size: clamp(1.85rem, 9vw, 2.6rem);
+  }
+
+  .hero-rail {
+    left: 1rem;
+    bottom: 2.4rem;
+  }
+
+  .hero-progress {
+    bottom: 0.85rem;
   }
 
   .chapter-media {

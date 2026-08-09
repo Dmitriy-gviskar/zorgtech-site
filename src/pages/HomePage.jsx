@@ -1,19 +1,15 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
 import Reveal from '../components/Reveal';
 import DesignCompare from '../components/DesignCompare';
+import HomeHero from '../components/HomeHero';
 import {
   assetUrl,
   categoryList,
   getProduct,
   productCover,
   productGallery,
-  products,
   projects,
 } from '../lib/data';
-
-const HERO_PRODUCT = getProduct('diamant-32-fe') || getProduct('diamant-43-f') || Object.values(products)[0];
 
 /** Studio frame: 0 = front (straight), 1 = 3/4. Prefer front for clean card fit. */
 function studioShot(product, preferIndex = 0) {
@@ -67,77 +63,13 @@ function modelsLabel(count) {
 }
 
 export default function HomePage() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '8%']);
-  const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-
   const projectTeaser = [...projects]
     .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
     .slice(0, 3);
 
-  const heroSrc = HERO_PRODUCT ? studioShot(HERO_PRODUCT, 0) : null;
-
   return (
     <div className="home">
-      <section className="hero hero--studio" ref={heroRef}>
-        <motion.div className="hero-stage" style={{ y: mediaY, scale: mediaScale }} aria-hidden="true">
-          <div className="hero-stage-bg" />
-          {heroSrc ? <img className="hero-stage-product" src={heroSrc} alt="" /> : null}
-          <div className="hero-stage-veil" />
-        </motion.div>
-
-        <motion.div className="hero-copy" style={{ opacity: copyOpacity }}>
-          <motion.h1
-            className="hero-brand"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            ZORGTECH
-          </motion.h1>
-          <motion.p
-            className="hero-product-name"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          >
-            {HERO_PRODUCT?.title || 'Diamant'}
-          </motion.p>
-          <motion.p
-            className="hero-lead"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.16 }}
-          >
-            Интерактивное оборудование полного цикла
-          </motion.p>
-          <motion.div
-            className="hero-actions"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
-          >
-            {HERO_PRODUCT ? (
-              <Link className="btn primary btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
-                Подробнее →
-              </Link>
-            ) : null}
-            <Link className="btn secondary btn--lg" to="/catalog">
-              В каталог →
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        <div className="hero-scroll" aria-hidden="true">
-          <span>Scroll</span>
-          <i />
-        </div>
-      </section>
+      <HomeHero />
 
       <section className="feature-strip">
         <div className="wrap feature-strip-inner">
