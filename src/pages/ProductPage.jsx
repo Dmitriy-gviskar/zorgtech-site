@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProduct, getCategory, productGallery } from '../lib/data';
+import { getProduct, getCategory, productGallery, presentProduct } from '../lib/data';
 
 export default function ProductPage() {
   const { slug } = useParams();
@@ -24,6 +24,7 @@ export default function ProductPage() {
   const specs = Object.entries(product.specs || {});
   const gallery = productGallery(product);
   const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
+  const copy = presentProduct(product);
 
   return (
     <div className="page product product-page">
@@ -62,11 +63,13 @@ export default function ProductPage() {
         <div className="product-hero-copy">
           <p className="chapter-kicker">{cat?.name || 'Zorgtech'}</p>
           <h1>{product.title}</h1>
-          <p className="lead">{product.lead || product.description}</p>
-          <p className="price">{product.price}</p>
-          {product.features?.length ? (
+          {copy.slogan ? <p className="product-slogan">{copy.slogan}</p> : null}
+          {copy.lead ? <p className="lead">{copy.lead}</p> : null}
+          <p className="price">{copy.price}</p>
+          {copy.gift ? <p className="product-gift">ПО в подарок</p> : null}
+          {copy.features.length ? (
             <ul className="features">
-              {product.features.slice(0, 5).map((f) => (
+              {copy.features.map((f) => (
                 <li key={f}>{f}</li>
               ))}
             </ul>

@@ -317,3 +317,155 @@ export function categoryList() {
 export function popularProducts(limit = 8) {
   return Object.values(products).slice(0, limit);
 }
+
+function oneLine(text) {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function clipSentence(text, maxChars) {
+  const clean = oneLine(text);
+  if (clean.length <= maxChars) return clean;
+  const cut = clean.slice(0, maxChars);
+  const at = Math.max(cut.lastIndexOf(' '), cut.lastIndexOf(','), cut.lastIndexOf('—'));
+  const base = (at > maxChars * 0.55 ? cut.slice(0, at) : cut).replace(/[.,;:\s]+$/u, '');
+  return `${base}…`;
+}
+
+function firstSentences(text, maxChars = 220, maxSentences = 2) {
+  const clean = oneLine(text);
+  if (!clean) return '';
+  const parts = clean.split(/(?<=[.!?…])\s+/u).filter(Boolean);
+  let out = '';
+  for (let i = 0; i < parts.length && i < maxSentences; i += 1) {
+    const next = out ? `${out} ${parts[i]}` : parts[i];
+    if (next.length > maxChars) {
+      // Skip tiny punch lines ("Широкие возможности!") if the next sentence is the real lead
+      if (out && out.length < 48 && parts[i].length > 40) {
+        out = clipSentence(parts[i], maxChars);
+      } else if (!out) {
+        out = clipSentence(parts[i], maxChars);
+      }
+      break;
+    }
+    out = next;
+  }
+  if (!out) out = clipSentence(clean, maxChars);
+  return out;
+}
+
+/** Split Bitrix lead: short slogan + body (no invented wording). */
+export function splitProductCopy(raw) {
+  const text = oneLine(raw);
+  if (!text) return { slogan: '', body: '' };
+
+  // "Премиальная модель, красивый дизайн. Наша новая модель…"
+  const dotted = text.match(/^(.{8,90}?[.!?])\s+([«"А-ЯA-ZЁ].+)$/u);
+  if (dotted) {
+    const slogan = dotted[1].replace(/[.!?]+$/u, '').trim();
+    const body = dotted[2].trim();
+    // Prefer a real product sentence over a tiny marketing exclamation alone
+    if (slogan.length >= 8 && body.length >= 20) {
+      return { slogan, body };
+    }
+  }
+
+  // "Напольное исполнение – премиальный дизайн Сенсорный киоск…"
+  // "Простота и удобство Сенсорный киоск…"
+  // Note: JS \b is ASCII-only — use lookaround for Cyrillic.
+  const glued = text.match(
+    /^(.{6,90}?)\s+(?=(?:Сенсорн|Интерактивн|Бесконтактн|Детск|Напольн|Настенн|Уличн))/u,
+  );
+  if (glued) {
+    const slogan = glued[1].replace(/[–—-]\s*$/u, '').trim();
+    const body = text.slice(glued[0].length).trim();
+    if (slogan.length >= 6 && body.length >= 20 && !/[.!?]$/u.test(slogan)) {
+      return { slogan, body };
+    }
+  }
+
+  return { slogan: '', body: text };
+}
+
+export function presentPrice(price) {
+  const value = oneLine(price);
+  if (!value) return 'Цена по запросу';
+  if (/^цена\s+по\s+запросу$/iu.test(value)) return 'Цена по запросу';
+  // Broken scrape leftovers: "от", "от 2", "от 10"
+  if (/^от(?:\s+\d{1,3})?$/iu.test(value)) return 'Цена по запросу';
+  return value;
+}
+
+const FEATURE_SKIP = /^(по\s+в\s+подарок|надежные\s+компоненты)$/iu;
+
+export function presentFeatures(features, limit = 4) {
+  const list = Array.isArray(features) ? features : [];
+  const cleaned = [];
+  let gift = false;
+  for (const item of list) {
+    const f = oneLine(item);
+    if (!f) continue;
+    if (/^по\s+в\s+подарок$/iu.test(f)) {
+      gift = true;
+      continue;
+    }
+    if (FEATURE_SKIP.test(f)) continue;
+    if (cleaned.includes(f)) continue;
+    cleaned.push(f);
+    if (cleaned.length >= limit) break;
+  }
+  return { gift, items: cleaned };
+}
+
+/** Presentation-ready product copy from scraped fields only. */
+export function presentProduct(productOrSlug) {
+  const product = typeof productOrSlug === 'string' ? getProduct(productOrSlug) : productOrSlug;
+  if (!product) {
+    return { slogan: '', lead: '', price: 'Цена по запросу', gift: false, features: [] };
+  }
+  const raw = product.lead || product.description || '';
+  const { slogan, body } = splitProductCopy(raw);
+  const lead = firstSentences(body || raw, 210, 2);
+  const { gift, items } = presentFeatures(product.features, 4);
+  return {
+    slogan,
+    lead,
+    price: presentPrice(product.price),
+    gift,
+    features: items,
+  };
+}
+
+const CATEGORY_SEO_CUT =
+  /\s*(?:[-–—:.]\s*)?(?:купить|производство и продажа|у производителя|от производителя|от российского производителя|с доставкой|большой (?:ассортимент|выбор)|гарантия|проектирование).*$/iu;
+
+/** Short category blurb without marketplace SEO tails. */
+export function presentCategoryBlurb(category) {
+  if (!category) return '';
+  let text = oneLine(category.description || category.lead || '');
+  if (!text) return '';
+  // Drop leading marketplace "Купить …"
+  text = text.replace(/^купить\s+/iu, '');
+  text = text.replace(CATEGORY_SEO_CUT, '').trim();
+  text = text.replace(/[-–—:,;.]\s*$/u, '').trim();
+  text = text.replace(/\s+от компании\s+ZORGTECH\.?$/iu, '').trim();
+  text = text.replace(/\s*[«"]Zorgtech[»"]\.?$/iu, '').trim();
+  text = text.replace(/\s+от российского производителя\.?$/iu, '').trim();
+  if (text.length < 12) return '';
+  // Same as / nearly same as title → nothing useful left
+  const name = oneLine(category.name);
+  if (name) {
+    const norm = (s) =>
+      s
+        .toLowerCase()
+        .replace(/ё/g, 'е')
+        .replace(/(?:^|[^a-zа-я0-9])(киоски|терминалы|столы|столики)(?=$|[^a-zа-я0-9])/gu, ' x ')
+        .replace(/[^a-zа-я0-9]+/gu, '');
+    const a = norm(text);
+    const b = norm(name);
+    if (!a || a === b || a.includes(b) || b.includes(a)) return '';
+  }
+  if (text.length > 160) text = firstSentences(text, 160, 1);
+  return text;
+}

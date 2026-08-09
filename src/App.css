@@ -2004,12 +2004,39 @@
   box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 16px 36px rgba(15, 23, 32, 0.05);
 }
 
+.product-slogan {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.product-hero-copy .lead {
+  margin-top: 0.75rem;
+  max-width: 34rem;
+}
+
 .product-hero-copy .price {
   margin-top: 1rem;
   font-family: var(--font-body);
   font-size: var(--text-small);
   font-weight: 600;
   color: var(--ink-soft);
+}
+
+.product-gift {
+  margin: 0.55rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: rgba(42, 170, 221, 0.1);
+  color: var(--cyan-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .features {

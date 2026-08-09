@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getCategory, getProduct, productCover, productGallery } from '../lib/data';
+import { getCategory, getProduct, presentCategoryBlurb, productCover, productGallery } from '../lib/data';
 
 function studioCover(product) {
   const gallery = productGallery(product);
@@ -20,6 +20,7 @@ export default function CategoryPage() {
   }
 
   const items = (cat.productSlugs || []).map(getProduct).filter(Boolean);
+  const blurb = presentCategoryBlurb(cat);
 
   return (
     <div className="page category-page">
@@ -32,7 +33,7 @@ export default function CategoryPage() {
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">Линейка</p>
         <h1>{cat.name}</h1>
-        {cat.description || cat.lead ? <p className="lead">{cat.description || cat.lead}</p> : null}
+        {blurb ? <p className="lead">{blurb}</p> : null}
         <p className="muted">{items.length} моделей</p>
       </header>
 
