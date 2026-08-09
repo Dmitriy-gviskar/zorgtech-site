@@ -611,6 +611,158 @@
   to { transform: scaleX(1); }
 }
 
+/* Old-site pillars under hero — meaning, not more products */
+.home-pillars {
+  background: #12151a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.home-pillars-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+
+.home-pillar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1.35rem 1.15rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.home-pillar:last-child {
+  border-right: 0;
+}
+
+.home-pillar:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+.home-pillar-icon {
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-top: 0.1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.home-pillar-icon--cycle::before,
+.home-pillar-icon--cycle::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
+.home-pillar-icon--cycle::after {
+  transform: rotate(180deg);
+  border-top-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.75);
+}
+
+.home-pillar-icon--touch {
+  border-radius: 0.35rem;
+}
+
+.home-pillar-icon--touch::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  width: 0.35rem;
+  height: 0.55rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 0.2rem 0.2rem 0.05rem 0.05rem;
+  transform: translateX(-50%);
+}
+
+.home-pillar-icon--gear::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+
+.home-pillar-icon--gear::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.35rem;
+  height: 0.35rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-pillar-icon--key {
+  border-radius: 0.3rem;
+}
+
+.home-pillar-icon--key::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.7rem;
+  height: 0.45rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 0.15rem;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 960px) {
+  .home-pillars-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-pillar:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .home-pillar:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 560px) {
+  .home-pillars-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .home-pillar {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .home-pillar:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+.home #design,
+.home #catalog,
+.home #projects,
+.home #company {
+  scroll-margin-top: 5.5rem;
+}
 /* DJI-style featured product cards — title inside, juicy product + shadow */
 .feature-strip {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);

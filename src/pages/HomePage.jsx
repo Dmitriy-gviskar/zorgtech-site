@@ -17,14 +17,29 @@ function studioShot(product, preferIndex = 0) {
   return gallery[preferIndex] || gallery[0] || productCover(product);
 }
 
-const TOP_PRODUCTS = [
-  { slug: 'diamant-32-fe', kicker: 'Флагман', tag: 'Премиальный дизайн и стекло' },
-  { slug: 'diamant-55-n', kicker: 'Сенсорный стол', tag: 'Максимальный экран в металле' },
-  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный', tag: 'Всепогодный терминал' },
-  { slug: 'apriori-22', kicker: 'Apriori', tag: 'Простота и удобство' },
-]
-  .map((item) => ({ ...item, product: getProduct(item.slug) }))
-  .filter((item) => item.product);
+/** From zorgtech.com home — company pillars, not more product cards. */
+const HOME_PILLARS = [
+  {
+    href: '#company',
+    title: 'Полный цикл производства интерактивного оборудования',
+    icon: 'cycle',
+  },
+  {
+    href: '#design',
+    title: 'Дизайн интерактивных интерфейсов',
+    icon: 'touch',
+  },
+  {
+    href: '#design',
+    title: 'Дизайн и проектирование оборудования под заказ',
+    icon: 'gear',
+  },
+  {
+    href: '#projects',
+    title: 'Интеграция и реализация проектов под ключ',
+    icon: 'key',
+  },
+];
 
 /** Representative cover product per line (not always first slug in category). */
 const LINE_COVER_SLUG = {
@@ -71,37 +86,18 @@ export default function HomePage() {
     <div className="home">
       <HomeHero />
 
-      <section className="feature-strip">
-        <div className="wrap feature-strip-inner">
-          <Reveal>
-            <header className="home-sec-head">
-              <p className="chapter-kicker">Топ модели</p>
-              <h2 className="home-sec-title">Выбор для сильных проектов</h2>
-            </header>
-          </Reveal>
-          <div className="feature-grid">
-            {TOP_PRODUCTS.map((item, i) => (
-              <Reveal key={item.slug} delay={Math.min(i, 3) * 0.05}>
-                <Link to={`/product/${item.product.slug}`} className="feature-card">
-                  <div className="feature-card-copy">
-                    <p className="feature-card-kicker">{item.kicker}</p>
-                    <h3 className="feature-card-title">{item.product.title}</h3>
-                    <p className="feature-card-tag">{item.tag}</p>
-                    <span className="feature-card-cta">
-                      Подробнее <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                  <div className="feature-card-media" aria-hidden="true">
-                    <img src={studioShot(item.product, 0)} alt="" loading="lazy" />
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+      <nav className="home-pillars" aria-label="Возможности компании">
+        <div className="wrap home-pillars-inner">
+          {HOME_PILLARS.map((item) => (
+            <a key={item.title} className="home-pillar" href={item.href}>
+              <span className={`home-pillar-icon home-pillar-icon--${item.icon}`} aria-hidden="true" />
+              <span>{item.title}</span>
+            </a>
+          ))}
         </div>
-      </section>
+      </nav>
 
-      <section className="design-lab">
+      <section className="design-lab" id="design">
         <div className="wrap design-lab-inner">
           <Reveal>
             <div className="design-lab-copy">
@@ -125,12 +121,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="lines">
+      <section className="lines" id="catalog">
         <div className="wrap lines-inner">
           <Reveal>
             <header className="home-sec-head">
-              <p className="chapter-kicker">Линейки</p>
-              <h2 className="home-sec-title">Оборудование по назначению</h2>
+              <p className="chapter-kicker">Каталог</p>
+              <h2 className="home-sec-title">Линейки по назначению</h2>
             </header>
           </Reveal>
           <Reveal delay={0.06}>
@@ -161,7 +157,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shot-on">
+      <section className="shot-on" id="projects">
         <div className="wrap">
           <Reveal>
             <header className="home-sec-head">
@@ -192,7 +188,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-cta">
+      <section className="home-cta" id="company">
         <div className="wrap home-cta-inner">
           <Reveal>
             <p className="chapter-kicker">Компания</p>
