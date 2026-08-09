@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { assetUrl, getPage } from '../lib/data';
 
-const LABELS = {
-  about: 'О компании',
-  contacts: 'Контакты',
-  delivery: 'Доставка и сервис',
-  support: 'Поддержка',
-  rent: 'Аренда',
-  policy: 'Политика конфиденциальности',
+const META = {
+  about: { kicker: 'Компания', fallback: 'О компании' },
+  contacts: { kicker: 'Связь', fallback: 'Контакты' },
+  delivery: { kicker: 'Сервис', fallback: 'Доставка и сервис' },
+  support: { kicker: 'Сервис', fallback: 'Поддержка' },
+  rent: { kicker: 'Сервис', fallback: 'Аренда' },
+  policy: { kicker: 'Документы', fallback: 'Политика конфиденциальности' },
 };
 
 function paragraphs(text) {
@@ -21,34 +21,67 @@ function paragraphs(text) {
 
 export default function StaticPage({ pageKey }) {
   const page = getPage(pageKey);
-  const title = page?.title || LABELS[pageKey] || pageKey;
+  const meta = META[pageKey] || { kicker: 'Zorgtech', fallback: pageKey };
+  const title = page?.title || meta.fallback;
   const chunks = paragraphs(page?.text);
+  const isContacts = pageKey === 'contacts';
 
   return (
-    <div className="page">
-      <h1>{title}</h1>
-      {page?.lead ? <p className="lead">{page.lead}</p> : null}
-      {page?.images?.length ? (
-        <div className="gallery">
+    <div className={`page static-page${isContacts ? ' static-page--contacts' : ''}`}>
+      <header className="category-head category-head--simple">
+        <p className="chapter-kicker">{meta.kicker}</p>
+        <h1>{title}</h1>
+        {page?.lead ? <p className="lead">{page.lead}</p> : null}
+      </header>
+
+      {isContacts ? (
+        <div className="contacts-panel">
+          <a className="contacts-item" href="tel:88005502645">
+            <span className="chapter-kicker">Телефон</span>
+            <strong>8 800 550 26 45</strong>
+          </a>
+          <a className="contacts-item" href="mailto:sale@zorgtech.ru">
+            <span className="chapter-kicker">Отдел продаж</span>
+            <strong>sale@zorgtech.ru</strong>
+          </a>
+          <a className="contacts-item" href="mailto:support@zorgtech.ru">
+            <span className="chapter-kicker">Поддержка</span>
+            <strong>support@zorgtech.ru</strong>
+          </a>
+          <div className="actions">
+            <Link className="btn primary btn--lg" to="/catalog">
+              В каталог →
+            </Link>
+            <a className="btn secondary btn--lg" href="tel:88005502645">
+              Позвонить
+            </a>
+          </div>
+        </div>
+      ) : null}
+
+      {!isContacts && page?.images?.length ? (
+        <div className="content-gallery">
           {page.images.slice(0, 8).map((src) => (
             <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
           ))}
         </div>
       ) : null}
+
       {chunks.length ? (
         <div className="prose">
           {chunks.map((p) => (
             <p key={p.slice(0, 48)}>{p}</p>
           ))}
         </div>
-      ) : page?.text ? (
-        <div className="prose"><p>{page.text}</p></div>
-      ) : (
+      ) : page?.text && !isContacts ? (
+        <div className="prose">
+          <p>{page.text}</p>
+        </div>
+      ) : !isContacts ? (
         <p className="muted">
-          Контент страницы ещё подтягивается.
-          {' '}<Link to="/">На главную</Link>
+          Контент страницы ещё подтягивается. <Link className="text-link" to="/">На главную</Link>
         </p>
-      )}
+      ) : null}
     </div>
   );
 }

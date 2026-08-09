@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom';
 export default function NotFoundPage() {
   return (
     <div className="page">
-      <h1>Страница не найдена</h1>
-      <Link className="btn primary" to="/">На главную</Link>
+      <header className="category-head category-head--simple">
+        <p className="chapter-kicker">404</p>
+        <h1>Страница не найдена</h1>
+        <p className="lead">Такого адреса нет — вернитесь в каталог или на главную.</p>
+        <div className="actions" style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <Link className="btn primary" to="/">
+            На главную
+          </Link>
+          <Link className="btn secondary" to="/catalog">
+            В каталог
+          </Link>
+        </div>
+      </header>
     </div>
   );
 }

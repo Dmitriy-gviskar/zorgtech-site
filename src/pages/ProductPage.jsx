@@ -72,11 +72,11 @@ export default function ProductPage() {
             </ul>
           ) : null}
           <div className="actions">
-            <Link className="btn primary" to="/contacts">
+            <Link className="btn primary btn--lg" to="/contacts">
               Запросить цену
             </Link>
             {cat ? (
-              <Link className="btn secondary" to={`/catalog/${cat.slug}`}>
+              <Link className="btn secondary btn--lg" to={`/catalog/${cat.slug}`}>
                 Вся линейка
               </Link>
             ) : null}
