@@ -1,0 +1,339 @@
+/* styles/shell.css — extracted from App.css; edit here */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap,
+.page,
+.top-inner,
+.foot-inner {
+  width: min(var(--max), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(14px);
+}
+
+/* Home hero is light studio — keep a readable light sticky header */
+.site--home .top {
+  position: sticky;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(14px);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.site--home.site--scrolled .top {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+}
+
+.site--home.site--scrolled .top-cta {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #fff;
+}
+
+.top-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 72px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.site--home .logo,
+.site--home .nav a,
+.site--home .nav-more summary,
+.site--home .mobile-nav summary {
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.1rem;
+  margin-left: auto;
+}
+
+.nav a,
+.nav-more summary {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.nav a.active,
+.nav a:hover,
+.nav-more summary:hover {
+  color: var(--ink);
+}
+
+.site--home .nav a.active,
+.site--home .nav a:hover,
+.site--home .nav-more summary:hover {
+  color: var(--cyan-deep);
+}
+
+.nav-more {
+  position: relative;
+}
+
+.nav-more summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-more-panel {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  min-width: 10rem;
+  padding: 0.55rem;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.2rem;
+}
+
+.nav-more-panel a {
+  color: var(--ink-soft) !important;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.35rem;
+}
+
+.nav-more-panel a:hover {
+  background: var(--bg-soft);
+  color: var(--ink) !important;
+}
+
+.top-cta {
+  flex-shrink: 0;
+}
+
+.mobile-nav {
+  display: none;
+  position: relative;
+  margin-left: auto;
+  z-index: 40;
+}
+
+.mobile-nav summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: var(--track-btn);
+  color: var(--ink);
+  background: #fff;
+}
+
+.mobile-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-nav[open] summary {
+  border-color: var(--cyan);
+  color: var(--cyan-deep);
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  width: min(18rem, calc(100vw - 2rem));
+  max-height: min(70vh, 28rem);
+  overflow: auto;
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.65rem;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.mobile-nav-panel a {
+  color: var(--ink) !important;
+  text-decoration: none;
+  padding: 0.65rem 0.7rem;
+  border-radius: 0.4rem;
+  font-weight: 600;
+}
+
+.mobile-nav-panel a:hover {
+  background: var(--bg-soft);
+}
+
+.site--home .top-cta {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+}
+
+.site:not(.site--home) .main {
+  padding: 2rem 0 4rem;
+}
+
+/* —— Buttons (canon) —— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: var(--btn-height);
+  padding: 0.7rem var(--btn-pad-x);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  color: var(--ink);
+  background: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-btn);
+  letter-spacing: var(--track-btn);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out),
+    opacity 0.2s var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--bg-soft);
+  border-color: #d0d0d0;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.btn.primary {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--cyan-deep);
+  border-color: var(--cyan-deep);
+  color: #fff;
+}
+
+.btn.secondary {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn.secondary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+
+.btn--lg {
+  min-height: var(--btn-height-lg);
+  padding: 0.85rem var(--btn-pad-x-lg);
+  font-size: 0.95rem;
+}
+
+.btn--sm,
+.btn.top-cta {
+  min-height: var(--btn-height-sm);
+  padding: 0.55rem var(--btn-pad-x-sm);
+  font-size: 0.84rem;
+}
+
+.text-link,
+.chapter-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--cyan-deep);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-small);
+  letter-spacing: var(--track-btn);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.12rem;
+  transition: opacity 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.text-link:hover,
+.chapter-link:hover {
+  opacity: 0.78;
+}
+
+.text-link.light,
+.chapter-link--light,
+.chapter--dark .chapter-link {
+  color: var(--cyan);
+}
+
+.eyebrow,
+.chapter-kicker {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-body);
+  font-size: var(--text-kicker);
+  font-weight: 600;
+  letter-spacing: var(--track-kicker);
+  text-transform: none;
+  color: var(--cyan-deep);
+}
+

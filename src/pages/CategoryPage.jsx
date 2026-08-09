@@ -1,22 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 import {
   getCategory,
   getProduct,
   presentCategoryBlurb,
-  presentProduct,
   productCover,
   productGallery,
 } from '../lib/data';
 
 function studioCover(product) {
+  if (!product) return null;
   const gallery = productGallery(product);
   return gallery[0] || productCover(product);
-}
-
-function clip(text, max = 72) {
-  if (!text) return '';
-  const clean = text.replace(/\s+/g, ' ').trim();
-  return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
 }
 
 export default function CategoryPage() {
@@ -47,33 +42,36 @@ export default function CategoryPage() {
         <p className="chapter-kicker">Линейка</p>
         <h1>{cat.name}</h1>
         {blurb ? <p className="lead">{blurb}</p> : null}
-        <p className="muted">{items.length} моделей</p>
+        <p className="category-head-count">{items.length} моделей в линейке</p>
+        <div className="actions">
+          <Link className="btn primary btn--lg" to="/contacts">
+            Запросить подбор
+          </Link>
+          <Link className="btn secondary btn--lg" to="/catalog">
+            Все линейки
+          </Link>
+        </div>
       </header>
 
       <ul className="product-grid product-tiles">
-        {items.map((p) => {
+        {items.map((p, i) => {
           const cover = studioCover(p);
-          const copy = presentProduct(p);
-          const tag = copy.slogan || clip(copy.hook, 78);
 
           return (
             <li key={p.slug}>
-              <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
-                <div className="feature-card-copy">
-                  <h2 className="feature-card-title">{p.title}</h2>
-                  {tag ? <p className="feature-card-tag">{tag}</p> : null}
-                  <div className="category-product-meta">
-                    <span className="category-product-price">{copy.price}</span>
-                    {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
+              <Reveal delay={Math.min(i, 5) * 0.04}>
+                <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
+                  <div className="feature-card-copy">
+                    <h2 className="feature-card-title">{p.title}</h2>
+                    <span className="feature-card-cta">
+                      Подробнее <span aria-hidden="true">→</span>
+                    </span>
                   </div>
-                  <span className="feature-card-cta">
-                    Подробнее <span aria-hidden="true">→</span>
-                  </span>
-                </div>
-                <div className="feature-card-media" aria-hidden="true">
-                  {cover ? <img src={cover} alt="" loading="lazy" /> : null}
-                </div>
-              </Link>
+                  <div className="feature-card-media" aria-hidden="true">
+                    {cover ? <img src={cover} alt="" loading="lazy" /> : null}
+                  </div>
+                </Link>
+              </Reveal>
             </li>
           );
         })}
