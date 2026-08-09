@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { getCategory, getProduct, productCover } from '../lib/data';
 
-function clip(text, max = 120) {
+function clip(text, max = 100) {
   if (!text) return '';
   const clean = text.replace(/\s+/g, ' ').trim();
   return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
@@ -43,22 +43,22 @@ export default function CategoryPage() {
         </div>
       </header>
 
-      <ul className="product-rows">
+      <ul className="product-grid product-tiles">
         {items.map((p) => (
           <li key={p.slug}>
-            <Link to={`/product/${p.slug}`} className="product-row">
-              <div className="product-row-media">
+            <Link to={`/product/${p.slug}`} className="product-card">
+              <div className="product-card-media">
                 {productCover(p) ? (
                   <img src={productCover(p)} alt="" loading="lazy" />
                 ) : null}
               </div>
-              <div className="product-row-body">
+              <div className="product-card-body">
                 <h2>{p.title}</h2>
-                <p>{clip(p.lead, 140)}</p>
-              </div>
-              <div className="product-row-meta">
-                <span className="price">{p.price}</span>
-                <span className="product-row-more">Подробнее</span>
+                <p>{clip(p.lead || p.description, 90)}</p>
+                <div className="product-card-foot">
+                  <span className="price">{p.price}</span>
+                  <span className="product-card-more">Подробнее</span>
+                </div>
               </div>
             </Link>
           </li>
