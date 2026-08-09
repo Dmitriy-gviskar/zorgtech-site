@@ -1,5 +1,5 @@
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const NAV = [
   { to: '/catalog', label: 'Продукция' },
@@ -20,17 +20,22 @@ export default function Layout() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
+  const mobileNavRef = useRef(null);
 
   useEffect(() => {
     if (!isHome) {
       setScrolled(false);
       return undefined;
     }
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.72);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [isHome]);
+
+  useEffect(() => {
+    if (mobileNavRef.current) mobileNavRef.current.open = false;
+  }, [pathname]);
 
   return (
     <div className={`site${isHome ? ' site--home' : ''}${scrolled ? ' site--scrolled' : ''}`}>
@@ -56,7 +61,7 @@ export default function Layout() {
               </div>
             </details>
           </nav>
-          <details className="mobile-nav">
+          <details className="mobile-nav" ref={mobileNavRef}>
             <summary>Меню</summary>
             <div className="mobile-nav-panel">
               {[...NAV, ...MORE].map((item) => (
