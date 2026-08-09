@@ -9,11 +9,8 @@ import {
   getProduct,
   productCover,
   productGallery,
-  products,
   projects,
 } from '../lib/data';
-
-const HERO_PRODUCT = getProduct('diamant-32-fe') || getProduct('diamant-43-f') || Object.values(products)[0];
 
 /** Studio frame: 0 = front (straight), 1 = 3/4. Prefer front for clean card fit. */
 function studioShot(product, preferIndex = 0) {
@@ -80,23 +77,11 @@ export default function HomePage() {
     .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
     .slice(0, 3);
 
-  const heroSrc = HERO_PRODUCT ? studioShot(HERO_PRODUCT, 0) : null;
-
   return (
     <div className="home">
-      <section className="hero hero--studio" ref={heroRef}>
+      <section className="hero hero--studio hero--brand" ref={heroRef}>
         <motion.div className="hero-stage" style={{ y: mediaY, scale: mediaScale }} aria-hidden="true">
           <div className="hero-stage-bg" />
-          {heroSrc ? (
-            <motion.img
-              className="hero-stage-product"
-              src={heroSrc}
-              alt=""
-              initial={{ opacity: 0, scale: 0.96, y: 24 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            />
-          ) : null}
           <div className="hero-stage-veil" />
         </motion.div>
 
