@@ -2524,7 +2524,7 @@
 .spec-acc-head {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 0;
@@ -2540,19 +2540,34 @@
   color: var(--cyan-deep);
 }
 
+.spec-acc-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.85rem;
+  height: 1.85rem;
+  padding: 0 0.45rem;
+  border-radius: var(--radius-pill);
+  background: rgba(42, 170, 221, 0.14);
+  color: var(--cyan-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.spec-acc.is-open .spec-acc-count {
+  background: var(--cyan);
+  color: #fff;
+}
+
 .spec-acc-title {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   transition: color 0.2s ease;
-}
-
-.spec-acc-meta {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
 }
 
 .spec-acc-chevron {

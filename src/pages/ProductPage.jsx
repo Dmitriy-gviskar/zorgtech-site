@@ -185,8 +185,8 @@ export default function ProductPage() {
                     aria-expanded={open}
                     onClick={() => setOpenSpec(open ? '' : group.id)}
                   >
+                    <span className="spec-acc-count">{group.rows.length}</span>
                     <span className="spec-acc-title">{group.title}</span>
-                    <span className="spec-acc-meta">{group.rows.length}</span>
                     <span className="spec-acc-chevron" aria-hidden="true" />
                   </button>
                   {open ? (
