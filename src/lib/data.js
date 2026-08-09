@@ -375,7 +375,7 @@ export function splitProductCopy(raw) {
   // "Простота и удобство Сенсорный киоск…"
   // Note: JS \b is ASCII-only — use lookaround for Cyrillic.
   const glued = text.match(
-    /^(.{6,90}?)\s+(?=(?:Сенсорн|Интерактивн|Бесконтактн|Детск|Напольн|Настенн|Уличн))/u,
+    /^(.{6,90}?)\s+(?=(?:Сенсорн|Интерактивн|Бесконтактн|Детск|Напольн|Настенн|Уличн|Diamant|Apriori|Eco|Агат|Телемедицина))/u,
   );
   if (glued) {
     const slogan = glued[1].replace(/[–—-]\s*$/u, '').trim();

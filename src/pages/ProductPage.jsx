@@ -29,7 +29,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     setActive(0);
-    setOpenSpec('display');
+    setOpenSpec('display'); // falls back to first available group when missing
   }, [slug]);
 
   if (!product) {

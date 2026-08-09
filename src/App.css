@@ -1433,6 +1433,31 @@
   font-size: clamp(1.25rem, 2vw, 1.55rem);
 }
 
+.product-tiles .category-product-card .feature-card-tag {
+  max-width: 20rem;
+  font-size: 0.92rem;
+}
+
+.category-product-meta {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem 0.65rem;
+}
+
+.category-product-price {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.feature-card .product-gift,
+.category-product-card .product-gift {
+  margin: 0;
+}
+
 .product-tiles .category-product-card .feature-card-media {
   margin-top: 0.5rem;
   padding: 1rem 1rem 0.75rem;

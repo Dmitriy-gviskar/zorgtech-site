@@ -7,6 +7,7 @@ import {
   assetUrl,
   categoryList,
   getProduct,
+  presentProduct,
   productCover,
   productGallery,
   projects,
@@ -19,13 +20,24 @@ function studioShot(product, preferIndex = 0) {
 }
 
 const TOP_PRODUCTS = [
-  { slug: 'diamant-32-fe', kicker: 'Флагман', tag: 'Премиальный дизайн и стекло' },
-  { slug: 'diamant-55-n', kicker: 'Сенсорный стол', tag: 'Максимальный экран в металле' },
-  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный', tag: 'Всепогодный терминал' },
-  { slug: 'apriori-22', kicker: 'Apriori', tag: 'Простота и удобство' },
+  { slug: 'diamant-32-fe', kicker: 'Флагман' },
+  { slug: 'diamant-55-n', kicker: 'Сенсорный стол' },
+  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный' },
+  { slug: 'apriori-22', kicker: 'Apriori' },
 ]
-  .map((item) => ({ ...item, product: getProduct(item.slug) }))
-  .filter((item) => item.product);
+  .map((item) => {
+    const product = getProduct(item.slug);
+    if (!product) return null;
+    const copy = presentProduct(product);
+    return {
+      ...item,
+      product,
+      tag: copy.slogan || copy.hook || '',
+      price: copy.price,
+      gift: copy.gift,
+    };
+  })
+  .filter(Boolean);
 
 /** Representative cover product per line (not always first slug in category). */
 const LINE_COVER_SLUG = {
@@ -162,7 +174,11 @@ export default function HomePage() {
                   <div className="feature-card-copy">
                     <p className="feature-card-kicker">{item.kicker}</p>
                     <h3 className="feature-card-title">{item.product.title}</h3>
-                    <p className="feature-card-tag">{item.tag}</p>
+                    {item.tag ? <p className="feature-card-tag">{item.tag}</p> : null}
+                    <div className="category-product-meta">
+                      <span className="category-product-price">{item.price}</span>
+                      {item.gift ? <span className="product-gift">ПО в подарок</span> : null}
+                    </div>
                     <span className="feature-card-cta">
                       Подробнее <span aria-hidden="true">→</span>
                     </span>

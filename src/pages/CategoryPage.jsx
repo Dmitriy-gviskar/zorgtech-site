@@ -1,9 +1,22 @@
 import { Link, useParams } from 'react-router-dom';
-import { getCategory, getProduct, presentCategoryBlurb, productCover, productGallery } from '../lib/data';
+import {
+  getCategory,
+  getProduct,
+  presentCategoryBlurb,
+  presentProduct,
+  productCover,
+  productGallery,
+} from '../lib/data';
 
 function studioCover(product) {
   const gallery = productGallery(product);
   return gallery[0] || productCover(product);
+}
+
+function clip(text, max = 72) {
+  if (!text) return '';
+  const clean = text.replace(/\s+/g, ' ').trim();
+  return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
 }
 
 export default function CategoryPage() {
@@ -40,11 +53,19 @@ export default function CategoryPage() {
       <ul className="product-grid product-tiles">
         {items.map((p) => {
           const cover = studioCover(p);
+          const copy = presentProduct(p);
+          const tag = copy.slogan || clip(copy.hook, 78);
+
           return (
             <li key={p.slug}>
               <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
                 <div className="feature-card-copy">
                   <h2 className="feature-card-title">{p.title}</h2>
+                  {tag ? <p className="feature-card-tag">{tag}</p> : null}
+                  <div className="category-product-meta">
+                    <span className="category-product-price">{copy.price}</span>
+                    {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
+                  </div>
                   <span className="feature-card-cta">
                     Подробнее <span aria-hidden="true">→</span>
                   </span>
