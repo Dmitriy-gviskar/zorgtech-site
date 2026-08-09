@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Reveal from '../components/Reveal';
 import { assetUrl, getPage, presentAboutPage } from '../lib/data';
 
 const META = {
@@ -30,6 +31,8 @@ function AboutBody({ page }) {
   const [clientGroup, setClientGroup] = useState(about.clients.groups[0]?.title || '');
   const activeClients =
     about.clients.groups.find((g) => g.title === clientGroup) || about.clients.groups[0] || null;
+  const productionHero = about.production[0] || null;
+  const productionRest = about.production.slice(1);
 
   return (
     <>
@@ -43,64 +46,94 @@ function AboutBody({ page }) {
         </nav>
       ) : null}
 
-      <section className="about-section" id="about-who">
-        {about.stats.length ? (
-          <ul className="about-stats">
-            {about.stats.map((s) => (
-              <li key={s.label}>
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-
-        {story.length ? (
-          <div className="prose about-prose">
-            {story.map((p) => (
-              <p key={p.slice(0, 48)}>{p}</p>
-            ))}
+      <section className="about-section about-section--who" id="about-who">
+        <Reveal>
+          <div className="about-who">
+            <div className="about-who-copy">
+              <p className="chapter-kicker">Кто мы и что делаем</p>
+              {story.length ? (
+                <div className="about-prose">
+                  {story.map((p, i) => (
+                    <p key={p.slice(0, 48)} className={i === 0 ? 'is-lead' : undefined}>
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+            {about.stats.length ? (
+              <ul className="about-stats">
+                {about.stats.map((s) => (
+                  <li key={s.label}>
+                    <strong>{s.value}</strong>
+                    <span>{s.label}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
-        ) : null}
+        </Reveal>
 
         {about.services.length ? (
-          <div className="about-services">
-            <header className="sec-head">
-              <p className="chapter-kicker">Услуги</p>
-              <h2>Спектр услуг</h2>
-            </header>
-            <ul className="about-service-list">
-              {about.services.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          <Reveal delay={0.06}>
+            <div className="about-services">
+              <header className="sec-head">
+                <p className="chapter-kicker">Услуги</p>
+                <h2>Спектр услуг</h2>
+              </header>
+              <ol className="about-service-list">
+                {about.services.map((item, i) => (
+                  <li key={item}>
+                    <span className="about-service-num">{String(i + 1).padStart(2, '0')}</span>
+                    <p>{item}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </Reveal>
         ) : null}
       </section>
 
       {about.production.length ? (
-        <section className="about-section" id="about-production">
-          <header className="sec-head">
-            <p className="chapter-kicker">Производство</p>
-            <h2>Наше производство</h2>
-          </header>
-          <div className="about-production-grid">
-            {about.production.map((slide) => (
-              <figure key={slide.image} className="about-production-card">
-                <img src={assetUrl(slide.image)} alt={slide.title} loading="lazy" />
-                {slide.text ? <figcaption>{slide.text}</figcaption> : null}
+        <section className="about-section about-section--production" id="about-production">
+          <Reveal>
+            <header className="sec-head">
+              <p className="chapter-kicker">Производство</p>
+              <h2>Наше производство</h2>
+            </header>
+          </Reveal>
+
+          {productionHero ? (
+            <Reveal delay={0.05}>
+              <figure className="about-production-hero">
+                <img src={assetUrl(productionHero.image)} alt={productionHero.title} />
               </figure>
-            ))}
-          </div>
+            </Reveal>
+          ) : null}
+
+          {productionRest.length ? (
+            <div className="about-production-grid">
+              {productionRest.map((slide, i) => (
+                <Reveal key={slide.image} delay={Math.min(i, 5) * 0.04}>
+                  <figure className="about-production-card">
+                    <img src={assetUrl(slide.image)} alt={slide.title} loading="lazy" />
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          ) : null}
         </section>
       ) : null}
 
       {about.clients.groups.length ? (
-        <section className="about-section" id="about-clients">
-          <header className="sec-head">
-            <p className="chapter-kicker">Наши клиенты</p>
-            <h2>{about.clients.heading}</h2>
-          </header>
+        <section className="about-section about-section--clients" id="about-clients">
+          <Reveal>
+            <header className="sec-head">
+              <p className="chapter-kicker">Наши клиенты</p>
+              <h2>{about.clients.heading}</h2>
+            </header>
+          </Reveal>
+
           <div className="about-client-filters" role="tablist" aria-label="Отрасли клиентов">
             {about.clients.groups.map((g) => (
               <button
@@ -116,14 +149,15 @@ function AboutBody({ page }) {
               </button>
             ))}
           </div>
+
           {activeClients ? (
-            <ul className="about-client-grid">
-              {activeClients.items.map((item) => (
-                <li key={`${activeClients.title}-${item.name}`}>
+            <ul className="about-client-grid" key={activeClients.title}>
+              {activeClients.items.map((item, i) => (
+                <li key={`${activeClients.title}-${item.name}`} style={{ '--i': i }}>
                   <div className="about-client-card">
-                    {item.image ? (
-                      <img src={assetUrl(item.image)} alt="" loading="lazy" />
-                    ) : null}
+                    <div className="about-client-logo">
+                      {item.image ? <img src={assetUrl(item.image)} alt="" loading="lazy" /> : null}
+                    </div>
                     <span>{item.name}</span>
                   </div>
                 </li>
@@ -134,18 +168,23 @@ function AboutBody({ page }) {
       ) : null}
 
       {about.next.length ? (
-        <section className="sec about-next">
-          <header className="sec-head">
-            <p className="chapter-kicker">С чего начать</p>
-            <h2>Не знаете, с чего начать?</h2>
-          </header>
+        <section className="about-section about-section--next" id="about-next">
+          <Reveal>
+            <header className="sec-head">
+              <p className="chapter-kicker">С чего начать</p>
+              <h2>Не знаете, с чего начать?</h2>
+            </header>
+          </Reveal>
           <ul className="about-next-grid">
-            {about.next.map((item) => (
+            {about.next.map((item, i) => (
               <li key={item.title}>
-                <Link to={item.to} className="about-next-card">
-                  <strong>{item.title}</strong>
-                  <span>{item.text}</span>
-                </Link>
+                <Reveal delay={i * 0.05}>
+                  <Link to={item.to} className="about-next-card">
+                    <span className="about-next-num">{String(i + 1).padStart(2, '0')}</span>
+                    <strong>{item.title}</strong>
+                    <span>{item.text}</span>
+                  </Link>
+                </Reveal>
               </li>
             ))}
           </ul>
