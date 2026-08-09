@@ -90,7 +90,7 @@ export default function HomePage() {
             className="hero-brand-line"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
             aria-hidden="true"
           />
           <h1 className="hero-brand" aria-label="Zorgtech">
@@ -101,9 +101,9 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 transition={{
-                  duration: 0.75,
+                  duration: 1.25,
                   ease: [0.22, 1, 0.36, 1],
-                  delay: 0.22 + i * 0.06,
+                  delay: 0.45 + i * 0.12,
                 }}
               >
                 {ch}
@@ -114,7 +114,7 @@ export default function HomePage() {
             className="hero-company"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.78 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 1.7 }}
           >
             Российский производитель
           </motion.p>
@@ -122,7 +122,7 @@ export default function HomePage() {
             className="hero-lead"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.96 }}
+            transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1], delay: 2.0 }}
           >
             Интерактивное оборудование полного цикла
           </motion.p>
@@ -130,7 +130,7 @@ export default function HomePage() {
             className="hero-actions"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.15 }}
+            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 2.35 }}
           >
             <Link className="btn primary btn--lg" to="/catalog">
               В каталог →
