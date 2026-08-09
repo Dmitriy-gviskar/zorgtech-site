@@ -1,15 +1,19 @@
 import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
 import Reveal from '../components/Reveal';
 import DesignCompare from '../components/DesignCompare';
-import HomeHero from '../components/HomeHero';
 import {
   assetUrl,
   categoryList,
   getProduct,
   productCover,
   productGallery,
+  products,
   projects,
 } from '../lib/data';
+
+const HERO_PRODUCT = getProduct('diamant-32-fe') || getProduct('diamant-43-f') || Object.values(products)[0];
 
 /** Studio frame: 0 = front (straight), 1 = 3/4. Prefer front for clean card fit. */
 function studioShot(product, preferIndex = 0) {
@@ -17,29 +21,14 @@ function studioShot(product, preferIndex = 0) {
   return gallery[preferIndex] || gallery[0] || productCover(product);
 }
 
-/** From zorgtech.com home — company pillars, not more product cards. */
-const HOME_PILLARS = [
-  {
-    href: '#company',
-    title: 'Полный цикл производства интерактивного оборудования',
-    icon: 'cycle',
-  },
-  {
-    href: '#design',
-    title: 'Дизайн интерактивных интерфейсов',
-    icon: 'touch',
-  },
-  {
-    href: '#design',
-    title: 'Дизайн и проектирование оборудования под заказ',
-    icon: 'gear',
-  },
-  {
-    href: '#projects',
-    title: 'Интеграция и реализация проектов под ключ',
-    icon: 'key',
-  },
-];
+const TOP_PRODUCTS = [
+  { slug: 'diamant-32-fe', kicker: 'Флагман', tag: 'Премиальный дизайн и стекло' },
+  { slug: 'diamant-55-n', kicker: 'Сенсорный стол', tag: 'Максимальный экран в металле' },
+  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный', tag: 'Всепогодный терминал' },
+  { slug: 'apriori-22', kicker: 'Apriori', tag: 'Простота и удобство' },
+]
+  .map((item) => ({ ...item, product: getProduct(item.slug) }))
+  .filter((item) => item.product);
 
 /** Representative cover product per line (not always first slug in category). */
 const LINE_COVER_SLUG = {
@@ -78,26 +67,109 @@ function modelsLabel(count) {
 }
 
 export default function HomePage() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '8%']);
+  const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+
   const projectTeaser = [...projects]
     .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
     .slice(0, 3);
 
+  const heroSrc = HERO_PRODUCT ? studioShot(HERO_PRODUCT, 0) : null;
+
   return (
     <div className="home">
-      <HomeHero />
+      <section className="hero hero--studio" ref={heroRef}>
+        <motion.div className="hero-stage" style={{ y: mediaY, scale: mediaScale }} aria-hidden="true">
+          <div className="hero-stage-bg" />
+          {heroSrc ? <img className="hero-stage-product" src={heroSrc} alt="" /> : null}
+          <div className="hero-stage-veil" />
+        </motion.div>
 
-      <nav className="home-pillars" aria-label="Возможности компании">
-        <div className="wrap home-pillars-inner">
-          {HOME_PILLARS.map((item) => (
-            <a key={item.title} className="home-pillar" href={item.href}>
-              <span className={`home-pillar-icon home-pillar-icon--${item.icon}`} aria-hidden="true" />
-              <span>{item.title}</span>
-            </a>
-          ))}
+        <motion.div className="hero-copy" style={{ opacity: copyOpacity }}>
+          <motion.h1
+            className="hero-brand"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          >
+            ZORGTECH
+          </motion.h1>
+          <motion.p
+            className="hero-product-name"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+          >
+            {HERO_PRODUCT?.title || 'Diamant'}
+          </motion.p>
+          <motion.p
+            className="hero-lead"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.16 }}
+          >
+            Интерактивное оборудование полного цикла
+          </motion.p>
+          <motion.div
+            className="hero-actions"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
+          >
+            {HERO_PRODUCT ? (
+              <Link className="btn primary btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
+                Подробнее →
+              </Link>
+            ) : null}
+            <Link className="btn secondary btn--lg" to="/catalog">
+              В каталог →
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <div className="hero-scroll" aria-hidden="true">
+          <span>Scroll</span>
+          <i />
         </div>
-      </nav>
+      </section>
 
-      <section className="design-lab" id="design">
+      <section className="feature-strip">
+        <div className="wrap feature-strip-inner">
+          <Reveal>
+            <header className="home-sec-head">
+              <p className="chapter-kicker">Топ модели</p>
+              <h2 className="home-sec-title">Выбор для сильных проектов</h2>
+            </header>
+          </Reveal>
+          <div className="feature-grid">
+            {TOP_PRODUCTS.map((item, i) => (
+              <Reveal key={item.slug} delay={Math.min(i, 3) * 0.05}>
+                <Link to={`/product/${item.product.slug}`} className="feature-card">
+                  <div className="feature-card-copy">
+                    <p className="feature-card-kicker">{item.kicker}</p>
+                    <h3 className="feature-card-title">{item.product.title}</h3>
+                    <p className="feature-card-tag">{item.tag}</p>
+                    <span className="feature-card-cta">
+                      Подробнее <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                  <div className="feature-card-media" aria-hidden="true">
+                    <img src={studioShot(item.product, 0)} alt="" loading="lazy" />
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="design-lab">
         <div className="wrap design-lab-inner">
           <Reveal>
             <div className="design-lab-copy">
@@ -121,12 +193,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="lines" id="catalog">
+      <section className="lines">
         <div className="wrap lines-inner">
           <Reveal>
             <header className="home-sec-head">
-              <p className="chapter-kicker">Каталог</p>
-              <h2 className="home-sec-title">Линейки по назначению</h2>
+              <p className="chapter-kicker">Линейки</p>
+              <h2 className="home-sec-title">Оборудование по назначению</h2>
             </header>
           </Reveal>
           <Reveal delay={0.06}>
@@ -157,7 +229,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shot-on" id="projects">
+      <section className="shot-on">
         <div className="wrap">
           <Reveal>
             <header className="home-sec-head">
@@ -188,7 +260,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-cta" id="company">
+      <section className="home-cta">
         <div className="wrap home-cta-inner">
           <Reveal>
             <p className="chapter-kicker">Компания</p>
