@@ -18,31 +18,34 @@
   --dark: #050607;
   --dark-2: #111418;
   --footer: #050607;
-  --radius: 0;
-  --radius-lg: 0;
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  /* DJI-like rounding: soft tiles + pill CTAs */
+  --radius: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-tile: 1.35rem;
+  --radius-pill: 999px;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 
-  /* Type families */
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  /* Type: one clean neo-grotesque family (DJI-like) */
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "Plus Jakarta Sans", system-ui, sans-serif;
 
   /* Type scale */
-  --text-hero: clamp(3rem, 9vw, 6.2rem);
-  --text-display: clamp(2.2rem, 4.5vw, 3.6rem);
-  --text-title: clamp(1.85rem, 3.2vw, 2.75rem);
-  --text-subtitle: clamp(1.2rem, 2vw, 1.55rem);
-  --text-lead: 1.08rem;
+  --text-hero: clamp(2.8rem, 8vw, 5.6rem);
+  --text-display: clamp(2rem, 4.2vw, 3.25rem);
+  --text-title: clamp(1.75rem, 3vw, 2.5rem);
+  --text-subtitle: clamp(1.15rem, 1.8vw, 1.45rem);
+  --text-lead: 1.05rem;
   --text-body: 1rem;
   --text-small: 0.92rem;
-  --text-kicker: 0.72rem;
-  --text-btn: 0.9rem;
-  --leading-tight: 1.02;
-  --leading-snug: 1.25;
+  --text-kicker: 0.78rem;
+  --text-btn: 0.92rem;
+  --leading-tight: 1.05;
+  --leading-snug: 1.3;
   --leading-body: 1.55;
-  --track-display: -0.04em;
-  --track-kicker: 0.16em;
-  --track-btn: 0.03em;
+  --track-display: -0.025em;
+  --track-kicker: 0.08em;
+  --track-btn: 0.01em;
 
   /* Buttons */
   --btn-height: 2.85rem;

@@ -91,12 +91,12 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
           >
             {HERO_PRODUCT ? (
-              <Link className="btn primary btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
-                Смотреть модель
+              <Link className="btn ghost btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
+                Подробнее →
               </Link>
             ) : null}
             <Link className="btn ghost btn--lg" to="/catalog">
-              Вся продукция
+              В каталог →
             </Link>
           </motion.div>
         </motion.div>
