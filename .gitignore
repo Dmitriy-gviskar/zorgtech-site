@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tooling / regen scratch
+.venv-rembg/
+public/img/regen/_prewhite/
+public/img/regen/_qa/
+public/img/regen/_whiten_report.json
+public/img/regen/_qa-*
