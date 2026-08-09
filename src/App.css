@@ -333,7 +333,7 @@
   font-weight: 600;
   letter-spacing: var(--track-kicker);
   text-transform: none;
-  color: var(--muted);
+  color: var(--cyan-deep);
 }
 
 /* HOME — DJI product chapters + Zorg cyan */
@@ -662,6 +662,10 @@
   margin-top: 0.85rem;
   padding: 0.75rem 1.25rem 0.25rem;
   pointer-events: none;
+  border-radius: calc(var(--radius-tile) - 0.45rem);
+  background:
+    radial-gradient(ellipse 55% 40% at 50% 72%, rgba(42, 170, 221, 0.07), transparent 70%),
+    linear-gradient(180deg, #fafbfc 0%, #f1f3f5 100%);
 }
 
 .feature-card-media img {
@@ -1431,7 +1435,11 @@
 
 .product-tiles .category-product-card .feature-card-media {
   margin-top: 0.5rem;
-  padding: 0.5rem 1rem 0.5rem;
+  padding: 1rem 1rem 0.75rem;
+  border-radius: calc(var(--radius-tile) - 0.35rem);
+  background:
+    radial-gradient(ellipse 55% 40% at 50% 72%, rgba(42, 170, 221, 0.08), transparent 70%),
+    linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
 }
 
 .product-tiles .category-product-card .feature-card-media img {
@@ -2314,6 +2322,23 @@
 
 .static-page .prose {
   margin-top: 0.25rem;
+}
+
+.contacts-address {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.contacts-address p + p {
+  margin-top: 0.55rem;
+}
+
+/* Home brand hero: don't show desktop "Scroll" cue on brand-only composition */
+.hero--brand .hero-scroll {
+  display: none;
 }
 
 .specs {

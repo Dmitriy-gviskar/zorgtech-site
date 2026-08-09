@@ -22,7 +22,12 @@ function paragraphs(text) {
 export default function StaticPage({ pageKey }) {
   const page = getPage(pageKey);
   const meta = META[pageKey] || { kicker: 'Zorgtech', fallback: pageKey };
-  const title = page?.title || meta.fallback;
+  // Scraped Bitrix titles are often SEO dumps — prefer short label for UI.
+  const scrapedTitle = page?.title || '';
+  const title =
+    scrapedTitle && scrapedTitle.length <= 48 && !scrapedTitle.includes(' - ')
+      ? scrapedTitle
+      : meta.fallback;
   const chunks = paragraphs(page?.text);
   const isContacts = pageKey === 'contacts';
 
@@ -67,20 +72,31 @@ export default function StaticPage({ pageKey }) {
         </div>
       ) : null}
 
-      {chunks.length ? (
+      {!isContacts && chunks.length ? (
         <div className="prose">
           {chunks.map((p) => (
             <p key={p.slice(0, 48)}>{p}</p>
           ))}
         </div>
-      ) : page?.text && !isContacts ? (
+      ) : null}
+
+      {!isContacts && !chunks.length && page?.text ? (
         <div className="prose">
           <p>{page.text}</p>
         </div>
-      ) : !isContacts ? (
+      ) : null}
+
+      {!isContacts && !chunks.length && !page?.text ? (
         <p className="muted">
           Контент страницы ещё подтягивается. <Link className="text-link" to="/">На главную</Link>
         </p>
+      ) : null}
+
+      {isContacts ? (
+        <div className="contacts-address prose">
+          <p>Адрес производства: 141980, Московская область, г. Дубна, ул. Университетская, д.11, стр. 29А.</p>
+          <p>Офис продаж и шоурум: 119530, г. Москва, Очаковское ш., 28стр2, БЦ Дорохофф.</p>
+        </div>
       ) : null}
     </div>
   );
