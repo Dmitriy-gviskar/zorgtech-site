@@ -1,6 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Reveal from '../components/Reveal';
 import {
   getProduct,
   getCategory,
@@ -18,13 +17,19 @@ function SpecValue({ value }) {
   return v;
 }
 
+function isOptionRow(row) {
+  return /^(опция|наличие|отсутствует)$/i.test(String(row.value || '').trim());
+}
+
 export default function ProductPage() {
   const { slug } = useParams();
   const product = getProduct(slug);
   const [active, setActive] = useState(0);
+  const [openSpec, setOpenSpec] = useState('display');
 
   useEffect(() => {
     setActive(0);
+    setOpenSpec('display');
   }, [slug]);
 
   if (!product) {
@@ -52,6 +57,7 @@ export default function ProductPage() {
     !covered.includes(htmlPlain.slice(24, 96));
   const specGroups = groupProductSpecs(product.specs);
   const glance = presentSpecGlance(product.specs);
+  const currentOpen = specGroups.some((g) => g.id === openSpec) ? openSpec : specGroups[0]?.id || '';
 
   return (
     <div className="page product product-page">
@@ -163,26 +169,66 @@ export default function ProductPage() {
             </ul>
           ) : null}
 
-          <div className="spec-groups">
-            {specGroups.map((group, i) => (
-              <Reveal key={group.id} delay={Math.min(i, 4) * 0.05} y={18} className="spec-group-reveal">
-                <article className="spec-card">
-                  <h3>{group.title}</h3>
-                  <table className="specs specs--card">
-                    <tbody>
-                      {group.rows.map((row, ri) => (
-                        <tr key={row.key} style={{ '--spec-i': ri }}>
-                          <th scope="row">{row.key}</th>
-                          <td>
-                            <SpecValue value={row.value} />
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </article>
-              </Reveal>
-            ))}
+          <div className="spec-accordion">
+            {specGroups.map((group) => {
+              const open = currentOpen === group.id;
+              const optionRows = group.rows.filter(isOptionRow);
+              const plainRows = group.rows.filter((row) => !isOptionRow(row));
+              const useChips = group.id === 'options' && optionRows.length >= 3;
+              const rows = plainRows.length ? plainRows : group.rows;
+
+              return (
+                <div key={group.id} className={`spec-acc${open ? ' is-open' : ''}`}>
+                  <button
+                    type="button"
+                    className="spec-acc-head"
+                    aria-expanded={open}
+                    onClick={() => setOpenSpec(open ? '' : group.id)}
+                  >
+                    <span className="spec-acc-title">{group.title}</span>
+                    <span className="spec-acc-meta">{group.rows.length}</span>
+                    <span className="spec-acc-chevron" aria-hidden="true" />
+                  </button>
+                  {open ? (
+                    <div className="spec-acc-body">
+                      {useChips ? (
+                        <ul className="spec-option-chips">
+                          {group.rows.map((row) => (
+                            <li key={row.key}>
+                              <span>{row.key}</span>
+                              <SpecValue value={row.value} />
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <>
+                          <dl className="spec-dl">
+                            {rows.map((row) => (
+                              <div key={row.key} className="spec-dl-row">
+                                <dt>{row.key}</dt>
+                                <dd>
+                                  <SpecValue value={row.value} />
+                                </dd>
+                              </div>
+                            ))}
+                          </dl>
+                          {optionRows.length && plainRows.length ? (
+                            <ul className="spec-option-chips spec-option-chips--nested">
+                              {optionRows.map((row) => (
+                                <li key={row.key}>
+                                  <span>{row.key}</span>
+                                  <SpecValue value={row.value} />
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </>
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         </section>
       ) : null}
