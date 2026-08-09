@@ -1,28 +1,29 @@
 :root {
-  /* Premium canon: Zorg cyan + DJI product scale */
-  --bg: #f2f4f6;
+  /* Premium canon: DJI-scale storytelling + Zorg cyan + white studio */
+  --bg: #ffffff;
   --bg-elevated: #ffffff;
-  --bg-soft: #e8ecef;
-  --bg-stage: #0a0c0f;
-  --bg-stage-2: #12161c;
-  --ink: #0e1216;
-  --ink-soft: #3d4650;
-  --muted: #6a7380;
-  --line: #d5dce3;
+  --bg-soft: #f5f6f7;
+  --bg-studio: #ffffff;
+  --bg-stage: #050607;
+  --bg-stage-2: #0b0d10;
+  --ink: #0a0a0a;
+  --ink-soft: #3a3a3a;
+  --muted: #6e6e6e;
+  --line: #e6e6e6;
   --cyan: #2aaadd;
   --cyan-deep: #1a8fb8;
   --cyan-soft: #c5eaf7;
-  --cyan-glow: rgba(42, 170, 221, 0.18);
-  --dark: #0a0c0f;
-  --dark-2: #151a21;
-  --footer: #0a0c0f;
-  --radius: 0.35rem;
-  --radius-lg: 0.55rem;
-  --shadow: 0 24px 60px rgba(10, 12, 15, 0.1);
-  --font-display: "Syne", "Hanken Grotesk", system-ui, sans-serif;
+  --cyan-glow: rgba(42, 170, 221, 0.16);
+  --dark: #050607;
+  --dark-2: #111418;
+  --footer: #050607;
+  --radius: 0;
+  --radius-lg: 0;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  --font-display: "Syne", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --max: 1280px;
+  --max: 1320px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   color: var(--ink);
