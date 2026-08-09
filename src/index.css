@@ -1,24 +1,29 @@
 :root {
-  --bg: #f4f7f8;
+  /* Premium canon: Zorg cyan + DJI product scale */
+  --bg: #f2f4f6;
   --bg-elevated: #ffffff;
-  --bg-soft: #e9f1f6;
-  --ink: #19181d;
-  --ink-soft: #4c495f;
-  --muted: #6b7280;
-  --line: #d8e0e6;
+  --bg-soft: #e8ecef;
+  --bg-stage: #0a0c0f;
+  --bg-stage-2: #12161c;
+  --ink: #0e1216;
+  --ink-soft: #3d4650;
+  --muted: #6a7380;
+  --line: #d5dce3;
   --cyan: #2aaadd;
-  --cyan-deep: #1e8fba;
-  --cyan-soft: #d8f1fb;
-  --dark: #14131a;
-  --dark-2: #1f1e28;
-  --footer: #19181c;
-  --radius: 0.5rem;
-  --radius-lg: 0.85rem;
-  --shadow: 0 18px 40px rgba(25, 24, 29, 0.08);
-  --font-display: "Hanken Grotesk", system-ui, sans-serif;
+  --cyan-deep: #1a8fb8;
+  --cyan-soft: #c5eaf7;
+  --cyan-glow: rgba(42, 170, 221, 0.18);
+  --dark: #0a0c0f;
+  --dark-2: #151a21;
+  --footer: #0a0c0f;
+  --radius: 0.35rem;
+  --radius-lg: 0.55rem;
+  --shadow: 0 24px 60px rgba(10, 12, 15, 0.1);
+  --font-display: "Syne", "Hanken Grotesk", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --max: 1180px;
+  --max: 1280px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
   color: var(--ink);
   background: var(--bg);
@@ -54,7 +59,8 @@ img {
 h1,
 h2,
 h3,
-.logo {
+.logo,
+.hero-brand {
   font-family: var(--font-display);
   letter-spacing: -0.03em;
 }

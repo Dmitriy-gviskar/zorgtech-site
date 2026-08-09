@@ -37,8 +37,7 @@ export default function Layout() {
       <header className="top">
         <div className="top-inner">
           <Link to="/" className="logo">
-            <span className="logo-mark" aria-hidden="true" />
-            Zorgtech
+            ZORGTECH
           </Link>
           <nav className="nav" aria-label="Основное меню">
             {NAV.map((item) => (
@@ -76,10 +75,7 @@ export default function Layout() {
       <footer className="foot">
         <div className="foot-inner">
           <div>
-            <strong className="logo foot-logo">
-              <span className="logo-mark" aria-hidden="true" />
-              Zorgtech
-            </strong>
+            <strong className="logo foot-logo">ZORGTECH</strong>
             <p>Российский производитель интерактивного оборудования. Полный цикл — от идеи до установки.</p>
           </div>
           <div className="foot-links">
