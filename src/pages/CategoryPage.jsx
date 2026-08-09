@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getCategory, getProduct } from '../lib/data';
+import { getCategory, getProduct, productCover } from '../lib/data';
 
 export default function CategoryPage() {
   const { slug } = useParams();
@@ -25,7 +25,7 @@ export default function CategoryPage() {
       <div className="grid products">
         {items.map((p) => (
           <Link key={p.slug} to={`/product/${p.slug}`} className="card">
-            {p.images?.[0] ? <img src={p.images[0]} alt={p.title} loading="lazy" /> : null}
+            {productCover(p) ? <img src={productCover(p)} alt={p.title} loading="lazy" /> : null}
             <h3>{p.title}</h3>
             <p>{p.lead}</p>
             <span className="price">{p.price}</span>

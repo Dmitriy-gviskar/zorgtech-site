@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getSolution } from '../lib/data';
+import { assetUrl, getSolution } from '../lib/data';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
@@ -21,7 +21,7 @@ export default function SolutionDetailPage() {
       <p className="lead">{solution.lead}</p>
       <div className="gallery">
         {(solution.images || []).map((src) => (
-          <img key={src} src={src} alt={solution.title} loading="lazy" />
+          <img key={src} src={assetUrl(src)} alt={solution.title} loading="lazy" />
         ))}
       </div>
       {solution.text ? <div className="prose"><p>{solution.text}</p></div> : null}

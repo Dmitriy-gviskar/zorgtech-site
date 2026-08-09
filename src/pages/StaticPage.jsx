@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getPage } from '../lib/data';
+import { assetUrl, getPage } from '../lib/data';
 
 const LABELS = {
   about: 'О компании',
@@ -31,7 +31,7 @@ export default function StaticPage({ pageKey }) {
       {page?.images?.length ? (
         <div className="gallery">
           {page.images.slice(0, 8).map((src) => (
-            <img key={src} src={src} alt="" loading="lazy" />
+            <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
           ))}
         </div>
       ) : null}

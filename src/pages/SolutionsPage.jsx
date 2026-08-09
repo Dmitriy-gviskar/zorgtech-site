@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { solutions } from '../lib/data';
+import { assetUrl, solutions } from '../lib/data';
 
 export default function SolutionsPage() {
   return (
@@ -10,7 +10,7 @@ export default function SolutionsPage() {
       <div className="grid solutions">
         {solutions.map((s) => (
           <Link key={s.slug} to={`/solutions/${s.slug}`} className="card">
-            {s.images?.[0] ? <img src={s.images[0]} alt={s.title} loading="lazy" /> : null}
+            {s.images?.[0] ? <img src={assetUrl(s.images[0])} alt={s.title} loading="lazy" /> : null}
             <h3>{s.title}</h3>
             <p>{s.lead}</p>
           </Link>

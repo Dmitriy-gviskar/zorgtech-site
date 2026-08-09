@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { categoryList, getPage } from '../lib/data';
+import { assetUrl, categoryList, getPage } from '../lib/data';
 
 export default function CatalogPage() {
   const page = getPage('catalog');
@@ -13,7 +13,7 @@ export default function CatalogPage() {
       <div className="grid cats">
         {cats.map((c) => (
           <Link key={c.slug} to={`/catalog/${c.slug}`} className="card">
-            {c.image ? <img src={c.image} alt="" loading="lazy" /> : null}
+            {c.image ? <img src={assetUrl(c.image)} alt="" loading="lazy" /> : null}
             <h3>{c.name}</h3>
             <p>{c.description || `${c.productSlugs?.length || 0} моделей`}</p>
           </Link>

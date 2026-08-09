@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getProject } from '../lib/data';
+import { assetUrl, getProject } from '../lib/data';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();
@@ -21,7 +21,7 @@ export default function ProjectDetailPage() {
       <p className="lead">{project.lead}</p>
       <div className="gallery">
         {(project.images || []).map((src) => (
-          <img key={src} src={src} alt={project.title} loading="lazy" />
+          <img key={src} src={assetUrl(src)} alt={project.title} loading="lazy" />
         ))}
       </div>
       {project.text ? (

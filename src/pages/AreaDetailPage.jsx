@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getArea } from '../lib/data';
+import { assetUrl, getArea } from '../lib/data';
 
 export default function AreaDetailPage() {
   const { slug } = useParams();
@@ -21,7 +21,7 @@ export default function AreaDetailPage() {
       <p className="lead">{area.lead}</p>
       <div className="gallery">
         {(area.images || []).map((src) => (
-          <img key={src} src={src} alt={area.title} loading="lazy" />
+          <img key={src} src={assetUrl(src)} alt={area.title} loading="lazy" />
         ))}
       </div>
       {area.text ? <div className="prose"><p>{area.text}</p></div> : null}

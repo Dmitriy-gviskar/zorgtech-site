@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getProduct, getCategory, productCover } from '../lib/data';
+import { assetUrl, getProduct, getCategory, productCover } from '../lib/data';
 
 export default function ProductPage() {
   const { slug } = useParams();
@@ -17,7 +17,7 @@ export default function ProductPage() {
   const cat = getCategory(product.categorySlug);
   const specs = Object.entries(product.specs || {});
   const cover = productCover(product);
-  const gallery = [cover, ...(product.images || [])].filter(Boolean)
+  const gallery = [cover, ...(product.images || []).map(assetUrl)].filter(Boolean)
     .filter((src, i, arr) => arr.indexOf(src) === i);
 
   return (

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import Reveal from '../components/Reveal';
-import { categoryList, getProduct, productCover, products, projects, solutions, areas } from '../lib/data';
+import { assetUrl, categoryList, getProduct, productCover, products, projects, solutions, areas } from '../lib/data';
 
 const HERO_PRODUCT = getProduct('diamant-32-fe') || getProduct('diamant-43-f') || Object.values(products)[0];
 const FLOAT_PRODUCTS = ['diamant-32-fe', 'diamant-55-n', 'diamant-32-w', 'diamant-46-f-outdoor']
@@ -169,7 +169,7 @@ export default function HomePage() {
         </Reveal>
         <div className="cat-grid">
           {cats.map((c, i) => {
-            const cover = productCover(c.productSlugs?.[0]) || c.image;
+            const cover = productCover(c.productSlugs?.[0]) || assetUrl(c.image);
             return (
               <Reveal key={c.slug} delay={Math.min(i, 3) * 0.04} className={i === 0 ? 'span-2' : undefined}>
                 <Link to={`/catalog/${c.slug}`} className={`cat-tile${i === 0 ? ' cat-tile--wide' : ''}`}>
@@ -239,7 +239,7 @@ export default function HomePage() {
               <Reveal key={p.slug} delay={Math.min(i, 2) * 0.05} className={i === 0 ? 'span-2' : undefined}>
                 <Link to={`/projects/${p.slug}`} className={`project-card${i === 0 ? ' project-card--xl' : ''}`}>
                   <div className="project-card-media">
-                    {p.images?.[0] ? <img src={p.images[0]} alt="" loading="lazy" /> : null}
+                    {p.images?.[0] ? <img src={assetUrl(p.images[0])} alt="" loading="lazy" /> : null}
                   </div>
                   <div className="project-card-body">
                     <span className="eyebrow">Кейс</span>

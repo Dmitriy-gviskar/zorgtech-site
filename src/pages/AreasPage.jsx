@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { areas, getPage } from '../lib/data';
+import { areas, assetUrl, getPage } from '../lib/data';
 
 export default function AreasPage() {
   const page = getPage('areas');
@@ -13,7 +13,7 @@ export default function AreasPage() {
         <div className="grid solutions">
           {areas.map((a) => (
             <Link key={a.slug} to={`/areas/${a.slug}`} className="card">
-              {a.images?.[0] ? <img src={a.images[0]} alt={a.title} loading="lazy" /> : null}
+              {a.images?.[0] ? <img src={assetUrl(a.images[0])} alt={a.title} loading="lazy" /> : null}
               <h3>{a.title}</h3>
               <p>{a.lead}</p>
             </Link>
