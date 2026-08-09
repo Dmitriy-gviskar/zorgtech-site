@@ -1,9 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
-import { assetUrl, getProduct, getCategory, productCover } from '../lib/data';
+import { useEffect, useState } from 'react';
+import { getProduct, getCategory, productGallery } from '../lib/data';
 
 export default function ProductPage() {
   const { slug } = useParams();
   const product = getProduct(slug);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    setActive(0);
+  }, [slug]);
 
   if (!product) {
     return (
@@ -16,9 +22,8 @@ export default function ProductPage() {
 
   const cat = getCategory(product.categorySlug);
   const specs = Object.entries(product.specs || {});
-  const cover = productCover(product);
-  const gallery = [cover, ...(product.images || []).map(assetUrl)].filter(Boolean)
-    .filter((src, i, arr) => arr.indexOf(src) === i);
+  const gallery = productGallery(product);
+  const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
 
   return (
     <div className="page product">
@@ -29,9 +34,27 @@ export default function ProductPage() {
       </p>
       <div className="product-layout">
         <div className="product-gallery">
-          {gallery.map((src) => (
-            <img key={src} src={src} alt={product.title} loading="lazy" />
-          ))}
+          {hero ? (
+            <div className="product-gallery-hero">
+              <img src={hero} alt={product.title} />
+            </div>
+          ) : null}
+          {gallery.length > 1 ? (
+            <div className="product-gallery-thumbs" role="list">
+              {gallery.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  role="listitem"
+                  className={`product-gallery-thumb${i === active ? ' is-active' : ''}`}
+                  onClick={() => setActive(i)}
+                  aria-label={`Ракурс ${i + 1}`}
+                >
+                  <img src={src} alt="" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className="product-info">
           <h1>{product.title}</h1>
