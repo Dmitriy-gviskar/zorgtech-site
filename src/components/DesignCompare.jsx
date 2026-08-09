@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
+import { assetUrl } from '../lib/data';
 
 /**
  * Drag the divider: left → more photoreal kiosk, right → more wireframe.
  */
 export default function DesignCompare({
-  wireSrc = '/img/home/design-wire.png',
-  renderSrc = '/img/home/design-render.png',
+  wireSrc,
+  renderSrc,
   initial = 48,
 }) {
+  const wire = wireSrc || assetUrl('/img/home/design-wire.png');
+  const render = renderSrc || assetUrl('/img/home/design-render.png');
   const rootRef = useRef(null);
   const dragging = useRef(false);
   const [pos, setPos] = useState(initial);
@@ -90,11 +93,11 @@ export default function DesignCompare({
       role="group"
       aria-label="Сравнение чертежа и готового киоска. Тяните вертикальную линию."
     >
-      <img className="design-compare-layer design-compare-render" src={renderSrc} alt="" draggable={false} />
+      <img className="design-compare-layer design-compare-render" src={render} alt="" draggable={false} />
       <div className="design-compare-clip" style={{ width: `${pos}%` }}>
         <img
           className="design-compare-layer design-compare-wire"
-          src={wireSrc}
+          src={wire}
           alt=""
           draggable={false}
           style={{ width: width ? `${width}px` : '100%' }}
