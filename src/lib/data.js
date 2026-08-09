@@ -7,12 +7,16 @@ import areas from '../data/areas.json';
 
 export { categories, products, projects, solutions, pages, areas };
 
-/** Prefix public asset paths for GitHub Pages base (`/zorgtech-site/`). */
+/** Prefix public asset paths for GitHub Pages base (`/zorgtech-site/`). Idempotent. */
 export function assetUrl(path) {
   if (!path) return null;
   if (/^(https?:|data:|blob:)/i.test(path)) return path;
   const base = import.meta.env.BASE_URL || '/';
-  const clean = String(path).replace(/^\/+/, '');
+  const value = String(path);
+  if (base !== '/' && (value.startsWith(base) || value.startsWith(base.replace(/\/$/, '')))) {
+    return value.startsWith('/') ? value : `/${value}`;
+  }
+  const clean = value.replace(/^\/+/, '');
   return `${base}${clean}`;
 }
 

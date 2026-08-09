@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useScroll, useTransform } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { assetUrl, getProduct, productCover, productGallery } from '../lib/data';
+import { getProduct, productCover, productGallery } from '../lib/data';
 
 function studioShot(product, preferIndex = 0) {
   const gallery = productGallery(product);
@@ -87,7 +87,7 @@ export default function HomeHero() {
           <motion.img
             key={slide.slug}
             className="hero-stage-product"
-            src={assetUrl(slide.src)}
+            src={slide.src}
             alt=""
             initial={{ opacity: 0, y: 36, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
