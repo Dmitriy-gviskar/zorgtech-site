@@ -12,7 +12,374 @@
       "description": "Информация о компании Zorgtech - история компании, спектр услуг, полезная информация для партнеров и клиентов",
       "image": "https://zorgtech.com/local/templates/zorgtech/img/OG_logo_zorgtech.png"
     },
-    "sourceUrl": "https://zorgtech.com/about/"
+    "sourceUrl": "https://zorgtech.com/about/",
+    "production": [
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_c8e1316a34843a.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_c50200c7547671.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_4e18fee17d6a5b.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_4ebb34832c5eef.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_ffc100409da144.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_7c0a5e9eac1b2c.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_eba279956e11e4.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_d987df4fec36c8.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_3e8fd2f79673b9.png"
+      },
+      {
+        "title": "Наше производство",
+        "text": "",
+        "image": "/img/about/prod_15bf26dab641db.png"
+      }
+    ],
+    "clients": {
+      "heading": "С нами работает свыше 400 компаний",
+      "groups": [
+        {
+          "title": "Госорганы",
+          "items": [
+            {
+              "name": "Администрация города Бузулук",
+              "image": "/img/about/client_5104f838db298c.png"
+            },
+            {
+              "name": "Администрация города Курган",
+              "image": "/img/about/client_75a2d403774888.png"
+            },
+            {
+              "name": "Администрация города Лангепас",
+              "image": "/img/about/client_6ed8f435da7a51.png"
+            },
+            {
+              "name": "Администрация Старооскольского городского округа",
+              "image": "/img/about/client_0a71f866b3dd85.png"
+            },
+            {
+              "name": "Администрация Ямало-Ненецкого АО",
+              "image": "/img/about/client_bb07df8e1a52db.png"
+            },
+            {
+              "name": "Аэропорт Пулково",
+              "image": "/img/about/client_e7ac8e973e112d.png"
+            },
+            {
+              "name": "Главное Управление банка России по Санкт-Петербургу",
+              "image": "/img/about/client_81c8d4d096b0f6.png"
+            },
+            {
+              "name": "Государственное собрание Республики Саха",
+              "image": "/img/about/client_a1d5ab4fb15af7.png"
+            },
+            {
+              "name": "ГУИС",
+              "image": "/img/about/client_6923434afdf16d.png"
+            },
+            {
+              "name": "ГУП «Ритуал»",
+              "image": "/img/about/client_edf0f4c58534b1.png"
+            },
+            {
+              "name": "Комитет рекламы города Москвы",
+              "image": "/img/about/client_234886271205e0.png"
+            },
+            {
+              "name": "Министерство Культуры РФ",
+              "image": "/img/about/client_5621a2447eb584.png"
+            },
+            {
+              "name": "Министерство социальной защиты Удмуртской республики",
+              "image": "/img/about/client_95d318f333468b.png"
+            },
+            {
+              "name": "Министерство Чрезвычайных Ситуаций РФ",
+              "image": "/img/about/client_464d33401ff071.png"
+            },
+            {
+              "name": "Приуральское управление Федеральной службы по экологическому, технологическому и атомному надзору",
+              "image": "/img/about/client_e1576633b5c65a.png"
+            },
+            {
+              "name": "Управление муниципальных автоматизированных систем МОГО «Ухта»",
+              "image": "/img/about/client_ee75adaf599861.png"
+            },
+            {
+              "name": "Управление Федеральной службы государственной регистрации, кадастра и картографии по Новгородской области",
+              "image": "/img/about/client_f939aa18f81636.png"
+            },
+            {
+              "name": "УФМС по г. Архангельску",
+              "image": "/img/about/client_d5012baa7dd1be.png"
+            },
+            {
+              "name": "УФМС Республики Дагестан",
+              "image": "/img/about/client_438bf0178ed9ab.png"
+            },
+            {
+              "name": "УФМС Республики Северная Осетия",
+              "image": "/img/about/client_73a61a9de74926.png"
+            },
+            {
+              "name": "ФГМУ «Медицинский центр при Спецстрое России»",
+              "image": "/img/about/client_e21e1b0095ea14.png"
+            },
+            {
+              "name": "Федеральная миграционная служба РФ",
+              "image": "/img/about/client_5743f5ad6b6fe6.png"
+            },
+            {
+              "name": "Федеральная служба по тарифам",
+              "image": "/img/about/client_9763e71228704a.png"
+            },
+            {
+              "name": "Федеральная служба по тарифам РФ",
+              "image": "/img/about/client_ee53345eb08b12.png"
+            },
+            {
+              "name": "Центральный пограничный музей ФСБ России",
+              "image": "/img/about/client_395f9836b8c0ae.png"
+            }
+          ]
+        },
+        {
+          "title": "Коммерческие организации",
+          "items": [
+            {
+              "name": "«КИТ-Финанс» страхование",
+              "image": "/img/about/client_34317c69d08d72.png"
+            },
+            {
+              "name": "BMW",
+              "image": "/img/about/client_5ff721fd248fe9.png"
+            },
+            {
+              "name": "Canon",
+              "image": "/img/about/client_c9917b104dda1f.png"
+            },
+            {
+              "name": "Intel",
+              "image": "/img/about/client_c3808e29c998b4.png"
+            },
+            {
+              "name": "JPbureau Group",
+              "image": "/img/about/client_7e92520c1ccad2.png"
+            },
+            {
+              "name": "Onlime",
+              "image": "/img/about/client_f857a69ac79772.png"
+            },
+            {
+              "name": "Volkswagen",
+              "image": "/img/about/client_9cd29538b2d921.png"
+            },
+            {
+              "name": "Банк России",
+              "image": "/img/about/client_fa01f65e6a05b5.png"
+            },
+            {
+              "name": "Газпром Нефть",
+              "image": "/img/about/client_ee642fbe6a08b2.png"
+            },
+            {
+              "name": "Газпром Транс Газ",
+              "image": "/img/about/client_a7672fed680945.png"
+            },
+            {
+              "name": "Гедаколор",
+              "image": "/img/about/client_6eea6429c183ff.png"
+            },
+            {
+              "name": "Лукойл - Западная Сибирь",
+              "image": "/img/about/client_96c7d50a803b60.png"
+            },
+            {
+              "name": "Межгосударственная корпорация развития",
+              "image": "/img/about/client_0cc88648c70e04.png"
+            },
+            {
+              "name": "Московская пивоваренная компания",
+              "image": "/img/about/client_15f95d752c8fee.png"
+            },
+            {
+              "name": "Национальный космический Банк",
+              "image": "/img/about/client_626b607cdbcce2.png"
+            },
+            {
+              "name": "ОАО «РЖД»",
+              "image": "/img/about/client_3341ca4d529e6e.png"
+            },
+            {
+              "name": "СТС",
+              "image": "/img/about/client_d7934e131e8db0.png"
+            },
+            {
+              "name": "Торгово-развлекательный центр «АФИМОЛЛ Сити»",
+              "image": "/img/about/client_98d2c889d1f7cb.png"
+            },
+            {
+              "name": "Торговый дом «НИКА»",
+              "image": "/img/about/client_09dd7c3778316b.png"
+            },
+            {
+              "name": "Холдинг Медиа3 («Аргументы и факты»)",
+              "image": "/img/about/client_317ca3fc60c085.png"
+            }
+          ]
+        },
+        {
+          "title": "Общественные организации",
+          "items": [
+            {
+              "name": "Опора Дружбы",
+              "image": "/img/about/client_d157921378d038.png"
+            },
+            {
+              "name": "Тверское Еврейское Религиозное Объединение Современного Иудаизма",
+              "image": "/img/about/client_1e9ba83fba22ca.png"
+            }
+          ]
+        },
+        {
+          "title": "Культура",
+          "items": [
+            {
+              "name": "Коломенский музей",
+              "image": "/img/about/client_a7cd18a5478c4b.png"
+            },
+            {
+              "name": "Московский Дом Музыки",
+              "image": "/img/about/client_0cb0a2fa8d7136.png"
+            },
+            {
+              "name": "Музей МВД",
+              "image": "/img/about/client_9b629d2cc45f54.png"
+            },
+            {
+              "name": "Музейно-выставочный центр г. Лангепаса, ХМАО-Югры",
+              "image": "/img/about/client_837c9175c59010.png"
+            },
+            {
+              "name": "Национальный музей имени Алдан-Маадыр Республики Тыва",
+              "image": "/img/about/client_3417d9a98a6d06.png"
+            },
+            {
+              "name": "Областное государственное учреждение культуры «Смоленский государственный музей-заповедник»",
+              "image": "/img/about/client_6765ba24ec161e.png"
+            },
+            {
+              "name": "Орский музей",
+              "image": "/img/about/client_4172799ce6d31c.png"
+            },
+            {
+              "name": "Приокский заповедник",
+              "image": "/img/about/client_1e055b1a7153c2.png"
+            },
+            {
+              "name": "Управление культуры МО Надымский район",
+              "image": "/img/about/client_608072a518ddf2.png"
+            }
+          ]
+        },
+        {
+          "title": "Школы и ВУЗы",
+          "items": [
+            {
+              "name": "ВЗФИ Архангельск",
+              "image": "/img/about/client_001e79671a6a91.png"
+            },
+            {
+              "name": "Высшая Школа Экономики",
+              "image": "/img/about/client_34b64b754a72e9.png"
+            },
+            {
+              "name": "Карагандинский экономический университет",
+              "image": "/img/about/client_397ddc19a44250.png"
+            },
+            {
+              "name": "Московский государственный открытый университет",
+              "image": "/img/about/client_8a6503568c5f20.png"
+            },
+            {
+              "name": "Московский государственный технический университет гражданской авиации",
+              "image": "/img/about/client_b69b97217de5be.png"
+            },
+            {
+              "name": "МОУ средняя школа №4 г. Губкинский",
+              "image": "/img/about/client_f998b72a433b70.png"
+            },
+            {
+              "name": "Российская Академия музыки имени Гнесиных",
+              "image": "/img/about/client_ca340d456b3012.png"
+            },
+            {
+              "name": "Российская Академия театрального искусства",
+              "image": "/img/about/client_2ad29edd8a02d2.png"
+            },
+            {
+              "name": "Российский Государственный геологоразведочный университет",
+              "image": "/img/about/client_1fbcfe0a4e39f2.png"
+            },
+            {
+              "name": "Ростовский государственный экономический университет (РИНХ)",
+              "image": "/img/about/client_e6e230ce124c73.png"
+            },
+            {
+              "name": "Санкт-Петербургская Академия Управления и Экономики",
+              "image": "/img/about/client_e0e36374184d9a.png"
+            },
+            {
+              "name": "Уфимский колледж статистики, информатики и вычислительной техники",
+              "image": "/img/about/client_18c3032ef30141.png"
+            },
+            {
+              "name": "ФГБОУ высшего профессионального образования «Государственный университет управления»",
+              "image": "/img/about/client_0f7b07d88387c8.png"
+            },
+            {
+              "name": "Южно-Сахалинский институт (филиал) «Российский Государственный Торгово-Экономический Университет»",
+              "image": "/img/about/client_0405dc1de0b33f.png"
+            },
+            {
+              "name": "Якутский государственный университет имени М.К. Аммосова",
+              "image": "/img/about/client_ccccc2cab7efb3.png"
+            }
+          ]
+        }
+      ]
+    },
+    "partners": null
   },
   "contacts": {
     "slug": "contacts",

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { assetUrl, getPage, presentAboutPage } from '../lib/data';
 
 const META = {
@@ -26,39 +27,109 @@ function AboutBody({ page }) {
     about.paragraphs.length > 0
       ? about.paragraphs
       : paragraphs(page?.text).slice(0, 8);
+  const [clientGroup, setClientGroup] = useState(about.clients.groups[0]?.title || '');
+  const activeClients =
+    about.clients.groups.find((g) => g.title === clientGroup) || about.clients.groups[0] || null;
 
   return (
     <>
-      {about.stats.length ? (
-        <ul className="about-stats">
-          {about.stats.map((s) => (
-            <li key={s.label}>
-              <strong>{s.value}</strong>
-              <span>{s.label}</span>
-            </li>
+      {about.tabs.length > 1 ? (
+        <nav className="about-tabs" aria-label="Разделы о компании">
+          {about.tabs.map((tab) => (
+            <a key={tab.id} href={`#about-${tab.id}`} className="about-tab">
+              {tab.title}
+            </a>
           ))}
-        </ul>
+        </nav>
       ) : null}
 
-      {story.length ? (
-        <div className="prose about-prose">
-          {story.map((p) => (
-            <p key={p.slice(0, 48)}>{p}</p>
-          ))}
-        </div>
-      ) : null}
-
-      {about.services.length ? (
-        <section className="sec about-services">
-          <header className="sec-head">
-            <p className="chapter-kicker">Услуги</p>
-            <h2>Спектр услуг</h2>
-          </header>
-          <ul className="about-service-list">
-            {about.services.map((item) => (
-              <li key={item}>{item}</li>
+      <section className="about-section" id="about-who">
+        {about.stats.length ? (
+          <ul className="about-stats">
+            {about.stats.map((s) => (
+              <li key={s.label}>
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
+              </li>
             ))}
           </ul>
+        ) : null}
+
+        {story.length ? (
+          <div className="prose about-prose">
+            {story.map((p) => (
+              <p key={p.slice(0, 48)}>{p}</p>
+            ))}
+          </div>
+        ) : null}
+
+        {about.services.length ? (
+          <div className="about-services">
+            <header className="sec-head">
+              <p className="chapter-kicker">Услуги</p>
+              <h2>Спектр услуг</h2>
+            </header>
+            <ul className="about-service-list">
+              {about.services.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </section>
+
+      {about.production.length ? (
+        <section className="about-section" id="about-production">
+          <header className="sec-head">
+            <p className="chapter-kicker">Производство</p>
+            <h2>Наше производство</h2>
+          </header>
+          <div className="about-production-grid">
+            {about.production.map((slide) => (
+              <figure key={slide.image} className="about-production-card">
+                <img src={assetUrl(slide.image)} alt={slide.title} loading="lazy" />
+                {slide.text ? <figcaption>{slide.text}</figcaption> : null}
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {about.clients.groups.length ? (
+        <section className="about-section" id="about-clients">
+          <header className="sec-head">
+            <p className="chapter-kicker">Наши клиенты</p>
+            <h2>{about.clients.heading}</h2>
+          </header>
+          <div className="about-client-filters" role="tablist" aria-label="Отрасли клиентов">
+            {about.clients.groups.map((g) => (
+              <button
+                key={g.title}
+                type="button"
+                role="tab"
+                aria-selected={activeClients?.title === g.title}
+                className={`about-client-filter${activeClients?.title === g.title ? ' is-active' : ''}`}
+                onClick={() => setClientGroup(g.title)}
+              >
+                {g.title}
+                <span>{g.items.length}</span>
+              </button>
+            ))}
+          </div>
+          {activeClients ? (
+            <ul className="about-client-grid">
+              {activeClients.items.map((item) => (
+                <li key={`${activeClients.title}-${item.name}`}>
+                  <div className="about-client-card">
+                    {item.image ? (
+                      <img src={assetUrl(item.image)} alt="" loading="lazy" />
+                    ) : null}
+                    <span>{item.name}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </section>
       ) : null}
 

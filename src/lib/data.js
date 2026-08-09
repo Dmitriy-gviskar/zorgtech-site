@@ -669,11 +669,44 @@ export function presentAboutPage(page) {
     }
   }
 
+  const production = Array.isArray(page?.production)
+    ? page.production
+        .map((s) => ({
+          title: oneLine(s.title) || 'Наше производство',
+          text: oneLine(s.text),
+          image: s.image || null,
+        }))
+        .filter((s) => s.image)
+    : [];
+
+  const clientGroups = Array.isArray(page?.clients?.groups) ? page.clients.groups : [];
+  const clients = {
+    heading: oneLine(page?.clients?.heading) || 'Наши клиенты',
+    groups: clientGroups
+      .map((g) => ({
+        title: oneLine(g.title),
+        items: (g.items || [])
+          .map((it) => ({ name: oneLine(it.name), image: it.image || null }))
+          .filter((it) => it.name),
+      }))
+      .filter((g) => g.title && g.items.length),
+  };
+
+  // Tab labels from zorgtech.com; "Партнерам" has no content in source AJAX.
+  const tabs = [
+    { id: 'who', title: 'Кто мы и что делаем' },
+    production.length ? { id: 'production', title: 'Производство' } : null,
+    clients.groups.length ? { id: 'clients', title: 'Наши клиенты' } : null,
+  ].filter(Boolean);
+
   return {
     lead: firstSentences(paragraphs[0] || '', 170, 1),
     paragraphs,
     services,
     stats,
     next,
+    production,
+    clients,
+    tabs,
   };
 }
