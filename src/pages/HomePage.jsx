@@ -87,32 +87,57 @@ export default function HomePage() {
       <section className="hero hero--studio" ref={heroRef}>
         <motion.div className="hero-stage" style={{ y: mediaY, scale: mediaScale }} aria-hidden="true">
           <div className="hero-stage-bg" />
-          {heroSrc ? <img className="hero-stage-product" src={heroSrc} alt="" /> : null}
+          {heroSrc ? (
+            <motion.img
+              className="hero-stage-product"
+              src={heroSrc}
+              alt=""
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            />
+          ) : null}
           <div className="hero-stage-veil" />
         </motion.div>
 
         <motion.div className="hero-copy" style={{ opacity: copyOpacity }}>
-          <motion.h1
-            className="hero-brand"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            ZORGTECH
-          </motion.h1>
+          <motion.div
+            className="hero-brand-line"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            aria-hidden="true"
+          />
+          <h1 className="hero-brand" aria-label="Zorgtech">
+            {'ZORGTECH'.split('').map((ch, i) => (
+              <motion.span
+                key={`${ch}-${i}`}
+                className="hero-brand-letter"
+                initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{
+                  duration: 0.75,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.22 + i * 0.06,
+                }}
+              >
+                {ch}
+              </motion.span>
+            ))}
+          </h1>
           <motion.p
-            className="hero-product-name"
-            initial={{ opacity: 0, y: 20 }}
+            className="hero-company"
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.78 }}
           >
-            {HERO_PRODUCT?.title || 'Diamant'}
+            Российский производитель
           </motion.p>
           <motion.p
             className="hero-lead"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.16 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.96 }}
           >
             Интерактивное оборудование полного цикла
           </motion.p>
@@ -120,15 +145,13 @@ export default function HomePage() {
             className="hero-actions"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.24 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 1.15 }}
           >
-            {HERO_PRODUCT ? (
-              <Link className="btn primary btn--lg" to={`/product/${HERO_PRODUCT.slug}`}>
-                Подробнее →
-              </Link>
-            ) : null}
-            <Link className="btn secondary btn--lg" to="/catalog">
+            <Link className="btn primary btn--lg" to="/catalog">
               В каталог →
+            </Link>
+            <Link className="btn secondary btn--lg" to="/contacts">
+              Обсудить задачу
             </Link>
           </motion.div>
         </motion.div>

@@ -419,14 +419,42 @@
   justify-items: center;
 }
 
+.hero-brand-line {
+  width: 3.2rem;
+  height: 2px;
+  margin: 0 0 1.1rem;
+  background: var(--cyan);
+  transform-origin: center;
+  border-radius: 999px;
+}
+
 .hero-brand {
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.02em;
   font-size: var(--text-hero);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 0.95;
   color: var(--ink);
   text-transform: uppercase;
+}
+
+.hero-brand-letter {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.hero-company {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan-deep, #1a8bb8);
 }
 
 .hero-product-name {
@@ -442,12 +470,25 @@
 
 .hero-lead {
   margin: 0.55rem 0 0;
-  max-width: 24rem;
+  max-width: 26rem;
   color: var(--ink-soft);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
   font-weight: 400;
   line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-brand-letter,
+  .hero-brand-line,
+  .hero-company,
+  .hero-lead,
+  .hero-actions,
+  .hero-stage-product {
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+  }
 }
 
 .hero-actions {
