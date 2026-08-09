@@ -128,7 +128,7 @@ export default function DesignCompare({
 
       <div className="design-compare-labels" aria-hidden="true">
         <span>Чертёж</span>
-        <span>Киоск</span>
+        <span>Стол</span>
       </div>
     </div>
   );

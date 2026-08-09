@@ -769,7 +769,7 @@
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-tile);
   overflow: hidden;
-  background: #0f1216;
+  background: #f3f5f7;
   touch-action: none;
   user-select: none;
   box-shadow: 0 18px 48px rgba(15, 23, 32, 0.12);
@@ -779,7 +779,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   pointer-events: none;
 }
@@ -859,18 +859,13 @@
   text-transform: uppercase;
 }
 
-.design-compare-labels span:first-child {
-  color: var(--ink-soft);
-  background: rgba(255, 255, 255, 0.86);
-  padding: 0.3rem 0.55rem;
-  border-radius: 999px;
-}
-
+.design-compare-labels span:first-child,
 .design-compare-labels span:last-child {
-  color: #fff;
-  background: rgba(15, 23, 32, 0.55);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
   padding: 0.3rem 0.55rem;
   border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(15, 23, 32, 0.08);
 }
 
 .lines {

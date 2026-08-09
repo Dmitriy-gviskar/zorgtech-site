@@ -184,7 +184,7 @@ export default function HomePage() {
                 Промышленный дизайн и 3D моделирование; инженерное 3D конструирование; выпуск конструкторской
                 документации.
               </p>
-              <p className="design-lab-hint">Тяните линию: влево — киоск, вправо — чертёж</p>
+              <p className="design-lab-hint">Тяните линию: влево — стол, вправо — чертёж</p>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
