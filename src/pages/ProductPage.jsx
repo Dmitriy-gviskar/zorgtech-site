@@ -57,7 +57,11 @@ export default function ProductPage() {
     !covered.includes(htmlPlain.slice(24, 96));
   const specGroups = groupProductSpecs(product.specs);
   const glance = presentSpecGlance(product.specs);
-  const currentOpen = specGroups.some((g) => g.id === openSpec) ? openSpec : specGroups[0]?.id || '';
+  // '' means all collapsed; only fall back to first group when id is unknown (e.g. after slug change)
+  const currentOpen =
+    openSpec === '' || specGroups.some((g) => g.id === openSpec)
+      ? openSpec
+      : specGroups[0]?.id || '';
 
   return (
     <div className="page product product-page">
