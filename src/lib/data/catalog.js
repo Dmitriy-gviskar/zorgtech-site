@@ -124,7 +124,9 @@ const REGEN_FRAMES = {
   'diamant-32-fe': [
     '/img/regen/diamant-32-fe-frame-front.png',
     '/img/regen/diamant-32-fe-frame-34.png',
+    '/img/regen/diamant-32-fe-frame-side.png',
     '/img/regen/diamant-32-fe-frame-rear-led.png',
+    '/img/regen/diamant-32-fe-frame-detail.png',
   ],
   'diamant-32-fe-pro': [
     '/img/regen/diamant-32-fe-pro-frame-front.png',
@@ -209,18 +211,30 @@ const REGEN_FRAMES = {
   'diamant-49-f': [
     '/img/regen/diamant-49-f-frame-front.png',
     '/img/regen/diamant-49-f-frame-34.png',
+    '/img/regen/diamant-49-f-frame-side.png',
+    '/img/regen/diamant-49-f-frame-rear.png',
+    '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-f-general': [
     '/img/regen/diamant-49-f-frame-front.png',
     '/img/regen/diamant-49-f-frame-34.png',
+    '/img/regen/diamant-49-f-frame-side.png',
+    '/img/regen/diamant-49-f-frame-rear.png',
+    '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-f-print': [
     '/img/regen/diamant-49-f-frame-front.png',
     '/img/regen/diamant-49-f-frame-34.png',
+    '/img/regen/diamant-49-f-frame-side.png',
+    '/img/regen/diamant-49-f-frame-rear.png',
+    '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-f-retail': [
     '/img/regen/diamant-49-f-frame-front.png',
     '/img/regen/diamant-49-f-frame-34.png',
+    '/img/regen/diamant-49-f-frame-side.png',
+    '/img/regen/diamant-49-f-frame-rear.png',
+    '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-n': [
     '/img/regen/diamant-49-n-frame-front.png',
