@@ -1843,24 +1843,49 @@
   padding: clamp(2.5rem, 5vw, 3.75rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
+/* Equal-height text plates (cycle / begin) — Reveal wrappers stretch with the grid */
 .home-cycle-grid,
 .home-begin-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
+  align-items: stretch;
+}
+
+.home-cycle-grid {
   margin-top: 0;
+}
+
+.home-begin-grid {
+  margin-top: 2rem;
+}
+
+.home-cycle-grid > .reveal,
+.home-begin-grid > .reveal {
+  display: flex;
+  height: 100%;
+  min-width: 0;
 }
 
 .home-cycle-card,
 .home-begin-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
   padding: 1.5rem 1.35rem;
   border: 1px solid var(--line);
+  border-radius: var(--radius-tile);
   background: #fff;
+  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.03);
 }
 
 .home-cycle-card h3,
 .home-begin-card h3 {
   margin: 0;
+  min-height: 2.5em; /* 2 lines — titles stay on one row across plates */
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
@@ -1871,12 +1896,31 @@
 .home-cycle-card p,
 .home-begin-card p {
   margin: 0.85rem 0 0;
+  flex: 1 1 auto;
   color: var(--ink-soft);
   line-height: 1.55;
 }
 
+.home-begin-card p {
+  margin-bottom: 1.25rem;
+}
+
 .home-begin-card .btn {
-  margin-top: 1.35rem;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.home-section-foot {
+  margin-top: 1.5rem;
+}
+
+.home-section-foot .chapter-link {
+  margin-top: 0;
+}
+
+/* Keep next chapter kicker from kissing the cycle foot */
+.home-cycle + .chapter--home {
+  border-top: 1px solid var(--line);
 }
 
 .home-popular--cinema {

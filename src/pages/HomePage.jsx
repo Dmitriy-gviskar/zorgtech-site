@@ -337,7 +337,7 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          <Reveal>
+          <Reveal className="home-section-foot">
             <Link className="chapter-link" to={homeBlocks.cycle.cta.to}>
               {homeBlocks.cycle.cta.label} <span aria-hidden="true">→</span>
             </Link>
