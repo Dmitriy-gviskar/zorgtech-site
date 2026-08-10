@@ -22,8 +22,20 @@ const REGEN_FRAMES = {
     '/img/regen/agat-9-frame-front.png',
     '/img/regen/agat-9-frame-34.png',
   ],
-  apriori: ['/img/regen/apriori-19-frame-front.png', '/img/regen/apriori-19-frame-34.png'],
-  'apriori-19': ['/img/regen/apriori-19-frame-front.png', '/img/regen/apriori-19-frame-34.png'],
+  apriori: [
+    '/img/regen/apriori-19-frame-front.png',
+    '/img/regen/apriori-19-frame-34.png',
+    '/img/regen/apriori-19-frame-side.png',
+    '/img/regen/apriori-19-frame-rear.png',
+    '/img/regen/apriori-19-frame-detail.png',
+  ],
+  'apriori-19': [
+    '/img/regen/apriori-19-frame-front.png',
+    '/img/regen/apriori-19-frame-34.png',
+    '/img/regen/apriori-19-frame-side.png',
+    '/img/regen/apriori-19-frame-rear.png',
+    '/img/regen/apriori-19-frame-detail.png',
+  ],
   'apriori-19-keyboard': [
     '/img/regen/apriori-19-keyboard-frame-front.png',
     '/img/regen/apriori-19-keyboard-frame-34.png',
@@ -56,6 +68,8 @@ const REGEN_FRAMES = {
     '/img/regen/apriori-22-frame-front.png',
     '/img/regen/apriori-22-frame-34.png',
     '/img/regen/apriori-22-frame-side.png',
+    '/img/regen/apriori-22-frame-rear.png',
+    '/img/regen/apriori-22-frame-detail.png',
   ],
   'apriori-22-key': [
     '/img/regen/apriori-22-key-frame-front.png',
@@ -67,6 +81,9 @@ const REGEN_FRAMES = {
   'diamant-22-f': [
     '/img/regen/diamant-22-f-frame-front.png',
     '/img/regen/diamant-22-f-frame-34.png',
+    '/img/regen/diamant-22-f-frame-side.png',
+    '/img/regen/diamant-22-f-frame-rear.png',
+    '/img/regen/diamant-22-f-frame-detail.png',
   ],
   'diamant-22-n': [
     '/img/regen/diamant-22-n-frame-front.png',
