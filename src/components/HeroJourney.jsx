@@ -215,7 +215,7 @@ export default function HeroJourney() {
       return {
         x: cx + Math.cos(th) * R * 1.28,
         y: cy + Math.sin(th) * R * 0.72,
-        s: 0.26 + Math.pow(u, 1.5) * 0.98,
+        s: 0.32 + Math.pow(u, 1.5) * 1.12,
         o: Math.pow(Math.sin(u * Math.PI), 1.2) * (1 - seg(u, 0.8, 0.96)),
         b: (1 - u) * 2.2 + Math.max(0, u - 0.88) * 8,
         th,
@@ -225,12 +225,23 @@ export default function HeroJourney() {
     let pSmooth = 0;
     let raf = 0;
     let darkFlag = false;
+    // After the journey finishes once, keep the final ZORGTECH screen —
+    // scrolling back up must not rewind the cinematic.
+    let completed = false;
+    try {
+      completed = sessionStorage.getItem('hj-done') === '1';
+    } catch {
+      /* private mode */
+    }
 
     function draw(now) {
       const t = now / 1000;
       let p;
       if (fixedP != null) {
         p = fixedP;
+      } else if (completed) {
+        p = 1;
+        pSmooth = 1;
       } else {
         const rect = scroller.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
@@ -238,6 +249,16 @@ export default function HeroJourney() {
         pSmooth += (p - pSmooth) * 0.16;
         if (Math.abs(p - pSmooth) < 0.0004) pSmooth = p;
         p = pSmooth;
+        if (p >= 0.985) {
+          completed = true;
+          p = 1;
+          pSmooth = 1;
+          try {
+            sessionStorage.setItem('hj-done', '1');
+          } catch {
+            /* private mode */
+          }
+        }
       }
       mx += (tmx - mx) * 0.05;
       my += (tmy - my) * 0.05;
