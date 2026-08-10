@@ -780,7 +780,7 @@
 .home-cta-inner {
   position: relative;
   z-index: 1;
-  max-width: 40rem;
+  max-width: min(52rem, calc(100% - 2rem));
   margin: 0 auto;
   text-align: center;
   display: grid;
@@ -807,6 +807,7 @@
 }
 
 .home-cta-title {
+  /* Sized so the longest line ("Производство в России.") fits without clip */
   margin-top: 1rem;
   max-width: none;
   width: 100%;
@@ -816,6 +817,7 @@
   text-align: center;
   line-height: 1.12;
   text-wrap: unset;
+  font-size: clamp(1.55rem, 3.6vw + 0.6rem, 2.85rem);
 }
 
 .home-cta-line {
@@ -2232,7 +2234,7 @@
   }
 
   .home-cta-title {
-    font-size: clamp(1.55rem, 7.2vw, 2.1rem);
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
   }
 }
 
