@@ -471,6 +471,10 @@ export function presentSpecGlance(specs) {
   return chips.slice(0, 4);
 }
 
+const CATEGORY_SEO_CUT =
+  /\s*(?:[-–—:.]\s*)?(?:купить|производство и продажа|у производителя|от производителя|от российского производителя|с доставкой|большой (?:ассортимент|выбор)|гарантия|проектирование).*$/iu;
+
+/** Short category blurb without marketplace SEO tails. */
 export function presentCategoryBlurb(category) {
   if (!category) return '';
   let text = oneLine(category.description || category.lead || '');
