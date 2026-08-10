@@ -23,10 +23,6 @@ html[data-hj-dark] .top { opacity: 0; pointer-events: none; }
   position: absolute; left: 0; right: 0; bottom: 0; height: 26%;
   background: linear-gradient(180deg, rgba(238, 240, 243, 0), #e9ecef 60%, #e2e6ea 100%);
 }
-.hj-floor::before {
-  content: ''; position: absolute; top: 24%; left: 18%; right: 18%; height: 1px;
-  background: linear-gradient(90deg, transparent, #ccd3da 20%, #ccd3da 80%, transparent);
-}
 .hj-kiosk {
   position: relative; will-change: transform, filter;
   transform-origin: 45.2% 31.4%;
