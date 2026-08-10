@@ -225,11 +225,11 @@ export default function HeroJourney() {
     let pSmooth = 0;
     let raf = 0;
     let darkFlag = false;
-    // After the journey finishes once, keep the final ZORGTECH screen —
-    // scrolling back up must not rewind the cinematic.
+    // After the journey finishes once in this page load, keep the final
+    // screen — scrolling back up must not rewind. Reload plays it again.
     let completed = false;
     try {
-      completed = sessionStorage.getItem('hj-done') === '1';
+      sessionStorage.removeItem('hj-done'); // drop earlier session lock
     } catch {
       /* private mode */
     }
@@ -253,11 +253,6 @@ export default function HeroJourney() {
           completed = true;
           p = 1;
           pSmooth = 1;
-          try {
-            sessionStorage.setItem('hj-done', '1');
-          } catch {
-            /* private mode */
-          }
         }
       }
       mx += (tmx - mx) * 0.05;
