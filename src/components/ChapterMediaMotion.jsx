@@ -11,8 +11,8 @@ export default function ChapterMediaMotion({ children, className = '' }) {
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['-5%', '5%']);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], reduce ? [1, 1, 1] : [1.07, 1.02, 1.07]);
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['-2%', '2%']);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], reduce ? [1, 1, 1] : [1.02, 1, 1.02]);
 
   return (
     <div ref={ref} className={`chapter-media-motion-root${className ? ` ${className}` : ''}`}>

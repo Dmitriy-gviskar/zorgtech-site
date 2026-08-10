@@ -1661,7 +1661,9 @@
 
 .chapter--home .chapter-media {
   min-height: min(88vh, 820px);
-  background: #fff;
+  background:
+    radial-gradient(ellipse 52% 48% at 50% 58%, rgba(42, 170, 221, 0.07), transparent 70%),
+    #fff;
   overflow: hidden;
 }
 
@@ -1761,7 +1763,8 @@
 .home-cycle-visual {
   position: absolute;
   inset: 0;
-  background-position: center;
+  /* Source frame is a tight torso crop — bias left/up so the tech stays readable */
+  background-position: 28% 32%;
   background-size: cover;
 }
 
@@ -1837,7 +1840,9 @@
 .home-popular--cinema {
   padding-top: clamp(4rem, 8vw, 6rem);
   padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 18%, rgba(42, 170, 221, 0.055), transparent 62%),
+    #ffffff;
 }
 
 .home-popular-hero {
@@ -1870,7 +1875,9 @@
   place-items: center;
   min-height: min(54vh, 480px);
   padding: clamp(0.5rem, 2vw, 1.25rem);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 55% 48% at 50% 58%, rgba(42, 170, 221, 0.08), transparent 72%),
+    #ffffff;
 }
 
 .home-popular-hero-media .studio-hover-media,
@@ -1962,7 +1969,9 @@
   min-height: 0;
   margin-top: 0.75rem;
   padding: 0.5rem 0.75rem 0.25rem;
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 58% 50% at 50% 60%, rgba(42, 170, 221, 0.09), transparent 72%),
+    #ffffff;
 }
 
 .home-popular-rail-media .studio-hover-media,
@@ -1973,7 +1982,7 @@
 
 .home-popular-rail-media img {
   object-fit: contain;
-  filter: drop-shadow(0 18px 32px rgba(15, 23, 32, 0.1));
+  filter: drop-shadow(0 20px 36px rgba(15, 23, 32, 0.14));
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
