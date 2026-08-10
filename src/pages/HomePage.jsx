@@ -136,7 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-props home-props--dense" aria-label="Ключевые направления">
+      <section className="home-props home-props--index" aria-label="Ключевые направления">
         <div className="wrap">
           <ul className="home-props-list">
             {homeBlocks.props.map((item, i) => (
@@ -144,16 +144,17 @@ export default function HomePage() {
                 <a
                   className="home-prop"
                   href={`#${item.target}`}
-                  style={{ '--prop-delay': `${i * 0.12}s` }}
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToHomeSection(item.target);
                   }}
                 >
-                  <span className="home-prop-dot" aria-hidden="true" />
+                  <span className="home-prop-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                   <span className="home-prop-label">{item.label}</span>
-                  <span className="home-prop-go" aria-hidden="true">
-                    ↓
+                  <span className="home-prop-cta" aria-hidden="true">
+                    Смотреть ↓
                   </span>
                 </a>
               </li>
