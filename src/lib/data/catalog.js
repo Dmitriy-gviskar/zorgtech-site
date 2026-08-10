@@ -535,35 +535,66 @@ export function presentSpecGlance(specs) {
   return chips.slice(0, 5);
 }
 
-const CATEGORY_SEO_CUT =
-  /\s*(?:[-–—:.]\s*)?(?:купить|производство и продажа|у производителя|от производителя|от российского производителя|с доставкой|большой (?:ассортимент|выбор)|гарантия|проектирование).*$/iu;
+const CATEGORY_SEO_SENTENCE =
+  /^(?:купить|большой (?:ассортимент|выбор)|гарантия|выгодн|низк(?:ие|ая) цен|с доставкой|производство и продажа)/iu;
 
-/** Short category blurb without marketplace SEO tails. */
-export function presentCategoryBlurb(category) {
+function normCatText(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[^a-zа-я0-9]+/gu, '');
+}
+
+/** Short category blurb from scraped description — keep meaning, drop marketplace SEO. */
+export function presentCategoryBlurb(category, { maxChars = 180 } = {}) {
   if (!category) return '';
-  let text = oneLine(category.description || category.lead || '');
+  const raw = oneLine(category.lead || category.description || '');
+  if (!raw) return '';
+
+  // Clean marketplace SEO in-place — do NOT cut from first hit to end of string
+  let text = raw
+    .replace(/^купить\s+/iu, '')
+    .replace(/\s*от (?:российского )?производителя\s*[«"]?Zorgtech[»"]?/giu, '')
+    .replace(/\s*у производителя\s*[«"]?Zorgtech[»"]?/giu, '')
+    .replace(/\s*от компании\s+ZORGTECH\.?/giu, '')
+    .replace(/\s*с доставкой по России\.?/giu, '')
+    .replace(/\s*Большой (?:ассортимент|выбор)[^.!?]*/giu, '')
+    .replace(/\s*гарантия качества[^.!?]*/giu, '')
+    .replace(/\s*выгодные цен\w*[^.!?]*/giu, '')
+    .replace(/\s*низкие цен\w*[^.!?]*/giu, '')
+    .replace(/\s*производство и продажа сенсорного оборудования\.?/giu, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s*\.\s*\./g, '.')
+    .replace(/^\s*[.,;:—–-]+\s*/u, '')
+    .trim();
+
   if (!text) return '';
-  // Drop leading marketplace "Купить …"
-  text = text.replace(/^купить\s+/iu, '');
-  text = text.replace(CATEGORY_SEO_CUT, '').trim();
-  text = text.replace(/[-–—:,;.]\s*$/u, '').trim();
-  text = text.replace(/\s+от компании\s+ZORGTECH\.?$/iu, '').trim();
-  text = text.replace(/\s*[«"]Zorgtech[»"]\.?$/iu, '').trim();
-  text = text.replace(/\s+от российского производителя\.?$/iu, '').trim();
-  if (text.length < 12) return '';
-  // Same as / nearly same as title → nothing useful left
+
   const name = oneLine(category.name);
-  if (name) {
-    const norm = (s) =>
-      s
-        .toLowerCase()
-        .replace(/ё/g, 'е')
-        .replace(/(?:^|[^a-zа-я0-9])(киоски|терминалы|столы|столики)(?=$|[^a-zа-я0-9])/gu, ' x ')
-        .replace(/[^a-zа-я0-9]+/gu, '');
-    const a = norm(text);
-    const b = norm(name);
-    if (!a || a === b || a.includes(b) || b.includes(a)) return '';
+  const nameNorm = normCatText(name);
+  const sentences = text
+    .split(/(?<=[.!?…])\s+/u)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .filter((s) => !CATEGORY_SEO_SENTENCE.test(s))
+    .filter((s) => {
+      const n = normCatText(s);
+      if (!n || n.length < 18) return false;
+      if (!nameNorm) return true;
+      // Drop title echoes ("Name", "Name и киоски")
+      if (n === nameNorm || nameNorm.includes(n)) return false;
+      if (n.startsWith(nameNorm) && n.length <= nameNorm.length + 18) return false;
+      return true;
+    });
+
+  if (sentences.length) {
+    text = firstSentences(sentences.join(' '), maxChars, 2);
+  } else {
+    // Fallback: cleaned meta without title-only echo
+    const n = normCatText(text);
+    if (!n || (nameNorm && (n === nameNorm || nameNorm.includes(n)))) return '';
+    text = firstSentences(text, maxChars, 2);
   }
-  if (text.length > 160) text = firstSentences(text, 160, 1);
-  return text;
+
+  return text.length >= 18 ? text : '';
 }

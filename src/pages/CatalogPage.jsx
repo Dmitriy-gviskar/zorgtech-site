@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { categoryList, getProduct, productCover, productGallery } from '../lib/data/catalog.js';
+import {
+  categoryList,
+  getProduct,
+  presentCategoryBlurb,
+  productCover,
+  productGallery,
+} from '../lib/data/catalog.js';
 
 const FEATURED = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
 
@@ -35,7 +41,11 @@ function modelsLabel(count) {
 
 function withCover(c) {
   const coverProduct = getProduct(LINE_COVER_SLUG[c.slug]) || getProduct(c.productSlugs?.[0]);
-  return { ...c, cover: studioCover(coverProduct) };
+  return {
+    ...c,
+    cover: studioCover(coverProduct),
+    blurb: presentCategoryBlurb(c, { maxChars: 120 }),
+  };
 }
 
 export default function CatalogPage() {
@@ -65,6 +75,7 @@ export default function CatalogPage() {
             <div className="catalog-hero-line-copy">
               <p className="chapter-kicker">Флагманская линейка</p>
               <h2>{hero.name}</h2>
+              {hero.blurb ? <p className="catalog-line-blurb">{hero.blurb}</p> : null}
               <em>{modelsLabel(hero.productSlugs?.length)}</em>
               <span className="feature-card-cta">
                 Смотреть линейку <span aria-hidden="true">→</span>
@@ -90,6 +101,7 @@ export default function CatalogPage() {
                   <Link to={`/catalog/${c.slug}`} className="line-tile">
                     <div className="line-tile-body">
                       <h3>{c.name}</h3>
+                      {c.blurb ? <p className="catalog-line-blurb">{c.blurb}</p> : null}
                       <em>{modelsLabel(c.productSlugs?.length)}</em>
                       <span className="line-tile-cta">
                         Смотреть <span aria-hidden="true">→</span>
@@ -122,6 +134,7 @@ export default function CatalogPage() {
                     </div>
                     <div>
                       <strong>{c.name}</strong>
+                      {c.blurb ? <p className="catalog-line-blurb">{c.blurb}</p> : null}
                       <span>{modelsLabel(c.productSlugs?.length)}</span>
                     </div>
                     <em aria-hidden="true">→</em>

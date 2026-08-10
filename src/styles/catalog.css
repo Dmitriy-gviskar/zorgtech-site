@@ -102,6 +102,36 @@
   box-shadow: 0 14px 32px rgba(15, 23, 32, 0.06);
 }
 
+.catalog-line-blurb {
+  margin: 0.45rem 0 0;
+  max-width: 28rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  font-style: normal;
+  font-weight: 450;
+}
+
+.line-tile .catalog-line-blurb {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  max-width: 18rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catalog-more-item .catalog-line-blurb {
+  margin: 0.25rem 0 0.2rem;
+  font-size: 0.86rem;
+  max-width: 36rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .catalog-hero-line-copy h2 {
   margin: 0.35rem 0 0;
   font-family: var(--font-display);
