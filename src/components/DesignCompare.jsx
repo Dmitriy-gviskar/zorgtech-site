@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { assetUrl } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
 
 /**
  * Drag the divider: left → more photoreal kiosk, right → more wireframe.

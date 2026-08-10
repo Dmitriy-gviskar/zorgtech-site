@@ -3,62 +3,12 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import Reveal from '../components/Reveal';
 import DesignCompare from '../components/DesignCompare';
-import {
-  assetUrl,
-  categoryList,
-  getProduct,
-  presentProduct,
-  productCover,
-  productGallery,
-  projects,
-} from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import homeCatalog from '../data/home-catalog.json';
+import projectTeasers from '../data/project-teasers.json';
 
-/** Studio frame: 0 = front (straight), 1 = 3/4. Prefer front for clean card fit. */
-function studioShot(product, preferIndex = 0) {
-  const gallery = productGallery(product);
-  return gallery[preferIndex] || gallery[0] || productCover(product);
-}
-
-const TOP_PRODUCTS = [
-  { slug: 'diamant-32-fe', kicker: 'Флагман' },
-  { slug: 'diamant-55-n', kicker: 'Сенсорный стол' },
-  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный' },
-  { slug: 'apriori-22', kicker: 'Apriori' },
-]
-  .map((item) => {
-    const product = getProduct(item.slug);
-    if (!product) return null;
-    const copy = presentProduct(product);
-    return {
-      ...item,
-      product,
-      tag: copy.slogan || copy.hook || '',
-      price: copy.price,
-      gift: copy.gift,
-    };
-  })
-  .filter(Boolean);
-
-/** Representative cover product per line (not always first slug in category). */
-const LINE_COVER_SLUG = {
-  napolnye: 'diamant-32-fe',
-  stoly: 'diamant-55-n',
-  nastennyy: 'diamant-32-w',
-  ulichnye: 'diamant-46-f-outdoor',
-  apriori: 'apriori-22',
-  'kioski-samoobsluzhivaniya': 'diamant-32-w-pay',
-};
-
-const LINE_LINKS = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya']
-  .map((slug) => categoryList().find((c) => c.slug === slug))
-  .filter(Boolean)
-  .map((c) => {
-    const coverProduct = getProduct(LINE_COVER_SLUG[c.slug]) || getProduct(c.productSlugs?.[0]);
-    return {
-      ...c,
-      cover: coverProduct ? studioShot(coverProduct, 0) : null,
-    };
-  });
+const TOP_PRODUCTS = homeCatalog.topProducts || [];
+const LINE_LINKS = homeCatalog.lines || [];
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -85,9 +35,7 @@ export default function HomePage() {
   const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
   const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
 
-  const projectTeaser = [...projects]
-    .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
-    .slice(0, 3);
+  const projectTeaser = projectTeasers;
 
   return (
     <div className="home">
@@ -170,10 +118,10 @@ export default function HomePage() {
           <div className="feature-grid">
             {TOP_PRODUCTS.map((item, i) => (
               <Reveal key={item.slug} delay={Math.min(i, 3) * 0.05}>
-                <Link to={`/product/${item.product.slug}`} className="feature-card">
+                <Link to={`/product/${item.slug}`} className="feature-card">
                   <div className="feature-card-copy">
                     <p className="feature-card-kicker">{item.kicker}</p>
-                    <h3 className="feature-card-title">{item.product.title}</h3>
+                    <h3 className="feature-card-title">{item.title}</h3>
                     {item.tag ? <p className="feature-card-tag">{item.tag}</p> : null}
                     <div className="category-product-meta">
                       <span className="category-product-price">{item.price}</span>
@@ -184,7 +132,7 @@ export default function HomePage() {
                     </span>
                   </div>
                   <div className="feature-card-media" aria-hidden="true">
-                    <img src={studioShot(item.product, 0)} alt="" loading="lazy" />
+                    {item.cover ? <img src={assetUrl(item.cover)} alt="" loading="lazy" /> : null}
                   </div>
                 </Link>
               </Reveal>
@@ -232,13 +180,13 @@ export default function HomePage() {
                   <Link to={`/catalog/${c.slug}`} className="line-tile">
                     <div className="line-tile-body">
                       <h3>{c.name}</h3>
-                      <em>{modelsLabel(c.productSlugs?.length)}</em>
+                      <em>{modelsLabel(c.modelCount)}</em>
                       <span className="line-tile-cta">
                         Смотреть <span aria-hidden="true">→</span>
                       </span>
                     </div>
                     <div className="line-tile-media" aria-hidden="true">
-                      {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
+                      {c.cover ? <img src={assetUrl(c.cover)} alt="" loading="lazy" /> : null}
                     </div>
                   </Link>
                 </li>

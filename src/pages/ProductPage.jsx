@@ -7,7 +7,7 @@ import {
   presentProduct,
   groupProductSpecs,
   presentSpecGlance,
-} from '../lib/data';
+} from '../lib/data/catalog.js';
 
 function SpecValue({ value }) {
   const v = String(value || '').trim();

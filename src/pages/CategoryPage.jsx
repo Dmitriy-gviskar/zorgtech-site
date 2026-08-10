@@ -6,7 +6,7 @@ import {
   presentCategoryBlurb,
   productCover,
   productGallery,
-} from '../lib/data';
+} from '../lib/data/catalog.js';
 
 function studioCover(product) {
   if (!product) return null;

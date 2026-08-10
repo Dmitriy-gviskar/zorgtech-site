@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { categoryList, getProduct, productCover, productGallery } from '../lib/data';
+import { categoryList, getProduct, productCover, productGallery } from '../lib/data/catalog.js';
 
 const FEATURED = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
 

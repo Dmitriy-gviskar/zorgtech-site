@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Bake presented content from source JSON (with html) into slim runtime JSON (no html).
+ * Bake presented content from source JSON (with html) into slim runtime JSON (no html/text).
  * Source with html: src/data/source/*.json (not imported by the app).
  *
  * Run via: npm run bake:content  (vite-node)
@@ -11,14 +11,21 @@ import { fileURLToPath } from 'node:url';
 import {
   presentProject,
   presentArea,
+  presentSolution,
   presentAboutPage,
   presentServicePage,
+  getProduct,
+  presentProduct,
+  productCoverPath,
+  categoryList,
 } from '../src/lib/data.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const dataDir = path.join(root, 'src/data');
 const sourceDir = path.join(dataDir, 'source');
+
+const SERVICE_KEYS = ['delivery', 'support', 'rent', 'policy'];
 
 function ensureSource(name) {
   const runtime = path.join(dataDir, name);
@@ -38,44 +45,126 @@ function writeRuntime(name, data) {
   console.log(`wrote ${name} (${(fs.statSync(out).size / 1024).toFixed(0)}KB)`);
 }
 
+/** Drop bulky scrape fields once `presented` is baked. */
+function slimRest(record, extraDrop = []) {
+  const drop = new Set(['html', 'text', ...extraDrop]);
+  const rest = {};
+  for (const [key, value] of Object.entries(record)) {
+    if (drop.has(key)) continue;
+    rest[key] = value;
+  }
+  return rest;
+}
+
+const SOLUTION_SCRAPE_FIELDS = [
+  'features',
+  'tasks',
+  'advantages',
+  'capabilities',
+  'applications',
+  'sections',
+];
+
 const projectsSrc = ensureSource('projects.json');
 const areasSrc = ensureSource('areas.json');
 const pagesSrc = ensureSource('pages.json');
+const solutionsSrc = ensureSource('solutions.json');
 
 const projects = projectsSrc.map((p) => {
   const presented = presentProject(p);
-  const { html, ...rest } = p;
-  return { ...rest, presented };
+  return { ...slimRest(p), presented };
 });
 
 const areas = areasSrc.map((a) => {
   const presented = presentArea(a);
-  const { html, ...rest } = a;
-  return { ...rest, presented };
+  return { ...slimRest(a), presented };
+});
+
+const solutions = solutionsSrc.map((s) => {
+  const presented = presentSolution(s);
+  return { ...slimRest(s, SOLUTION_SCRAPE_FIELDS), presented };
 });
 
 const pages = {};
 for (const key of Object.keys(pagesSrc)) {
   const page = pagesSrc[key];
-  const { html, ...rest } = page;
   let presented = null;
   if (key === 'about') presented = presentAboutPage(page);
-  else if (['delivery', 'support', 'rent', 'policy'].includes(key)) {
-    presented = presentServicePage(key, page);
+  else if (SERVICE_KEYS.includes(key)) presented = presentServicePage(key, page);
+  else if (key === 'contacts') {
+    presented = {
+      title: 'Контакты',
+      lead: 'Единый контактный центр, офис продаж и шоурум, производство в Дубне.',
+    };
   }
-  pages[key] = presented ? { ...rest, presented } : { ...rest };
+  pages[key] = presented ? { ...slimRest(page), presented } : { ...slimRest(page) };
 }
 
 writeRuntime('projects.json', projects);
 writeRuntime('areas.json', areas);
+writeRuntime('solutions.json', solutions);
 writeRuntime('pages.json', pages);
 
-const before =
-  fs.statSync(path.join(sourceDir, 'projects.json')).size +
-  fs.statSync(path.join(sourceDir, 'areas.json')).size +
-  fs.statSync(path.join(sourceDir, 'pages.json')).size;
-const after =
-  fs.statSync(path.join(dataDir, 'projects.json')).size +
-  fs.statSync(path.join(dataDir, 'areas.json')).size +
-  fs.statSync(path.join(dataDir, 'pages.json')).size;
+/** Slim home teasers — keep full projects.json off the main chunk. */
+const projectTeasers = [...projects]
+  .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
+  .slice(0, 3)
+  .map((p) => ({
+    slug: p.slug,
+    title: p.presented?.title || p.title,
+    images: (p.images || []).slice(0, 1),
+  }));
+writeRuntime('project-teasers.json', projectTeasers);
+
+/** Slim home catalog — keep products.json / categories.json off the main chunk. */
+const HOME_TOP = [
+  { slug: 'diamant-32-fe', kicker: 'Флагман' },
+  { slug: 'diamant-55-n', kicker: 'Сенсорный стол' },
+  { slug: 'diamant-46-f-outdoor', kicker: 'Уличный' },
+  { slug: 'apriori-22', kicker: 'Apriori' },
+];
+const HOME_LINE_COVER = {
+  napolnye: 'diamant-32-fe',
+  stoly: 'diamant-55-n',
+  nastennyy: 'diamant-32-w',
+  ulichnye: 'diamant-46-f-outdoor',
+  apriori: 'apriori-22',
+  'kioski-samoobsluzhivaniya': 'diamant-32-w-pay',
+};
+const HOME_LINES = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
+
+const homeTopProducts = HOME_TOP.map((item) => {
+  const product = getProduct(item.slug);
+  if (!product) return null;
+  const copy = presentProduct(product);
+  return {
+    slug: product.slug,
+    kicker: item.kicker,
+    title: product.title,
+    tag: copy.slogan || copy.hook || '',
+    price: copy.price,
+    gift: Boolean(copy.gift),
+    cover: productCoverPath(product),
+  };
+}).filter(Boolean);
+
+const cats = categoryList();
+const homeLines = HOME_LINES.map((slug) => {
+  const cat = cats.find((c) => c.slug === slug);
+  if (!cat) return null;
+  const coverProduct =
+    getProduct(HOME_LINE_COVER[slug]) || getProduct(cat.productSlugs?.[0]);
+  return {
+    slug: cat.slug,
+    name: cat.name,
+    modelCount: cat.productSlugs?.length || 0,
+    cover: coverProduct ? productCoverPath(coverProduct) : null,
+  };
+}).filter(Boolean);
+
+writeRuntime('home-catalog.json', { topProducts: homeTopProducts, lines: homeLines });
+
+const sourceNames = ['projects.json', 'areas.json', 'pages.json', 'solutions.json'];
+const before = sourceNames.reduce((sum, name) => sum + fs.statSync(path.join(sourceDir, name)).size, 0);
+const after = sourceNames.reduce((sum, name) => sum + fs.statSync(path.join(dataDir, name)).size, 0);
 console.log(`html bake: ${(before / 1024).toFixed(0)}KB source → ${(after / 1024).toFixed(0)}KB runtime`);

@@ -1,14 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import { assetUrl } from '../lib/data/asset.js';
 import {
-  assetUrl,
   getProduct,
-  getProject,
   presentProduct,
-  presentProject,
   productCover,
   productGallery,
-} from '../lib/data';
+} from '../lib/data/catalog.js';
+import { getProject, presentProject } from '../lib/data/projects.js';
 
 function studioCover(product) {
   if (!product) return null;

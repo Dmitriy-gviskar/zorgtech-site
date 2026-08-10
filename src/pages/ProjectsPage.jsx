@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { assetUrl, presentProject, projects } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import { presentProject, projects } from '../lib/data/projects.js';
 
 function clip(text, max = 72) {
   if (!text) return '';

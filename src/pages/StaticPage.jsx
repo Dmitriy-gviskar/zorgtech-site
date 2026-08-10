@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Reveal from '../components/Reveal';
-import { assetUrl, getPage, presentAboutPage, presentServicePage } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import { getPage, presentAboutPage, presentServicePage } from '../lib/data/pages.js';
 
 const META = {
   about: { kicker: 'Компания', fallback: 'О компании' },
@@ -468,7 +469,8 @@ export default function StaticPage({ pageKey }) {
     : isService
       ? service.lead
       : isContacts
-        ? 'Единый контактный центр, офис продаж и шоурум, производство в Дубне.'
+        ? page?.presented?.lead ||
+          'Единый контактный центр, офис продаж и шоурум, производство в Дубне.'
         : page?.lead && !/полезная информация для партнеров|телефон горячей линии/i.test(page.lead)
           ? page.lead
           : null;

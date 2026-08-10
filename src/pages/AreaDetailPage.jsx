@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { assetUrl, getArea, presentArea } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import { getArea, presentArea } from '../lib/data/areas.js';
 
 export default function AreaDetailPage() {
   const { slug } = useParams();

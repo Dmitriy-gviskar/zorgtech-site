@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { areas, assetUrl, presentArea } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import { areas, presentArea } from '../lib/data/areas.js';
 
 function clip(text, max = 110) {
   if (!text) return '';

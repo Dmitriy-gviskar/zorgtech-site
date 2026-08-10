@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
-import { assetUrl, getSolution, presentSolution } from '../lib/data';
+import { assetUrl } from '../lib/data/asset.js';
+import { getSolution, presentSolution } from '../lib/data/solutions.js';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
