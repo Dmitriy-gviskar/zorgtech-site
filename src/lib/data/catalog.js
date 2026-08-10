@@ -60,6 +60,9 @@ const REGEN_FRAMES = {
   'apriori-22-key': [
     '/img/regen/apriori-22-key-frame-front.png',
     '/img/regen/apriori-22-key-frame-34.png',
+    '/img/regen/apriori-22-key-frame-side.png',
+    '/img/regen/apriori-22-key-frame-rear.png',
+    '/img/regen/apriori-22-key-frame-keyboard.png',
   ],
   'diamant-22-f': [
     '/img/regen/diamant-22-f-frame-front.png',
