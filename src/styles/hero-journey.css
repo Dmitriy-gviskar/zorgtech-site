@@ -3,7 +3,7 @@
    оборудование / ПО) -> карточки рассыпаются в пыль -> пыль собирает
    ZORGTECH -> рассвет в белый канон. Управляется нативным скроллом. */
 
-.hj-scroller { height: 760vh; position: relative; }
+.hj-scroller { height: 420vh; position: relative; }
 
 .hj-stage {
   position: sticky; top: 0; height: 100vh; width: 100%;
