@@ -208,24 +208,19 @@ export default function ProductPage() {
                         </ul>
                       ) : (
                         <>
-                          <ul className="spec-metrics">
+                          <dl className="spec-dl">
                             {rows.map((row) => {
-                              const compact = String(row.value || '').length <= 28;
                               const empty = /^(?:-|—)$/.test(String(row.value || '').trim());
                               return (
-                                <li
-                                  key={row.key}
-                                  className={`spec-metric${compact ? ' spec-metric--compact' : ''}${empty ? ' spec-metric--empty' : ''}`}
-                                >
-                                  <SpecIcon name={row.key} />
-                                  <strong>
+                                <div key={row.key} className="spec-dl-row">
+                                  <dt>{row.key}</dt>
+                                  <dd className={empty ? 'is-empty' : undefined}>
                                     {empty ? '—' : <SpecValue value={row.value} />}
-                                  </strong>
-                                  <span>{row.key}</span>
-                                </li>
+                                  </dd>
+                                </div>
                               );
                             })}
-                          </ul>
+                          </dl>
                           {optionRows.length && plainRows.length ? (
                             <ul className="spec-option-chips spec-option-chips--nested">
                               {optionRows.map((row) => (
