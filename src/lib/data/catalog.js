@@ -406,6 +406,39 @@ export function presentProduct(productOrSlug) {
   };
 }
 
+const SPEC_GROUPS = [
+  {
+    id: 'display',
+    title: 'Экран',
+    test: /(диагонал|монитор|разрешен|яркость|контраст|отклик|сенсорн|касани|соотношен|глубина цвета|частота разверт)/i,
+  },
+  {
+    id: 'body',
+    title: 'Корпус',
+    test: /(материал|корпус|габарит|толщин|высот|ширин|глубин|вес|угол|установк|цвет|ral|панел)/i,
+  },
+  {
+    id: 'pc',
+    title: 'Компьютер',
+    test: /(процессор|память|диск|видеокарт|материнск|ядер|частота процес)/i,
+  },
+  {
+    id: 'audio',
+    title: 'Аудио',
+    test: /(аудио|динамик)/i,
+  },
+  {
+    id: 'power',
+    title: 'Питание и связь',
+    test: /(кабель|энерго|электри|автомат|порт|разъем|wi-?fi|условия работы)/i,
+  },
+  {
+    id: 'options',
+    title: 'Опции',
+    test: /(опци|датчик|принтер|сканер|nfc|камер|клавиатур|дополнительн)/i,
+  },
+];
+
 function normalizeSpecKey(key) {
   return oneLine(key)
     .toLowerCase()
@@ -416,6 +449,7 @@ function normalizeSpecKey(key) {
     .replace(/\s+/g, '');
 }
 
+/** Dedupe + group scraped specs into readable cards. No invented values. */
 export function groupProductSpecs(specs) {
   const entries = Object.entries(specs || {})
     .map(([key, value]) => [oneLine(key), oneLine(value)])
