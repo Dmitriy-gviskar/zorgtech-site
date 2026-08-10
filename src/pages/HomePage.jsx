@@ -29,6 +29,15 @@ function modelsLabel(count) {
   return `${n} моделей`;
 }
 
+function scrollToHomeSection(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (typeof history !== 'undefined' && history.replaceState) {
+    history.replaceState(null, '', `#${id}`);
+  }
+}
+
 export default function HomePage() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -109,11 +118,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-props">
+      <section className="home-props" aria-label="Ключевые направления">
         <div className="wrap">
           <ul className="home-props-list">
-            {homeBlocks.props.map((item) => (
-              <li key={item}>{item}</li>
+            {homeBlocks.props.map((item, i) => (
+              <li key={item.target}>
+                <a
+                  className="home-prop"
+                  href={`#${item.target}`}
+                  style={{ '--prop-delay': `${i * 0.12}s` }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToHomeSection(item.target);
+                  }}
+                >
+                  <span className="home-prop-dot" aria-hidden="true" />
+                  <span className="home-prop-label">{item.label}</span>
+                  <span className="home-prop-go" aria-hidden="true">
+                    ↓
+                  </span>
+                </a>
+              </li>
             ))}
           </ul>
         </div>
@@ -203,32 +228,30 @@ export default function HomePage() {
       </section>
 
       <section className="home-about">
-        <div className="wrap home-about-inner">
+        <div className="wrap">
           <Reveal>
-            <header className="home-sec-head">
-              <p className="chapter-kicker">{homeBlocks.about.kicker}</p>
-              <h2 className="home-sec-title">{homeBlocks.about.title}</h2>
-            </header>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <ul className="home-about-list">
-              {homeBlocks.about.bullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <Link className="btn secondary" to={homeBlocks.about.cta.to}>
-              {homeBlocks.about.cta.label}
-            </Link>
+            <div className="home-copy">
+              <header className="home-sec-head">
+                <p className="chapter-kicker">{homeBlocks.about.kicker}</p>
+                <h2 className="home-sec-title">{homeBlocks.about.title}</h2>
+              </header>
+              <ul className="home-about-list">
+                {homeBlocks.about.bullets.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Link className="btn secondary" to={homeBlocks.about.cta.to}>
+                {homeBlocks.about.cta.label}
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="home-cycle">
+      <section className="home-cycle" id="home-cycle">
         <div className="wrap">
           <Reveal>
-            <header className="home-sec-head">
+            <header className="home-sec-head home-copy">
               <p className="chapter-kicker">{homeBlocks.cycle.kicker}</p>
               <h2 className="home-sec-title">{homeBlocks.cycle.title}</h2>
               <p className="home-block-lead">{homeBlocks.cycle.lead}</p>
@@ -252,12 +275,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-ui">
-        <div className="wrap home-ui-inner">
+      <section className="home-ui" id="home-ui">
+        <div className="wrap">
           <Reveal>
-            <div className="home-ui-copy">
-              <p className="chapter-kicker">{homeBlocks.ui.kicker}</p>
-              <h2 className="home-sec-title">{homeBlocks.ui.title}</h2>
+            <div className="home-copy">
+              <header className="home-sec-head">
+                <p className="chapter-kicker">{homeBlocks.ui.kicker}</p>
+                <h2 className="home-sec-title">{homeBlocks.ui.title}</h2>
+              </header>
               <p className="home-block-lead">{homeBlocks.ui.lead}</p>
               <ul className="home-ui-points">
                 {homeBlocks.ui.points.map((item) => (
@@ -272,7 +297,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="design-lab">
+      <section className="design-lab" id="design-lab">
         <div className="wrap design-lab-inner">
           <Reveal>
             <div className="design-lab-copy">
@@ -296,12 +321,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-sensor">
-        <div className="wrap home-sensor-inner">
+      <section className="home-sensor" id="home-sensor">
+        <div className="wrap">
           <Reveal>
-            <p className="chapter-kicker">{homeBlocks.sensor.kicker}</p>
-            <h2 className="home-sec-title">{homeBlocks.sensor.title}</h2>
-            <p className="home-block-lead home-sensor-text">{homeBlocks.sensor.text}</p>
+            <div className="home-copy">
+              <header className="home-sec-head">
+                <p className="chapter-kicker">{homeBlocks.sensor.kicker}</p>
+                <h2 className="home-sec-title">{homeBlocks.sensor.title}</h2>
+              </header>
+              <p className="home-block-lead">{homeBlocks.sensor.text}</p>
+            </div>
           </Reveal>
         </div>
       </section>
