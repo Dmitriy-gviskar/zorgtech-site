@@ -229,16 +229,21 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.1rem;
+  align-items: stretch;
 }
 
 .feature-grid > * {
   min-width: 0;
+  height: 100%;
+  display: flex;
 }
 
 .feature-card {
   position: relative;
   display: grid;
   grid-template-rows: auto minmax(280px, 1fr);
+  flex: 1 1 auto;
+  width: 100%;
   min-height: clamp(440px, 50vw, 560px);
   padding: clamp(1.6rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem) 1.75rem;
   text-decoration: none;
@@ -262,13 +267,12 @@
   position: relative;
   z-index: 2;
   display: grid;
+  grid-template-rows: auto auto minmax(2.8em, auto) auto auto;
   justify-items: center;
   align-content: start;
   text-align: center;
   gap: 0.35rem;
   padding: 0 0.5rem;
-  /* keep media plates on one horizontal line across the row */
-  min-height: 12.5rem;
 }
 
 .feature-card-kicker {
@@ -281,7 +285,7 @@
 }
 
 .feature-card-title {
-  margin: 0.15rem 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.55rem, 2.6vw, 2.15rem);
   font-weight: 700;
@@ -290,8 +294,9 @@
 }
 
 .feature-card-tag {
-  margin: 0.35rem 0 0;
+  margin: 0;
   max-width: 18rem;
+  min-height: 2.8em; /* reserve 2 lines so price/gift/CTA align across cards */
   font-family: var(--font-body);
   font-size: 0.98rem;
   font-weight: 400;
@@ -300,7 +305,7 @@
 }
 
 .feature-card-cta {
-  margin-top: 0.85rem;
+  margin-top: 0.35rem;
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -322,10 +327,11 @@
   position: relative;
   z-index: 1;
   display: grid;
-  place-items: center;
+  place-items: end center;
+  align-content: end;
   min-height: 0;
-  margin-top: 0.85rem;
-  padding: 0.75rem 1.25rem 0.25rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.25rem 0;
   pointer-events: none;
   border-radius: calc(var(--radius-tile) - 0.45rem);
   /* white — matches studio PNG plate; no grey “inset card” */
@@ -334,7 +340,8 @@
 
 .feature-card-media img,
 .feature-card-media .studio-hover-media {
-  width: min(90%, 420px);
+  width: min(88%, 400px);
+  height: min(290px, 100%);
   max-height: 290px;
 }
 
@@ -1151,22 +1158,28 @@
 }
 
 .category-product-meta {
-  margin-top: 0.55rem;
+  margin-top: 0.35rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.45rem 0.65rem;
+  min-height: 2rem;
+  line-height: 1;
 }
 
 .category-product-price {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.84rem;
   font-weight: 700;
+  line-height: 1;
   color: var(--ink);
 }
 
 .feature-card .product-gift {
   margin: 0;
+  line-height: 1;
 }
 
 .product-card,

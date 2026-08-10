@@ -214,7 +214,7 @@ export default function HomePage() {
                   <div className="feature-card-copy">
                     <p className="feature-card-kicker">{item.kicker}</p>
                     <h3 className="feature-card-title">{item.title}</h3>
-                    {item.tag ? <p className="feature-card-tag">{item.tag}</p> : null}
+                    <p className="feature-card-tag">{item.tag || '\u00a0'}</p>
                     <div className="category-product-meta">
                       <span className="category-product-price">{item.price}</span>
                       {item.gift ? <span className="product-gift">ПО в подарок</span> : null}
