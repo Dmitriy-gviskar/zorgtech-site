@@ -73,8 +73,6 @@
   object-fit: contain;
   object-position: center center;
   transform: translateY(-8%);
-  /* Dissolve opaque white PNG plate into the hero studio wash */
-  mix-blend-mode: multiply;
 }
 
 .hero-stage-veil {
@@ -352,7 +350,6 @@
 .feature-card-media img {
   object-fit: contain;
   object-position: center center;
-  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
@@ -1726,8 +1723,6 @@
 .chapter--home .chapter-media img {
   width: min(100%, 720px);
   max-height: min(74vh, 640px);
-  /* Regen PNGs are opaque white plates — multiply dissolves the white into the studio wash */
-  mix-blend-mode: multiply;
 }
 
 .chapter--home .chapter-media--product img {
@@ -1987,7 +1982,6 @@
 
 .home-popular-hero-media img {
   object-fit: contain;
-  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
@@ -2088,7 +2082,6 @@
 
 .home-popular-rail-media img {
   object-fit: contain;
-  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
