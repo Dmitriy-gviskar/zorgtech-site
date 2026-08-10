@@ -192,12 +192,14 @@ const homePopular = (homeBlocks.popular?.slugs || []).map((slug) => {
 const homeBlog = (homeBlocks.blog?.slugs || []).map((slug) => {
   const post = blogBySlug.get(slug);
   if (!post) return null;
+  const image =
+    (post.images || []).find((src) => src && !/OG_logo_zorgtech/i.test(src)) || null;
   return {
     slug: post.slug,
     title: post.title,
     date: post.date || '',
     excerpt: HOME_BLOG_EXCERPTS[slug] || post.lead || post.meta?.description || '',
-    image: post.images?.[0] || null,
+    image,
     href: post.sourceUrl || `https://zorgtech.com/blog/${post.slug}/`,
   };
 }).filter(Boolean);

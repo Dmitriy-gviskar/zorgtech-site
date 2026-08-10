@@ -481,8 +481,13 @@ def scrape_solutions() -> list[dict]:
     return out
 
 
+def is_og_logo(url: str | None) -> bool:
+    return bool(url and re.search(r"OG_logo_zorgtech", url, re.I))
+
+
 def scrape_blog() -> list[dict]:
     paths = []
+    list_thumbs: dict[str, str] = {}
     # listing may be long; also use sitemap
     try:
         for ib in range(1, 6):
@@ -494,7 +499,7 @@ def scrape_blog() -> list[dict]:
     except Exception as e:  # noqa: BLE001
         print("blog sitemap warn", e)
 
-    # crawl listing pages too
+    # crawl listing pages too — thumbs live on .new-thumb background-image
     for page in range(1, 20):
         list_url = "/blog/" if page == 1 else f"/blog/?PAGEN_1={page}"
         try:
@@ -506,12 +511,20 @@ def scrape_blog() -> list[dict]:
         for u in found:
             if u not in paths:
                 paths.append(u)
+        for m in re.finditer(
+            r'<a href="(/blog/[^"]+)" class="new-thumb" style="background-image: url\(([^)]+)\);"',
+            html,
+        ):
+            slug = m.group(1).rstrip("/").split("/")[-1]
+            thumb = m.group(2).strip("'\"")
+            if slug and thumb and slug not in list_thumbs:
+                list_thumbs[slug] = thumb
         if len(paths) == before and page > 1:
             break
         time.sleep(0.2)
 
     out = []
-    print(f"[blog] {len(paths)}")
+    print(f"[blog] {len(paths)} posts, {len(list_thumbs)} list thumbs")
     for path in paths:
         parts = [p for p in path.split("/") if p]
         slug = parts[-1]
@@ -528,16 +541,25 @@ def scrape_blog() -> list[dict]:
             if dm:
                 date = clean_text(dm.group(1))
             imgs = []
-            if meta.get("image"):
-                local = download(meta["image"], IMG / "blog", prefix=f"{slug[:24]}_")
+            # Prefer listing card thumb over generic OG logo
+            if list_thumbs.get(slug):
+                local = download(list_thumbs[slug], IMG / "blog", prefix=f"{slug[:24]}_")
                 if local:
                     imgs.append(local)
-            for src in re.findall(r'<img[^>]+src=["\']([^"\']+/upload/[^"\']+)["\']', page, re.I):
+            # Article body images (relative /upload/... must match)
+            for src in re.findall(r'<img[^>]+src=["\']([^"\']*?/upload/[^"\']+)["\']', page, re.I):
+                if is_og_logo(src):
+                    continue
                 local = download(src, IMG / "blog", prefix=f"{slug[:24]}_")
                 if local and local not in imgs:
                     imgs.append(local)
                 if len(imgs) >= 10:
                     break
+            # Fallback OG only when nothing else exists
+            if not imgs and meta.get("image"):
+                local = download(meta["image"], IMG / "blog", prefix=f"{slug[:24]}_")
+                if local:
+                    imgs.append(local)
             body_html = ""
             m = re.search(r'class="[^"]*content-page[^"]*"[^>]*>([\s\S]*?)(?:class="[^"]*site-footer|<footer|</body>)', page, re.I)
             if m:
