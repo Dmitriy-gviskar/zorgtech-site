@@ -142,6 +142,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-pro-frame-front.png',
     '/img/regen/diamant-32-fe-pro-frame-34.png',
     '/img/regen/diamant-32-fe-pro-frame-side.png',
+    '/img/regen/diamant-32-fe-pro-frame-detail.png',
   ],
   'diamant-32-n': [
     '/img/regen/diamant-32-n-frame-front.png',
@@ -152,6 +153,8 @@ const REGEN_FRAMES = {
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
     '/img/regen/diamant-32-ne-frame-34.png',
+    '/img/regen/diamant-32-ne-frame-side.png',
+    '/img/regen/diamant-32-ne-frame-rear.png',
   ],
   'diamant-32-w': [
     '/img/regen/diamant-32-w-frame-front.png',
@@ -163,26 +166,37 @@ const REGEN_FRAMES = {
   'diamant-32-w-pay': [
     '/img/regen/diamant-32-w-pay-frame-front.png',
     '/img/regen/diamant-32-w-pay-frame-34.png',
+    '/img/regen/diamant-32-w-pay-frame-side.png',
+    '/img/regen/diamant-32-w-pay-frame-detail.png',
   ],
   'diamant-32-w-print': [
     '/img/regen/diamant-32-w-print-frame-front.png',
     '/img/regen/diamant-32-w-print-frame-34.png',
+    '/img/regen/diamant-32-w-print-frame-side.png',
+    '/img/regen/diamant-32-w-print-frame-detail.png',
   ],
   'diamant-32-wa-pay': [
     '/img/regen/diamant-32-wa-pay-frame-front.png',
     '/img/regen/diamant-32-wa-pay-frame-34.png',
+    '/img/regen/diamant-32-wa-pay-frame-side.png',
+    '/img/regen/diamant-32-wa-pay-frame-detail.png',
   ],
   'diamant-32-we': [
     '/img/regen/diamant-32-we-frame-front.png',
     '/img/regen/diamant-32-we-frame-34.png',
+    '/img/regen/diamant-32-we-frame-side.png',
   ],
   'diamant-32-we-pay': [
     '/img/regen/diamant-32-we-pay-frame-front.png',
     '/img/regen/diamant-32-we-pay-frame-34.png',
+    '/img/regen/diamant-32-we-pay-frame-side.png',
+    '/img/regen/diamant-32-we-pay-frame-detail.png',
   ],
   'diamant-32-wea-pay': [
     '/img/regen/diamant-32-wea-pay-frame-front.png',
     '/img/regen/diamant-32-wea-pay-frame-34.png',
+    '/img/regen/diamant-32-wea-pay-frame-side.png',
+    '/img/regen/diamant-32-wea-pay-frame-detail.png',
   ],
   'diamant-43-f': [
     '/img/regen/diamant-43-f-frame-front.png',
@@ -288,6 +302,8 @@ const REGEN_FRAMES = {
   'diamant-55-f-outdoor-dual': [
     '/img/regen/diamant-55-f-outdoor-dual-frame-front.png',
     '/img/regen/diamant-55-f-outdoor-dual-frame-34.png',
+    '/img/regen/diamant-55-f-outdoor-dual-frame-side.png',
+    '/img/regen/diamant-55-f-outdoor-dual-frame-detail.png',
   ],
   'diamant-55-n': [
     '/img/regen/diamant-55-n-frame-front.png',
@@ -298,6 +314,8 @@ const REGEN_FRAMES = {
   'diamant-55-ne': [
     '/img/regen/diamant-55-ne-frame-front.png',
     '/img/regen/diamant-55-ne-frame-34.png',
+    '/img/regen/diamant-55-ne-frame-side.png',
+    '/img/regen/diamant-55-ne-frame-rear.png',
   ],
   'diamant-55-w': [
     '/img/regen/diamant-55-w-frame-front.png',
@@ -366,10 +384,14 @@ const REGEN_FRAMES = {
   'mono-32-f-pin': [
     '/img/regen/mono-32-f-pin-frame-front.png',
     '/img/regen/mono-32-f-pin-frame-34.png',
+    '/img/regen/mono-32-f-pin-frame-side.png',
+    '/img/regen/mono-32-f-pin-frame-detail.png',
   ],
   'mono-32-fa-pin': [
     '/img/regen/mono-32-fa-pin-frame-front.png',
     '/img/regen/mono-32-fa-pin-frame-34.png',
+    '/img/regen/mono-32-fa-pin-frame-side.png',
+    '/img/regen/mono-32-fa-pin-frame-detail.png',
   ],
   'mono-32-f-scan': [
     '/img/regen/mono-32-f-scan-frame-front.png',
@@ -377,7 +399,12 @@ const REGEN_FRAMES = {
     '/img/regen/mono-32-f-scan-frame-side.png',
     '/img/regen/mono-32-f-scan-frame-modules.png',
   ],
-  'mono-32-n': ['/img/regen/mono-32-n-frame-front.png', '/img/regen/mono-32-n-frame-34.png'],
+  'mono-32-n': [
+    '/img/regen/mono-32-n-frame-front.png',
+    '/img/regen/mono-32-n-frame-34.png',
+    '/img/regen/mono-32-n-frame-side.png',
+    '/img/regen/mono-32-n-frame-rear.png',
+  ],
   'mono-43-f': [
     '/img/regen/mono-43-f-frame-front.png',
     '/img/regen/mono-43-f-frame-34.png',
