@@ -49,7 +49,13 @@ export default function ProjectsPage() {
 
       <div className="shot-on-grid content-shot-grid projects-grid">
         {rest.map(({ raw, copy }, i) => {
-          const wide = i % 7 === 0;
+          const wideRatio = Number(raw.cardImageWideRatio || raw.cardImageRatio || 0);
+          // Only span wide when cover is a real landscape — portraits stay in the grid
+          const wide = i % 7 === 0 && wideRatio >= 1.2;
+          const cover =
+            (wide ? raw.cardImageWide : raw.cardImage) ||
+            copy.images[0] ||
+            null;
           return (
             <Reveal
               key={raw.slug}
@@ -58,11 +64,15 @@ export default function ProjectsPage() {
             >
               <Link
                 to={`/projects/${raw.slug}`}
-                className={`shot-card${wide ? ' shot-card--xl' : ''}`}
+                className={`shot-card${wide ? ' shot-card--xl' : ''}${
+                  Number(raw.cardImageRatio) > 0 && Number(raw.cardImageRatio) < 1
+                    ? ' shot-card--portrait'
+                    : ''
+                }`}
               >
                 <div className="shot-card-media">
-                  {copy.images[0] ? (
-                    <img src={assetUrl(copy.images[0])} alt="" loading="lazy" />
+                  {cover ? (
+                    <img src={assetUrl(cover)} alt="" loading="lazy" />
                   ) : null}
                 </div>
                 <div className="shot-card-body">
