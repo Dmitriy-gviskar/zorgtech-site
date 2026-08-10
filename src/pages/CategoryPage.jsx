@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import {
   getCategory,
   getProduct,
@@ -34,6 +35,12 @@ export default function CategoryPage() {
 
   return (
     <div className="page category-page">
+      <Seo
+        title={cat.title || cat.name}
+        description={blurb || cat.description || `Линейка ${cat.name} — оборудование Zorgtech`}
+        path={`/catalog/${cat.slug}`}
+        image={cat.image || undefined}
+      />
       <p className="crumbs">
         <Link to="/catalog">Каталог</Link>
         <span aria-hidden="true"> / </span>

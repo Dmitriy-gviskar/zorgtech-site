@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getPage, presentAboutPage, presentServicePage } from '../lib/data/pages.js';
 
@@ -299,8 +300,8 @@ function ContactsBody() {
             <Reveal delay={0.08}>
               <a href="tel:88005502645" className="contacts-next-card">
                 <span className="contacts-next-num">03</span>
-                <strong>Закажите обратный звонок</strong>
-                <span>Оставьте свой номер, наш специалист свяжется с вами и поможет сделать правильный выбор</span>
+                <strong>Позвоните нам</strong>
+                <span>Единый контактный центр 8 800 550 26 45 — специалист поможет выбрать решение</span>
               </a>
             </Reveal>
           </li>
@@ -481,6 +482,12 @@ export default function StaticPage({ pageKey }) {
         isAbout ? ' static-page--about' : ''
       }${isService ? ` static-page--service static-page--${pageKey}` : ''}`}
     >
+      <Seo
+        title={page?.meta?.title || title}
+        description={page?.meta?.description || lead || ''}
+        path={`/${pageKey}`}
+        image={page?.meta?.image || undefined}
+      />
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">{meta.kicker}</p>
         <h1>{title}</h1>

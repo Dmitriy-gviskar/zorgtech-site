@@ -57,6 +57,8 @@ export function stripTags(html) {
       .replace(/<br\s*\/?>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;/gi, ' ')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;/gi, "'")
       .replace(/&gt;/gi, '>')
       .replace(/&lt;/gi, '<')
       .replace(/&amp;/gi, '&'),
@@ -70,11 +72,11 @@ export function cutPageChrome(html) {
   return cut > 0 ? html.slice(0, cut) : html || '';
 }
 
-export function htmlParagraphs(html) {
+export function htmlParagraphs(html, { minLength = 35 } = {}) {
   const out = [];
   for (const raw of String(html || '').matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
     const t = stripTags(raw[1]);
-    if (t.length < 35) continue;
+    if (t.length < minLength) continue;
     if (/нажимая кнопку|как вас зовут|не знаете|заказать звонок/i.test(t)) continue;
     if (out.includes(t)) continue;
     out.push(t);
@@ -94,17 +96,23 @@ export function htmlListItems(html) {
   return out;
 }
 
-export function htmlSectionsByH2(html) {
+export function htmlSectionsByHeading(html, level = 2) {
   const cut = cutPageChrome(html);
+  const tag = `h${level}`;
   const sections = [];
-  const re = /<h2[^>]*>([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2|$)/gi;
+  const re = new RegExp(
+    `<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>([\\s\\S]*?)(?=<${tag}|$)`,
+    'gi',
+  );
   for (const raw of cut.matchAll(re)) {
     const title = stripTags(raw[1])
       .replace(/^Назад к.*/i, '')
       .trim();
     if (!title || title.length > 120) continue;
     const body = raw[2] || '';
-    const textParts = htmlParagraphs(body);
+    // Task/solution headings on project pages are often short one-liners.
+    const minLength = /^(задача|решение)$/i.test(title) ? 12 : 35;
+    const textParts = htmlParagraphs(body, { minLength });
     const items = htmlListItems(body);
     if (!textParts.length && !items.length) continue;
     sections.push({
@@ -115,4 +123,8 @@ export function htmlSectionsByH2(html) {
     });
   }
   return sections;
+}
+
+export function htmlSectionsByH2(html) {
+  return htmlSectionsByHeading(html, 2);
 }

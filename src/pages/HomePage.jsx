@@ -6,7 +6,9 @@ import RevealTitle from '../components/RevealTitle';
 import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
+import { HOME_SEO } from '../lib/seo-defaults.js';
 import homeCatalog from '../data/home-catalog.json';
 import homeBlocks from '../data/home-blocks.json';
 import projectTeasers from '../data/project-teasers.json';
@@ -14,7 +16,7 @@ import projectTeasers from '../data/project-teasers.json';
 const TOP_PRODUCTS = homeCatalog.topProducts || [];
 const LINE_LINKS = homeCatalog.lines || [];
 const POPULAR = homeCatalog.popular || [];
-const BLOG = homeCatalog.blog || [];
+// Blog stays in data, but is not shown in the demo (PLAN / AGENTS).
 const MUSEUM = homeCatalog.museum || null;
 
 function clip(text, max = 110) {
@@ -53,6 +55,7 @@ function StatValue({ value }) {
 export default function HomePage() {
   return (
     <div className="home">
+      <Seo {...HOME_SEO} />
       <section className="home-hero" aria-label="Zorgtech — интерактивное оборудование">
         <div className="wrap">
           <h1 className="home-hero-word">
@@ -399,37 +402,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      {BLOG.length ? (
-        <section className="home-blog">
-          <div className="wrap">
-            <RevealTitle kicker={homeBlocks.blog.kicker} title={homeBlocks.blog.title} />
-            <div className="home-blog-grid">
-              {BLOG.map((post, i) => (
-                <Reveal key={post.slug} delay={Math.min(i, 2) * 0.05}>
-                  <a
-                    className="home-blog-card"
-                    href={post.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {post.image ? (
-                      <div className="home-blog-media" aria-hidden="true">
-                        <img src={assetUrl(post.image)} alt="" loading="lazy" />
-                      </div>
-                    ) : null}
-                    <div className="home-blog-copy">
-                      {post.date ? <time>{post.date}</time> : null}
-                      <h3>{post.title}</h3>
-                      {post.excerpt ? <p>{clip(post.excerpt, 140)}</p> : null}
-                    </div>
-                  </a>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className="home-begin">
         <div className="wrap">

@@ -145,12 +145,25 @@ export function presentServicePage(pageKey, page) {
       if (/100%\s*предоплат/i.test(p)) pushFact('Оплата', p);
     }
 
-    const story = paras.filter(
-      (p) =>
-        !/адрес самовывоза|стоимость доставки по г|100%\s*предоплат|возврат и обмен|упаковываем|рассчит/i.test(
-          p,
-        ),
-    );
+    const story = paras
+      .filter(
+        (p) =>
+          !/адрес самовывоза|стоимость доставки по г|100%\s*предоплат|возврат и обмен|упаковываем|рассчит/i.test(
+            p,
+          ),
+      )
+      .map((p) =>
+        carriers.length
+          ? p
+              .replace(
+                /(?:транспортными\s+)?компаниями:\s*[^.]*(?:\.|$)/giu,
+                carriers.length ? 'проверенными транспортными компаниями. ' : '',
+              )
+              .replace(/\s{2,}/g, ' ')
+              .trim()
+          : p,
+      )
+      .filter(Boolean);
 
     return {
       title: 'Доставка и сервис',
@@ -221,16 +234,31 @@ export function presentServicePage(pageKey, page) {
     const prices = [];
     const story = [];
     for (const p of paras) {
+      // Ranges like 19"-22" — require spaces around the price dash, not the inch hyphen.
+      const diagonal = p.match(/диагональю\s*(.+?)\s+[-–—]\s+(.+)$/i);
+      if (diagonal) {
+        prices.push({ label: oneLine(diagonal[1]), value: oneLine(diagonal[2]) });
+        continue;
+      }
+      if (/стоимость аренды терминала\s+от/i.test(p) || /от\s*8\s*000/i.test(p)) {
+        const from = p.match(/от\s*8[\s\u00a0]*000[^.]*\.?/i);
+        prices.push({
+          label: 'от',
+          value: oneLine(from?.[0] || 'от 8 000 рублей в сутки, в зависимости от размера экрана'),
+        });
+        // Keep the marketing sentences in story, not inside the tariff row.
+        const marketing = p
+          .replace(/Стоимость аренды терминала\s+от\s*8[\s\u00a0]*000[^.]*\.?/giu, '')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+        if (marketing.length > 40) story.push(marketing);
+        continue;
+      }
       if (/стоимость аренды терминала/i.test(p) || /диагональ/i.test(p)) {
-        const m = p.match(/диагональю\s*([^—-]+)\s*[-–—]\s*(.+)$/i);
-        if (m) {
-          prices.push({ label: oneLine(m[1]), value: oneLine(m[2]) });
-        } else if (/от\s*8\s*000/i.test(p)) {
-          prices.push({ label: 'от', value: p.replace(/^Стоимость аренды терминала\s*/i, '') });
-        } else {
-          prices.push({ label: 'Тариф', value: p });
-        }
-      } else if (!/не входит оплата доставки|скидку до 30/i.test(p)) {
+        prices.push({ label: 'Тариф', value: p });
+        continue;
+      }
+      if (!/не входит оплата доставки|скидку до 30/i.test(p)) {
         story.push(p);
       }
     }

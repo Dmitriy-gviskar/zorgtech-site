@@ -8,6 +8,7 @@ import {
   groupProductSpecs,
   presentSpecGlance,
 } from '../lib/data/catalog.js';
+import Seo from '../components/Seo';
 import SpecIcon from '../components/SpecIcon';
 
 function SpecValue({ value }) {
@@ -48,6 +49,10 @@ export default function ProductPage() {
   const copy = presentProduct(product);
   const showStory = copy.story.length > 0;
   const covered = [copy.slogan, copy.hook, ...copy.story].filter(Boolean).join(' ');
+  const seoTitle = product.meta?.title || product.title;
+  const seoDescription =
+    product.meta?.description || copy.hook || copy.slogan || product.description || '';
+  const seoImage = product.meta?.image || gallery[0] || undefined;
   const htmlPlain = String(product.descriptionHtml || '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
@@ -66,6 +71,12 @@ export default function ProductPage() {
 
   return (
     <div className="page product product-page">
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        path={`/product/${product.slug}`}
+        image={seoImage}
+      />
       <p className="crumbs">
         <Link to="/catalog">Каталог</Link>
         {cat ? (

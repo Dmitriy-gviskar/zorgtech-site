@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import {
   getProduct,
@@ -33,12 +34,18 @@ export default function ProjectDetailPage() {
   const copy = presentProject(project);
   const hero = copy.images[0];
   const gallery = copy.images.slice(1, 10);
-  const used = (project.usedProducts || [])
+  const used = (copy.usedProducts || project.usedProducts || [])
     .map((u) => getProduct(u.slug) || u)
     .filter(Boolean);
 
   return (
     <div className="page detail-page project-detail">
+      <Seo
+        title={project.meta?.title || copy.title}
+        description={project.meta?.description || copy.lead || copy.task || ''}
+        path={`/projects/${project.slug}`}
+        image={project.meta?.image || hero || undefined}
+      />
       <p className="crumbs">
         <Link to="/projects">Проекты</Link>
         <span aria-hidden="true"> / </span>

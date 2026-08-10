@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { presentSolution, solutions } from '../lib/data/solutions.js';
+import { LIST_SEO } from '../lib/seo-defaults.js';
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -14,6 +16,7 @@ export default function SolutionsPage() {
 
   return (
     <div className="page solutions-page">
+      <Seo {...LIST_SEO.solutions} />
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">Софт и сценарии</p>
         <h1>Готовые решения</h1>

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { areas, presentArea } from '../lib/data/areas.js';
+import { LIST_SEO } from '../lib/seo-defaults.js';
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -16,6 +18,7 @@ export default function AreasPage() {
 
   return (
     <div className="page areas-page">
+      <Seo {...LIST_SEO.areas} />
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">Применение</p>
         <h1>Области применения</h1>

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { presentProject, projects } from '../lib/data/projects.js';
+import { LIST_SEO } from '../lib/seo-defaults.js';
 
 function clip(text, max = 72) {
   if (!text) return '';
@@ -19,6 +21,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="page projects-page">
+      <Seo {...LIST_SEO.projects} />
       <header className="category-head category-head--simple projects-head">
         <p className="chapter-kicker">Кейсы</p>
         <h1>Реализованные проекты</h1>

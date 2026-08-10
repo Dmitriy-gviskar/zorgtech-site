@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import {
   categoryList,
   getProduct,
   productCover,
   productGallery,
 } from '../lib/data/catalog.js';
+import { LIST_SEO } from '../lib/seo-defaults.js';
 
 const FEATURED = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
 
@@ -56,6 +58,7 @@ export default function CatalogPage() {
 
   return (
     <div className="page catalog-page">
+      <Seo {...LIST_SEO.catalog} />
       <header className="catalog-head catalog-head--rich">
         <p className="chapter-kicker">Продукция</p>
         <h1>Каталог оборудования</h1>

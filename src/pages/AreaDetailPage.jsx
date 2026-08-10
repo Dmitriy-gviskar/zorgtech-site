@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getArea, presentArea } from '../lib/data/areas.js';
 
@@ -24,6 +25,12 @@ export default function AreaDetailPage() {
 
   return (
     <div className="page detail-page area-detail">
+      <Seo
+        title={area.meta?.title || copy.title}
+        description={area.meta?.description || copy.lead || ''}
+        path={`/areas/${area.slug}`}
+        image={area.meta?.image || hero || undefined}
+      />
       <p className="crumbs">
         <Link to="/areas">Области применения</Link>
         <span aria-hidden="true"> / </span>

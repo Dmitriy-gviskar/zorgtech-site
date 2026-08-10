@@ -27,8 +27,17 @@ export function presentArea(areaOrSlug) {
     };
   }
 
-  const title = oneLine(area.title).replace(/&quot;/g, '"').replace(/\u00a0/g, ' ');
-  const lead = cleanSeoLead(area.lead);
+  let title = oneLine(area.title)
+    .replace(/&quot;/g, '"')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s*[-–—]\s*купить сенсорн.*$/iu, '')
+    .replace(/\s*купить сенсорн.*$/iu, '')
+    .replace(/\s*[-–—]\s*$/u, '')
+    .trim();
+  let lead = cleanSeoLead(area.lead)
+    .replace(/кисок/giu, 'киоск')
+    .replace(/\s*[-–—]\s*$/u, '')
+    .trim();
   const main = cutPageChrome(area.html || '');
   const sections = htmlSectionsByH2(main);
   const beforeH2 = main.split(/<h2/i)[0] || main;

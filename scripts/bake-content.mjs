@@ -72,7 +72,11 @@ const solutionsSrc = ensureSource('solutions.json');
 
 const projects = projectsSrc.map((p) => {
   const presented = presentProject(p);
-  return { ...slimRest(p), presented };
+  const usedProducts = presented.usedProducts?.length
+    ? presented.usedProducts
+    : p.usedProducts || [];
+  const { usedProducts: _used, ...presentedRest } = presented;
+  return { ...slimRest(p), usedProducts, presented: presentedRest };
 });
 
 const areas = areasSrc.map((a) => {

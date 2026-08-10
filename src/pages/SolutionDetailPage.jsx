@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getSolution, presentSolution } from '../lib/data/solutions.js';
 
@@ -24,6 +25,12 @@ export default function SolutionDetailPage() {
 
   return (
     <div className="page detail-page solution-detail">
+      <Seo
+        title={solution.meta?.title || copy.title}
+        description={solution.meta?.description || copy.lead || ''}
+        path={`/solutions/${solution.slug}`}
+        image={solution.meta?.image || hero || undefined}
+      />
       <p className="crumbs">
         <Link to="/solutions">Решения</Link>
         <span aria-hidden="true"> / </span>

@@ -789,8 +789,8 @@ export function presentCategoryBlurb(category, { maxChars = 180 } = {}) {
   // Clean marketplace SEO in-place — do NOT cut from first hit to end of string
   let text = raw
     .replace(/^купить\s+/iu, '')
-    .replace(/\s*от (?:российского )?производителя\s*[«"]?Zorgtech[»"]?/giu, '')
-    .replace(/\s*у производителя\s*[«"]?Zorgtech[»"]?/giu, '')
+    .replace(/\s*от (?:российского )?производителя\b[^.!?]*/giu, '')
+    .replace(/\s*у производителя\b[^.!?]*/giu, '')
     .replace(/\s*от компании\s+ZORGTECH\.?/giu, '')
     .replace(/\s*с доставкой по России\.?/giu, '')
     .replace(/\s*Большой (?:ассортимент|выбор)[^.!?]*/giu, '')
@@ -801,6 +801,7 @@ export function presentCategoryBlurb(category, { maxChars = 180 } = {}) {
     .replace(/\s{2,}/g, ' ')
     .replace(/\s*\.\s*\./g, '.')
     .replace(/^\s*[.,;:—–-]+\s*/u, '')
+    .replace(/\s*[.,;:—–-]+\s*$/u, '')
     .trim();
 
   if (!text) return '';

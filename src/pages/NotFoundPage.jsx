@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 export default function NotFoundPage() {
   return (
     <div className="page">
+      <Seo title="Страница не найдена — Zorgtech" description="Запрошенная страница не найдена." path="/404" />
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">404</p>
         <h1>Страница не найдена</h1>
