@@ -88,10 +88,14 @@ const REGEN_FRAMES = {
   'diamant-22-n': [
     '/img/regen/diamant-22-n-frame-front.png',
     '/img/regen/diamant-22-n-frame-34.png',
+    '/img/regen/diamant-22-n-frame-side.png',
+    '/img/regen/diamant-22-n-frame-rear.png',
   ],
   'diamant-22-w': [
     '/img/regen/diamant-22-w-frame-front.png',
     '/img/regen/diamant-22-w-frame-34.png',
+    '/img/regen/diamant-22-w-frame-rear.png',
+    '/img/regen/diamant-22-w-frame-detail.png',
   ],
   'diamant-32-f': [
     '/img/regen/diamant-32-f-frame-front.png',
@@ -133,7 +137,12 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-pro-frame-34.png',
     '/img/regen/diamant-32-fe-pro-frame-side.png',
   ],
-  'diamant-32-n': ['/img/regen/diamant-32-n-frame-front.png', '/img/regen/diamant-32-n-frame-34.png'],
+  'diamant-32-n': [
+    '/img/regen/diamant-32-n-frame-front.png',
+    '/img/regen/diamant-32-n-frame-34.png',
+    '/img/regen/diamant-32-n-frame-side.png',
+    '/img/regen/diamant-32-n-frame-rear.png',
+  ],
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
     '/img/regen/diamant-32-ne-frame-34.png',
@@ -142,6 +151,8 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-w-frame-front.png',
     '/img/regen/diamant-32-w-frame-34.png',
     '/img/regen/diamant-32-w-frame-side.png',
+    '/img/regen/diamant-32-w-frame-rear.png',
+    '/img/regen/diamant-32-w-frame-detail.png',
   ],
   'diamant-32-w-pay': [
     '/img/regen/diamant-32-w-pay-frame-front.png',
@@ -254,7 +265,9 @@ const REGEN_FRAMES = {
   'diamant-55-f-outdoor': [
     '/img/regen/diamant-55-f-outdoor-frame-front.png',
     '/img/regen/diamant-55-f-outdoor-frame-34.png',
+    '/img/regen/diamant-55-f-outdoor-frame-side.png',
     '/img/regen/diamant-55-f-outdoor-frame-rear.png',
+    '/img/regen/diamant-55-f-outdoor-frame-detail.png',
   ],
   'diamant-55-f-outdoor-dual': [
     '/img/regen/diamant-55-f-outdoor-dual-frame-front.png',
