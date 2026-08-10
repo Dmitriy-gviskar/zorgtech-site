@@ -166,8 +166,8 @@ export default function ProductPage() {
             <ul className="spec-glance">
               {glance.map((chip) => (
                 <li key={chip.label}>
-                  <span>{chip.label}</span>
                   <strong>{chip.value}</strong>
+                  <span>{chip.label}</span>
                 </li>
               ))}
             </ul>
@@ -206,16 +206,22 @@ export default function ProductPage() {
                         </ul>
                       ) : (
                         <>
-                          <dl className="spec-dl">
-                            {rows.map((row) => (
-                              <div key={row.key} className="spec-dl-row">
-                                <dt>{row.key}</dt>
-                                <dd>
-                                  <SpecValue value={row.value} />
-                                </dd>
-                              </div>
-                            ))}
-                          </dl>
+                          <ul className="spec-metrics">
+                            {rows.map((row) => {
+                              const compact = String(row.value || '').length <= 28;
+                              return (
+                                <li
+                                  key={row.key}
+                                  className={`spec-metric${compact ? ' spec-metric--compact' : ''}`}
+                                >
+                                  <strong>
+                                    <SpecValue value={row.value} />
+                                  </strong>
+                                  <span>{row.key}</span>
+                                </li>
+                              );
+                            })}
+                          </ul>
                           {optionRows.length && plainRows.length ? (
                             <ul className="spec-option-chips spec-option-chips--nested">
                               {optionRows.map((row) => (
