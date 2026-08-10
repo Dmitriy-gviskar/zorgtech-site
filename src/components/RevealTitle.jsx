@@ -16,7 +16,7 @@ export default function RevealTitle({
   const reduce = useReducedMotion();
   const MotionTitle = motion[TitleTag] || motion.h2;
 
-  const initial = reduce ? false : { opacity: 0, y: 18, filter: 'blur(8px)' };
+  const initial = reduce ? false : { opacity: 0, y: 15, filter: 'blur(4px)' };
   const shown = { opacity: 1, y: 0, filter: 'blur(0px)' };
 
   return (
@@ -27,7 +27,7 @@ export default function RevealTitle({
           initial={initial}
           whileInView={shown}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.7, ease: EASE }}
+          transition={{ duration: 0.75, ease: EASE }}
         >
           {kicker}
         </motion.p>
@@ -38,7 +38,7 @@ export default function RevealTitle({
           initial={initial}
           whileInView={shown}
           viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.85, ease: EASE, delay: reduce ? 0 : 0.08 }}
+          transition={{ duration: 0.8, ease: EASE, delay: reduce ? 0 : 0.1 }}
         >
           {title}
         </MotionTitle>
