@@ -801,23 +801,23 @@
 }
 
 .product-specs {
-  max-width: min(40rem, 100%);
+  max-width: min(38rem, 100%);
 }
 
-/* Compact glance: value → label, small icons */
+/* Compact glance — max 4, not a hero strip */
 .spec-glance {
   list-style: none;
-  margin: 0.85rem 0 0;
-  padding: 0 0 0.85rem;
+  margin: 0.75rem 0 0;
+  padding: 0 0 0.75rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
-  gap: 0.65rem 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.5rem 0.65rem;
   border-bottom: 1px solid rgba(15, 23, 32, 0.06);
 }
 
 .spec-glance li {
   display: grid;
-  gap: 0.1rem;
+  gap: 0.08rem;
   min-width: 0;
   align-content: start;
   justify-items: start;
@@ -825,14 +825,14 @@
 
 .spec-icon {
   display: block;
-  width: 1rem;
-  height: 1rem;
+  width: 0.95rem;
+  height: 0.95rem;
   color: var(--ink-soft);
 }
 
 .spec-glance strong {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -840,7 +840,7 @@
 }
 
 .spec-glance span {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
@@ -1312,11 +1312,11 @@
 
   .spec-glance {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.65rem 0.6rem;
+    gap: 0.5rem 0.55rem;
   }
 
   .spec-glance strong {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .spec-dl-row {

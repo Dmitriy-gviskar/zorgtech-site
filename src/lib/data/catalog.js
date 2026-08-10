@@ -460,25 +460,62 @@ function normalizeSpecKey(key) {
     .replace(/\s+/g, '');
 }
 
+/** Collapse scraped synonyms: Вес / Вес нетто, Диагональ / Диагональ дюйм, etc. */
+function canonicalSpecKey(key) {
+  const nk = normalizeSpecKey(key);
+  if (!nk) return '';
+  if (/^весбрутто/.test(nk)) return 'весбрутто';
+  if (/^вес/.test(nk)) return 'вес';
+  if (/^диагональ/.test(nk)) return 'диагональ';
+  if (nk === 'материал' || nk === 'материалкорпуса') return 'материал';
+  if (/^типустанов/.test(nk) || nk === 'установка') return 'типустановки';
+  if (/^количествоодновременныхкасаний|^касани/.test(nk)) return 'касания';
+  if (/^яркост/.test(nk)) return 'яркость';
+  if (/^разрешен/.test(nk)) return 'разрешение';
+  if (/^соотношен/.test(nk)) return 'соотношениесторон';
+  return nk;
+}
+
+function preferSpecLabel(a, b) {
+  const score = (k) => {
+    let s = 0;
+    if (/нетто/i.test(k)) s += 3;
+    if (/брутто/i.test(k)) s -= 2;
+    if (/диагональ,\s*дюйм/i.test(k)) s -= 1;
+    if (k.length <= 22) s += 1;
+    return s;
+  };
+  return score(a) >= score(b) ? a : b;
+}
+
 /** Dedupe + group scraped specs into readable cards. No invented values. */
 export function groupProductSpecs(specs) {
   const entries = Object.entries(specs || {})
     .map(([key, value]) => [oneLine(key), oneLine(value)])
     .filter(([k, v]) => k && v);
 
-  const seen = new Set();
-  const unique = [];
+  const byCanon = new Map();
   for (const [key, value] of entries) {
-    const nk = normalizeSpecKey(key);
-    if (!nk || seen.has(nk)) continue;
-    seen.add(nk);
-    unique.push([key, value]);
+    const ck = canonicalSpecKey(key);
+    if (!ck) continue;
+    const prev = byCanon.get(ck);
+    if (!prev) {
+      byCanon.set(ck, { key, value });
+      continue;
+    }
+    // Same value → keep nicer label; different value → keep first unless prev empty
+    if (prev.value === value || prev.value === '-' || prev.value === '—') {
+      byCanon.set(ck, {
+        key: preferSpecLabel(prev.key, key),
+        value: value !== '-' && value !== '—' ? value : prev.value,
+      });
+    }
   }
 
   const buckets = new Map(SPEC_GROUPS.map((g) => [g.id, { id: g.id, title: g.title, rows: [] }]));
   const other = { id: 'other', title: 'Прочее', rows: [] };
 
-  for (const [key, value] of unique) {
+  for (const { key, value } of byCanon.values()) {
     const group = SPEC_GROUPS.find((g) => g.test.test(key)) || null;
     (group ? buckets.get(group.id) : other).rows.push({ key, value });
   }
@@ -487,21 +524,27 @@ export function groupProductSpecs(specs) {
 }
 
 export function presentSpecGlance(specs) {
-  const map = new Map(
-    Object.entries(specs || {}).map(([k, v]) => [normalizeSpecKey(k), { key: oneLine(k), value: oneLine(v) }]),
-  );
+  const map = new Map();
+  for (const [k, v] of Object.entries(specs || {})) {
+    const ck = canonicalSpecKey(k);
+    const value = oneLine(v);
+    if (!ck || !value || value === '-' || value === '—') continue;
+    const prev = map.get(ck);
+    if (!prev) map.set(ck, { key: oneLine(k), value });
+    else map.set(ck, { key: preferSpecLabel(prev.key, oneLine(k)), value: prev.value });
+  }
   const pick = (...keys) => {
     for (const k of keys) {
-      const hit = map.get(normalizeSpecKey(k));
-      if (hit?.value && hit.value !== '-' && hit.value !== '—') return hit;
+      const hit = map.get(canonicalSpecKey(k));
+      if (hit?.value) return hit;
     }
     return null;
   };
 
-  // DJI-like glance: few bold values, short labels — only real scraped fields
+  // Compact glance: max 4 real fields
   const chips = [];
   const push = (label, value, icon) => {
-    if (!value) return;
+    if (!value || chips.length >= 4) return;
     chips.push({ label, value, icon });
   };
   const diagonal = pick('Диагональ', 'Диагональ, дюйм');
@@ -509,7 +552,7 @@ export function presentSpecGlance(specs) {
     const n = diagonal.value.match(/\d+(?:[.,]\d+)?/);
     push('Диагональ', n ? `${n[0]}″` : diagonal.value, 'display');
   }
-  const weight = pick('Вес, кг', 'Вес нетто, кг');
+  const weight = pick('Вес нетто, кг', 'Вес, кг');
   if (weight) {
     const n = weight.value.match(/\d+(?:[.,]\d+)?/);
     push('Вес', n ? `${n[0]} кг` : weight.value, 'weight');
@@ -525,14 +568,18 @@ export function presentSpecGlance(specs) {
       'touch',
     );
   }
-  const bright = pick('Яркость, кд/м 2', 'Яркость, кд/м²', 'Яркость');
-  if (bright && chips.length < 5) {
-    const n = bright.value.match(/\d+/);
-    push('Яркость', n ? `${n[0]} кд/м²` : bright.value, 'brightness');
+  if (chips.length < 4) {
+    const bright = pick('Яркость, кд/м 2', 'Яркость, кд/м²', 'Яркость');
+    if (bright) {
+      const n = bright.value.match(/\d+/);
+      push('Яркость', n ? `${n[0]} кд/м²` : bright.value, 'brightness');
+    }
   }
-  const ram = pick('Оперативная память');
-  if (ram && chips.length < 5) push('Память', ram.value, 'memory');
-  return chips.slice(0, 5);
+  if (chips.length < 4) {
+    const ram = pick('Оперативная память');
+    if (ram) push('Память', ram.value, 'memory');
+  }
+  return chips;
 }
 
 const CATEGORY_SEO_SENTENCE =
