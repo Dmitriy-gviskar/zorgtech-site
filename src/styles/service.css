@@ -413,7 +413,7 @@
   width: 4.5rem;
   height: 4.5rem;
   border-radius: calc(var(--radius-tile) - 0.25rem);
-  background: linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
+  background: #ffffff;
   display: grid;
   place-items: center;
 }
@@ -531,9 +531,7 @@
 
 .area-card-media {
   aspect-ratio: 16 / 10;
-  background:
-    radial-gradient(ellipse 55% 40% at 50% 72%, rgba(42, 170, 221, 0.1), transparent 70%),
-    linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -640,8 +638,8 @@
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border-radius: var(--radius-tile);
   background:
-    radial-gradient(ellipse 60% 70% at 12% 20%, rgba(42, 170, 221, 0.16), transparent 60%),
-    linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
+    radial-gradient(ellipse 60% 70% at 12% 20%, rgba(42, 170, 221, 0.12), transparent 60%),
+    #ffffff;
   border: 1px solid rgba(42, 170, 221, 0.14);
 }
 

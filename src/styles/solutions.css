@@ -27,9 +27,7 @@
 .solution-card-media {
   position: relative;
   aspect-ratio: 16 / 10;
-  background:
-    radial-gradient(ellipse 55% 40% at 50% 72%, rgba(42, 170, 221, 0.1), transparent 70%),
-    linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
+  background: #ffffff;
   overflow: hidden;
 }
 

@@ -52,16 +52,15 @@
 .hero-stage-bg {
   position: absolute;
   inset: 0;
-  /* keep center pure white so studio PNG plate dissolves (no floating card) */
   background:
-    radial-gradient(ellipse 42% 38% at 50% 34%, rgba(42, 170, 221, 0.07), transparent 60%),
-    radial-gradient(ellipse 90% 70% at 50% 55%, #ffffff 0%, #ffffff 58%, #f5f6f7 100%);
+    radial-gradient(ellipse 42% 38% at 50% 34%, rgba(42, 170, 221, 0.06), transparent 60%),
+    #ffffff;
 }
 
 .hero--brand .hero-stage-bg {
   background:
-    radial-gradient(ellipse 50% 42% at 50% 42%, rgba(42, 170, 221, 0.12), transparent 62%),
-    radial-gradient(ellipse 85% 70% at 50% 50%, #ffffff 0%, #f7f8fa 55%, #eef1f4 100%);
+    radial-gradient(ellipse 50% 42% at 50% 42%, rgba(42, 170, 221, 0.1), transparent 62%),
+    #ffffff;
 }
 
 .hero-stage-product {
@@ -369,7 +368,7 @@
 }
 
 .chapter--soft {
-  background: #f3f5f7;
+  background: #ffffff;
   color: var(--ink);
 }
 
@@ -380,7 +379,7 @@
 
 .chapter--dark,
 .chapter--light {
-  background: #f3f5f7;
+  background: #ffffff;
   color: var(--ink);
 }
 
@@ -607,7 +606,7 @@
 
 .lines {
   padding: clamp(5rem, 10vw, 8rem) 0;
-  background: #f3f5f7;
+  background: #ffffff;
   border-bottom: 1px solid var(--line);
 }
 
@@ -714,8 +713,10 @@
   padding: 0 0.35rem;
   display: grid;
   justify-items: center;
+  align-content: start;
   text-align: center;
   gap: 0.3rem;
+  min-height: 5.5rem;
 }
 
 .line-tile-body h3 {
@@ -993,7 +994,7 @@
 }
 
 .cat-tile-media {
-  background: #eef1f4;
+  background: #ffffff;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -1110,7 +1111,7 @@
 .solution-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
-  background: #f0f2f5;
+  background: #ffffff;
 }
 
 .project-card:hover {
@@ -1119,7 +1120,7 @@
 
 .product-card-media {
   aspect-ratio: 1 / 1;
-  background: linear-gradient(180deg, #f7f8fa 0%, #eef1f4 100%);
+  background: #ffffff;
   display: grid;
   place-items: center;
 }
