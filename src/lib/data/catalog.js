@@ -96,18 +96,30 @@ const REGEN_FRAMES = {
   'diamant-32-f': [
     '/img/regen/diamant-32-f-frame-front.png',
     '/img/regen/diamant-32-f-frame-34.png',
+    '/img/regen/diamant-32-f-frame-side.png',
+    '/img/regen/diamant-32-f-frame-rear.png',
+    '/img/regen/diamant-32-f-frame-detail.png',
   ],
   'diamant-32-f-general': [
     '/img/regen/diamant-32-f-frame-front.png',
     '/img/regen/diamant-32-f-frame-34.png',
+    '/img/regen/diamant-32-f-frame-side.png',
+    '/img/regen/diamant-32-f-frame-rear.png',
+    '/img/regen/diamant-32-f-frame-detail.png',
   ],
   'diamant-32-f-key': [
     '/img/regen/diamant-32-f-key-frame-front.png',
     '/img/regen/diamant-32-f-key-frame-34.png',
+    '/img/regen/diamant-32-f-key-frame-side.png',
+    '/img/regen/diamant-32-f-key-frame-rear.png',
+    '/img/regen/diamant-32-f-key-frame-keyboard.png',
   ],
   'diamant-32-f-print': [
     '/img/regen/diamant-32-f-print-frame-front.png',
     '/img/regen/diamant-32-f-print-frame-34.png',
+    '/img/regen/diamant-32-f-print-frame-side.png',
+    '/img/regen/diamant-32-f-print-frame-rear.png',
+    '/img/regen/diamant-32-f-print-frame-print.png',
   ],
   'diamant-32-fe': [
     '/img/regen/diamant-32-fe-frame-front.png',
