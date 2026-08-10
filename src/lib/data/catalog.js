@@ -215,10 +215,14 @@ const REGEN_FRAMES = {
   'diamant-43-n': [
     '/img/regen/diamant-43-n-frame-front.png',
     '/img/regen/diamant-43-n-frame-34.png',
+    '/img/regen/diamant-43-n-frame-side.png',
+    '/img/regen/diamant-43-n-frame-rear.png',
   ],
   'diamant-43-w': [
     '/img/regen/diamant-43-w-frame-front.png',
     '/img/regen/diamant-43-w-frame-34.png',
+    '/img/regen/diamant-43-w-frame-side.png',
+    '/img/regen/diamant-43-w-frame-rear.png',
   ],
   'diamant-46-f-outdoor': [
     '/img/regen/diamant-46-f-outdoor-frame-front.png',
@@ -314,10 +318,13 @@ const REGEN_FRAMES = {
   'diamant-intercon': [
     '/img/regen/diamant-intercon-frame-front.png',
     '/img/regen/diamant-intercon-frame-34.png',
+    '/img/regen/diamant-intercon-frame-detail.png',
   ],
   'diamant-tmedical': [
     '/img/regen/diamant-tmedical-frame-front.png',
     '/img/regen/diamant-tmedical-frame-34.png',
+    '/img/regen/diamant-tmedical-frame-side.png',
+    '/img/regen/diamant-tmedical-frame-detail.png',
   ],
   'eco-kid-22': [
     '/img/regen/eco-kid-22-frame-front.png',
@@ -336,6 +343,9 @@ const REGEN_FRAMES = {
   'mono-19-f': [
     '/img/regen/mono-19-f-frame-front.png',
     '/img/regen/mono-19-f-frame-34.png',
+    '/img/regen/mono-19-f-frame-side.png',
+    '/img/regen/mono-19-f-frame-rear.png',
+    '/img/regen/mono-19-f-frame-detail.png',
   ],
   'mono-32-f': [
     '/img/regen/mono-32-f-frame-front.png',
