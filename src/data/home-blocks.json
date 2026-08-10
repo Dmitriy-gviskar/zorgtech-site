@@ -76,16 +76,16 @@
     "mediaAlt": "/img/pages/home_bdc506cecafde8b3f4f5a13bee0bad95-3936d551e983b029.jpg"
   },
   "museum": {
-    "kicker": "Готовые решения",
-    "title": "Готовое решение для музея",
-    "text": "Справочно-информационная система «Музейный гид», работающая на базе сенсорных киосков, предназначена для ознакомления посетителей с фондами и экспозициями.",
-    "usesLabel": "Что используется в решении:",
+    "kicker": "Музеи",
+    "title": "Музейный гид на киосках",
+    "text": "Справочно-информационная система «Музейный гид» на сенсорных киосках — чтобы посетители сами знакомились с фондами и экспозициями.",
+    "usesLabel": "В составе:",
     "uses": [
       { "label": "Интерактивный терминал Diamant 32 N", "to": "/product/diamant-32-n" },
       { "label": "ПО «Музейный Гид»", "to": "/solutions/muzeynyy-gid" }
     ],
-    "cta": { "to": "/solutions/muzeynyy-gid", "label": "Подробнее" },
-    "all": { "to": "/solutions", "label": "Все готовые решения" },
+    "cta": { "to": "/solutions/muzeynyy-gid", "label": "Смотреть решение" },
+    "all": { "to": "/solutions", "label": "Все решения" },
     "solutionSlug": "muzeynyy-gid",
     "productSlug": "diamant-32-n"
   },
