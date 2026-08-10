@@ -500,33 +500,38 @@ export function presentSpecGlance(specs) {
 
   // DJI-like glance: few bold values, short labels — only real scraped fields
   const chips = [];
+  const push = (label, value, icon) => {
+    if (!value) return;
+    chips.push({ label, value, icon });
+  };
   const diagonal = pick('Диагональ', 'Диагональ, дюйм');
   if (diagonal) {
     const n = diagonal.value.match(/\d+(?:[.,]\d+)?/);
-    chips.push({ label: 'Диагональ', value: n ? `${n[0]}″` : diagonal.value });
+    push('Диагональ', n ? `${n[0]}″` : diagonal.value, 'display');
   }
   const weight = pick('Вес, кг', 'Вес нетто, кг');
   if (weight) {
     const n = weight.value.match(/\d+(?:[.,]\d+)?/);
-    chips.push({ label: 'Вес', value: n ? `${n[0]} кг` : weight.value });
+    push('Вес', n ? `${n[0]} кг` : weight.value, 'weight');
   }
   const install = pick('Тип установки');
-  if (install) chips.push({ label: 'Установка', value: install.value });
-  const touch = pick('Количество одновременных касаний', 'Монитор');
+  if (install) push('Установка', install.value, 'install');
+  const touch = pick('Количество одновременных касаний');
   if (touch) {
     const n = touch.value.match(/\d+\+?/);
-    chips.push({
-      label: 'Касания',
-      value: n ? (/\+/.test(touch.value) || /от/i.test(touch.value) ? `от ${n[0]}` : n[0]) : touch.value,
-    });
+    push(
+      'Касания',
+      n ? (/\+/.test(touch.value) || /от/i.test(touch.value) ? `от ${n[0]}` : n[0]) : touch.value,
+      'touch',
+    );
   }
   const bright = pick('Яркость, кд/м 2', 'Яркость, кд/м²', 'Яркость');
   if (bright && chips.length < 5) {
     const n = bright.value.match(/\d+/);
-    chips.push({ label: 'Яркость', value: n ? `${n[0]} кд/м²` : bright.value });
+    push('Яркость', n ? `${n[0]} кд/м²` : bright.value, 'brightness');
   }
   const ram = pick('Оперативная память');
-  if (ram && chips.length < 5) chips.push({ label: 'Память', value: ram.value });
+  if (ram && chips.length < 5) push('Память', ram.value, 'memory');
   return chips.slice(0, 5);
 }
 

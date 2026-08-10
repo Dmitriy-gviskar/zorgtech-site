@@ -8,6 +8,7 @@ import {
   groupProductSpecs,
   presentSpecGlance,
 } from '../lib/data/catalog.js';
+import SpecIcon from '../components/SpecIcon';
 
 function SpecValue({ value }) {
   const v = String(value || '').trim();
@@ -166,6 +167,7 @@ export default function ProductPage() {
             <ul className="spec-glance">
               {glance.map((chip) => (
                 <li key={chip.label}>
+                  <SpecIcon name={chip.icon || chip.label} />
                   <strong>{chip.value}</strong>
                   <span>{chip.label}</span>
                 </li>
@@ -209,13 +211,15 @@ export default function ProductPage() {
                           <ul className="spec-metrics">
                             {rows.map((row) => {
                               const compact = String(row.value || '').length <= 28;
+                              const empty = /^(?:-|—)$/.test(String(row.value || '').trim());
                               return (
                                 <li
                                   key={row.key}
-                                  className={`spec-metric${compact ? ' spec-metric--compact' : ''}`}
+                                  className={`spec-metric${compact ? ' spec-metric--compact' : ''}${empty ? ' spec-metric--empty' : ''}`}
                                 >
+                                  <SpecIcon name={row.key} />
                                   <strong>
-                                    <SpecValue value={row.value} />
+                                    {empty ? '—' : <SpecValue value={row.value} />}
                                   </strong>
                                   <span>{row.key}</span>
                                 </li>
