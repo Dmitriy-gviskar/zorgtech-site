@@ -17,7 +17,6 @@ const LINE_LINKS = homeCatalog.lines || [];
 const POPULAR = homeCatalog.popular || [];
 const BLOG = homeCatalog.blog || [];
 const MUSEUM = homeCatalog.museum || null;
-const PROP_TARGETS = (homeBlocks.props || []).map((item) => item.target);
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -32,50 +31,6 @@ function modelsLabel(count) {
   if (mod10 === 1 && mod100 !== 11) return `${n} модель`;
   if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return `${n} модели`;
   return `${n} моделей`;
-}
-
-function scrollToHomeSection(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  if (typeof history !== 'undefined' && history.replaceState) {
-    history.replaceState(null, '', `#${id}`);
-  }
-}
-
-function useActivePropSection(targets) {
-  const [active, setActive] = useState(targets[0] || '');
-
-  useEffect(() => {
-    if (!targets.length) return undefined;
-    const elements = targets.map((id) => document.getElementById(id)).filter(Boolean);
-    if (!elements.length) return undefined;
-
-    const ratios = new Map();
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
-        }
-        let bestId = targets[0];
-        let best = -1;
-        for (const id of targets) {
-          const r = ratios.get(id) || 0;
-          if (r > best) {
-            best = r;
-            bestId = id;
-          }
-        }
-        if (best > 0) setActive(bestId);
-      },
-      { rootMargin: '-28% 0px -48% 0px', threshold: [0, 0.15, 0.35, 0.55, 0.75] },
-    );
-
-    for (const el of elements) io.observe(el);
-    return () => io.disconnect();
-  }, [targets]);
-
-  return active;
 }
 
 function StatValue({ value }) {
@@ -97,39 +52,9 @@ function StatValue({ value }) {
 }
 
 export default function HomePage() {
-  const activeProp = useActivePropSection(PROP_TARGETS);
-
   return (
     <div className="home">
       <HeroJourney />
-
-      <section className="home-props home-props--index" aria-label="Ключевые направления">
-        <div className="wrap">
-          <ul className="home-props-list">
-            {homeBlocks.props.map((item, i) => (
-              <li key={item.target}>
-                <a
-                  className={`home-prop${activeProp === item.target ? ' is-active' : ''}`}
-                  href={`#${item.target}`}
-                  aria-current={activeProp === item.target ? 'true' : undefined}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToHomeSection(item.target);
-                  }}
-                >
-                  <span className="home-prop-num" aria-hidden="true">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="home-prop-label">{item.label}</span>
-                  <span className="home-prop-cta" aria-hidden="true">
-                    Смотреть ↓
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       <section className="feature-strip">
         <div className="wrap feature-strip-inner">
