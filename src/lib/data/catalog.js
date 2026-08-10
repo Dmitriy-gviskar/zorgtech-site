@@ -185,6 +185,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-we-frame-front.png',
     '/img/regen/diamant-32-we-frame-34.png',
     '/img/regen/diamant-32-we-frame-side.png',
+    '/img/regen/diamant-32-we-frame-detail.png',
   ],
   'diamant-32-we-pay': [
     '/img/regen/diamant-32-we-pay-frame-front.png',
@@ -346,6 +347,7 @@ const REGEN_FRAMES = {
   'diamant-intercon': [
     '/img/regen/diamant-intercon-frame-front.png',
     '/img/regen/diamant-intercon-frame-34.png',
+    '/img/regen/diamant-intercon-frame-rear.png',
     '/img/regen/diamant-intercon-frame-detail.png',
   ],
   'diamant-tmedical': [
