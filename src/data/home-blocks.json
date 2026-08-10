@@ -115,9 +115,16 @@
     ]
   },
   "blog": {
-    "kicker": "Блог",
-    "title": "Материалы и новости",
-    "slugs": []
+    "kicker": "Материалы",
+    "title": "Кейсы и экспертиза",
+    "slugs": [
+      "dizayn-polzovatelskogo-interfeysa-dlya-kioskov",
+      "sensornye-kioski-diamant-n-multitouch-v-tsarskom-sele",
+      "kak-vybrat-sensornyy-kiosk"
+    ],
+    "covers": {
+      "kak-vybrat-sensornyy-kiosk": "/img/regen/diamant-32-fe-frame-front.png"
+    }
   },
   "popular": {
     "kicker": "Каталог",

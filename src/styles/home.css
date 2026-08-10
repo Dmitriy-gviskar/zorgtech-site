@@ -2076,7 +2076,7 @@
 .home-blog-media {
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #fff;
+  background: var(--bg-soft);
 }
 
 .home-blog-media img {
@@ -2084,6 +2084,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.home-blog-media img[src*='/regen/'] {
+  object-fit: contain;
+  padding: 0.85rem 1rem;
+  background: var(--bg-soft);
 }
 
 .home-blog-copy {

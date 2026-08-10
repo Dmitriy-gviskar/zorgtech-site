@@ -168,12 +168,10 @@ const blogSrc = JSON.parse(fs.readFileSync(path.join(dataDir, 'blog.json'), 'utf
 const blogBySlug = new Map(blogSrc.map((p) => [p.slug, p]));
 
 const HOME_BLOG_EXCERPTS = {
-  'varianty-blokirovki-dlya-kioskov-i-displeev':
-    'На современном рынке представлено множество замковых решений, включая как механические, так и электронные модели.',
-  'kak-obsluzhivat-kiosk-kotoryy-perestal-rabotat':
-    'Размещение киосков это только начало их пути. Поскольку они часто используются для самообслуживания, им периодически требуется техническое обслуживание, чтобы поддерживать',
-  'sotrudnichestvo-s-nadezhnoy-kompaniey-po-ustanovke-programm-dlya-kioskov-i-displeev':
-    'При организации киосков самообслуживания или программ для розничной торговли установка может включать множество участников, начиная от производителей оборудования',
+  'sensornye-kioski-diamant-n-multitouch-v-tsarskom-sele':
+    'В Государевой Ратной палате музея-заповедника «Царское Село» сенсорные киоски Diamant N Multitouch помогают посетителям глубже погрузиться в экспозицию «Россия в Великой войне».',
+  'kak-vybrat-sensornyy-kiosk':
+    'Важные факторы при выборе сенсорного киоска: опыт производства, наличие сертификатов и патентов, рекомендации и отзывы заказчиков.',
 };
 
 const homePopular = (homeBlocks.popular?.slugs || []).map((slug) => {
@@ -189,16 +187,29 @@ const homePopular = (homeBlocks.popular?.slugs || []).map((slug) => {
   };
 }).filter(Boolean);
 
+const homeBlogCovers = homeBlocks.blog?.covers || {};
+const scrubBlogExcerpt = (text) => {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t) return '';
+  if (/полезные статьи/i.test(t) || /читайте на сайте/i.test(t)) return '';
+  return t;
+};
 const homeBlog = (homeBlocks.blog?.slugs || []).map((slug) => {
   const post = blogBySlug.get(slug);
   if (!post) return null;
   const image =
-    (post.images || []).find((src) => src && !/OG_logo_zorgtech/i.test(src)) || null;
+    homeBlogCovers[slug] ||
+    (post.images || []).find((src) => src && !/OG_logo_zorgtech/i.test(src)) ||
+    null;
   return {
     slug: post.slug,
     title: post.title,
     date: post.date || '',
-    excerpt: HOME_BLOG_EXCERPTS[slug] || post.lead || post.meta?.description || '',
+    excerpt:
+      scrubBlogExcerpt(HOME_BLOG_EXCERPTS[slug]) ||
+      scrubBlogExcerpt(post.lead) ||
+      scrubBlogExcerpt(post.meta?.description) ||
+      '',
     image,
     href: post.sourceUrl || `https://zorgtech.com/blog/${post.slug}/`,
   };

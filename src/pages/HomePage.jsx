@@ -14,6 +14,7 @@ import projectTeasers from '../data/project-teasers.json';
 const TOP_PRODUCTS = homeCatalog.topProducts || [];
 const LINE_LINKS = homeCatalog.lines || [];
 const POPULAR = homeCatalog.popular || [];
+const BLOG = homeCatalog.blog || [];
 const MUSEUM = homeCatalog.museum || null;
 
 function clip(text, max = 110) {
@@ -398,6 +399,37 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {BLOG.length ? (
+        <section className="home-blog">
+          <div className="wrap">
+            <RevealTitle kicker={homeBlocks.blog.kicker} title={homeBlocks.blog.title} />
+            <div className="home-blog-grid">
+              {BLOG.map((post, i) => (
+                <Reveal key={post.slug} delay={Math.min(i, 2) * 0.05}>
+                  <a
+                    className="home-blog-card"
+                    href={post.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {post.image ? (
+                      <div className="home-blog-media" aria-hidden="true">
+                        <img src={assetUrl(post.image)} alt="" loading="lazy" />
+                      </div>
+                    ) : null}
+                    <div className="home-blog-copy">
+                      {post.date ? <time>{post.date}</time> : null}
+                      <h3>{post.title}</h3>
+                      {post.excerpt ? <p>{clip(post.excerpt, 140)}</p> : null}
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="home-begin">
         <div className="wrap">
