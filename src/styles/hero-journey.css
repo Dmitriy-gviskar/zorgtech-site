@@ -3,7 +3,7 @@
    оборудование / ПО) -> карточки рассыпаются в пыль -> пыль собирает
    ZORGTECH -> рассвет в белый канон. Управляется нативным скроллом. */
 
-.hj-scroller { height: 580vh; position: relative; }
+.hj-scroller { height: 760vh; position: relative; }
 
 .hj-stage {
   position: sticky; top: 0; height: 100vh; width: 100%;
@@ -76,7 +76,7 @@ html[data-hj-dark] .top { opacity: 0; pointer-events: none; }
 
 .hj-card {
   position: absolute; left: 0; top: 0;
-  width: clamp(380px, 46vw, 680px); aspect-ratio: 4 / 3;
+  width: clamp(340px, 40vw, 560px); aspect-ratio: 4 / 3;
   border-radius: 16px; overflow: hidden; opacity: 0;
   will-change: transform, opacity, filter;
   background: #0a141b; border: 1px solid rgba(79, 199, 238, 0.28);

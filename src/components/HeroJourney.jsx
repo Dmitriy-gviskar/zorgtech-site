@@ -6,7 +6,7 @@ const jimg = (f) => `${BASE}img/journey/${f}`;
 
 const GROUPS_DEF = [
   {
-    win: [0.3, 0.5],
+    win: [0.26, 0.48],
     kicker: 'в деле · по всей России',
     title: 'Проекты',
     items: [
@@ -19,7 +19,7 @@ const GROUPS_DEF = [
     ],
   },
   {
-    win: [0.5, 0.68],
+    win: [0.48, 0.7],
     kicker: 'собственное производство',
     title: 'Оборудование',
     items: [
@@ -31,7 +31,7 @@ const GROUPS_DEF = [
     ],
   },
   {
-    win: [0.68, 0.83],
+    win: [0.7, 0.86],
     kicker: 'собственная разработка',
     title: 'Программные решения',
     items: [
@@ -209,15 +209,17 @@ export default function HeroJourney() {
     const fixedP = debugP();
 
     function spiralPose(u, cx, cy) {
-      const maxR = Math.min(W, H) * 0.62;
-      const th = -Math.PI / 2 + u * Math.PI * 2 * 1.35;
-      const R = mix(maxR, 26, Math.pow(u, 0.85));
+      // Wider orbit + sharper focus: ~1–2 cards readable, rest soft depth
+      const maxR = Math.min(W, H) * 0.78;
+      const th = -Math.PI / 2 + u * Math.PI * 2 * 1.05;
+      const R = mix(maxR, 48, Math.pow(u, 0.9));
+      const focus = Math.exp(-(((u - 0.58) / 0.16) ** 2));
       return {
-        x: cx + Math.cos(th) * R * 1.28,
-        y: cy + Math.sin(th) * R * 0.72,
-        s: 0.32 + Math.pow(u, 1.5) * 1.12,
-        o: Math.pow(Math.sin(u * Math.PI), 1.2) * (1 - seg(u, 0.8, 0.96)),
-        b: (1 - u) * 2.2 + Math.max(0, u - 0.88) * 8,
+        x: cx + Math.cos(th) * R * 1.35,
+        y: cy + Math.sin(th) * R * 0.78,
+        s: 0.2 + Math.pow(u, 1.65) * 0.82,
+        o: focus * (1 - seg(u, 0.82, 0.96)),
+        b: (1 - focus) * 5.5 + Math.max(0, u - 0.86) * 10,
         th,
       };
     }
@@ -246,8 +248,8 @@ export default function HeroJourney() {
         const rect = scroller.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
         p = clamp(total > 0 ? -rect.top / total : 0);
-        pSmooth += (p - pSmooth) * 0.16;
-        if (Math.abs(p - pSmooth) < 0.0004) pSmooth = p;
+        pSmooth += (p - pSmooth) * 0.09;
+        if (Math.abs(p - pSmooth) < 0.0003) pSmooth = p;
         p = pSmooth;
         if (p >= 0.985) {
           completed = true;
@@ -262,8 +264,8 @@ export default function HeroJourney() {
 
       const pIntro = seg(p, 0.02, 0.12);
       const pZoom = seg(p, 0.12, 0.3);
-      const gv = eInOut(seg(p, 0.26, 0.38));
-      const conv = seg(p, 0.8, 0.95);
+      const gv = eInOut(seg(p, 0.22, 0.34));
+      const conv = seg(p, 0.84, 0.96);
       const rev = eExpo(seg(p, 0.9, 1));
 
       const dark = eInOut(seg(p, 0.15, 0.28));
@@ -286,27 +288,28 @@ export default function HeroJourney() {
 
       gutsEl.style.opacity = (gv * (1 - eInOut(seg(p, 0.96, 1)))).toFixed(3);
 
-      const par2 = 16;
+      const par2 = 12;
       groups.forEach((g) => {
         const gp = seg(p, g.win[0], g.win[1]);
-        const vis = Math.min(seg(gp, 0, 0.1), 1 - seg(gp, 0.9, 1));
+        const vis = Math.min(seg(gp, 0, 0.14), 1 - seg(gp, 0.86, 1));
         g.titleEl.style.opacity = (vis * gv).toFixed(3);
         g.titleEl.style.transform = `translateX(-50%) translateY(${(1 - vis) * 12}px)`;
         const n = g.els.length;
         g.els.forEach((el, i) => {
-          const u = (Math.min(gp, 0.999) * 1.25 + i / n) % 1;
+          // Slow orbit: less than one turn per group window
+          const u = (Math.min(gp, 0.999) * 0.52 + i / n) % 1;
           const q = spiralPose(u, cx, cy);
-          const px = q.x + mx * par2 * (0.4 + u);
-          const py = q.y + my * par2 * (0.4 + u);
+          const px = q.x + mx * par2 * (0.35 + u);
+          const py = q.y + my * par2 * (0.35 + u);
           if (gp > 0) g.poses[i] = { x: px, y: py, s: q.s };
-          if (gp <= 0 || gp >= 1 || vis <= 0.001) {
+          if (gp <= 0 || gp >= 1 || vis <= 0.001 || q.o < 0.04) {
             el.style.opacity = '0';
             el.style.transform = 'translate(-200vw,0)';
             return;
           }
           el.style.opacity = (q.o * vis * gv).toFixed(3);
           el.style.filter = `blur(${q.b.toFixed(1)}px)`;
-          el.style.zIndex = (u * 100) | 0;
+          el.style.zIndex = String(10 + ((u * 100) | 0));
           el.style.transform = `translate(${px.toFixed(1)}px,${py.toFixed(1)}px) translate(-50%,-50%) scale(${q.s.toFixed(3)}) rotate(${(Math.sin(q.th) * 3).toFixed(2)}deg)`;
         });
       });
@@ -315,7 +318,7 @@ export default function HeroJourney() {
       if (gv > 0.002) {
         const logoScale = Math.min(W * 0.86, 1000) / 1000;
         const par = 28;
-        const dustA = eInOut(seg(p, 0.78, 0.86));
+        const dustA = eInOut(seg(p, 0.82, 0.9));
         const cardW = burst.els[0].offsetWidth || 280;
 
         if (dustA > 0.002) {
