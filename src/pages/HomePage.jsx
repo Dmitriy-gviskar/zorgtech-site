@@ -372,8 +372,8 @@ export default function HomePage() {
       </section>
 
       <section className="design-lab" id="design-lab">
-        <div className="wrap design-lab-inner">
-          <Reveal>
+        <div className="design-lab-inner">
+          <Reveal className="design-lab-copy-wrap">
             <div className="design-lab-copy">
               <RevealTitle
                 kicker="Конструкторское бюро"
@@ -391,7 +391,7 @@ export default function HomePage() {
               <p className="design-lab-hint">Тяните линию: влево — стол, вправо — чертёж</p>
             </div>
           </Reveal>
-          <Reveal delay={0.08}>
+          <Reveal className="design-lab-media" delay={0.08}>
             <DesignCompare />
           </Reveal>
         </div>

@@ -503,22 +503,36 @@
   display: inline-block;
 }
 
-/* Industrial design compare — text + drag slider (wire ↔ kiosk) */
+/* Industrial design compare — same split rhythm as home chapters */
 .design-lab {
-  padding: clamp(4.5rem, 9vw, 7rem) 0;
+  padding: 0;
   background: #ffffff;
   border-top: 1px solid var(--line);
 }
 
 .design-lab-inner {
   display: grid;
-  grid-template-columns: minmax(16rem, 0.95fr) minmax(0, 1.15fr);
-  gap: clamp(1.75rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(17rem, 0.7fr) minmax(0, 1.45fr);
   align-items: center;
+  min-height: min(88vh, 820px);
+  gap: 0;
+}
+
+.design-lab-copy-wrap {
+  min-width: 0;
 }
 
 .design-lab-copy {
-  max-width: 30rem;
+  max-width: 28rem;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.25rem);
+}
+
+.design-lab-media {
+  min-width: 0;
+  min-height: min(88vh, 820px);
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 3.5vw, 2.75rem);
 }
 
 .design-lab-mini {
@@ -2250,6 +2264,22 @@
   }
 
   .chapter--home .chapter-copy {
+    max-width: none;
+    padding: 2.25rem 1.25rem 3rem;
+  }
+
+  .design-lab-inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .design-lab-media {
+    order: -1;
+    min-height: 48vh;
+    padding: 2rem 1.25rem;
+  }
+
+  .design-lab-copy {
     max-width: none;
     padding: 2.25rem 1.25rem 3rem;
   }
