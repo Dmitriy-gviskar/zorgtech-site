@@ -117,11 +117,7 @@
   "blog": {
     "kicker": "Блог",
     "title": "Материалы и новости",
-    "slugs": [
-      "varianty-blokirovki-dlya-kioskov-i-displeev",
-      "kak-obsluzhivat-kiosk-kotoryy-perestal-rabotat",
-      "sotrudnichestvo-s-nadezhnoy-kompaniey-po-ustanovke-programm-dlya-kioskov-i-displeev"
-    ]
+    "slugs": []
   },
   "popular": {
     "kicker": "Каталог",
