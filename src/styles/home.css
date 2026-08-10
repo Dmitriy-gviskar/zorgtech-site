@@ -218,7 +218,7 @@
 /* DJI-style featured product cards — title inside, juicy product + shadow */
 .feature-strip {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
-  background: #f3f5f7;
+  background: #ffffff;
 }
 
 .feature-strip-inner {
@@ -264,9 +264,12 @@
   z-index: 2;
   display: grid;
   justify-items: center;
+  align-content: start;
   text-align: center;
   gap: 0.35rem;
   padding: 0 0.5rem;
+  /* keep media plates on one horizontal line across the row */
+  min-height: 12.5rem;
 }
 
 .feature-card-kicker {
@@ -326,9 +329,8 @@
   padding: 0.75rem 1.25rem 0.25rem;
   pointer-events: none;
   border-radius: calc(var(--radius-tile) - 0.45rem);
-  background:
-    radial-gradient(ellipse 55% 40% at 50% 72%, rgba(42, 170, 221, 0.07), transparent 70%),
-    linear-gradient(180deg, #fafbfc 0%, #f1f3f5 100%);
+  /* white — matches studio PNG plate; no grey “inset card” */
+  background: #ffffff;
 }
 
 .feature-card-media img {
@@ -841,9 +843,7 @@
 .home-cta {
   position: relative;
   padding: clamp(5.5rem, 11vw, 9rem) 0;
-  background:
-    radial-gradient(ellipse 50% 60% at 50% 0%, rgba(42, 170, 221, 0.08), transparent 60%),
-    #f3f5f7;
+  background: #ffffff;
   border-top: 1px solid var(--line);
   overflow: hidden;
 }
@@ -871,7 +871,8 @@
 
 .home-cta-title {
   margin-top: 1rem;
-  max-width: 28rem;
+  max-width: 34rem;
+  text-wrap: balance;
 }
 
 .home-cta-lead {

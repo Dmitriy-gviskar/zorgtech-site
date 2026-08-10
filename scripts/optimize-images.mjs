@@ -75,7 +75,13 @@ function convertOne(srcAbs) {
 
   const studio = isStudioPath(rel);
   const size = fs.statSync(srcAbs).size;
-  if (!studio && size < MIN_BYTES_OTHER) return null;
+  // Solutions covers/gallery sit under 300KB — still worth WebP. Skip only tiny icons.
+  const minBytes = studio
+    ? 0
+    : rel.startsWith('img/solutions/')
+      ? 12 * 1024
+      : MIN_BYTES_OTHER;
+  if (size < minBytes) return null;
 
   const outAbs = srcAbs.replace(/\.(png|jpe?g)$/i, '.webp');
   const quality = studio ? 92 : 85;
@@ -104,8 +110,16 @@ function convertOne(srcAbs) {
   }
 
   if (!fs.existsSync(outAbs)) return null;
-  const webRel = `/${rel.replace(/\.(png|jpe?g)$/i, '.webp')}`;
   const after = fs.statSync(outAbs).size;
+  // Keep original when WebP is not smaller (common for already-tight JPEGs).
+  if (after >= size) {
+    fs.unlinkSync(outAbs);
+    console.log(
+      `skip   ${(size / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB (not smaller)  ${rel}`,
+    );
+    return null;
+  }
+  const webRel = `/${rel.replace(/\.(png|jpe?g)$/i, '.webp')}`;
   console.log(
     `${studio ? 'studio' : 'asset '} ${(size / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB  q=${quality}${
       width > maxEdge ? ` resize≤${maxEdge}` : ''
