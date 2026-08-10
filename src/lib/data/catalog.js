@@ -27,6 +27,9 @@ const REGEN_FRAMES = {
   'apriori-19-keyboard': [
     '/img/regen/apriori-19-keyboard-frame-front.png',
     '/img/regen/apriori-19-keyboard-frame-34.png',
+    '/img/regen/apriori-19-keyboard-frame-side.png',
+    '/img/regen/apriori-19-keyboard-frame-rear.png',
+    '/img/regen/apriori-19-keyboard-frame-keyboard.png',
   ],
   'apriori-19-print': [
     '/img/regen/apriori-19-print-frame-front.png',
@@ -35,6 +38,9 @@ const REGEN_FRAMES = {
   'apriori-19-print-a4': [
     '/img/regen/apriori-19-print-frame-front.png',
     '/img/regen/apriori-19-print-frame-34.png',
+    '/img/regen/apriori-19-print-a4-frame-side.png',
+    '/img/regen/apriori-19-print-a4-frame-rear.png',
+    '/img/regen/apriori-19-print-a4-frame-print.png',
   ],
   'interaktivnyy-kiosk-apriori-19-print': [
     '/img/regen/apriori-19-print-frame-front.png',
