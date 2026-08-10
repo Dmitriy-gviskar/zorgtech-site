@@ -437,6 +437,7 @@ export default function HeroJourney() {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(pinRaf);
       clearTimeout(pinTimer);
+      removeEventListener('pageshow', onPageShow);
       removeEventListener('resize', resize);
       removeEventListener('pointermove', onPointer);
       document.documentElement.removeAttribute('data-hj-dark');
