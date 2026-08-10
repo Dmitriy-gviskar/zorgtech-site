@@ -1,0 +1,161 @@
+/* ===== Hero Journey — кинематографичный первый экран главной =====
+   Студия -> влёт в экран киоска -> спиральные карусели (проекты /
+   оборудование / ПО) -> карточки рассыпаются в пыль -> пыль собирает
+   ZORGTECH -> рассвет в белый канон. Управляется нативным скроллом. */
+
+.hj-scroller { height: 580vh; position: relative; }
+
+.hj-stage {
+  position: sticky; top: 0; height: 100vh; width: 100%;
+  overflow: hidden; background: #f5f6f8;
+}
+
+/* шапка сайта уходит на тёмной части путешествия */
+.top { transition: opacity 0.45s ease; }
+html[data-hj-dark] .top { opacity: 0; pointer-events: none; }
+
+/* ---------- акт 1: студия ---------- */
+.hj-world {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.hj-floor {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 26%;
+  background: linear-gradient(180deg, rgba(238, 240, 243, 0), #e9ecef 60%, #e2e6ea 100%);
+}
+.hj-floor::before {
+  content: ''; position: absolute; top: 24%; left: 18%; right: 18%; height: 1px;
+  background: linear-gradient(90deg, transparent, #ccd3da 20%, #ccd3da 80%, transparent);
+}
+.hj-kiosk {
+  position: relative; will-change: transform, filter;
+  transform-origin: 45.2% 31.4%;
+  mix-blend-mode: multiply; /* белый фон кадра растворяется в сцене */
+}
+.hj-kiosk img { height: 80vh; display: block; }
+.hj-screen-mask {
+  position: absolute; left: 20.2%; top: 6.9%; width: 50.1%; height: 49.1%;
+  background: radial-gradient(130% 130% at 50% 42%, rgba(5, 8, 11, 0) 0%, #05080b 74%);
+  border-radius: 4px; opacity: 0;
+}
+
+/* ---------- подсказка-свайп ---------- */
+.hj-hint {
+  position: absolute; left: 50%; bottom: 10vh; transform: translateX(-50%);
+  text-align: center; color: #7d8894; font-size: 14px;
+  letter-spacing: 0.04em; font-weight: 500; z-index: 4;
+}
+.hj-gesture { position: relative; width: 44px; height: 64px; margin: 0 auto 8px; }
+.hj-chev {
+  position: absolute; left: 50%; top: 0; width: 14px; height: 14px; opacity: 0;
+  border-left: 2px solid #9aa3ad; border-top: 2px solid #9aa3ad;
+  transform: translateX(-50%) rotate(45deg);
+  animation: hj-chev-up 1.7s ease-out infinite;
+}
+.hj-chev--2 { animation-delay: 0.25s; }
+@keyframes hj-chev-up {
+  0%, 20% { opacity: 0; transform: translateX(-50%) translateY(14px) rotate(45deg); }
+  45% { opacity: 0.9; }
+  80%, 100% { opacity: 0; transform: translateX(-50%) translateY(-6px) rotate(45deg); }
+}
+.hj-hand {
+  position: absolute; left: 50%; bottom: 0; width: 30px; height: 34px; margin-left: -15px;
+  animation: hj-swipe-up 1.7s ease-in-out infinite;
+}
+.hj-hand svg {
+  width: 100%; height: 100%; stroke: #8a939c; fill: none;
+  stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+@keyframes hj-swipe-up {
+  0%, 12% { transform: translateY(6px); opacity: 0; }
+  28% { opacity: 1; }
+  62% { transform: translateY(-16px); opacity: 1; }
+  88%, 100% { transform: translateY(-22px); opacity: 0; }
+}
+
+/* ---------- тёмный космос: канвас + карусели ---------- */
+.hj-guts { position: absolute; inset: 0; opacity: 0; }
+.hj-guts canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hj-cards { position: absolute; inset: 0; pointer-events: none; }
+
+.hj-card {
+  position: absolute; left: 0; top: 0;
+  width: clamp(280px, 33vw, 470px); aspect-ratio: 4 / 3;
+  border-radius: 14px; overflow: hidden; opacity: 0;
+  will-change: transform, opacity, filter;
+  background: #0a141b; border: 1px solid rgba(79, 199, 238, 0.28);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 0 0 24px rgba(42, 170, 221, 0.12);
+}
+.hj-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hj-card--lite { background: #f4f7f9; }
+.hj-card--lite img { object-fit: contain; padding: 6%; }
+.hj-cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.8rem 1.1rem 0.75rem;
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; color: #eaf7fd;
+  background: linear-gradient(180deg, rgba(5, 10, 14, 0), rgba(5, 10, 14, 0.82));
+}
+.hj-card--lite .hj-cap {
+  color: #22323c;
+  background: linear-gradient(180deg, rgba(244, 247, 249, 0), rgba(233, 239, 243, 0.92));
+}
+
+.hj-gtitle {
+  position: absolute; left: 50%; top: 9vh; transform: translateX(-50%);
+  text-align: center; opacity: 0; white-space: nowrap; z-index: 6;
+}
+.hj-gtitle-k {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em;
+  text-transform: uppercase; color: #4fc7ee;
+}
+.hj-gtitle-t {
+  margin-top: 0.35rem; font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 800; letter-spacing: -0.01em; color: #f0fbff;
+  text-shadow: 0 0 26px rgba(42, 170, 221, 0.35);
+}
+
+/* ---------- финал: слово + канон ---------- */
+.hj-final {
+  position: absolute; inset: 0; opacity: 0; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1rem; text-align: center; z-index: 8;
+}
+.hj-word {
+  margin: 0; font-size: min(9.6vw, 138px); font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1; color: #f0fbff;
+}
+.hj-word span { color: var(--cyan, #2aaadd); }
+.hj-kicker {
+  margin: 0; font-size: min(2.2vw, 15px); font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase; padding-left: 0.32em;
+}
+.hj-lead { margin: 0; font-size: clamp(1rem, 1.6vw, 1.2rem); font-weight: 500; }
+.hj-cta { display: flex; gap: 0.7rem; margin-top: 0.6rem; flex-wrap: wrap; justify-content: center; }
+
+/* ---------- постобработка ---------- */
+.hj-grain {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.hj-vig {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  box-shadow: inset 0 0 240px rgba(0, 0, 0, 0.72);
+}
+
+@media (max-width: 720px) {
+  .hj-kiosk img { height: 64vh; }
+  .hj-card { width: clamp(220px, 62vw, 320px); }
+  .hj-cap { font-size: 0.85rem; }
+  .hj-hint { font-size: 12px; }
+}
+
+/* без анимаций: сразу белый канонический хиро */
+@media (prefers-reduced-motion: reduce) {
+  .hj-scroller { height: 100vh; }
+  .hj-world, .hj-guts, .hj-hint, .hj-grain, .hj-vig { display: none; }
+  .hj-stage { background: #fff; }
+  .hj-final { opacity: 1 !important; pointer-events: auto !important; }
+  .hj-word { color: #0a0a0a !important; }
+  .hj-kicker { color: #1a8fb8 !important; }
+  .hj-lead { color: #3a3a3a !important; }
+}

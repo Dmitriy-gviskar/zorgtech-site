@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { animate, motion, useInView, useScroll, useTransform } from 'motion/react';
+import { animate, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import RevealTitle from '../components/RevealTitle';
 import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
+import HeroJourney from '../components/HeroJourney';
 import { assetUrl } from '../lib/data/asset.js';
 import homeCatalog from '../data/home-catalog.json';
 import homeBlocks from '../data/home-blocks.json';
@@ -96,85 +97,11 @@ function StatValue({ value }) {
 }
 
 export default function HomePage() {
-  const heroRef = useRef(null);
   const activeProp = useActivePropSection(PROP_TARGETS);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '8%']);
-  const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
-  const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
 
   return (
     <div className="home">
-      <section className="hero hero--studio hero--brand" ref={heroRef}>
-        <motion.div className="hero-stage" style={{ y: mediaY, scale: mediaScale }} aria-hidden="true">
-          <div className="hero-stage-bg" />
-          <div className="hero-stage-veil" />
-        </motion.div>
-
-        <motion.div className="hero-copy" style={{ opacity: copyOpacity }}>
-          <motion.div
-            className="hero-brand-line"
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 1.35, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-            aria-hidden="true"
-          />
-          <h1 className="hero-brand" aria-label="Zorgtech">
-            {'ZORGTECH'.split('').map((ch, i) => (
-              <motion.span
-                key={`${ch}-${i}`}
-                className="hero-brand-letter"
-                initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{
-                  duration: 1.25,
-                  ease: [0.22, 1, 0.36, 1],
-                  delay: 0.45 + i * 0.12,
-                }}
-              >
-                {ch}
-              </motion.span>
-            ))}
-          </h1>
-          <motion.p
-            className="hero-company"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 1.7 }}
-          >
-            Российский производитель
-          </motion.p>
-          <motion.p
-            className="hero-lead"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1], delay: 2.0 }}
-          >
-            Интерактивное оборудование полного цикла
-          </motion.p>
-          <motion.div
-            className="hero-actions"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1], delay: 2.35 }}
-          >
-            <Link className="btn primary btn--lg" to="/catalog">
-              В каталог →
-            </Link>
-            <Link className="btn secondary btn--lg" to="/contacts">
-              Обсудить задачу
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        <div className="hero-scroll" aria-hidden="true">
-          <span>Scroll</span>
-          <i />
-        </div>
-      </section>
+      <HeroJourney />
 
       <section className="home-props home-props--index" aria-label="Ключевые направления">
         <div className="wrap">
