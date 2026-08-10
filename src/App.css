@@ -1,6 +1,5 @@
 /* App styles — split modules; edit files under src/styles/ */
 @import './styles/shell.css';
-@import './styles/hero-journey.css';
 @import './styles/home.css';
 @import './styles/catalog.css';
 @import './styles/lists.css';

@@ -1,10 +1,54 @@
 /* styles/home.css — extracted from App.css; edit here */
 /* HOME — DJI product chapters + Zorg cyan */
 .home,
-.hero,
 .wrap,
 .page {
   overflow-x: clip;
+}
+
+/* HOME HERO — the journey's final frame, now the opening act */
+.home-hero {
+  display: grid;
+  align-content: center;
+  min-height: min(88vh, 780px);
+  padding: var(--space-act) 0;
+  background: #ffffff;
+  text-align: center;
+}
+
+.home-hero-word {
+  margin: 0;
+  font-size: clamp(3.4rem, 12vw, 8.75rem);
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+
+.home-hero-word span {
+  color: var(--cyan);
+}
+
+.home-hero-kicker {
+  margin: 1.4rem 0 0;
+  font-size: var(--text-kicker);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.home-hero-lead {
+  margin: 0.85rem 0 0;
+  font-size: var(--text-subtitle);
+  color: var(--ink-soft);
+}
+
+.home-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
 }
 
 .home-sec-head {
@@ -21,197 +65,12 @@
   letter-spacing: var(--track-display);
 }
 
-.hero {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  place-items: end center;
-  overflow: hidden;
-  color: var(--ink);
-  background: #ffffff;
-  text-align: center;
-}
-
-.hero--studio {
-  background: #ffffff;
-}
-
-.hero--brand {
-  place-items: center;
-}
-
-.hero-stage {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-  display: grid;
-  place-items: center;
-  isolation: isolate;
-}
-
-.hero-stage-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 42% 38% at 50% 34%, rgba(42, 170, 221, 0.06), transparent 60%),
-    #ffffff;
-}
-
-.hero--brand .hero-stage-bg {
-  background:
-    radial-gradient(ellipse 50% 42% at 50% 42%, rgba(42, 170, 221, 0.1), transparent 62%),
-    #ffffff;
-}
-
-.hero-stage-product {
-  position: relative;
-  z-index: 1;
-  width: min(72vw, 560px);
-  height: min(66vh, 680px);
-  max-height: 66dvh;
-  object-fit: contain;
-  object-position: center center;
-  transform: translateY(-8%);
-}
-
-.hero-stage-veil {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 18%, transparent 46%, rgba(255, 255, 255, 0.82) 74%, #ffffff 100%);
-}
-
-.hero--brand .hero-stage-veil {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 28%, transparent 70%, rgba(255, 255, 255, 0.55) 100%);
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 3;
-  width: min(40rem, calc(100% - 2rem));
-  margin: 0 auto;
-  padding: 0 0 4.25rem;
-  display: grid;
-  justify-items: center;
-}
-
-.hero--brand .hero-copy {
-  padding: 0;
-}
-
-.hero-brand-line {
-  width: 3.2rem;
-  height: 2px;
-  margin: 0 0 1.1rem;
-  background: var(--cyan);
-  transform-origin: center;
-  border-radius: 999px;
-}
-
-.hero-brand {
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.02em;
-  font-size: var(--text-hero);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
-  color: var(--ink);
-  text-transform: uppercase;
-}
-
-.hero-brand-letter {
-  display: inline-block;
-  will-change: transform, opacity, filter;
-}
-
-.hero-company {
-  margin: 0.7rem 0 0;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cyan-deep, #1a8bb8);
-}
-
-.hero-product-name {
-  margin: 0.4rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--ink);
-  text-transform: none;
-}
-
-.hero-lead {
-  margin: 0.55rem 0 0;
-  max-width: 26rem;
-  color: var(--ink-soft);
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-  font-weight: 400;
-  line-height: 1.45;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-brand-letter,
-  .hero-brand-line,
-  .hero-company,
-  .hero-lead,
-  .hero-actions,
-  .hero-stage-product {
-    animation: none !important;
-    transition: none !important;
-    filter: none !important;
-  }
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.7rem;
   margin-top: 1.65rem;
-}
-
-.hero-scroll {
-  position: absolute;
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: 1.6rem;
-  z-index: 4;
-  display: grid;
-  justify-items: center;
-  gap: 0.55rem;
-  color: var(--muted);
-  pointer-events: none;
-}
-
-.hero-scroll span {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.hero-scroll i {
-  display: block;
-  width: 1px;
-  height: 2.4rem;
-  background: linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.35));
-  transform-origin: top;
-  animation: scrollLine 2.2s var(--ease-out) infinite;
 }
 
 /* DJI-style featured product cards — title inside, juicy product + shadow */
@@ -1444,11 +1303,6 @@
 .foot .muted {
   color: rgba(255, 255, 255, 0.45);
   margin: 0;
-}
-
-/* Home brand hero: don't show desktop "Scroll" cue on brand-only composition */
-.hero--brand .hero-scroll {
-  display: none;
 }
 
 /* —— Restored home blocks from zorgtech.com —— */

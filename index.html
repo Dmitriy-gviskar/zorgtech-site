@@ -7,19 +7,6 @@
     <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zorgtech — интерактивное оборудование</title>
-    <script>
-      // Prevent browser scroll restoration before React mounts (hero journey must start at terminal).
-      (function () {
-        try {
-          if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-          var h = location.hash;
-          if (!h || h === '#' || h === '#top') {
-            scrollTo(0, 0);
-            if (document.documentElement) document.documentElement.scrollTop = 0;
-          }
-        } catch (e) {}
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

@@ -6,7 +6,6 @@ import RevealTitle from '../components/RevealTitle';
 import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
-import HeroJourney from '../components/HeroJourney';
 import { assetUrl } from '../lib/data/asset.js';
 import homeCatalog from '../data/home-catalog.json';
 import homeBlocks from '../data/home-blocks.json';
@@ -54,7 +53,23 @@ function StatValue({ value }) {
 export default function HomePage() {
   return (
     <div className="home">
-      <HeroJourney />
+      <section className="home-hero" aria-label="Zorgtech — интерактивное оборудование">
+        <div className="wrap">
+          <h1 className="home-hero-word">
+            ZORG<span>TECH</span>
+          </h1>
+          <p className="home-hero-kicker">российский производитель</p>
+          <p className="home-hero-lead">Интерактивное оборудование полного цикла</p>
+          <div className="home-hero-cta">
+            <Link className="btn primary btn--lg" to="/catalog">
+              В каталог →
+            </Link>
+            <Link className="btn secondary btn--lg" to="/contacts">
+              Обсудить задачу
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="feature-strip">
         <div className="wrap feature-strip-inner">

@@ -35,6 +35,7 @@ export default function Layout() {
 
   useEffect(() => {
     if (mobileNavRef.current) mobileNavRef.current.open = false;
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
