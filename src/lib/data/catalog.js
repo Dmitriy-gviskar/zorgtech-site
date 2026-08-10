@@ -13,14 +13,20 @@ const REGEN_FRAMES = {
   'beskontaktnyy-dezinfektor-agat-5': [
     '/img/regen/agat-5-frame-front.png',
     '/img/regen/agat-5-frame-34.png',
+    '/img/regen/agat-5-frame-side.png',
+    '/img/regen/agat-5-frame-detail.png',
   ],
   'beskontaktnyy-dezinfektor-agat-7': [
     '/img/regen/agat-7-frame-front.png',
     '/img/regen/agat-7-frame-34.png',
+    '/img/regen/agat-7-frame-side.png',
+    '/img/regen/agat-7-frame-detail.png',
   ],
   'beskontaktnyy-dezinfektor-agat-9': [
     '/img/regen/agat-9-frame-front.png',
     '/img/regen/agat-9-frame-34.png',
+    '/img/regen/agat-9-frame-side.png',
+    '/img/regen/agat-9-frame-detail.png',
   ],
   apriori: [
     '/img/regen/apriori-19-frame-front.png',
@@ -313,8 +319,20 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-tmedical-frame-front.png',
     '/img/regen/diamant-tmedical-frame-34.png',
   ],
-  'eco-kid-22': ['/img/regen/eco-kid-22-frame-front.png', '/img/regen/eco-kid-22-frame-34.png'],
-  'eco-kid-32': ['/img/regen/eco-kid-32-frame-front.png', '/img/regen/eco-kid-32-frame-34.png'],
+  'eco-kid-22': [
+    '/img/regen/eco-kid-22-frame-front.png',
+    '/img/regen/eco-kid-22-frame-34.png',
+    '/img/regen/eco-kid-22-frame-side.png',
+    '/img/regen/eco-kid-22-frame-rear.png',
+    '/img/regen/eco-kid-22-frame-detail.png',
+  ],
+  'eco-kid-32': [
+    '/img/regen/eco-kid-32-frame-front.png',
+    '/img/regen/eco-kid-32-frame-34.png',
+    '/img/regen/eco-kid-32-frame-side.png',
+    '/img/regen/eco-kid-32-frame-rear.png',
+    '/img/regen/eco-kid-32-frame-detail.png',
+  ],
   'mono-19-f': [
     '/img/regen/mono-19-f-frame-front.png',
     '/img/regen/mono-19-f-frame-34.png',
@@ -323,6 +341,7 @@ const REGEN_FRAMES = {
     '/img/regen/mono-32-f-frame-front.png',
     '/img/regen/mono-32-f-frame-34.png',
     '/img/regen/mono-32-f-frame-side.png',
+    '/img/regen/mono-32-f-frame-detail.png',
   ],
   'mono-32-f-pin': [
     '/img/regen/mono-32-f-pin-frame-front.png',
