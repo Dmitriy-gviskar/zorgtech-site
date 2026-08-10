@@ -72,8 +72,31 @@ export default function HeroJourney() {
   const vigRef = useRef(null);
 
   useEffect(() => {
+    // Browser scroll restoration lands mid-journey and skips the terminal intro.
+    const prevRestoration = history.scrollRestoration;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const hash = window.location.hash;
+    const resetToStart = !hash || hash === '#' || hash === '#top';
+    const pinTop = () => {
+      if (!resetToStart) return;
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    pinTop();
+    const pinRaf = requestAnimationFrame(pinTop);
+    const pinTimer = window.setTimeout(pinTop, 50);
+    const onPageShow = () => pinTop();
+    addEventListener('pageshow', onPageShow);
+
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return undefined;
+    if (reduce) {
+      cancelAnimationFrame(pinRaf);
+      clearTimeout(pinTimer);
+      removeEventListener('pageshow', onPageShow);
+      if ('scrollRestoration' in history) history.scrollRestoration = prevRestoration || 'auto';
+      return undefined;
+    }
 
     const scroller = scrollerRef.current;
     const stage = stageRef.current;
@@ -412,9 +435,14 @@ export default function HeroJourney() {
 
     return () => {
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(pinRaf);
+      clearTimeout(pinTimer);
       removeEventListener('resize', resize);
       removeEventListener('pointermove', onPointer);
       document.documentElement.removeAttribute('data-hj-dark');
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = prevRestoration || 'auto';
+      }
     };
   }, []);
 
