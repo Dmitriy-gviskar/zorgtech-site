@@ -373,6 +373,17 @@ export function presentFeatureAnchor(feature) {
   return { label: full, detail: '', full };
 }
 
+/** Prefer full description when scrape cut `lead` mid-sentence (~400 chars). */
+function productCopySource(product) {
+  const lead = oneLine(product?.lead || '');
+  const description = oneLine(product?.description || '');
+  if (!lead) return description;
+  if (!description) return lead;
+  if (description.startsWith(lead) && description.length > lead.length) return description;
+  if (!/[.!?…]"?$/u.test(lead) && description.length > lead.length + 10) return description;
+  return lead;
+}
+
 export function presentProduct(productOrSlug) {
   const product = typeof productOrSlug === 'string' ? getProduct(productOrSlug) : productOrSlug;
   if (!product) {
@@ -386,7 +397,7 @@ export function presentProduct(productOrSlug) {
       features: [],
     };
   }
-  const raw = product.lead || product.description || '';
+  const raw = productCopySource(product);
   const { slogan, body } = splitProductCopy(raw);
   const source = body || raw;
   const sentences = splitSentences(source);
