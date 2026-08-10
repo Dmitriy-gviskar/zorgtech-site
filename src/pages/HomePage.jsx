@@ -237,7 +237,11 @@ export default function HomePage() {
           <Reveal>
             <p className="chapter-kicker">Компания</p>
             <h2 className="home-cta-brand">ZORGTECH</h2>
-            <p className="home-sec-title home-cta-title">Производство в России. Полный цикл.</p>
+            <p className="home-sec-title home-cta-title">
+              Производство в России.
+              <br />
+              Полный цикл.
+            </p>
             <p className="home-cta-lead">
               Проектируем, производим и обслуживаем сенсорные системы для бизнеса, государства и образования.
             </p>

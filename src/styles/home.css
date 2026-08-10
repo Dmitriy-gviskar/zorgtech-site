@@ -859,6 +859,13 @@
   justify-items: center;
 }
 
+.home-cta-inner > .reveal {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
 .home-cta-brand {
   margin: 0.35rem 0 0;
   font-family: var(--font-display);
@@ -872,8 +879,10 @@
 
 .home-cta-title {
   margin-top: 1rem;
-  max-width: 34rem;
+  max-width: 22rem;
   text-wrap: balance;
+  text-align: center;
+  line-height: 1.15;
 }
 
 .home-cta-lead {
@@ -882,7 +891,9 @@
   font-family: var(--font-body);
   font-size: var(--text-lead);
   line-height: 1.55;
-  max-width: 32rem;
+  max-width: 28rem;
+  text-wrap: balance;
+  text-align: center;
 }
 
 .home-cta .hero-actions {
