@@ -47,6 +47,7 @@
   will-change: transform;
   display: grid;
   place-items: center;
+  isolation: isolate;
 }
 
 .hero-stage-bg {
@@ -72,7 +73,8 @@
   object-fit: contain;
   object-position: center center;
   transform: translateY(-8%);
-  /* no drop-shadow — opaque white PNGs become a floating plate */
+  /* Dissolve opaque white PNG plate into the hero studio wash */
+  mix-blend-mode: multiply;
 }
 
 .hero-stage-veil {
@@ -257,6 +259,7 @@
     #ffffff;
   border-radius: calc(var(--radius-tile) + 0.25rem);
   overflow: hidden;
+  isolation: isolate;
   box-shadow: none;
   transition: transform 0.4s var(--ease-out);
 }
@@ -349,6 +352,7 @@
 .feature-card-media img {
   object-fit: contain;
   object-position: center center;
+  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
@@ -1701,6 +1705,7 @@
     radial-gradient(ellipse 52% 42% at 50% 40%, rgba(42, 170, 221, 0.08), transparent 68%),
     #ffffff;
   overflow: hidden;
+  isolation: isolate; /* keep multiply blend inside the studio column */
 }
 
 .chapter-media-motion-root {
@@ -1721,11 +1726,13 @@
 .chapter--home .chapter-media img {
   width: min(100%, 720px);
   max-height: min(74vh, 640px);
+  /* Regen PNGs are opaque white plates — multiply dissolves the white into the studio wash */
+  mix-blend-mode: multiply;
 }
 
 .chapter--home .chapter-media--product img {
-  width: min(88%, 520px);
-  max-height: min(70vh, 580px);
+  width: min(92%, 560px);
+  max-height: min(72vh, 620px);
 }
 
 .chapter--home .chapter-copy {
@@ -1965,6 +1972,7 @@
   min-height: min(54vh, 480px);
   padding: clamp(0.5rem, 2vw, 1.25rem);
   border-radius: var(--radius-tile);
+  isolation: isolate;
   background:
     radial-gradient(ellipse 70% 50% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
     radial-gradient(ellipse 55% 42% at 50% 40%, rgba(42, 170, 221, 0.08), transparent 70%),
@@ -1979,6 +1987,7 @@
 
 .home-popular-hero-media img {
   object-fit: contain;
+  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
@@ -2064,6 +2073,7 @@
   margin-top: 0.75rem;
   padding: 0.75rem 0.75rem 0.35rem;
   border-radius: var(--radius-tile);
+  isolation: isolate;
   background:
     radial-gradient(ellipse 70% 52% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
     radial-gradient(ellipse 55% 42% at 50% 42%, rgba(42, 170, 221, 0.07), transparent 70%),
@@ -2078,6 +2088,7 @@
 
 .home-popular-rail-media img {
   object-fit: contain;
+  mix-blend-mode: multiply;
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
