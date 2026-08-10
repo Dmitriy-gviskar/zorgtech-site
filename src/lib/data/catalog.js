@@ -592,10 +592,25 @@ function normCatText(s) {
     .replace(/[^a-zа-я0-9]+/gu, '');
 }
 
-/** Short category blurb from scraped description — keep meaning, drop marketplace SEO. */
+/** Full category intro from zorgtech.com `.section-text` (HTML preferred). */
+export function presentCategoryIntro(category) {
+  if (!category) return null;
+  const html = String(category.leadHtml || '').trim();
+  const text = String(category.lead || '').trim();
+  if (html) return { html, text };
+  if (text.length >= 40) return { html: '', text };
+  return null;
+}
+
+/** Short category blurb for cards — prefer real intro, else cleaned meta. */
 export function presentCategoryBlurb(category, { maxChars = 180 } = {}) {
   if (!category) return '';
-  const raw = oneLine(category.lead || category.description || '');
+  // Real section-text intro → first 1–2 sentences
+  const intro = oneLine(category.lead || '');
+  if (intro.length >= 40) {
+    return firstSentences(intro, maxChars, 2);
+  }
+  const raw = oneLine(category.description || '');
   if (!raw) return '';
 
   // Clean marketplace SEO in-place — do NOT cut from first hit to end of string

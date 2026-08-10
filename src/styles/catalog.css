@@ -386,6 +386,31 @@
   max-width: 36rem;
 }
 
+.category-intro {
+  margin: 1rem 0 0;
+  max-width: 48rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.category-intro p {
+  margin: 0 0 0.75rem;
+}
+
+.category-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.category-intro ul {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.15rem;
+}
+
+.category-intro li {
+  margin: 0.25rem 0;
+}
+
 .category-head--simple .muted {
   margin-top: 0.75rem;
 }

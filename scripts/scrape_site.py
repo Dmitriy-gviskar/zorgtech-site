@@ -312,22 +312,34 @@ def scrape_categories() -> tuple[dict, dict]:
             except Exception as e:  # noqa: BLE001
                 print(f"    ! fail {slug}: {e}", flush=True)
 
-        body = ""
-        bm = re.search(
-            r'class="[^"]*content-page[^"]*"[^>]*>([\s\S]*?)(?:class="[^"]*site-footer|<footer|</body>)',
+        # Real category intros live in .section-text (not meta description)
+        section_blocks = []
+        for sm in re.finditer(
+            r'<div[^>]*class="[^"]*\bsection-text\b[^"]*"[^>]*>([\s\S]*?)</div>',
             html,
             re.I,
-        )
-        if bm:
-            chunk = re.sub(r"<(script|style)[^>]*>[\s\S]*?</\1>", "", bm.group(1), flags=re.I)
-            body = clean_text(chunk)[:1200]
+        ):
+            chunk = sm.group(1).strip()
+            plain = clean_text(chunk)
+            if len(plain) >= 40:
+                section_blocks.append(chunk)
+        lead_html = ""
+        lead = ""
+        body_html = ""
+        if section_blocks:
+            lead_html = section_blocks[0]
+            lead = clean_text(lead_html)
+            if len(section_blocks) > 1:
+                body_html = "\n".join(section_blocks[1:])[:8000]
 
         categories[cat] = {
             "slug": cat,
             "name": h1 or cat,
             "title": meta["title"],
             "description": meta["description"],
-            "lead": body,
+            "lead": lead,
+            "leadHtml": lead_html,
+            "bodyHtml": body_html,
             "image": thumb,
             "productSlugs": [p["slug"] for p in cat_products],
             "products": cat_products,

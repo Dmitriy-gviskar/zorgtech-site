@@ -18,6 +18,7 @@ export {
   groupProductSpecs,
   presentSpecGlance,
   presentCategoryBlurb,
+  presentCategoryIntro,
 } from './data/catalog.js';
 export { projects, getProject, presentProject } from './data/projects.js';
 export { solutions, getSolution, presentSolution } from './data/solutions.js';

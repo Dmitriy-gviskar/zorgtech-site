@@ -4,6 +4,7 @@ import {
   getCategory,
   getProduct,
   presentCategoryBlurb,
+  presentCategoryIntro,
   productCover,
   productGallery,
 } from '../lib/data/catalog.js';
@@ -28,7 +29,8 @@ export default function CategoryPage() {
   }
 
   const items = (cat.productSlugs || []).map(getProduct).filter(Boolean);
-  const blurb = presentCategoryBlurb(cat);
+  const intro = presentCategoryIntro(cat);
+  const blurb = !intro ? presentCategoryBlurb(cat) : '';
 
   return (
     <div className="page category-page">
@@ -41,7 +43,17 @@ export default function CategoryPage() {
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">Линейка</p>
         <h1>{cat.name}</h1>
-        {blurb ? <p className="lead">{blurb}</p> : null}
+        {intro?.html ? (
+          <div className="category-intro" dangerouslySetInnerHTML={{ __html: intro.html }} />
+        ) : intro?.text ? (
+          <div className="category-intro">
+            {intro.text.split(/\n\n+/).map((p) => (
+              <p key={p.slice(0, 32)}>{p}</p>
+            ))}
+          </div>
+        ) : blurb ? (
+          <p className="lead">{blurb}</p>
+        ) : null}
         <p className="category-head-count">{items.length} моделей в линейке</p>
         <div className="actions">
           <Link className="btn primary btn--lg" to="/contacts">
