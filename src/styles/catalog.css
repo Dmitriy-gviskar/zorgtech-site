@@ -91,15 +91,16 @@
   text-decoration: none;
   color: inherit;
   background:
-    radial-gradient(ellipse 55% 50% at 78% 55%, rgba(42, 170, 221, 0.08), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 78% 55%, rgba(42, 170, 221, 0.13), transparent 70%),
     #ffffff;
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  border: 1px solid rgba(42, 170, 221, 0.12);
   transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 
 .catalog-hero-line:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(15, 23, 32, 0.06);
+  border-color: rgba(42, 170, 221, 0.3);
+  box-shadow: var(--shadow);
 }
 
 .catalog-line-blurb {
@@ -201,7 +202,7 @@
   align-items: center;
   padding: 0.75rem 1rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  border: 1px solid rgba(42, 170, 221, 0.1);
   background: #fff;
   text-decoration: none;
   color: inherit;
@@ -341,7 +342,10 @@
 .catalog-stage-media {
   min-height: 480px;
   border-radius: var(--radius-tile);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 62% 50% at 50% 86%, rgba(42, 170, 221, 0.14), transparent 62%),
+    var(--bg-studio);
+  border: 1px solid rgba(42, 170, 221, 0.1);
 }
 
 .catalog-stage-media img,
@@ -418,7 +422,10 @@
 .category-head-media {
   min-height: 360px;
   border-radius: var(--radius-tile);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 62% 50% at 50% 86%, rgba(42, 170, 221, 0.14), transparent 62%),
+    var(--bg-studio);
+  border: 1px solid rgba(42, 170, 221, 0.1);
 }
 
 .product-rows {
@@ -553,13 +560,15 @@
 .product-hero-media {
   display: grid;
   gap: 0.75rem;
-  background: #ffffff;
-  border: 0;
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 88%, rgba(42, 170, 221, 0.16), transparent 62%),
+    var(--bg-studio);
+  border: 1px solid rgba(42, 170, 221, 0.1);
   border-radius: var(--radius-tile);
   padding: 1.5rem 1.5rem 1rem;
   min-height: min(72vh, 640px);
   place-items: center;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 16px 36px rgba(15, 23, 32, 0.05);
+  box-shadow: 0 18px 42px rgba(15, 50, 65, 0.08);
 }
 
 .product-slogan {
@@ -745,7 +754,7 @@
   display: grid;
   place-items: center;
   aspect-ratio: 1 / 1;
-  border-radius: 0;
+  border-radius: var(--radius-tile);
   background: var(--bg-studio);
   border: 1px solid var(--line);
   overflow: hidden;
@@ -767,7 +776,7 @@
 .product-gallery-thumb {
   appearance: none;
   border: 1px solid var(--line);
-  border-radius: 0;
+  border-radius: calc(var(--radius-tile) - 0.45rem);
   background: var(--bg-studio);
   padding: 0.35rem;
   cursor: pointer;

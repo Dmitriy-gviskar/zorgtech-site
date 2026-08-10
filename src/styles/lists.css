@@ -29,7 +29,7 @@
   text-decoration: none;
   color: var(--ink);
   background: #fff;
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  border: 1px solid rgba(42, 170, 221, 0.1);
   border-radius: var(--radius-tile);
   overflow: hidden;
   transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
@@ -37,7 +37,8 @@
 
 .content-tile:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(15, 23, 32, 0.06);
+  border-color: rgba(42, 170, 221, 0.28);
+  box-shadow: var(--shadow);
 }
 
 .content-tile-media {
@@ -117,7 +118,10 @@
   min-height: 320px;
   border-radius: var(--radius-tile);
   overflow: hidden;
-  background: var(--bg-soft);
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 92%, rgba(42, 170, 221, 0.14), transparent 62%),
+    var(--bg-studio);
+  border: 1px solid rgba(42, 170, 221, 0.1);
 }
 
 .detail-hero-media img {
@@ -159,7 +163,7 @@
   display: grid;
   gap: 0.25rem;
   padding: 1.15rem 1.25rem;
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  border: 1px solid rgba(42, 170, 221, 0.1);
   border-radius: var(--radius-tile);
   text-decoration: none;
   color: inherit;
@@ -169,7 +173,7 @@
 
 .contacts-item:hover {
   border-color: var(--cyan);
-  box-shadow: 0 10px 24px rgba(15, 23, 32, 0.05);
+  box-shadow: var(--shadow);
 }
 
 .contacts-item strong {

@@ -218,8 +218,8 @@
 .feature-strip {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
   background:
-    radial-gradient(ellipse 80% 45% at 50% 100%, rgba(42, 170, 221, 0.08), transparent 55%),
-    #ffffff;
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(42, 170, 221, 0.13), transparent 58%),
+    linear-gradient(180deg, #ffffff 0%, #f4fbfd 100%);
 }
 
 .feature-strip-inner {
@@ -258,12 +258,15 @@
   border-radius: calc(var(--radius-tile) + 0.25rem);
   overflow: hidden;
   isolation: isolate;
-  box-shadow: none;
-  transition: transform 0.4s var(--ease-out);
+  border: 1px solid rgba(42, 170, 221, 0.1);
+  box-shadow: 0 1px 0 rgba(15, 50, 65, 0.03);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
 }
 
 .feature-card:hover {
   transform: translateY(-3px);
+  border-color: rgba(42, 170, 221, 0.26);
+  box-shadow: var(--shadow);
 }
 
 .feature-card-copy {
@@ -681,7 +684,9 @@
 
 .lines {
   padding: clamp(5rem, 10vw, 8rem) 0;
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 64% 45% at 80% 10%, rgba(42, 170, 221, 0.09), transparent 66%),
+    #f8fbfc;
   border-bottom: 1px solid var(--line);
 }
 
@@ -754,12 +759,15 @@
     #ffffff;
   border-radius: var(--radius-tile);
   overflow: hidden;
-  box-shadow: none;
-  transition: transform 0.35s var(--ease-out);
+  border: 1px solid rgba(42, 170, 221, 0.1);
+  box-shadow: 0 1px 0 rgba(15, 50, 65, 0.03);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .line-tile:hover {
   transform: translateY(-3px);
+  border-color: rgba(42, 170, 221, 0.26);
+  box-shadow: var(--shadow);
 }
 
 .line-tile-media {
@@ -1637,7 +1645,7 @@
   padding: clamp(4.5rem, 10vw, 7.5rem) 0;
   background:
     radial-gradient(55% 80% at 50% 0%, rgba(42, 170, 221, 0.1), transparent 70%),
-    #fff;
+    #f8fbfc;
 }
 
 .home-stats-inner {
@@ -1682,7 +1690,7 @@
 .home-blog,
 .home-begin {
   padding: clamp(4.5rem, 9vw, 7rem) 0;
-  background: #fff;
+  background: #f8fbfc;
   border-top: 1px solid var(--line);
 }
 
@@ -1692,7 +1700,7 @@
   border-top: 1px solid var(--line);
   background:
     radial-gradient(ellipse 80% 55% at 35% 100%, rgba(42, 170, 221, 0.1), transparent 55%),
-    #ffffff;
+    #f8fbfc;
 }
 
 .chapter--home .chapter-media {
@@ -1700,7 +1708,7 @@
   background:
     radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
     radial-gradient(ellipse 52% 42% at 50% 40%, rgba(42, 170, 221, 0.08), transparent 68%),
-    #ffffff;
+    #f5fbfd;
   overflow: hidden;
   isolation: isolate; /* keep multiply blend inside the studio column */
 }
@@ -1936,7 +1944,7 @@
   background:
     radial-gradient(ellipse 85% 50% at 50% 100%, rgba(42, 170, 221, 0.12), transparent 55%),
     radial-gradient(ellipse 70% 45% at 50% 12%, rgba(42, 170, 221, 0.06), transparent 62%),
-    #ffffff;
+    #f4fbfd;
 }
 
 .home-popular-hero {
@@ -1951,14 +1959,17 @@
   text-decoration: none;
   color: inherit;
   border-radius: calc(var(--radius-tile) + 0.25rem);
-  background: transparent;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(42, 170, 221, 0.1);
+  box-shadow: 0 1px 0 rgba(15, 50, 65, 0.03);
   overflow: hidden;
   transition: transform 0.35s var(--ease-out);
 }
 
 .home-popular-hero:hover {
   transform: translateY(-3px);
+  border-color: rgba(42, 170, 221, 0.26);
+  box-shadow: var(--shadow);
 }
 
 .home-popular-hero-media {
@@ -2048,14 +2059,16 @@
   text-decoration: none;
   color: inherit;
   border-radius: calc(var(--radius-tile) + 0.15rem);
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  transition: transform 0.35s var(--ease-out);
+  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 1px 0 rgba(15, 50, 65, 0.03);
+  transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .home-popular-rail-card:hover {
   transform: translateY(-3px);
+  border-color: rgba(42, 170, 221, 0.26);
+  box-shadow: var(--shadow);
 }
 
 .home-popular-rail-media {

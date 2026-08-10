@@ -226,6 +226,9 @@
 
 .site:not(.site--home) .main {
   padding: 2rem 0 4rem;
+  background:
+    radial-gradient(ellipse 72% 34rem at 94% -4rem, rgba(42, 170, 221, 0.1), transparent 68%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 42rem);
 }
 
 /* —— Buttons (canon) —— */
@@ -257,7 +260,7 @@
 
 .btn:hover {
   background: var(--bg-soft);
-  border-color: #d0d0d0;
+  border-color: rgba(42, 170, 221, 0.35);
 }
 
 .btn:focus-visible {
