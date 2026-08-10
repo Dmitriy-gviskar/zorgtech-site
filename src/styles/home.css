@@ -803,14 +803,25 @@
   line-height: 0.95;
   text-transform: uppercase;
   color: var(--ink);
+  text-align: center;
 }
 
 .home-cta-title {
   margin-top: 1rem;
-  max-width: 22rem;
-  text-wrap: balance;
+  max-width: none;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 0.12em;
   text-align: center;
-  line-height: 1.15;
+  line-height: 1.12;
+  text-wrap: unset;
+}
+
+.home-cta-line {
+  display: block;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .home-cta-lead {
@@ -819,9 +830,9 @@
   font-family: var(--font-body);
   font-size: var(--text-lead);
   line-height: 1.55;
-  max-width: 28rem;
-  text-wrap: balance;
+  max-width: 32rem;
   text-align: center;
+  text-wrap: pretty;
 }
 
 .home-cta .hero-actions {
@@ -2218,6 +2229,10 @@
 
   .home-stats--cinema .home-stat strong {
     font-size: clamp(2.8rem, 16vw, 3.6rem);
+  }
+
+  .home-cta-title {
+    font-size: clamp(1.55rem, 7.2vw, 2.1rem);
   }
 }
 

@@ -462,9 +462,8 @@ export default function HomePage() {
             <p className="chapter-kicker">Компания</p>
             <h2 className="home-cta-brand">ZORGTECH</h2>
             <p className="home-sec-title home-cta-title">
-              Производство в России.
-              <br />
-              Полный цикл.
+              <span className="home-cta-line">Производство в России.</span>
+              <span className="home-cta-line">Полный цикл.</span>
             </p>
             <p className="home-cta-lead">
               Проектируем, производим и обслуживаем сенсорные системы для бизнеса, государства и образования.
