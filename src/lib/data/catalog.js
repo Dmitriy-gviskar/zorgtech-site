@@ -227,7 +227,9 @@ const REGEN_FRAMES = {
   'diamant-46-f-outdoor': [
     '/img/regen/diamant-46-f-outdoor-frame-front.png',
     '/img/regen/diamant-46-f-outdoor-frame-34.png',
+    '/img/regen/diamant-46-f-outdoor-frame-side.png',
     '/img/regen/diamant-46-f-outdoor-frame-rear.png',
+    '/img/regen/diamant-46-f-outdoor-frame-detail.png',
   ],
   'diamant-49-f': [
     '/img/regen/diamant-49-f-frame-front.png',
@@ -260,10 +262,14 @@ const REGEN_FRAMES = {
   'diamant-49-n': [
     '/img/regen/diamant-49-n-frame-front.png',
     '/img/regen/diamant-49-n-frame-34.png',
+    '/img/regen/diamant-49-n-frame-side.png',
+    '/img/regen/diamant-49-n-frame-rear.png',
   ],
   'diamant-49-w': [
     '/img/regen/diamant-49-w-frame-front.png',
     '/img/regen/diamant-49-w-frame-34.png',
+    '/img/regen/diamant-49-w-frame-side.png',
+    '/img/regen/diamant-49-w-frame-rear.png',
   ],
   'diamant-55-f': [
     '/img/regen/diamant-55-f-frame-front.png',
@@ -286,6 +292,8 @@ const REGEN_FRAMES = {
   'diamant-55-n': [
     '/img/regen/diamant-55-n-frame-front.png',
     '/img/regen/diamant-55-n-frame-34.png',
+    '/img/regen/diamant-55-n-frame-side.png',
+    '/img/regen/diamant-55-n-frame-rear.png',
   ],
   'diamant-55-ne': [
     '/img/regen/diamant-55-ne-frame-front.png',
@@ -294,6 +302,8 @@ const REGEN_FRAMES = {
   'diamant-55-w': [
     '/img/regen/diamant-55-w-frame-front.png',
     '/img/regen/diamant-55-w-frame-34.png',
+    '/img/regen/diamant-55-w-frame-side.png',
+    '/img/regen/diamant-55-w-frame-rear.png',
   ],
   'diamant-65-f': [
     '/img/regen/diamant-65-f-frame-front.png',
@@ -375,7 +385,13 @@ const REGEN_FRAMES = {
     '/img/regen/mono-43-f-frame-rear.png',
     '/img/regen/mono-43-f-frame-detail.png',
   ],
-  'mono-55-t': ['/img/regen/mono-55-t-frame-front.png', '/img/regen/mono-55-t-frame-34.png'],
+  'mono-55-t': [
+    '/img/regen/mono-55-t-frame-front.png',
+    '/img/regen/mono-55-t-frame-34.png',
+    '/img/regen/mono-55-t-frame-side.png',
+    '/img/regen/mono-55-t-frame-rear.png',
+    '/img/regen/mono-55-t-frame-detail.png',
+  ],
 };
 
 export function getProduct(slug) {
