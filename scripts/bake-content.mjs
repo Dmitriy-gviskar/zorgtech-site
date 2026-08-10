@@ -162,7 +162,64 @@ const homeLines = HOME_LINES.map((slug) => {
   };
 }).filter(Boolean);
 
-writeRuntime('home-catalog.json', { topProducts: homeTopProducts, lines: homeLines });
+/** Home extras: popular products, blog teasers, museum spotlight — keep heavy JSON off the home chunk. */
+const homeBlocks = JSON.parse(fs.readFileSync(path.join(dataDir, 'home-blocks.json'), 'utf8'));
+const blogSrc = JSON.parse(fs.readFileSync(path.join(dataDir, 'blog.json'), 'utf8'));
+const blogBySlug = new Map(blogSrc.map((p) => [p.slug, p]));
+
+const HOME_BLOG_EXCERPTS = {
+  'varianty-blokirovki-dlya-kioskov-i-displeev':
+    'На современном рынке представлено множество замковых решений, включая как механические, так и электронные модели.',
+  'kak-obsluzhivat-kiosk-kotoryy-perestal-rabotat':
+    'Размещение киосков это только начало их пути. Поскольку они часто используются для самообслуживания, им периодически требуется техническое обслуживание, чтобы поддерживать',
+  'sotrudnichestvo-s-nadezhnoy-kompaniey-po-ustanovke-programm-dlya-kioskov-i-displeev':
+    'При организации киосков самообслуживания или программ для розничной торговли установка может включать множество участников, начиная от производителей оборудования',
+};
+
+const homePopular = (homeBlocks.popular?.slugs || []).map((slug) => {
+  const product = getProduct(slug);
+  if (!product) return null;
+  const copy = presentProduct(product);
+  return {
+    slug: product.slug,
+    title: product.title,
+    desc: copy.slogan || copy.hook || product.lead || '',
+    price: copy.price,
+    cover: productCoverPath(product),
+  };
+}).filter(Boolean);
+
+const homeBlog = (homeBlocks.blog?.slugs || []).map((slug) => {
+  const post = blogBySlug.get(slug);
+  if (!post) return null;
+  return {
+    slug: post.slug,
+    title: post.title,
+    date: post.date || '',
+    excerpt: HOME_BLOG_EXCERPTS[slug] || post.lead || post.meta?.description || '',
+    image: post.images?.[0] || null,
+    href: post.sourceUrl || `https://zorgtech.com/blog/${post.slug}/`,
+  };
+}).filter(Boolean);
+
+const museumSolution = solutions.find((s) => s.slug === homeBlocks.museum?.solutionSlug);
+const museumProduct = getProduct(homeBlocks.museum?.productSlug);
+const homeMuseum = museumSolution
+  ? {
+      title: homeBlocks.museum.title,
+      text: homeBlocks.museum.text,
+      cover: museumSolution.images?.[0] || null,
+      productCover: museumProduct ? productCoverPath(museumProduct) : null,
+    }
+  : null;
+
+writeRuntime('home-catalog.json', {
+  topProducts: homeTopProducts,
+  lines: homeLines,
+  popular: homePopular,
+  blog: homeBlog,
+  museum: homeMuseum,
+});
 
 const sourceNames = ['projects.json', 'areas.json', 'pages.json', 'solutions.json'];
 const before = sourceNames.reduce((sum, name) => sum + fs.statSync(path.join(sourceDir, name)).size, 0);

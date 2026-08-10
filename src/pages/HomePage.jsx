@@ -5,10 +5,14 @@ import Reveal from '../components/Reveal';
 import DesignCompare from '../components/DesignCompare';
 import { assetUrl } from '../lib/data/asset.js';
 import homeCatalog from '../data/home-catalog.json';
+import homeBlocks from '../data/home-blocks.json';
 import projectTeasers from '../data/project-teasers.json';
 
 const TOP_PRODUCTS = homeCatalog.topProducts || [];
 const LINE_LINKS = homeCatalog.lines || [];
+const POPULAR = homeCatalog.popular || [];
+const BLOG = homeCatalog.blog || [];
+const MUSEUM = homeCatalog.museum || null;
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -34,8 +38,6 @@ export default function HomePage() {
   const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '8%']);
   const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.035]);
   const copyOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-
-  const projectTeaser = projectTeasers;
 
   return (
     <div className="home">
@@ -107,6 +109,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-props">
+        <div className="wrap">
+          <ul className="home-props-list">
+            {homeBlocks.props.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="feature-strip">
         <div className="wrap feature-strip-inner">
           <Reveal>
@@ -138,30 +150,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="design-lab">
-        <div className="wrap design-lab-inner">
-          <Reveal>
-            <div className="design-lab-copy">
-              <p className="chapter-kicker">Конструкторское бюро</p>
-              <h2 className="home-sec-title">Промышленный дизайн и проектирование</h2>
-              <p className="design-lab-mini">сенсорных терминалов</p>
-              <p className="design-lab-text">
-                Наше конструкторское бюро выполняет инженерные разработки и предоставляет весь комплекс услуг
-                по проектированию, подготовке к производству и изготовлению интерактивного оборудования.
-              </p>
-              <p className="design-lab-text">
-                Промышленный дизайн и 3D моделирование; инженерное 3D конструирование; выпуск конструкторской
-                документации.
-              </p>
-              <p className="design-lab-hint">Тяните линию: влево — стол, вправо — чертёж</p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <DesignCompare />
-          </Reveal>
         </div>
       </section>
 
@@ -201,6 +189,192 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-stats">
+        <div className="wrap home-stats-inner">
+          {homeBlocks.stats.map((item, i) => (
+            <Reveal key={item.label} delay={i * 0.05}>
+              <div className="home-stat">
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-about">
+        <div className="wrap home-about-inner">
+          <Reveal>
+            <header className="home-sec-head">
+              <p className="chapter-kicker">{homeBlocks.about.kicker}</p>
+              <h2 className="home-sec-title">{homeBlocks.about.title}</h2>
+            </header>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <ul className="home-about-list">
+              {homeBlocks.about.bullets.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link className="btn secondary" to={homeBlocks.about.cta.to}>
+              {homeBlocks.about.cta.label}
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="home-cycle">
+        <div className="wrap">
+          <Reveal>
+            <header className="home-sec-head">
+              <p className="chapter-kicker">{homeBlocks.cycle.kicker}</p>
+              <h2 className="home-sec-title">{homeBlocks.cycle.title}</h2>
+              <p className="home-block-lead">{homeBlocks.cycle.lead}</p>
+            </header>
+          </Reveal>
+          <div className="home-cycle-grid">
+            {homeBlocks.cycle.pillars.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.05}>
+                <article className="home-cycle-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <Link className="chapter-link" to={homeBlocks.cycle.cta.to}>
+              {homeBlocks.cycle.cta.label} <span aria-hidden="true">→</span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="home-ui">
+        <div className="wrap home-ui-inner">
+          <Reveal>
+            <div className="home-ui-copy">
+              <p className="chapter-kicker">{homeBlocks.ui.kicker}</p>
+              <h2 className="home-sec-title">{homeBlocks.ui.title}</h2>
+              <p className="home-block-lead">{homeBlocks.ui.lead}</p>
+              <ul className="home-ui-points">
+                {homeBlocks.ui.points.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Link className="chapter-link" to={homeBlocks.ui.cta.to}>
+                {homeBlocks.ui.cta.label} <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="design-lab">
+        <div className="wrap design-lab-inner">
+          <Reveal>
+            <div className="design-lab-copy">
+              <p className="chapter-kicker">Конструкторское бюро</p>
+              <h2 className="home-sec-title">Промышленный дизайн и проектирование</h2>
+              <p className="design-lab-mini">сенсорных терминалов</p>
+              <p className="design-lab-text">
+                Наше конструкторское бюро выполняет инженерные разработки и предоставляет весь комплекс услуг
+                по проектированию, подготовке к производству и изготовлению интерактивного оборудования.
+              </p>
+              <p className="design-lab-text">
+                Промышленный дизайн и 3D моделирование; инженерное 3D конструирование; выпуск конструкторской
+                документации.
+              </p>
+              <p className="design-lab-hint">Тяните линию: влево — стол, вправо — чертёж</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <DesignCompare />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="home-sensor">
+        <div className="wrap home-sensor-inner">
+          <Reveal>
+            <p className="chapter-kicker">{homeBlocks.sensor.kicker}</p>
+            <h2 className="home-sec-title">{homeBlocks.sensor.title}</h2>
+            <p className="home-block-lead home-sensor-text">{homeBlocks.sensor.text}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {POPULAR.length ? (
+        <section className="home-popular">
+          <div className="wrap">
+            <Reveal>
+              <header className="home-sec-head home-sec-head--row">
+                <div>
+                  <p className="chapter-kicker">{homeBlocks.popular.kicker}</p>
+                  <h2 className="home-sec-title">{homeBlocks.popular.title}</h2>
+                </div>
+                <Link className="btn primary" to="/catalog">
+                  Каталог товаров
+                </Link>
+              </header>
+            </Reveal>
+            <div className="home-popular-grid">
+              {POPULAR.map((item, i) => (
+                <Reveal key={item.slug} delay={Math.min(i, 3) * 0.05}>
+                  <Link to={`/product/${item.slug}`} className="home-popular-card">
+                    <div className="home-popular-media" aria-hidden="true">
+                      {item.cover ? <img src={assetUrl(item.cover)} alt="" loading="lazy" /> : null}
+                    </div>
+                    <div className="home-popular-copy">
+                      <h3>{item.title}</h3>
+                      {item.desc ? <p>{clip(item.desc, 90)}</p> : null}
+                      <span className="category-product-price">{item.price}</span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {MUSEUM ? (
+        <section className="home-museum">
+          <div className="wrap home-museum-inner">
+            <Reveal>
+              <div className="home-museum-copy">
+                <Link className="chapter-link home-museum-all" to={homeBlocks.museum.all.to}>
+                  {homeBlocks.museum.all.label} <span aria-hidden="true">→</span>
+                </Link>
+                <p className="chapter-kicker">{homeBlocks.museum.kicker}</p>
+                <h2 className="home-sec-title">{homeBlocks.museum.title}</h2>
+                <p className="home-block-lead">{homeBlocks.museum.text}</p>
+                <p className="home-museum-uses-label">{homeBlocks.museum.usesLabel}</p>
+                <ul className="home-museum-uses">
+                  {homeBlocks.museum.uses.map((item) => (
+                    <li key={item.to}>
+                      <Link to={item.to}>{item.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link className="btn primary" to={homeBlocks.museum.cta.to}>
+                  {homeBlocks.museum.cta.label}
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="home-museum-media" aria-hidden="true">
+                {MUSEUM.cover || MUSEUM.productCover ? (
+                  <img src={assetUrl(MUSEUM.cover || MUSEUM.productCover)} alt="" loading="lazy" />
+                ) : null}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      ) : null}
+
       <section className="shot-on">
         <div className="wrap">
           <Reveal>
@@ -210,7 +384,7 @@ export default function HomePage() {
             </header>
           </Reveal>
           <div className="shot-on-grid">
-            {projectTeaser.map((p, i) => (
+            {projectTeasers.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 2) * 0.06} className={i === 0 ? 'span-2' : ''}>
                 <Link to={`/projects/${p.slug}`} className={`shot-card${i === 0 ? ' shot-card--xl' : ''}`}>
                   <div className="shot-card-media">
@@ -229,6 +403,72 @@ export default function HomePage() {
               Все проекты <span aria-hidden="true">→</span>
             </Link>
           </Reveal>
+        </div>
+      </section>
+
+      {BLOG.length ? (
+        <section className="home-blog">
+          <div className="wrap">
+            <Reveal>
+              <header className="home-sec-head">
+                <p className="chapter-kicker">{homeBlocks.blog.kicker}</p>
+                <h2 className="home-sec-title">{homeBlocks.blog.title}</h2>
+              </header>
+            </Reveal>
+            <div className="home-blog-grid">
+              {BLOG.map((post, i) => (
+                <Reveal key={post.slug} delay={Math.min(i, 2) * 0.05}>
+                  <a
+                    className="home-blog-card"
+                    href={post.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {post.image ? (
+                      <div className="home-blog-media" aria-hidden="true">
+                        <img src={assetUrl(post.image)} alt="" loading="lazy" />
+                      </div>
+                    ) : null}
+                    <div className="home-blog-copy">
+                      {post.date ? <time>{post.date}</time> : null}
+                      <h3>{post.title}</h3>
+                      {post.excerpt ? <p>{clip(post.excerpt, 140)}</p> : null}
+                    </div>
+                  </a>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="home-begin">
+        <div className="wrap">
+          <Reveal>
+            <header className="home-sec-head">
+              <p className="chapter-kicker">{homeBlocks.begin.kicker}</p>
+              <h2 className="home-sec-title">{homeBlocks.begin.title}</h2>
+            </header>
+          </Reveal>
+          <div className="home-begin-grid">
+            {homeBlocks.begin.paths.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.05}>
+                <article className="home-begin-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  {item.external ? (
+                    <a className="btn secondary" href={item.href}>
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link className="btn secondary" to={item.to}>
+                      {item.label}
+                    </Link>
+                  )}
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
