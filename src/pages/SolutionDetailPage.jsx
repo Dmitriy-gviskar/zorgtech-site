@@ -1,14 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { assetUrl, getSolution } from '../lib/data';
-
-function paragraphs(text) {
-  if (!text) return [];
-  return text
-    .split(/\n+|(?<=\.)\s+(?=[А-ЯA-Z])/u)
-    .map((p) => p.trim())
-    .filter((p) => p.length > 20)
-    .slice(0, 40);
-}
+import Reveal from '../components/Reveal';
+import { assetUrl, getSolution, presentSolution } from '../lib/data';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
@@ -25,28 +17,38 @@ export default function SolutionDetailPage() {
     );
   }
 
-  const hero = solution.images?.[0];
-  const rest = (solution.images || []).slice(1);
+  const copy = presentSolution(solution);
+  const hero = copy.images[0];
+  const gallery = copy.images.slice(1, 9);
 
   return (
-    <div className="page detail-page">
+    <div className="page detail-page solution-detail">
       <p className="crumbs">
         <Link to="/solutions">Решения</Link>
         <span aria-hidden="true"> / </span>
-        {solution.title}
+        {copy.title}
       </p>
 
-      <header className="detail-hero">
+      <header className="detail-hero solution-hero">
         <div className="detail-hero-copy">
           <p className="chapter-kicker">Решение</p>
-          <h1>{solution.title}</h1>
-          {solution.lead ? <p className="lead">{solution.lead}</p> : null}
+          <h1>{copy.title}</h1>
+          {copy.lead ? <p className="lead">{copy.lead}</p> : null}
+          {copy.features.length ? (
+            <ul className="feature-anchors solution-feature-anchors">
+              {copy.features.slice(0, 4).map((f) => (
+                <li key={f}>
+                  <strong>{f}</strong>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <div className="actions">
-            <Link className="btn primary" to="/contacts">
+            <Link className="btn primary btn--lg" to="/contacts">
               Запросить внедрение
             </Link>
-            <Link className="btn secondary" to="/catalog">
-              К каталогу
+            <Link className="btn secondary btn--lg" to="/solutions">
+              Все решения
             </Link>
           </div>
         </div>
@@ -57,21 +59,58 @@ export default function SolutionDetailPage() {
         ) : null}
       </header>
 
-      {rest.length ? (
-        <div className="content-gallery">
-          {rest.map((src) => (
-            <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+      {copy.story.length ? (
+        <Reveal>
+          <section className="solution-story">
+            {copy.story.map((p) => (
+              <p key={p.slice(0, 48)}>{p}</p>
+            ))}
+          </section>
+        </Reveal>
+      ) : null}
+
+      {copy.blocks.length ? (
+        <div className="solution-blocks">
+          {copy.blocks.map((block, i) => (
+            <Reveal key={block.title} delay={Math.min(i, 4) * 0.05}>
+              <section className="solution-block">
+                <header className="sec-head">
+                  <p className="chapter-kicker">Раздел</p>
+                  <h2>{block.title}</h2>
+                </header>
+                <ul className="solution-block-list">
+                  {block.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
           ))}
         </div>
       ) : null}
 
-      {solution.text ? (
-        <div className="prose">
-          {paragraphs(solution.text).map((p) => (
-            <p key={p.slice(0, 48)}>{p}</p>
-          ))}
-        </div>
+      {gallery.length ? (
+        <section className="solution-gallery-sec">
+          <header className="sec-head">
+            <p className="chapter-kicker">Интерфейс</p>
+            <h2>Как выглядит решение</h2>
+          </header>
+          <div className="solution-gallery">
+            {gallery.map((src) => (
+              <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+            ))}
+          </div>
+        </section>
       ) : null}
+
+      <div className="actions about-actions">
+        <Link className="btn primary btn--lg" to="/contacts">
+          Обсудить внедрение
+        </Link>
+        <Link className="btn secondary btn--lg" to="/catalog">
+          К каталогу
+        </Link>
+      </div>
     </div>
   );
 }

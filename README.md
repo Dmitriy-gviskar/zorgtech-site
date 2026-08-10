@@ -1,27 +1,26 @@
 # zorgtech-site
 
-Новый сайт **Zorgtech** — полная копия контента с [zorgtech.com](https://zorgtech.com).
-
-## Цель
-- Забрать **весь** контент старого сайта: продукцию, кейсы, решения, блог, фото, описания, служебные страницы.
-- Сначала контент-паритет, потом свой визуал.
-- Старый репозиторий `zorgtech-hero` **не используется**.
+Сайт Zorgtech на контенте с [zorgtech.com](https://zorgtech.com).
 
 ## Стек
-- React 19 + Vite 8
-- React Router 7
-- Чистый CSS (без Tailwind)
-- Статика: данные в `src/data/`, картинки в `public/img/`
+React 19 + Vite 8 + React Router 7 + чистый CSS.
 
 ## Команды
 ```bash
-npm run dev      # локально
-npm run build    # билд
-npm run preview  # превью билда
+npm run dev
+npm run build
+npm run preview
 ```
 
-## Этапы
-1. Каркас репозитория
-2. Полный scrape с zorgtech.com
-3. Страницы под все разделы (простой UI)
-4. Свой визуал
+## Структура
+- `src/data/` — scraped JSON  
+- `src/lib/data.js` — доступ к данным + `present*`  
+- `src/pages/` — страницы  
+- `src/styles/` — CSS по зонам (`App.css` только импортирует)  
+- `public/img/` — медиа  
+
+## Документация
+- [`PLAN.md`](./PLAN.md) — этапы и статус  
+- [`AGENTS.md`](./AGENTS.md) — как работать агенту (экономия контекста, карта CSS)
+
+Блог сскреплен, в навигации демо не показывается.

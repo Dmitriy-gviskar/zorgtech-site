@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Reveal from '../components/Reveal';
-import { assetUrl, getPage, presentAboutPage } from '../lib/data';
+import { assetUrl, getPage, presentAboutPage, presentServicePage } from '../lib/data';
 
 const META = {
   about: { kicker: 'Компания', fallback: 'О компании' },
@@ -11,6 +11,8 @@ const META = {
   rent: { kicker: 'Сервис', fallback: 'Аренда' },
   policy: { kicker: 'Документы', fallback: 'Политика конфиденциальности' },
 };
+
+const SERVICE_KEYS = new Set(['delivery', 'support', 'rent', 'policy']);
 
 function paragraphs(text) {
   if (!text) return [];
@@ -134,36 +136,38 @@ function AboutBody({ page }) {
             </header>
           </Reveal>
 
-          <div className="about-client-filters" role="tablist" aria-label="Отрасли клиентов">
-            {about.clients.groups.map((g) => (
-              <button
-                key={g.title}
-                type="button"
-                role="tab"
-                aria-selected={activeClients?.title === g.title}
-                className={`about-client-filter${activeClients?.title === g.title ? ' is-active' : ''}`}
-                onClick={() => setClientGroup(g.title)}
-              >
-                {g.title}
-                <span>{g.items.length}</span>
-              </button>
-            ))}
-          </div>
-
-          {activeClients ? (
-            <ul className="about-client-grid" key={activeClients.title}>
-              {activeClients.items.map((item, i) => (
-                <li key={`${activeClients.title}-${item.name}`} style={{ '--i': i }}>
-                  <div className="about-client-card">
-                    <div className="about-client-logo">
-                      {item.image ? <img src={assetUrl(item.image)} alt="" loading="lazy" /> : null}
-                    </div>
-                    <span>{item.name}</span>
-                  </div>
-                </li>
+          <div className="about-clients-panel">
+            <div className="about-client-filters" role="tablist" aria-label="Отрасли клиентов">
+              {about.clients.groups.map((g) => (
+                <button
+                  key={g.title}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeClients?.title === g.title}
+                  className={`about-client-filter${activeClients?.title === g.title ? ' is-active' : ''}`}
+                  onClick={() => setClientGroup(g.title)}
+                >
+                  {g.title}
+                  <span>{g.items.length}</span>
+                </button>
               ))}
-            </ul>
-          ) : null}
+            </div>
+
+            {activeClients ? (
+              <ul className="about-client-grid" key={activeClients.title}>
+                {activeClients.items.map((item, i) => (
+                  <li key={`${activeClients.title}-${item.name}`} style={{ '--i': i }}>
+                    <div className="about-client-card">
+                      <div className="about-client-logo">
+                        {item.image ? <img src={assetUrl(item.image)} alt="" loading="lazy" /> : null}
+                      </div>
+                      <span>{item.name}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         </section>
       ) : null}
 
@@ -203,93 +207,287 @@ function AboutBody({ page }) {
   );
 }
 
+function ContactsBody() {
+  return (
+    <div className="contacts-showcase">
+      <Reveal>
+        <section className="contacts-hotline">
+          <p className="chapter-kicker">Единый контактный центр</p>
+          <a className="contacts-hotline-phone" href="tel:88005502645">
+            8 800 550 26 45
+          </a>
+          <p className="contacts-hotline-note">Звонок по России бесплатный</p>
+          <div className="actions">
+            <a className="btn primary btn--lg" href="tel:88005502645">
+              Позвонить
+            </a>
+            <a className="btn secondary btn--lg" href="mailto:sale@zorgtech.ru">
+              Написать в продажи
+            </a>
+          </div>
+        </section>
+      </Reveal>
+
+      <div className="contacts-channels">
+        <Reveal delay={0.04}>
+          <a className="contacts-channel" href="mailto:sale@zorgtech.ru">
+            <span className="chapter-kicker">Отдел продаж</span>
+            <strong>sale@zorgtech.ru</strong>
+          </a>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <a className="contacts-channel" href="mailto:support@zorgtech.ru">
+            <span className="chapter-kicker">Техническая поддержка</span>
+            <strong>support@zorgtech.ru</strong>
+          </a>
+        </Reveal>
+      </div>
+
+      <section className="contacts-places">
+        <header className="sec-head">
+          <p className="chapter-kicker">Адреса</p>
+          <h2>Где мы находимся</h2>
+        </header>
+        <ul className="contacts-place-grid">
+          <li>
+            <Reveal>
+              <article className="contacts-place">
+                <span className="chapter-kicker">Производство</span>
+                <h3>Дубна</h3>
+                <p>141980, Московская область, г. Дубна, ул. Университетская, д.11, стр. 29А.</p>
+              </article>
+            </Reveal>
+          </li>
+          <li>
+            <Reveal delay={0.05}>
+              <article className="contacts-place contacts-place--accent">
+                <span className="chapter-kicker">Офис и шоурум</span>
+                <h3>Москва</h3>
+                <p>119530, г. Москва, Очаковское ш., 28стр2, БЦ Дорохофф.</p>
+              </article>
+            </Reveal>
+          </li>
+        </ul>
+      </section>
+
+      <section className="contacts-next">
+        <header className="sec-head">
+          <p className="chapter-kicker">С чего начать</p>
+          <h2>Не знаете, с чего начать?</h2>
+        </header>
+        <ul className="contacts-next-grid">
+          <li>
+            <Reveal>
+              <Link to="/solutions" className="contacts-next-card">
+                <span className="contacts-next-num">01</span>
+                <strong>Изучите готовые решения</strong>
+                <span>Мы подготовили типовые варианты решений самых популярных задач разных типов бизнеса</span>
+              </Link>
+            </Reveal>
+          </li>
+          <li>
+            <Reveal delay={0.05}>
+              <Link to="/catalog" className="contacts-next-card">
+                <span className="contacts-next-num">02</span>
+                <strong>Посетите каталог</strong>
+                <span>И выберите отдельную сенсорную панель, подходящую вашим требованиям</span>
+              </Link>
+            </Reveal>
+          </li>
+          <li>
+            <Reveal delay={0.08}>
+              <a href="tel:88005502645" className="contacts-next-card">
+                <span className="contacts-next-num">03</span>
+                <strong>Закажите обратный звонок</strong>
+                <span>Оставьте свой номер, наш специалист свяжется с вами и поможет сделать правильный выбор</span>
+              </a>
+            </Reveal>
+          </li>
+        </ul>
+      </section>
+    </div>
+  );
+}
+
+function ServiceBody({ pageKey, page }) {
+  const copy = presentServicePage(pageKey, page);
+  const [openPolicy, setOpenPolicy] = useState(copy.sections[0]?.title || '');
+
+  return (
+    <div className="service-body">
+      {copy.story.length ? (
+        <Reveal>
+          <section className="service-story">
+            {copy.story.map((p, i) => (
+              <p key={p.slice(0, 48)} className={i === 0 ? 'is-lead' : undefined}>
+                {p}
+              </p>
+            ))}
+          </section>
+        </Reveal>
+      ) : null}
+
+      {copy.carriers.length ? (
+        <Reveal delay={0.04}>
+          <section className="service-carriers">
+            <header className="sec-head">
+              <p className="chapter-kicker">Партнёры</p>
+              <h2>Транспортные компании</h2>
+            </header>
+            <ul className="service-chip-row">
+              {copy.carriers.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
+      ) : null}
+
+      {copy.facts.length ? (
+        <Reveal delay={0.05}>
+          <ul className="service-facts">
+            {copy.facts.map((f) => (
+              <li key={f.label}>
+                <span className="chapter-kicker">{f.label}</span>
+                <p>{f.value}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      ) : null}
+
+      {copy.prices.length ? (
+        <Reveal delay={0.05}>
+          <section className="service-prices">
+            <header className="sec-head">
+              <p className="chapter-kicker">Тарифы</p>
+              <h2>Стоимость аренды</h2>
+            </header>
+            <ul className="service-price-list">
+              {copy.prices.map((row) => (
+                <li key={`${row.label}-${row.value}`}>
+                  <strong>{row.label}</strong>
+                  <span>{row.value}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </Reveal>
+      ) : null}
+
+      {copy.images?.length ? (
+        <div className="content-gallery service-gallery">
+          {copy.images.slice(0, 6).map((src) => (
+            <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+          ))}
+        </div>
+      ) : null}
+
+      {copy.sections.length && pageKey === 'policy' ? (
+        <div className="service-policy">
+          {copy.sections.map((sec) => {
+            const open = openPolicy === sec.title;
+            return (
+              <details
+                key={sec.title}
+                className="service-policy-item"
+                open={open}
+                onToggle={(e) => {
+                  if (e.target.open) setOpenPolicy(sec.title);
+                  else if (openPolicy === sec.title) setOpenPolicy('');
+                }}
+              >
+                <summary>{sec.title}</summary>
+                <p>{sec.text}</p>
+              </details>
+            );
+          })}
+        </div>
+      ) : null}
+
+      {copy.sections.length && pageKey !== 'policy' ? (
+        <div className="service-sections">
+          {copy.sections.map((sec, i) => (
+            <Reveal key={sec.title} delay={Math.min(i, 4) * 0.04}>
+              <section className="service-section">
+                <header className="sec-head">
+                  <p className="chapter-kicker">Раздел</p>
+                  <h2>{sec.title}</h2>
+                </header>
+                {sec.text ? <p className="service-section-text">{sec.text}</p> : null}
+                {sec.items?.length ? (
+                  <ul className="service-section-list">
+                    {sec.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </section>
+            </Reveal>
+          ))}
+        </div>
+      ) : null}
+
+      {copy.hotline ? (
+        <div className="service-hotline">
+          <span className="chapter-kicker">Горячая линия</span>
+          <a href={`tel:${copy.hotline.replace(/\s+/g, '')}`}>{copy.hotline}</a>
+        </div>
+      ) : null}
+
+      <div className="actions about-actions">
+        <Link className="btn primary btn--lg" to="/contacts">
+          Связаться с нами
+        </Link>
+        <Link className="btn secondary btn--lg" to="/catalog">
+          В каталог
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function StaticPage({ pageKey }) {
   const page = getPage(pageKey);
   const meta = META[pageKey] || { kicker: 'Zorgtech', fallback: pageKey };
-  const scrapedTitle = page?.title || '';
-  const title =
-    scrapedTitle && scrapedTitle.length <= 48 && !scrapedTitle.includes(' - ')
-      ? scrapedTitle
-      : meta.fallback;
   const isContacts = pageKey === 'contacts';
   const isAbout = pageKey === 'about';
+  const isService = SERVICE_KEYS.has(pageKey);
   const about = isAbout ? presentAboutPage(page) : null;
-  const chunks = !isAbout && !isContacts ? paragraphs(page?.text) : [];
+  const service = isService ? presentServicePage(pageKey, page) : null;
+
+  const scrapedTitle = page?.title || '';
+  const title = isService
+    ? service.title || meta.fallback
+    : scrapedTitle && scrapedTitle.length <= 48 && !scrapedTitle.includes(' - ')
+      ? scrapedTitle
+      : meta.fallback;
+
   const lead = isAbout
     ? about?.lead
-    : page?.lead && !/полезная информация для партнеров/i.test(page.lead)
-      ? page.lead
-      : null;
+    : isService
+      ? service.lead
+      : isContacts
+        ? 'Единый контактный центр, офис продаж и шоурум, производство в Дубне.'
+        : page?.lead && !/полезная информация для партнеров|телефон горячей линии/i.test(page.lead)
+          ? page.lead
+          : null;
 
   return (
-    <div className={`page static-page${isContacts ? ' static-page--contacts' : ''}${isAbout ? ' static-page--about' : ''}`}>
+    <div
+      className={`page static-page${isContacts ? ' static-page--contacts' : ''}${
+        isAbout ? ' static-page--about' : ''
+      }${isService ? ` static-page--service static-page--${pageKey}` : ''}`}
+    >
       <header className="category-head category-head--simple">
         <p className="chapter-kicker">{meta.kicker}</p>
         <h1>{title}</h1>
         {lead ? <p className="lead">{lead}</p> : null}
       </header>
 
-      {isContacts ? (
-        <div className="contacts-panel">
-          <a className="contacts-item" href="tel:88005502645">
-            <span className="chapter-kicker">Телефон</span>
-            <strong>8 800 550 26 45</strong>
-          </a>
-          <a className="contacts-item" href="mailto:sale@zorgtech.ru">
-            <span className="chapter-kicker">Отдел продаж</span>
-            <strong>sale@zorgtech.ru</strong>
-          </a>
-          <a className="contacts-item" href="mailto:support@zorgtech.ru">
-            <span className="chapter-kicker">Поддержка</span>
-            <strong>support@zorgtech.ru</strong>
-          </a>
-          <div className="actions">
-            <Link className="btn primary btn--lg" to="/catalog">
-              В каталог →
-            </Link>
-            <a className="btn secondary btn--lg" href="tel:88005502645">
-              Позвонить
-            </a>
-          </div>
-        </div>
-      ) : null}
-
+      {isContacts ? <ContactsBody /> : null}
       {isAbout ? <AboutBody page={page} /> : null}
-
-      {!isContacts && !isAbout && page?.images?.length ? (
-        <div className="content-gallery">
-          {page.images.slice(0, 8).map((src) => (
-            <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
-          ))}
-        </div>
-      ) : null}
-
-      {!isContacts && !isAbout && chunks.length ? (
-        <div className="prose">
-          {chunks.map((p) => (
-            <p key={p.slice(0, 48)}>{p}</p>
-          ))}
-        </div>
-      ) : null}
-
-      {!isContacts && !isAbout && !chunks.length && page?.text ? (
-        <div className="prose">
-          <p>{page.text}</p>
-        </div>
-      ) : null}
-
-      {!isContacts && !isAbout && !chunks.length && !page?.text ? (
-        <p className="muted">
-          Контент страницы ещё подтягивается. <Link className="text-link" to="/">На главную</Link>
-        </p>
-      ) : null}
-
-      {isContacts ? (
-        <div className="contacts-address prose">
-          <p>Адрес производства: 141980, Московская область, г. Дубна, ул. Университетская, д.11, стр. 29А.</p>
-          <p>Офис продаж и шоурум: 119530, г. Москва, Очаковское ш., 28стр2, БЦ Дорохофф.</p>
-        </div>
-      ) : null}
+      {isService ? <ServiceBody pageKey={pageKey} page={page} /> : null}
     </div>
   );
 }

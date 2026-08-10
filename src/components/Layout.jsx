@@ -85,9 +85,13 @@ export default function Layout() {
           </div>
           <div className="foot-links">
             <Link to="/catalog">Каталог</Link>
-            <Link to="/projects">Проекты</Link>
             <Link to="/solutions">Решения</Link>
+            <Link to="/projects">Проекты</Link>
+            <Link to="/areas">Области</Link>
             <Link to="/about">О компании</Link>
+            <Link to="/delivery">Доставка</Link>
+            <Link to="/support">Поддержка</Link>
+            <Link to="/rent">Аренда</Link>
             <Link to="/contacts">Контакты</Link>
             <Link to="/policy">Политика</Link>
           </div>

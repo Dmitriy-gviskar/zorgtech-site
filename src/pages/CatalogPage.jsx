@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { categoryList, getPage, getProduct, productCover, productGallery } from '../lib/data';
+import Reveal from '../components/Reveal';
+import { categoryList, getProduct, productCover, productGallery } from '../lib/data';
 
 const FEATURED = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
 
@@ -32,47 +33,105 @@ function modelsLabel(count) {
   return `${n} моделей`;
 }
 
+function withCover(c) {
+  const coverProduct = getProduct(LINE_COVER_SLUG[c.slug]) || getProduct(c.productSlugs?.[0]);
+  return { ...c, cover: studioCover(coverProduct) };
+}
+
 export default function CatalogPage() {
-  const page = getPage('catalog');
   const all = categoryList();
-  const primary = FEATURED.map((slug) => all.find((c) => c.slug === slug)).filter(Boolean);
-  const rest = all.filter((c) => !FEATURED.includes(c.slug));
-  const cats = [...primary, ...rest].map((c) => {
-    const coverProduct = getProduct(LINE_COVER_SLUG[c.slug]) || getProduct(c.productSlugs?.[0]);
-    return {
-      ...c,
-      cover: studioCover(coverProduct),
-    };
-  });
+  const primary = FEATURED.map((slug) => all.find((c) => c.slug === slug)).filter(Boolean).map(withCover);
+  const rest = all.filter((c) => !FEATURED.includes(c.slug)).map(withCover);
+  const hero = primary[0] || null;
+  const featuredRest = primary.slice(1);
+  const totalModels = all.reduce((sum, c) => sum + (c.productSlugs?.length || 0), 0);
 
   return (
     <div className="page catalog-page">
-      <header className="catalog-head">
+      <header className="catalog-head catalog-head--rich">
         <p className="chapter-kicker">Продукция</p>
-        <h1>{page?.title || 'Каталог оборудования'}</h1>
+        <h1>Каталог оборудования</h1>
         <p className="lead">
-          {page?.lead || 'Линейки сенсорных терминалов, столов и киосков Zorgtech.'}
+          Линейки сенсорных терминалов, столов и киосков Zorgtech.
+        </p>
+        <p className="catalog-head-meta">
+          <strong>{all.length}</strong> линеек · <strong>{totalModels}</strong> моделей
         </p>
       </header>
 
-      <ul className="lines-tiles catalog-tiles">
-        {cats.map((c) => (
-          <li key={c.slug}>
-            <Link to={`/catalog/${c.slug}`} className="line-tile">
-              <div className="line-tile-body">
-                <h3>{c.name}</h3>
-                <em>{modelsLabel(c.productSlugs?.length)}</em>
-                <span className="line-tile-cta">
-                  Смотреть <span aria-hidden="true">→</span>
-                </span>
-              </div>
-              <div className="line-tile-media" aria-hidden="true">
-                {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {hero ? (
+        <Reveal>
+          <Link to={`/catalog/${hero.slug}`} className="catalog-hero-line">
+            <div className="catalog-hero-line-copy">
+              <p className="chapter-kicker">Флагманская линейка</p>
+              <h2>{hero.name}</h2>
+              <em>{modelsLabel(hero.productSlugs?.length)}</em>
+              <span className="feature-card-cta">
+                Смотреть линейку <span aria-hidden="true">→</span>
+              </span>
+            </div>
+            <div className="catalog-hero-line-media" aria-hidden="true">
+              {hero.cover ? <img src={hero.cover} alt="" /> : null}
+            </div>
+          </Link>
+        </Reveal>
+      ) : null}
+
+      {featuredRest.length ? (
+        <section className="catalog-sec">
+          <header className="sec-head">
+            <p className="chapter-kicker">Основные линейки</p>
+            <h2>По назначению</h2>
+          </header>
+          <ul className="lines-tiles catalog-tiles">
+            {featuredRest.map((c, i) => (
+              <li key={c.slug}>
+                <Reveal delay={Math.min(i, 4) * 0.04}>
+                  <Link to={`/catalog/${c.slug}`} className="line-tile">
+                    <div className="line-tile-body">
+                      <h3>{c.name}</h3>
+                      <em>{modelsLabel(c.productSlugs?.length)}</em>
+                      <span className="line-tile-cta">
+                        Смотреть <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                    <div className="line-tile-media" aria-hidden="true">
+                      {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
+                    </div>
+                  </Link>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {rest.length ? (
+        <section className="catalog-sec">
+          <header className="sec-head">
+            <p className="chapter-kicker">Ещё</p>
+            <h2>Дополнительные линейки</h2>
+          </header>
+          <ul className="catalog-more-list">
+            {rest.map((c, i) => (
+              <li key={c.slug}>
+                <Reveal delay={Math.min(i, 4) * 0.03}>
+                  <Link to={`/catalog/${c.slug}`} className="catalog-more-item">
+                    <div className="catalog-more-media" aria-hidden="true">
+                      {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
+                    </div>
+                    <div>
+                      <strong>{c.name}</strong>
+                      <span>{modelsLabel(c.productSlugs?.length)}</span>
+                    </div>
+                    <em aria-hidden="true">→</em>
+                  </Link>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </div>
   );
 }

@@ -1,14 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { assetUrl, getArea } from '../lib/data';
-
-function paragraphs(text) {
-  if (!text) return [];
-  return text
-    .split(/\n+|(?<=\.)\s+(?=[А-ЯA-Z])/u)
-    .map((p) => p.trim())
-    .filter((p) => p.length > 20)
-    .slice(0, 40);
-}
+import Reveal from '../components/Reveal';
+import { assetUrl, getArea, presentArea } from '../lib/data';
 
 export default function AreaDetailPage() {
   const { slug } = useParams();
@@ -25,27 +17,28 @@ export default function AreaDetailPage() {
     );
   }
 
-  const hero = area.images?.[0];
-  const rest = (area.images || []).slice(1);
+  const copy = presentArea(area);
+  const hero = copy.images[0];
+  const gallery = copy.images.slice(1, 9);
 
   return (
-    <div className="page detail-page">
+    <div className="page detail-page area-detail">
       <p className="crumbs">
         <Link to="/areas">Области применения</Link>
         <span aria-hidden="true"> / </span>
-        {area.title}
+        {copy.title}
       </p>
 
-      <header className="detail-hero">
+      <header className="detail-hero area-hero">
         <div className="detail-hero-copy">
           <p className="chapter-kicker">Область применения</p>
-          <h1>{area.title}</h1>
-          {area.lead ? <p className="lead">{area.lead}</p> : null}
+          <h1>{copy.title}</h1>
+          {copy.lead ? <p className="lead">{copy.lead}</p> : null}
           <div className="actions">
-            <Link className="btn primary" to="/contacts">
+            <Link className="btn primary btn--lg" to="/contacts">
               Обсудить задачу
             </Link>
-            <Link className="btn secondary" to="/solutions">
+            <Link className="btn secondary btn--lg" to="/solutions">
               Готовые решения
             </Link>
           </div>
@@ -57,21 +50,69 @@ export default function AreaDetailPage() {
         ) : null}
       </header>
 
-      {rest.length ? (
-        <div className="content-gallery">
-          {rest.map((src) => (
-            <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+      {copy.story.length ? (
+        <Reveal>
+          <section className="solution-story area-story">
+            {copy.story.map((p, i) => (
+              <p key={p.slice(0, 48)} className={i === 0 ? 'is-lead' : undefined}>
+                {p}
+              </p>
+            ))}
+          </section>
+        </Reveal>
+      ) : null}
+
+      {copy.sections.length ? (
+        <div className="area-sections">
+          {copy.sections.map((sec, i) => (
+            <Reveal key={sec.title} delay={Math.min(i, 4) * 0.05}>
+              <section className="area-section">
+                <span className="area-section-num">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <h2>{sec.title}</h2>
+                  {sec.paragraphs?.length ? (
+                    <div className="area-section-prose">
+                      {sec.paragraphs.map((p) => (
+                        <p key={p.slice(0, 48)}>{p}</p>
+                      ))}
+                    </div>
+                  ) : null}
+                  {sec.items?.length ? (
+                    <ul className="solution-block-list">
+                      {sec.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              </section>
+            </Reveal>
           ))}
         </div>
       ) : null}
 
-      {area.text ? (
-        <div className="prose">
-          {paragraphs(area.text).map((p) => (
-            <p key={p.slice(0, 48)}>{p}</p>
-          ))}
-        </div>
+      {gallery.length ? (
+        <section className="solution-gallery-sec">
+          <header className="sec-head">
+            <p className="chapter-kicker">Визуал</p>
+            <h2>Как это выглядит</h2>
+          </header>
+          <div className="solution-gallery">
+            {gallery.map((src) => (
+              <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+            ))}
+          </div>
+        </section>
       ) : null}
+
+      <div className="actions about-actions">
+        <Link className="btn primary btn--lg" to="/contacts">
+          Обсудить внедрение
+        </Link>
+        <Link className="btn secondary btn--lg" to="/areas">
+          Все области
+        </Link>
+      </div>
     </div>
   );
 }
