@@ -168,20 +168,30 @@ const REGEN_FRAMES = {
   'diamant-43-f': [
     '/img/regen/diamant-43-f-frame-front.png',
     '/img/regen/diamant-43-f-frame-34.png',
+    '/img/regen/diamant-43-f-frame-side.png',
     '/img/regen/diamant-43-f-frame-rear.png',
+    '/img/regen/diamant-43-f-frame-detail.png',
   ],
   'diamant-43-f-general': [
     '/img/regen/diamant-43-f-frame-front.png',
     '/img/regen/diamant-43-f-frame-34.png',
+    '/img/regen/diamant-43-f-frame-side.png',
     '/img/regen/diamant-43-f-frame-rear.png',
+    '/img/regen/diamant-43-f-frame-detail.png',
   ],
   'diamant-43-f-print': [
     '/img/regen/diamant-43-f-print-frame-front.png',
     '/img/regen/diamant-43-f-print-frame-34.png',
+    '/img/regen/diamant-43-f-print-frame-side.png',
+    '/img/regen/diamant-43-f-print-frame-rear.png',
+    '/img/regen/diamant-43-f-print-frame-print.png',
   ],
   'diamant-43-fl': [
     '/img/regen/diamant-43-fl-frame-front.png',
     '/img/regen/diamant-43-fl-frame-34.png',
+    '/img/regen/diamant-43-fl-frame-side.png',
+    '/img/regen/diamant-43-fl-frame-rear.png',
+    '/img/regen/diamant-43-fl-frame-detail.png',
   ],
   'diamant-43-n': [
     '/img/regen/diamant-43-n-frame-front.png',
