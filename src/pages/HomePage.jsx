@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { animate, motion, useInView, useScroll, useTransform } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import DesignCompare from '../components/DesignCompare';
 import { assetUrl } from '../lib/data/asset.js';
@@ -36,6 +36,24 @@ function scrollToHomeSection(id) {
   if (typeof history !== 'undefined' && history.replaceState) {
     history.replaceState(null, '', `#${id}`);
   }
+}
+
+function StatValue({ value }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return undefined;
+    const controls = animate(0, Number(value) || 0, {
+      duration: 1.35,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (latest) => setDisplay(Math.round(latest)),
+    });
+    return () => controls.stop();
+  }, [inView, value]);
+
+  return <strong ref={ref}>{display}</strong>;
 }
 
 export default function HomePage() {
@@ -118,7 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-props" aria-label="Ключевые направления">
+      <section className="home-props home-props--dense" aria-label="Ключевые направления">
         <div className="wrap">
           <ul className="home-props-list">
             {homeBlocks.props.map((item, i) => (
@@ -214,12 +232,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-stats">
+      <section className="home-stats home-stats--cinema">
         <div className="wrap home-stats-inner">
           {homeBlocks.stats.map((item, i) => (
-            <Reveal key={item.label} delay={i * 0.05}>
+            <Reveal key={item.label} delay={i * 0.06}>
               <div className="home-stat">
-                <strong>{item.value}</strong>
+                <StatValue value={item.value} />
                 <span>{item.label}</span>
               </div>
             </Reveal>
@@ -227,20 +245,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-about">
-        <div className="wrap">
+      <section className="home-about chapter chapter--soft chapter--home">
+        <div className="chapter-media" aria-hidden="true">
+          {homeBlocks.about.media ? (
+            <img src={assetUrl(homeBlocks.about.media)} alt="" loading="lazy" />
+          ) : null}
+        </div>
+        <div className="chapter-copy">
           <Reveal>
-            <div className="home-copy">
-              <header className="home-sec-head">
-                <p className="chapter-kicker">{homeBlocks.about.kicker}</p>
-                <h2 className="home-sec-title">{homeBlocks.about.title}</h2>
-              </header>
-              <ul className="home-about-list">
-                {homeBlocks.about.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <Link className="btn secondary" to={homeBlocks.about.cta.to}>
+            <p className="chapter-kicker">{homeBlocks.about.kicker}</p>
+            <h2 className="home-sec-title">{homeBlocks.about.title}</h2>
+            <ul className="home-about-list">
+              {homeBlocks.about.bullets.slice(0, 3).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className="chapter-actions">
+              <Link className="btn primary" to={homeBlocks.about.cta.to}>
                 {homeBlocks.about.cta.label}
               </Link>
             </div>
@@ -249,14 +270,25 @@ export default function HomePage() {
       </section>
 
       <section className="home-cycle" id="home-cycle">
-        <div className="wrap">
-          <Reveal>
-            <header className="home-sec-head home-copy">
+        <div className="home-cycle-stage">
+          <div
+            className="home-cycle-visual"
+            style={
+              homeBlocks.cycle.media
+                ? { backgroundImage: `url(${assetUrl(homeBlocks.cycle.media)})` }
+                : undefined
+            }
+            aria-hidden="true"
+          />
+          <div className="wrap home-cycle-stage-inner">
+            <Reveal>
               <p className="chapter-kicker">{homeBlocks.cycle.kicker}</p>
               <h2 className="home-sec-title">{homeBlocks.cycle.title}</h2>
               <p className="home-block-lead">{homeBlocks.cycle.lead}</p>
-            </header>
-          </Reveal>
+            </Reveal>
+          </div>
+        </div>
+        <div className="wrap home-cycle-body">
           <div className="home-cycle-grid">
             {homeBlocks.cycle.pillars.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05}>
@@ -275,22 +307,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-ui" id="home-ui">
-        <div className="wrap">
+      <section className="home-ui chapter chapter--soft chapter--home chapter--flip" id="home-ui">
+        <div className="chapter-media" aria-hidden="true">
+          {homeBlocks.ui.media ? (
+            <img src={assetUrl(homeBlocks.ui.media)} alt="" loading="lazy" />
+          ) : null}
+        </div>
+        <div className="chapter-copy">
           <Reveal>
-            <div className="home-copy">
-              <header className="home-sec-head">
-                <p className="chapter-kicker">{homeBlocks.ui.kicker}</p>
-                <h2 className="home-sec-title">{homeBlocks.ui.title}</h2>
-              </header>
-              <p className="home-block-lead">{homeBlocks.ui.lead}</p>
-              <ul className="home-ui-points">
-                {homeBlocks.ui.points.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <Link className="chapter-link" to={homeBlocks.ui.cta.to}>
-                {homeBlocks.ui.cta.label} <span aria-hidden="true">→</span>
+            <p className="chapter-kicker">{homeBlocks.ui.kicker}</p>
+            <h2 className="home-sec-title">{homeBlocks.ui.title}</h2>
+            <p className="chapter-line">{clip(homeBlocks.ui.lead, 220)}</p>
+            <ul className="home-ui-points">
+              {homeBlocks.ui.points.map((item) => (
+                <li key={item}>{item.replace(/;?\s*$/, '')}</li>
+              ))}
+            </ul>
+            <div className="chapter-actions">
+              <Link className="btn primary" to={homeBlocks.ui.cta.to}>
+                {homeBlocks.ui.cta.label}
               </Link>
             </div>
           </Reveal>
@@ -321,22 +356,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-sensor" id="home-sensor">
-        <div className="wrap">
+      <section className="home-sensor chapter chapter--soft chapter--home" id="home-sensor">
+        <div className="chapter-media chapter-media--product" aria-hidden="true">
+          {homeBlocks.sensor.media ? (
+            <img src={assetUrl(homeBlocks.sensor.media)} alt="" loading="lazy" />
+          ) : null}
+        </div>
+        <div className="chapter-copy">
           <Reveal>
-            <div className="home-copy">
-              <header className="home-sec-head">
-                <p className="chapter-kicker">{homeBlocks.sensor.kicker}</p>
-                <h2 className="home-sec-title">{homeBlocks.sensor.title}</h2>
-              </header>
-              <p className="home-block-lead">{homeBlocks.sensor.text}</p>
+            <p className="chapter-kicker">{homeBlocks.sensor.kicker}</p>
+            <h2 className="home-sec-title">{homeBlocks.sensor.title}</h2>
+            <p className="chapter-line">{clip(homeBlocks.sensor.text, 260)}</p>
+            <div className="chapter-actions">
+              <Link className="btn primary" to="/catalog">
+                В каталог
+              </Link>
+              <Link className="btn secondary" to="/contacts">
+                Обсудить задачу
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
       {POPULAR.length ? (
-        <section className="home-popular">
+        <section className="home-popular home-popular--cinema">
           <div className="wrap">
             <Reveal>
               <header className="home-sec-head home-sec-head--row">
@@ -344,61 +388,84 @@ export default function HomePage() {
                   <p className="chapter-kicker">{homeBlocks.popular.kicker}</p>
                   <h2 className="home-sec-title">{homeBlocks.popular.title}</h2>
                 </div>
-                <Link className="btn primary" to="/catalog">
+                <Link className="btn secondary" to="/catalog">
                   Каталог товаров
                 </Link>
               </header>
             </Reveal>
-            <div className="home-popular-grid">
-              {POPULAR.map((item, i) => (
-                <Reveal key={item.slug} delay={Math.min(i, 3) * 0.05}>
-                  <Link to={`/product/${item.slug}`} className="home-popular-card">
-                    <div className="home-popular-media" aria-hidden="true">
-                      {item.cover ? <img src={assetUrl(item.cover)} alt="" loading="lazy" /> : null}
-                    </div>
-                    <div className="home-popular-copy">
-                      <h3>{item.title}</h3>
-                      {item.desc ? <p>{clip(item.desc, 90)}</p> : null}
-                      <span className="category-product-price">{item.price}</span>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
           </div>
+
+          <Reveal>
+            <Link to={`/product/${POPULAR[0].slug}`} className="home-popular-hero">
+              <div className="home-popular-hero-media" aria-hidden="true">
+                {POPULAR[0].cover ? (
+                  <img src={assetUrl(POPULAR[0].cover)} alt="" loading="lazy" />
+                ) : null}
+              </div>
+              <div className="home-popular-hero-copy">
+                <p className="chapter-kicker">Флагман</p>
+                <h3>{POPULAR[0].title}</h3>
+                {POPULAR[0].desc ? <p>{POPULAR[0].desc}</p> : null}
+                <span className="home-popular-hero-cta">
+                  {POPULAR[0].price} <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+
+          {POPULAR.length > 1 ? (
+            <div className="wrap">
+              <div className="home-popular-rail">
+                {POPULAR.slice(1).map((item, i) => (
+                  <Reveal key={item.slug} delay={Math.min(i, 2) * 0.05}>
+                    <Link to={`/product/${item.slug}`} className="home-popular-rail-card">
+                      <div className="home-popular-rail-media" aria-hidden="true">
+                        {item.cover ? <img src={assetUrl(item.cover)} alt="" loading="lazy" /> : null}
+                      </div>
+                      <div className="home-popular-rail-copy">
+                        <h3>{item.title}</h3>
+                        {item.desc ? <p>{clip(item.desc, 72)}</p> : null}
+                        <span>{item.price}</span>
+                      </div>
+                    </Link>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
       ) : null}
 
       {MUSEUM ? (
-        <section className="home-museum">
-          <div className="wrap home-museum-inner">
+        <section className="home-museum home-museum--cinema">
+          <div
+            className="home-museum-visual"
+            style={
+              MUSEUM.cover
+                ? { backgroundImage: `url(${assetUrl(MUSEUM.cover)})` }
+                : undefined
+            }
+            aria-hidden="true"
+          />
+          <div className="wrap home-museum-panel">
             <Reveal>
-              <div className="home-museum-copy">
-                <Link className="chapter-link home-museum-all" to={homeBlocks.museum.all.to}>
-                  {homeBlocks.museum.all.label} <span aria-hidden="true">→</span>
-                </Link>
-                <p className="chapter-kicker">{homeBlocks.museum.kicker}</p>
-                <h2 className="home-sec-title">{homeBlocks.museum.title}</h2>
-                <p className="home-block-lead">{homeBlocks.museum.text}</p>
-                <p className="home-museum-uses-label">{homeBlocks.museum.usesLabel}</p>
-                <ul className="home-museum-uses">
-                  {homeBlocks.museum.uses.map((item) => (
-                    <li key={item.to}>
-                      <Link to={item.to}>{item.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link className="btn primary" to={homeBlocks.museum.cta.to}>
-                  {homeBlocks.museum.cta.label}
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="home-museum-media" aria-hidden="true">
-                {MUSEUM.cover || MUSEUM.productCover ? (
-                  <img src={assetUrl(MUSEUM.cover || MUSEUM.productCover)} alt="" loading="lazy" />
-                ) : null}
-              </div>
+              <Link className="chapter-link home-museum-all chapter-link--light" to={homeBlocks.museum.all.to}>
+                {homeBlocks.museum.all.label} <span aria-hidden="true">→</span>
+              </Link>
+              <p className="chapter-kicker">{homeBlocks.museum.kicker}</p>
+              <h2 className="home-sec-title">{homeBlocks.museum.title}</h2>
+              <p className="home-block-lead">{homeBlocks.museum.text}</p>
+              <p className="home-museum-uses-label">{homeBlocks.museum.usesLabel}</p>
+              <ul className="home-museum-uses">
+                {homeBlocks.museum.uses.map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to}>{item.label}</Link>
+                  </li>
+                ))}
+              </ul>
+              <Link className="btn primary" to={homeBlocks.museum.cta.to}>
+                {homeBlocks.museum.cta.label}
+              </Link>
             </Reveal>
           </div>
         </section>
