@@ -217,7 +217,9 @@
 /* DJI-style featured product cards — title inside, juicy product + shadow */
 .feature-strip {
   padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 80% 45% at 50% 100%, rgba(42, 170, 221, 0.08), transparent 55%),
+    #ffffff;
 }
 
 .feature-strip-inner {
@@ -248,19 +250,19 @@
   padding: clamp(1.6rem, 2.5vw, 2.25rem) clamp(1.25rem, 2vw, 1.75rem) 1.75rem;
   text-decoration: none;
   color: var(--ink);
-  /* white plate matches studio PNG bg — no cutout fringe, no clipped base */
-  background: #ffffff;
+  /* seamless studio — no grey-rim card plate around opaque PNG cutouts */
+  background:
+    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.14), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 50% 36%, rgba(42, 170, 221, 0.06), transparent 68%),
+    #ffffff;
   border-radius: calc(var(--radius-tile) + 0.25rem);
   overflow: hidden;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 16px 36px rgba(15, 23, 32, 0.06);
-  transition:
-    transform 0.4s var(--ease-out),
-    box-shadow 0.4s var(--ease-out);
+  box-shadow: none;
+  transition: transform 0.4s var(--ease-out);
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 24px 48px rgba(15, 23, 32, 0.1);
+  transform: translateY(-3px);
 }
 
 .feature-card-copy {
@@ -334,8 +336,7 @@
   padding: 0.5rem 1.25rem 0;
   pointer-events: none;
   border-radius: calc(var(--radius-tile) - 0.45rem);
-  /* white — matches studio PNG plate; no grey “inset card” */
-  background: #ffffff;
+  background: transparent;
 }
 
 .feature-card-media img,
@@ -459,7 +460,7 @@
   width: min(100%, 900px);
   max-height: min(90vh, 920px);
   object-fit: contain;
-  filter: drop-shadow(0 28px 50px rgba(15, 23, 32, 0.1));
+  /* no drop-shadow — opaque white studio PNGs become a grey-rimmed plate */
 }
 
 .chapter-copy {
@@ -747,18 +748,17 @@
   padding: 1.25rem 1.1rem 1rem;
   text-decoration: none;
   color: var(--ink);
-  background: #ffffff;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(42, 170, 221, 0.12), transparent 58%),
+    #ffffff;
   border-radius: var(--radius-tile);
   overflow: hidden;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 12px 28px rgba(15, 23, 32, 0.05);
-  transition:
-    transform 0.35s var(--ease-out),
-    box-shadow 0.35s var(--ease-out);
+  box-shadow: none;
+  transition: transform 0.35s var(--ease-out);
 }
 
 .line-tile:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 18px 36px rgba(15, 23, 32, 0.09);
 }
 
 .line-tile-media {
@@ -1689,13 +1689,17 @@
 .chapter--home {
   min-height: min(88vh, 820px);
   border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 80% 55% at 35% 100%, rgba(42, 170, 221, 0.1), transparent 55%),
+    #ffffff;
 }
 
 .chapter--home .chapter-media {
   min-height: min(88vh, 820px);
   background:
-    radial-gradient(ellipse 52% 48% at 50% 58%, rgba(42, 170, 221, 0.07), transparent 70%),
-    #fff;
+    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
+    radial-gradient(ellipse 52% 42% at 50% 40%, rgba(42, 170, 221, 0.08), transparent 68%),
+    #ffffff;
   overflow: hidden;
 }
 
@@ -1722,7 +1726,6 @@
 .chapter--home .chapter-media--product img {
   width: min(88%, 520px);
   max-height: min(70vh, 580px);
-  filter: drop-shadow(0 32px 60px rgba(15, 23, 32, 0.14));
 }
 
 .chapter--home .chapter-copy {
@@ -1876,10 +1879,12 @@
   height: 100%;
   min-height: 100%;
   padding: 1.5rem 1.35rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(42, 170, 221, 0.14);
   border-radius: var(--radius-tile);
-  background: #fff;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.03);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 120%, rgba(42, 170, 221, 0.06), transparent 55%),
+    #fff;
+  box-shadow: none;
 }
 
 .home-cycle-card h3,
@@ -1927,7 +1932,8 @@
   padding-top: clamp(4rem, 8vw, 6rem);
   padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
   background:
-    radial-gradient(ellipse 70% 45% at 50% 18%, rgba(42, 170, 221, 0.055), transparent 62%),
+    radial-gradient(ellipse 85% 50% at 50% 100%, rgba(42, 170, 221, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 50% 12%, rgba(42, 170, 221, 0.06), transparent 62%),
     #ffffff;
 }
 
@@ -1943,17 +1949,14 @@
   text-decoration: none;
   color: inherit;
   border-radius: calc(var(--radius-tile) + 0.25rem);
-  background: #ffffff;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 18px 40px rgba(15, 23, 32, 0.07);
+  background: transparent;
+  box-shadow: none;
   overflow: hidden;
-  transition:
-    transform 0.35s var(--ease-out),
-    box-shadow 0.35s var(--ease-out);
+  transition: transform 0.35s var(--ease-out);
 }
 
 .home-popular-hero:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 28px 56px rgba(15, 23, 32, 0.12);
+  transform: translateY(-3px);
 }
 
 .home-popular-hero-media {
@@ -1961,8 +1964,10 @@
   place-items: center;
   min-height: min(54vh, 480px);
   padding: clamp(0.5rem, 2vw, 1.25rem);
+  border-radius: var(--radius-tile);
   background:
-    radial-gradient(ellipse 55% 48% at 50% 58%, rgba(42, 170, 221, 0.08), transparent 72%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
+    radial-gradient(ellipse 55% 42% at 50% 40%, rgba(42, 170, 221, 0.08), transparent 70%),
     #ffffff;
 }
 
@@ -1974,7 +1979,6 @@
 
 .home-popular-hero-media img {
   object-fit: contain;
-  filter: drop-shadow(0 28px 50px rgba(15, 23, 32, 0.12));
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
@@ -2022,41 +2026,47 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
   margin-top: 1.35rem;
+  align-items: stretch;
 }
 
 .home-popular-rail > * {
   min-width: 0;
+  height: 100%;
+  display: flex;
 }
 
 .home-popular-rail-card {
   display: grid;
   grid-template-rows: auto minmax(240px, 1fr);
+  flex: 1 1 auto;
+  width: 100%;
   min-height: clamp(380px, 42vw, 460px);
   padding: 1.35rem 1.15rem 1.35rem;
   text-decoration: none;
   color: inherit;
   border-radius: calc(var(--radius-tile) + 0.15rem);
-  background: #ffffff;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 14px 32px rgba(15, 23, 32, 0.06);
-  transition:
-    transform 0.35s var(--ease-out),
-    box-shadow 0.35s var(--ease-out);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: transform 0.35s var(--ease-out);
 }
 
 .home-popular-rail-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 22px 44px rgba(15, 23, 32, 0.1);
+  transform: translateY(-3px);
 }
 
 .home-popular-rail-media {
   display: grid;
-  place-items: center;
+  place-items: end center;
+  align-content: end;
   order: 2;
   min-height: 0;
   margin-top: 0.75rem;
-  padding: 0.5rem 0.75rem 0.25rem;
+  padding: 0.75rem 0.75rem 0.35rem;
+  border-radius: var(--radius-tile);
   background:
-    radial-gradient(ellipse 58% 50% at 50% 60%, rgba(42, 170, 221, 0.09), transparent 72%),
+    radial-gradient(ellipse 70% 52% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
+    radial-gradient(ellipse 55% 42% at 50% 42%, rgba(42, 170, 221, 0.07), transparent 70%),
     #ffffff;
 }
 
@@ -2068,7 +2078,6 @@
 
 .home-popular-rail-media img {
   object-fit: contain;
-  filter: drop-shadow(0 20px 36px rgba(15, 23, 32, 0.14));
   transition: transform 0.55s var(--ease-out), opacity 0.4s var(--ease-out);
 }
 
