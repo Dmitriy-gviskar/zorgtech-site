@@ -73,28 +73,65 @@ export default function HeroJourney() {
 
   useEffect(() => {
     // Browser scroll restoration lands mid-journey and skips the terminal intro.
-    const prevRestoration = history.scrollRestoration;
+    // Keep manual for the whole visit — restoring `auto` on unmount races with reload.
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     const hash = window.location.hash;
     const resetToStart = !hash || hash === '#' || hash === '#top';
+    const boot = { lock: resetToStart, pSmooth: 0 };
     const pinTop = () => {
-      if (!resetToStart) return;
+      if (!boot.lock) return;
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
+      boot.pSmooth = 0;
     };
+    const releaseBoot = () => {
+      boot.lock = false;
+    };
+    const onUserIntent = () => releaseBoot();
+    const onScrollGuard = () => {
+      if (boot.lock) pinTop();
+    };
+    const onPageShow = (e) => {
+      if (!resetToStart) return;
+      boot.lock = true;
+      pinTop();
+      // bfcache restore often reapplies scroll after pageshow
+      requestAnimationFrame(pinTop);
+      if (e && e.persisted) window.setTimeout(pinTop, 0);
+    };
+
     pinTop();
-    const pinRaf = requestAnimationFrame(pinTop);
-    const pinTimer = window.setTimeout(pinTop, 50);
-    const onPageShow = () => pinTop();
+    const pinRaf = requestAnimationFrame(() => {
+      pinTop();
+      requestAnimationFrame(pinTop);
+    });
+    const pinTimers = [0, 50, 150, 400, 800].map((ms) => window.setTimeout(pinTop, ms));
+    const onLoad = () => {
+      pinTop();
+      window.setTimeout(pinTop, 50);
+      // Stop fighting the user shortly after load if they never interact.
+      window.setTimeout(releaseBoot, 1200);
+    };
+    if (document.readyState === 'complete') onLoad();
+    else addEventListener('load', onLoad, { once: true });
     addEventListener('pageshow', onPageShow);
+    addEventListener('scroll', onScrollGuard, { passive: true });
+    addEventListener('wheel', onUserIntent, { passive: true, once: true });
+    addEventListener('touchstart', onUserIntent, { passive: true, once: true });
+    addEventListener('keydown', onUserIntent, { once: true });
 
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
       cancelAnimationFrame(pinRaf);
-      clearTimeout(pinTimer);
+      pinTimers.forEach(clearTimeout);
+      releaseBoot();
       removeEventListener('pageshow', onPageShow);
-      if ('scrollRestoration' in history) history.scrollRestoration = prevRestoration || 'auto';
+      removeEventListener('scroll', onScrollGuard);
+      removeEventListener('load', onLoad);
+      removeEventListener('wheel', onUserIntent);
+      removeEventListener('touchstart', onUserIntent);
+      removeEventListener('keydown', onUserIntent);
       return undefined;
     }
 
@@ -247,7 +284,6 @@ export default function HeroJourney() {
       };
     }
 
-    let pSmooth = 0;
     let raf = 0;
     let darkFlag = false;
     // After the journey finishes once in this page load, keep the final
@@ -266,18 +302,21 @@ export default function HeroJourney() {
         p = fixedP;
       } else if (completed) {
         p = 1;
-        pSmooth = 1;
+        boot.pSmooth = 1;
+      } else if (boot.lock) {
+        p = 0;
+        boot.pSmooth = 0;
       } else {
         const rect = scroller.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
         p = clamp(total > 0 ? -rect.top / total : 0);
-        pSmooth += (p - pSmooth) * 0.09;
-        if (Math.abs(p - pSmooth) < 0.0003) pSmooth = p;
-        p = pSmooth;
+        boot.pSmooth += (p - boot.pSmooth) * 0.09;
+        if (Math.abs(p - boot.pSmooth) < 0.0003) boot.pSmooth = p;
+        p = boot.pSmooth;
         if (p >= 0.985) {
           completed = true;
           p = 1;
-          pSmooth = 1;
+          boot.pSmooth = 1;
         }
       }
       mx += (tmx - mx) * 0.05;
@@ -436,14 +475,17 @@ export default function HeroJourney() {
     return () => {
       cancelAnimationFrame(raf);
       cancelAnimationFrame(pinRaf);
-      clearTimeout(pinTimer);
+      pinTimers.forEach(clearTimeout);
+      releaseBoot();
       removeEventListener('pageshow', onPageShow);
+      removeEventListener('scroll', onScrollGuard);
+      removeEventListener('load', onLoad);
+      removeEventListener('wheel', onUserIntent);
+      removeEventListener('touchstart', onUserIntent);
+      removeEventListener('keydown', onUserIntent);
       removeEventListener('resize', resize);
       removeEventListener('pointermove', onPointer);
       document.documentElement.removeAttribute('data-hj-dark');
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = prevRestoration || 'auto';
-      }
     };
   }, []);
 
