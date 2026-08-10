@@ -39,8 +39,7 @@
 .service-chip-row li {
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(42, 170, 221, 0.22);
-  background: rgba(42, 170, 221, 0.06);
+  background: var(--bg-soft);
   color: var(--ink-soft);
   font-size: 0.88rem;
   font-weight: 500;
@@ -63,7 +62,7 @@
   height: 100%;
   padding: 1.1rem 1.15rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  background: var(--bg-soft);
   background: var(--bg-soft);
 }
 
@@ -208,15 +207,13 @@
   padding: 1.2rem 1.25rem;
   max-width: 24rem;
   border-radius: var(--radius-tile);
-  background:
-    linear-gradient(180deg, rgba(42, 170, 221, 0.1), rgba(42, 170, 221, 0.04));
-  border: 1px solid rgba(42, 170, 221, 0.14);
+  background: var(--bg-soft);
 }
 
 .service-hotline a {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--ink);
   text-decoration: none;
@@ -307,7 +304,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
@@ -345,13 +342,12 @@
 .project-panel {
   padding: 1.35rem 1.4rem 1.5rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  background: var(--bg-soft);
   background: var(--bg-soft);
 }
 
 .project-panel--task {
-  background:
-    linear-gradient(180deg, rgba(42, 170, 221, 0.1), rgba(42, 170, 221, 0.04));
+  background: var(--bg-soft);
   border-color: rgba(42, 170, 221, 0.14);
 }
 
@@ -397,7 +393,7 @@
   align-items: center;
   padding: 0.85rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  background: var(--bg-soft);
   background: #fff;
   text-decoration: none;
   color: inherit;
@@ -448,14 +444,12 @@
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  border: 1px solid rgba(15, 23, 32, 0.06);
-  background: #fff;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  background: var(--bg-soft);
+  transition: background 0.25s var(--ease-out);
 }
 
 .areas-feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(15, 23, 32, 0.06);
+  background: #f0f2f3;
 }
 
 .areas-feature-media {
@@ -485,7 +479,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.3vw, 1.85rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
@@ -517,16 +511,14 @@
   width: 100%;
   text-decoration: none;
   color: inherit;
-  border: 1px solid rgba(15, 23, 32, 0.06);
   border-radius: var(--radius-tile);
-  background: #fff;
+  background: var(--bg-soft);
   overflow: hidden;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  transition: background 0.25s var(--ease-out);
 }
 
 .area-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(15, 23, 32, 0.06);
+  background: #f0f2f3;
 }
 
 .area-card-media {
@@ -558,7 +550,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.12rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   line-height: var(--leading-snug);
 }
@@ -596,7 +588,7 @@
 .area-section-num {
   font-family: var(--font-display);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--cyan-deep);
   padding-top: 0.35rem;
@@ -637,10 +629,7 @@
 .contacts-hotline {
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border-radius: var(--radius-tile);
-  background:
-    radial-gradient(ellipse 60% 70% at 12% 20%, rgba(42, 170, 221, 0.12), transparent 60%),
-    #ffffff;
-  border: 1px solid rgba(42, 170, 221, 0.14);
+  background: var(--bg-soft);
 }
 
 .contacts-hotline-phone {
@@ -648,7 +637,7 @@
   margin-top: 0.45rem;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--ink);
@@ -683,22 +672,20 @@
   gap: 0.35rem;
   padding: 1.25rem 1.3rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
-  background: #fff;
+  background: var(--bg-soft);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .contacts-channel:hover {
-  border-color: rgba(42, 170, 221, 0.35);
-  transform: translateY(-2px);
+  background: #f0f2f3;
 }
 
 .contacts-channel strong {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
@@ -727,13 +714,11 @@
   height: 100%;
   padding: 1.25rem 1.3rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
   background: var(--bg-soft);
 }
 
 .contacts-place--accent {
-  background:
-    linear-gradient(180deg, rgba(42, 170, 221, 0.1), rgba(42, 170, 221, 0.04));
+  background: var(--bg-soft);
   border-color: rgba(42, 170, 221, 0.14);
 }
 
@@ -756,22 +741,20 @@
   height: 100%;
   padding: 1.2rem 1.25rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(15, 23, 32, 0.06);
-  background: #fff;
+  background: var(--bg-soft);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .contacts-next-card:hover {
-  border-color: rgba(42, 170, 221, 0.35);
-  transform: translateY(-2px);
+  background: #f0f2f3;
 }
 
 .contacts-next-num {
   font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--cyan-deep);
 }

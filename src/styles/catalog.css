@@ -5,14 +5,14 @@
   font-size: var(--text-title);
   line-height: var(--leading-tight);
   letter-spacing: var(--track-display);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .page h2 {
   margin: 0;
   font-size: var(--text-subtitle);
   line-height: var(--leading-snug);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .lead {
@@ -77,7 +77,7 @@
 
 .catalog-head-meta strong {
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .catalog-hero-line {
@@ -90,17 +90,12 @@
   border-radius: var(--radius-tile);
   text-decoration: none;
   color: inherit;
-  background:
-    radial-gradient(ellipse 55% 50% at 78% 55%, rgba(42, 170, 221, 0.13), transparent 70%),
-    #ffffff;
-  border: 1px solid rgba(42, 170, 221, 0.12);
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  background: var(--bg-soft);
+  transition: background 0.3s var(--ease-out);
 }
 
 .catalog-hero-line:hover {
-  transform: translateY(-2px);
-  border-color: rgba(42, 170, 221, 0.3);
-  box-shadow: var(--shadow);
+  background: #f0f2f3;
 }
 
 .catalog-line-blurb {
@@ -137,7 +132,7 @@
   margin: 0.35rem 0 0;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.35rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.15;
 }
@@ -202,16 +197,15 @@
   align-items: center;
   padding: 0.75rem 1rem;
   border-radius: var(--radius-tile);
-  border: 1px solid rgba(42, 170, 221, 0.1);
-  background: #fff;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .catalog-more-item:hover {
-  border-color: rgba(42, 170, 221, 0.35);
-  transform: translateX(2px);
+  opacity: 0.75;
 }
 
 .catalog-more-media {
@@ -244,7 +238,7 @@
 .catalog-more-item em {
   font-style: normal;
   color: var(--cyan-deep);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .category-head-copy .actions,
@@ -280,9 +274,8 @@
   width: 100%;
   min-height: clamp(360px, 40vw, 460px);
   grid-template-rows: auto minmax(220px, 1fr);
-  background: #ffffff;
+  background: var(--bg-soft);
   border: 0;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 12px 28px rgba(15, 23, 32, 0.05);
 }
 
 .category-page .product-tiles .category-product-card .feature-card-copy {
@@ -291,7 +284,7 @@
 
 .category-page .product-tiles .category-product-card:hover {
   transform: none;
-  box-shadow: 0 1px 0 rgba(15, 23, 32, 0.04), 0 12px 28px rgba(15, 23, 32, 0.05);
+  background: #f0f2f3;
 }
 
 .category-page .product-tiles .category-product-card .feature-card-title {
@@ -306,8 +299,7 @@
   margin-top: 0.65rem;
   padding: 0.85rem 1rem 0.5rem;
   border-radius: calc(var(--radius-tile) - 0.35rem);
-  /* white studio plane — matches regen PNG backdrop, no grey tray */
-  background: #ffffff;
+  background: transparent;
 }
 
 .category-page .product-tiles .category-product-card .feature-card-media img {
@@ -342,10 +334,7 @@
 .catalog-stage-media {
   min-height: 480px;
   border-radius: var(--radius-tile);
-  background:
-    radial-gradient(ellipse 62% 50% at 50% 86%, rgba(42, 170, 221, 0.14), transparent 62%),
-    var(--bg-studio);
-  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: var(--bg-studio);
 }
 
 .catalog-stage-media img,
@@ -422,10 +411,7 @@
 .category-head-media {
   min-height: 360px;
   border-radius: var(--radius-tile);
-  background:
-    radial-gradient(ellipse 62% 50% at 50% 86%, rgba(42, 170, 221, 0.14), transparent 62%),
-    var(--bg-studio);
-  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: var(--bg-studio);
 }
 
 .product-rows {
@@ -560,15 +546,11 @@
 .product-hero-media {
   display: grid;
   gap: 0.75rem;
-  background:
-    radial-gradient(ellipse 65% 50% at 50% 88%, rgba(42, 170, 221, 0.16), transparent 62%),
-    var(--bg-studio);
-  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: var(--bg-studio);
   border-radius: var(--radius-tile);
   padding: 1.5rem 1.5rem 1rem;
   min-height: min(72vh, 640px);
   place-items: center;
-  box-shadow: 0 18px 42px rgba(15, 50, 65, 0.08);
 }
 
 .product-slogan {
@@ -576,7 +558,7 @@
   max-width: 22ch;
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--track-display);
   line-height: 1.2;
   color: var(--ink);
@@ -607,7 +589,7 @@
   margin: 0;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
 }
 
@@ -649,7 +631,7 @@
 .feature-anchors strong {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--ink);
   line-height: 1.3;
@@ -714,7 +696,7 @@
   font-size: var(--text-display);
   letter-spacing: var(--track-display);
   line-height: var(--leading-tight);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* legacy list kept for any other pages */
@@ -867,7 +849,7 @@
 .spec-glance strong {
   font-family: var(--font-display);
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1.15;
@@ -889,14 +871,13 @@
 }
 
 .spec-acc {
-  border: 1px solid rgba(15, 23, 32, 0.06);
   border-radius: 10px;
-  background: #fff;
+  background: var(--bg-soft);
   overflow: hidden;
 }
 
 .spec-acc.is-open {
-  border-color: rgba(42, 170, 221, 0.22);
+  background: #f0f2f3;
   box-shadow: none;
 }
 
@@ -950,7 +931,7 @@
   background: rgba(42, 170, 221, 0.14);
   color: var(--cyan-deep);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
   line-height: 1;
@@ -971,7 +952,7 @@
 .spec-acc-title {
   font-family: var(--font-display);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   transition: color 0.2s ease;
 }

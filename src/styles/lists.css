@@ -28,17 +28,14 @@
   width: 100%;
   text-decoration: none;
   color: var(--ink);
-  background: #fff;
-  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: var(--bg-soft);
   border-radius: var(--radius-tile);
   overflow: hidden;
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+  transition: background 0.3s var(--ease-out);
 }
 
 .content-tile:hover {
-  transform: translateY(-2px);
-  border-color: rgba(42, 170, 221, 0.28);
-  box-shadow: var(--shadow);
+  background: #f0f2f3;
 }
 
 .content-tile-media {
@@ -68,7 +65,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-subtitle);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--track-display);
   line-height: var(--leading-snug);
 }
@@ -118,10 +115,7 @@
   min-height: 320px;
   border-radius: var(--radius-tile);
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 65% 50% at 50% 92%, rgba(42, 170, 221, 0.14), transparent 62%),
-    var(--bg-studio);
-  border: 1px solid rgba(42, 170, 221, 0.1);
+  background: var(--bg-studio);
 }
 
 .detail-hero-media img {
@@ -163,23 +157,21 @@
   display: grid;
   gap: 0.25rem;
   padding: 1.15rem 1.25rem;
-  border: 1px solid rgba(42, 170, 221, 0.1);
   border-radius: var(--radius-tile);
   text-decoration: none;
   color: inherit;
-  background: #fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: var(--bg-soft);
+  transition: background 0.2s ease;
 }
 
 .contacts-item:hover {
-  border-color: var(--cyan);
-  box-shadow: var(--shadow);
+  background: #f0f2f3;
 }
 
 .contacts-item strong {
   font-family: var(--font-display);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
@@ -311,15 +303,13 @@
   gap: 0.3rem;
   padding: 1.15rem 1.2rem;
   border-radius: var(--radius-tile);
-  background:
-    linear-gradient(180deg, rgba(42, 170, 221, 0.1), rgba(42, 170, 221, 0.04));
-  border: 1px solid rgba(42, 170, 221, 0.12);
+  background: var(--bg-soft);
 }
 
 .about-stats strong {
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.8vw, 2.25rem);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--ink);
   line-height: 1;
@@ -358,7 +348,7 @@
 .about-service-num {
   font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--cyan-deep);
   padding-top: 0.15rem;
@@ -465,7 +455,7 @@
   background: rgba(42, 170, 221, 0.12);
   color: var(--cyan-deep);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .about-client-filter.is-active {
@@ -508,9 +498,8 @@
   min-height: 0;
   padding: 1rem 0.85rem 0.9rem;
   border-radius: var(--radius-tile);
-  background: #fff;
+  background: var(--bg-soft);
   text-align: center;
-  border: 1px solid rgba(15, 23, 32, 0.04);
 }
 
 .about-client-logo {
@@ -569,23 +558,20 @@
   height: 100%;
   padding: 1.35rem 1.25rem 1.4rem;
   border-radius: var(--radius-tile);
-  background: #fff;
-  border: 1px solid rgba(15, 23, 32, 0.06);
+  background: var(--bg-soft);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+  transition: background 0.2s ease;
 }
 
 .about-next-card:hover {
-  border-color: rgba(42, 170, 221, 0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(15, 23, 32, 0.06);
+  background: #f0f2f3;
 }
 
 .about-next-num {
   font-family: var(--font-display);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--cyan-deep);
 }
@@ -593,7 +579,7 @@
 .about-next-card strong {
   font-family: var(--font-display);
   font-size: 1.12rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
