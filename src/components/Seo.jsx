@@ -1,6 +1,13 @@
 import { useEffect } from 'react';
 
-const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://zorgtech.com').replace(/\/$/, '');
+const FALLBACK_SITE_URL = 'https://zorgtech.com';
+const SITE_URL = (import.meta.env.VITE_SITE_URL || FALLBACK_SITE_URL).replace(/\/$/, '');
+
+function pageOrigin() {
+  if (import.meta.env.VITE_SITE_URL) return String(import.meta.env.VITE_SITE_URL).replace(/\/$/, '');
+  if (typeof window !== 'undefined' && window.location?.origin) return window.location.origin;
+  return FALLBACK_SITE_URL;
+}
 
 const DEFAULT_TITLE = 'Zorgtech — интерактивное оборудование';
 const DEFAULT_DESCRIPTION =
@@ -29,10 +36,12 @@ function upsertLink(rel, href) {
 }
 
 function absoluteUrl(pathOrUrl) {
-  if (!pathOrUrl) return SITE_URL;
+  if (!pathOrUrl) return pageOrigin();
   if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
-  const path = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
-  return `${SITE_URL}${path}`;
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  let path = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
+  if (base && !path.startsWith(base)) path = `${base}${path}`;
+  return `${pageOrigin()}${path}`;
 }
 
 /** Client-side title / description / OG / canonical from scraped meta. */

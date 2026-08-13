@@ -1,1 +1,23 @@
-[{"slug":"interaktivnaya-navigatsiya-v-trk-columbus-moskva","title":"Интерактивная навигация в ТРЦ Columbus, г. Москва","images":["/img/projects/interaktivnaya-navigatsiya-v-t_9581cc5859fc4a18ce9f03dc2958ff60-ed5365eadff0cbd0.jpg"]},{"slug":"virtualnaya-primerochnaya-dlya-galerei-i-s-glazunova","title":"Виртуальная примерочная для Музея сословий России И.С. Глазунова","images":["/img/projects/virtualnaya-primerochnaya-dlya_e7b393a819db53a00b35fc413f7bd9ff-be1827334b8f996b.jpg"]},{"slug":"interaktivnye-proekty-sovmestno-s-galereey-i-s-glazunova","title":"Интерактивные проекты совместно с галереей И.С. Глазунова","images":["/img/projects/interaktivnye-proekty-sovmestn_d3a8706c2417e27ed659fd8e13546b33-b66fc7f0fd6cd85a.png"]}]
+[
+  {
+    "slug": "novyy-shag-v-razvitii-kioski-dlya-fitnes-industrii",
+    "title": "Новый шаг в развитии - киоски для фитнес-индустрии",
+    "images": [
+      "/img/projects/novyy-shag-v-razvitii-kioski-d_2df7142945bf8e8ee8c38f5c9477e0d7-7f1ef3f46d2b27b2.jpg"
+    ]
+  },
+  {
+    "slug": "nash-novyy-klient-park-zaryade",
+    "title": "Наш новый клиент - Парк \"Зарядье\"",
+    "images": [
+      "/img/projects/nash-novyy-klient-park-zaryade_75dbf08cf3f2fa6df64d6fff5992c6bf-a4444217b23f1bbd.jpg"
+    ]
+  },
+  {
+    "slug": "nastennye-sensornye-kioski-dlya-sretenskoy-dukhovnoy-seminarii",
+    "title": "Настенные сенсорные киоски для Сретенской духовной семинарии",
+    "images": [
+      "/img/projects/nastennye-sensornye-kioski-dly_310857f7863365967a3c282d3b5bc334-530c53801eb672f3.jpg"
+    ]
+  }
+]

@@ -18,9 +18,9 @@ export default function SolutionsPage() {
     <div className="page solutions-page">
       <Seo {...LIST_SEO.solutions} />
       <header className="category-head category-head--simple">
-        <p className="chapter-kicker">Софт и сценарии</p>
-        <h1>Готовые решения</h1>
-        <p className="lead">Отраслевые решения на базе оборудования Zorgtech.</p>
+        <p className="chapter-kicker">Программное обеспечение</p>
+        <h1>Готовый софт</h1>
+        <p className="lead">Отраслевой софт на базе оборудования Zorgtech.</p>
       </header>
 
       <ul className="solution-cards">

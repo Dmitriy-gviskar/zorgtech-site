@@ -155,8 +155,44 @@
   color: var(--ink) !important;
 }
 
+.top-phone {
+  flex-shrink: 0;
+  margin-left: 0.35rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease-out);
+}
+
+.top-phone:hover {
+  color: var(--cyan-deep);
+}
+
+.site--home .top-phone {
+  color: var(--ink);
+}
+
+.site--home .top-phone:hover {
+  color: var(--cyan-deep);
+}
+
 .top-cta {
   flex-shrink: 0;
+}
+
+.mobile-nav-phone {
+  color: var(--cyan-deep) !important;
+  text-decoration: none;
+  padding: 0.65rem 0.7rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .mobile-nav {

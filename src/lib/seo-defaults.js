@@ -19,8 +19,8 @@ export const LIST_SEO = {
     path: '/projects',
   },
   solutions: {
-    title: 'Готовые решения на сенсорных киосках',
-    description: 'Типовые программные решения Zorgtech для ритейла, музеев, образования и госуслуг',
+    title: 'Готовый софт для сенсорных киосков',
+    description: 'Отраслевой софт Zorgtech для ритейла, музеев, образования и госуслуг',
     path: '/solutions',
   },
   areas: {

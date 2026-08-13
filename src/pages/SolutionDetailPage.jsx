@@ -11,9 +11,9 @@ export default function SolutionDetailPage() {
   if (!solution) {
     return (
       <div className="page">
-        <h1>Решение не найдено</h1>
+        <h1>Софт не найден</h1>
         <Link className="text-link" to="/solutions">
-          ← Ко всем решениям
+          ← Ко всему софту
         </Link>
       </div>
     );
@@ -32,14 +32,14 @@ export default function SolutionDetailPage() {
         image={solution.meta?.image || hero || undefined}
       />
       <p className="crumbs">
-        <Link to="/solutions">Решения</Link>
+        <Link to="/solutions">Софт</Link>
         <span aria-hidden="true"> / </span>
         {copy.title}
       </p>
 
       <header className="detail-hero solution-hero">
         <div className="detail-hero-copy">
-          <p className="chapter-kicker">Решение</p>
+          <p className="chapter-kicker">Софт</p>
           <h1>{copy.title}</h1>
           {copy.lead ? <p className="lead">{copy.lead}</p> : null}
           {copy.features.length ? (
@@ -56,7 +56,7 @@ export default function SolutionDetailPage() {
               Запросить внедрение
             </Link>
             <Link className="btn secondary btn--lg" to="/solutions">
-              Все решения
+              Весь софт
             </Link>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function SolutionDetailPage() {
             <Reveal key={block.title} delay={Math.min(i, 4) * 0.05}>
               <section className="solution-block">
                 <header className="sec-head">
-                  <p className="chapter-kicker">Раздел</p>
+                  <p className="chapter-kicker">{String(i + 1).padStart(2, '0')}</p>
                   <h2>{block.title}</h2>
                 </header>
                 <ul className="solution-block-list">
@@ -101,11 +101,13 @@ export default function SolutionDetailPage() {
         <section className="solution-gallery-sec">
           <header className="sec-head">
             <p className="chapter-kicker">Интерфейс</p>
-            <h2>Как выглядит решение</h2>
+            <h2>Как выглядит софт</h2>
           </header>
-          <div className="solution-gallery">
+          <div className={`solution-gallery${gallery.length === 1 ? ' solution-gallery--solo' : ''}`}>
             {gallery.map((src) => (
-              <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+              <figure key={src} className="solution-gallery-shot">
+                <img src={assetUrl(src)} alt="" loading="lazy" />
+              </figure>
             ))}
           </div>
         </section>

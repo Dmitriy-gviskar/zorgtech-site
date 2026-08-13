@@ -47,7 +47,7 @@ export default function AreaDetailPage() {
               Обсудить задачу
             </Link>
             <Link className="btn secondary btn--lg" to="/solutions">
-              Готовые решения
+              Готовый софт
             </Link>
           </div>
         </div>

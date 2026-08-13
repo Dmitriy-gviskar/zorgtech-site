@@ -1,12 +1,15 @@
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
+import { ruCount } from '../lib/data/content-utils.js';
 import {
   getCategory,
   getProduct,
   presentCategoryBlurb,
   presentCategoryIntro,
   productCover,
+  productDiagonal,
   productGallery,
 } from '../lib/data/catalog.js';
 
@@ -19,6 +22,26 @@ function studioCover(product) {
 export default function CategoryPage() {
   const { slug } = useParams();
   const cat = getCategory(slug);
+  const [diagonal, setDiagonal] = useState(null);
+
+  useEffect(() => {
+    setDiagonal(null);
+  }, [slug]);
+
+  const items = useMemo(
+    () => (cat?.productSlugs || []).map(getProduct).filter(Boolean),
+    [cat],
+  );
+
+  const availableDiagonals = useMemo(() => {
+    const present = [...new Set(items.map(productDiagonal).filter(Boolean))];
+    return present.sort((a, b) => a - b);
+  }, [items]);
+
+  const visible = useMemo(() => {
+    if (!diagonal) return items;
+    return items.filter((p) => productDiagonal(p) === diagonal);
+  }, [items, diagonal]);
 
   if (!cat || cat.missing) {
     return (
@@ -29,7 +52,6 @@ export default function CategoryPage() {
     );
   }
 
-  const items = (cat.productSlugs || []).map(getProduct).filter(Boolean);
   const intro = presentCategoryIntro(cat);
   const blurb = !intro ? presentCategoryBlurb(cat) : '';
 
@@ -61,40 +83,76 @@ export default function CategoryPage() {
         ) : blurb ? (
           <p className="lead">{blurb}</p>
         ) : null}
-        <p className="category-head-count">{items.length} моделей в линейке</p>
-        <div className="actions">
-          <Link className="btn primary btn--lg" to="/contacts">
-            Запросить подбор
-          </Link>
-          <Link className="btn secondary btn--lg" to="/catalog">
-            Все линейки
-          </Link>
+        <p className="category-head-count">
+          {diagonal
+            ? `${visible.length} из ${items.length} · диагональ ${diagonal}″`
+            : ruCount(items.length, 'модель в линейке', 'модели в линейке', 'моделей в линейке')}
+        </p>
+        <div className="category-head-toolbar">
+          <div className="actions">
+            <Link className="btn primary btn--lg" to="/contacts">
+              Запросить подбор
+            </Link>
+            <Link className="btn secondary btn--lg" to="/catalog">
+              Все линейки
+            </Link>
+          </div>
+          {availableDiagonals.length > 1 ? (
+            <div className="category-diagonal" role="group" aria-label="Фильтр по диагонали">
+              <span className="category-diagonal-label">Диагональ:</span>
+              <div className="category-diagonal-options">
+                {availableDiagonals.map((size) => {
+                  const active = diagonal === size;
+                  return (
+                    <button
+                      key={size}
+                      type="button"
+                      className={`category-diagonal-btn${active ? ' is-active' : ''}`}
+                      aria-pressed={active}
+                      onClick={() => setDiagonal((current) => (current === size ? null : size))}
+                    >
+                      {size}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
         </div>
       </header>
 
-      <ul className="product-grid product-tiles">
-        {items.map((p, i) => {
-          const cover = studioCover(p);
+      {visible.length ? (
+        <ul className="product-grid product-tiles">
+          {visible.map((p, i) => {
+            const cover = studioCover(p);
 
-          return (
-            <li key={p.slug}>
-              <Reveal delay={Math.min(i, 5) * 0.04}>
-                <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
-                  <div className="feature-card-copy">
-                    <h2 className="feature-card-title">{p.title}</h2>
-                    <span className="feature-card-cta">
-                      Подробнее <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                  <div className="feature-card-media" aria-hidden="true">
-                    {cover ? <img src={cover} alt="" loading="lazy" /> : null}
-                  </div>
-                </Link>
-              </Reveal>
-            </li>
-          );
-        })}
-      </ul>
+            return (
+              <li key={p.slug}>
+                <Reveal delay={Math.min(i, 5) * 0.04}>
+                  <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
+                    <div className="feature-card-copy">
+                      <h2 className="feature-card-title">{p.title}</h2>
+                      <span className="feature-card-cta">
+                        Подробнее <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                    <div className="feature-card-media" aria-hidden="true">
+                      {cover ? <img src={cover} alt="" loading="lazy" /> : null}
+                    </div>
+                  </Link>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p className="category-filter-empty">
+          Нет моделей с диагональю {diagonal}″.{' '}
+          <button type="button" className="linkish" onClick={() => setDiagonal(null)}>
+            Показать все
+          </button>
+        </p>
+      )}
     </div>
   );
 }

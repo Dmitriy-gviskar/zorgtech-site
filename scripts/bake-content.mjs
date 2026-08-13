@@ -109,15 +109,21 @@ writeRuntime('areas.json', areas);
 writeRuntime('solutions.json', solutions);
 writeRuntime('pages.json', pages);
 
-/** Slim home teasers — keep full projects.json off the main chunk. */
-const projectTeasers = [...projects]
-  .sort((a, b) => (b.images?.length || 0) - (a.images?.length || 0))
-  .slice(0, 3)
-  .map((p) => ({
+/** Curated home project teasers — strong in-situ photos, not panoramic collages. */
+const HOME_PROJECT_TEASERS = [
+  'novyy-shag-v-razvitii-kioski-dlya-fitnes-industrii',
+  'nash-novyy-klient-park-zaryade',
+  'nastennye-sensornye-kioski-dlya-sretenskoy-dukhovnoy-seminarii',
+];
+const projectTeasers = HOME_PROJECT_TEASERS.map((slug) => {
+  const p = projects.find((item) => item.slug === slug);
+  if (!p) return null;
+  return {
     slug: p.slug,
     title: p.presented?.title || p.title,
     images: (p.images || []).slice(0, 1),
-  }));
+  };
+}).filter(Boolean);
 writeRuntime('project-teasers.json', projectTeasers);
 
 /** Slim home catalog — keep products.json / categories.json off the main chunk. */

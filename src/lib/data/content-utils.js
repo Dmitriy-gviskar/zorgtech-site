@@ -1,5 +1,31 @@
 /** Shared text/HTML helpers for present* (no dataset imports). */
 
+const SOURCE_ORIGIN = 'https://zorgtech.com';
+
+/** Russian plural word for a count: модель / модели / моделей. */
+export function ruPlural(n, one, few, many) {
+  const num = Math.abs(Number(n) || 0);
+  const mod10 = num % 10;
+  const mod100 = num % 100;
+  if (mod10 === 1 && mod100 !== 11) return one;
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return few;
+  return many;
+}
+
+/** 1 модель / 2 модели / 5 моделей — and the same pattern for other nouns. */
+export function ruCount(n, one, few, many) {
+  return `${Number(n) || 0} ${ruPlural(n, one, few, many)}`;
+}
+
+/** Point scraped Bitrix asset URLs at the original site (they 404 on this demo). */
+export function rewriteSourceUrls(html) {
+  return String(html || '').replace(
+    /\b(href|src)="(\/(?:materialy-dlya-skachivaniya|upload|local)[^"]*)"/gi,
+    (_, attr, assetPath) => `${attr}="${SOURCE_ORIGIN}${assetPath}"`,
+  );
+}
+
+
 export function oneLine(text) {
   return String(text || '')
     .replace(/\s+/g, ' ')

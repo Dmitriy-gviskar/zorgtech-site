@@ -106,7 +106,7 @@ export default function ProjectDetailPage() {
             <Reveal key={sec.title} delay={Math.min(i, 4) * 0.04}>
               <section className="solution-block">
                 <header className="sec-head">
-                  <p className="chapter-kicker">Раздел</p>
+                  <p className="chapter-kicker">{String(i + 1).padStart(2, '0')}</p>
                   <h2>{sec.title}</h2>
                 </header>
                 {sec.paragraphs?.length ? (

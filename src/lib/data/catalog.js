@@ -427,6 +427,23 @@ export function getProduct(slug) {
   return products[slug] || null;
 }
 
+/** Screen diagonal in inches from specs or model title, or null. */
+export function productDiagonal(productOrSlug) {
+  const product = typeof productOrSlug === 'string' ? getProduct(productOrSlug) : productOrSlug;
+  if (!product) return null;
+
+  if (product.specs && typeof product.specs === 'object') {
+    for (const [key, value] of Object.entries(product.specs)) {
+      if (!/диагонал/i.test(key)) continue;
+      const match = String(value).match(/\d+/);
+      if (match) return Number(match[0]);
+    }
+  }
+
+  const fromTitle = String(product.title || '').match(/\b(19|22|32|43|46|50|55|65|75|86)\b/);
+  return fromTitle ? Number(fromTitle[1]) : null;
+}
+
 /** Raw cover path (regen front or first scrape image). No BASE_URL — use with assetUrl(). */
 export function productCoverPath(productOrSlug) {
   const slug = typeof productOrSlug === 'string' ? productOrSlug : productOrSlug?.slug;
@@ -447,6 +464,34 @@ export function productGallery(productOrSlug) {
   if (studio?.length) return studio.map(assetUrl).filter(Boolean);
   const first = product?.images?.[0];
   return first ? [assetUrl(first)] : [];
+}
+
+/**
+ * Scraped “live” photos for a product page section.
+ * When studio regen frames own the hero, return all scrape images;
+ * otherwise skip the first (already used as cover).
+ */
+export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
+  const slug = typeof productOrSlug === 'string' ? productOrSlug : productOrSlug?.slug;
+  const product = typeof productOrSlug === 'string' ? getProduct(slug) : productOrSlug;
+  const images = product?.images || [];
+  if (!images.length) return [];
+
+  const hasStudio = Boolean(REGEN_FRAMES[slug]?.length);
+  const pool = hasStudio ? images : images.slice(1);
+  const out = [];
+  const seen = new Set();
+
+  for (const src of pool) {
+    if (!src || /\/regen\//.test(src)) continue;
+    const url = assetUrl(src);
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
+    out.push(url);
+    if (out.length >= limit) break;
+  }
+
+  return out;
 }
 
 export function getCategory(slug) {

@@ -4,12 +4,15 @@ import {
   getProduct,
   getCategory,
   productGallery,
+  productLiveGallery,
   presentProduct,
   groupProductSpecs,
   presentSpecGlance,
 } from '../lib/data/catalog.js';
 import Seo from '../components/Seo';
 import SpecIcon from '../components/SpecIcon';
+import ProductPriceForm from '../components/ProductPriceForm';
+import { rewriteSourceUrls } from '../lib/data/content-utils.js';
 
 function SpecValue({ value }) {
   const v = String(value || '').trim();
@@ -17,10 +20,6 @@ function SpecValue({ value }) {
   if (/^наличие$/i.test(v)) return <span className="spec-flag spec-flag--yes">Есть</span>;
   if (/^отсутствует$/i.test(v)) return <span className="spec-flag">Нет</span>;
   return v;
-}
-
-function isOptionRow(row) {
-  return /^(опция|наличие|отсутствует)$/i.test(String(row.value || '').trim());
 }
 
 export default function ProductPage() {
@@ -45,22 +44,28 @@ export default function ProductPage() {
 
   const cat = getCategory(product.categorySlug);
   const gallery = productGallery(product);
+  const liveGallery = productLiveGallery(product);
   const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
   const copy = presentProduct(product);
   const showStory = copy.story.length > 0;
+  const showLive = liveGallery.length >= 2;
   const covered = [copy.slogan, copy.hook, ...copy.story].filter(Boolean).join(' ');
   const seoTitle = product.meta?.title || product.title;
   const seoDescription =
     product.meta?.description || copy.hook || copy.slogan || product.description || '';
   const seoImage = product.meta?.image || gallery[0] || undefined;
-  const htmlPlain = String(product.descriptionHtml || '')
+  const extraHtml = rewriteSourceUrls(product.descriptionHtml || '');
+  const htmlPlain = extraHtml
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  const showExtraHtml =
-    Boolean(htmlPlain) &&
-    htmlPlain.length > covered.length + 48 &&
-    !covered.includes(htmlPlain.slice(24, 96));
+  const coverNorm = covered.replace(/\s+/g, ' ').trim().toLowerCase();
+  const extraSample = htmlPlain.slice(0, 80).toLowerCase();
+  const extraIsDuplicate =
+    !htmlPlain ||
+    htmlPlain.length <= covered.length + 48 ||
+    (extraSample.length >= 24 && coverNorm.includes(extraSample.slice(0, 72)));
+  const showExtraHtml = Boolean(htmlPlain) && !extraIsDuplicate;
   const specGroups = groupProductSpecs(product.specs);
   const glance = presentSpecGlance(product.specs);
   // '' means all collapsed; only fall back to first group when id is unknown (e.g. after slug change)
@@ -122,16 +127,14 @@ export default function ProductPage() {
               <p className="price">{copy.price}</p>
               {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
             </div>
-            <div className="actions">
-              <Link className="btn primary btn--lg" to="/contacts">
-                Запросить цену
-              </Link>
-              {cat ? (
+            <ProductPriceForm title={product.title} slug={product.slug} price={copy.price} />
+            {cat ? (
+              <div className="actions">
                 <Link className="btn secondary btn--lg" to={`/catalog/${cat.slug}`}>
                   Вся линейка
                 </Link>
-              ) : null}
-            </div>
+              </div>
+            ) : null}
           </div>
 
           {copy.features.length ? (
@@ -145,9 +148,13 @@ export default function ProductPage() {
             </ul>
           ) : null}
 
-          {showStory || specGroups.length ? (
-            <a className="product-readmore" href={showStory ? '#product-story' : '#product-specs'}>
-              {showStory ? 'Читать описание' : 'К характеристикам'} <span aria-hidden="true">↓</span>
+          {showStory || showLive || specGroups.length ? (
+            <a
+              className="product-readmore"
+              href={showStory ? '#product-story' : showLive ? '#product-live' : '#product-specs'}
+            >
+              {showStory ? 'Читать описание' : showLive ? 'Живые фото' : 'К характеристикам'}{' '}
+              <span aria-hidden="true">↓</span>
             </a>
           ) : null}
         </div>
@@ -162,6 +169,25 @@ export default function ProductPage() {
           <div className="product-story-body">
             {copy.story.map((p) => (
               <p key={p.slice(0, 48)}>{p}</p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {showLive ? (
+        <section className="sec product-live" id="product-live">
+          <header className="sec-head">
+            <p className="chapter-kicker">Галерея</p>
+            <h2>Живые фото</h2>
+          </header>
+          <div className="product-live-grid">
+            {liveGallery.map((src, i) => (
+              <figure
+                key={src}
+                className={`product-live-shot${i === 0 ? ' product-live-shot--lead' : ''}`}
+              >
+                <img src={src} alt="" loading="lazy" />
+              </figure>
             ))}
           </div>
         </section>
@@ -189,10 +215,6 @@ export default function ProductPage() {
           <div className="spec-accordion">
             {specGroups.map((group) => {
               const open = currentOpen === group.id;
-              const optionRows = group.rows.filter(isOptionRow);
-              const plainRows = group.rows.filter((row) => !isOptionRow(row));
-              const useChips = group.id === 'options' && optionRows.length >= 3;
-              const rows = plainRows.length ? plainRows : group.rows;
 
               return (
                 <div key={group.id} className={`spec-acc${open ? ' is-open' : ''}`}>
@@ -208,42 +230,19 @@ export default function ProductPage() {
                   </button>
                   {open ? (
                     <div className="spec-acc-body">
-                      {useChips ? (
-                        <ul className="spec-option-chips">
-                          {group.rows.map((row) => (
-                            <li key={row.key}>
-                              <span>{row.key}</span>
-                              <SpecValue value={row.value} />
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <>
-                          <dl className="spec-dl">
-                            {rows.map((row) => {
-                              const empty = /^(?:-|—)$/.test(String(row.value || '').trim());
-                              return (
-                                <div key={row.key} className="spec-dl-row">
-                                  <dt>{row.key}</dt>
-                                  <dd className={empty ? 'is-empty' : undefined}>
-                                    {empty ? '—' : <SpecValue value={row.value} />}
-                                  </dd>
-                                </div>
-                              );
-                            })}
-                          </dl>
-                          {optionRows.length && plainRows.length ? (
-                            <ul className="spec-option-chips spec-option-chips--nested">
-                              {optionRows.map((row) => (
-                                <li key={row.key}>
-                                  <span>{row.key}</span>
-                                  <SpecValue value={row.value} />
-                                </li>
-                              ))}
-                            </ul>
-                          ) : null}
-                        </>
-                      )}
+                      <dl className="spec-dl">
+                        {group.rows.map((row) => {
+                          const empty = /^(?:-|—)$/.test(String(row.value || '').trim());
+                          return (
+                            <div key={row.key} className="spec-dl-row">
+                              <dt>{row.key}</dt>
+                              <dd className={empty ? 'is-empty' : undefined}>
+                                {empty ? '—' : <SpecValue value={row.value} />}
+                              </dd>
+                            </div>
+                          );
+                        })}
+                      </dl>
                     </div>
                   ) : null}
                 </div>
@@ -254,7 +253,7 @@ export default function ProductPage() {
       ) : null}
 
       {showExtraHtml ? (
-        <section className="sec prose product-extra" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+        <section className="sec prose product-extra" dangerouslySetInnerHTML={{ __html: extraHtml }} />
       ) : null}
     </div>
   );

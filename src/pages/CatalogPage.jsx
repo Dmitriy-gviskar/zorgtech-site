@@ -7,9 +7,23 @@ import {
   productCover,
   productGallery,
 } from '../lib/data/catalog.js';
+import { ruCount, ruPlural } from '../lib/data/content-utils.js';
 import { LIST_SEO } from '../lib/seo-defaults.js';
 
-const FEATURED = ['napolnye', 'stoly', 'nastennyy', 'ulichnye', 'apriori', 'kioski-samoobsluzhivaniya'];
+/** Display order for the single catalog list (hero = first). */
+const LINE_ORDER = [
+  'napolnye',
+  'stoly',
+  'nastennyy',
+  'ulichnye',
+  'apriori',
+  'kioski-samoobsluzhivaniya',
+  'mono-napolnye',
+  'avtokassy',
+  'dezinfektora-ruk',
+  'otraslevye',
+  'detskie-stoliki',
+];
 
 const LINE_COVER_SLUG = {
   napolnye: 'diamant-32-fe',
@@ -32,12 +46,7 @@ function studioCover(product) {
 }
 
 function modelsLabel(count) {
-  const n = count || 0;
-  const mod10 = n % 10;
-  const mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return `${n} модель`;
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return `${n} модели`;
-  return `${n} моделей`;
+  return ruCount(count, 'модель', 'модели', 'моделей');
 }
 
 function withCover(c) {
@@ -49,12 +58,14 @@ function withCover(c) {
 }
 
 export default function CatalogPage() {
-  const all = categoryList();
-  const primary = FEATURED.map((slug) => all.find((c) => c.slug === slug)).filter(Boolean).map(withCover);
-  const rest = all.filter((c) => !FEATURED.includes(c.slug)).map(withCover);
-  const hero = primary[0] || null;
-  const featuredRest = primary.slice(1);
-  const totalModels = all.reduce((sum, c) => sum + (c.productSlugs?.length || 0), 0);
+  const bySlug = new Map(categoryList().map((c) => [c.slug, c]));
+  const ordered = [
+    ...LINE_ORDER.map((slug) => bySlug.get(slug)).filter(Boolean),
+    ...categoryList().filter((c) => !LINE_ORDER.includes(c.slug)),
+  ].map(withCover);
+  const hero = ordered[0] || null;
+  const lines = ordered.slice(1);
+  const totalModels = ordered.reduce((sum, c) => sum + (c.productSlugs?.length || 0), 0);
 
   return (
     <div className="page catalog-page">
@@ -66,7 +77,8 @@ export default function CatalogPage() {
           Линейки сенсорных терминалов, столов и киосков Zorgtech.
         </p>
         <p className="catalog-head-meta">
-          <strong>{all.length}</strong> линеек · <strong>{totalModels}</strong> моделей
+          <strong>{ordered.length}</strong> {ruPlural(ordered.length, 'линейка', 'линейки', 'линеек')} ·{' '}
+          <strong>{totalModels}</strong> {ruPlural(totalModels, 'модель', 'модели', 'моделей')}
         </p>
       </header>
 
@@ -88,14 +100,14 @@ export default function CatalogPage() {
         </Reveal>
       ) : null}
 
-      {featuredRest.length ? (
+      {lines.length ? (
         <section className="catalog-sec">
           <header className="sec-head">
-            <p className="chapter-kicker">Основные линейки</p>
-            <h2>По назначению</h2>
+            <p className="chapter-kicker">Каталог</p>
+            <h2>Все линейки</h2>
           </header>
           <ul className="lines-tiles catalog-tiles">
-            {featuredRest.map((c, i) => (
+            {lines.map((c, i) => (
               <li key={c.slug}>
                 <Reveal delay={Math.min(i, 4) * 0.04}>
                   <Link to={`/catalog/${c.slug}`} className="line-tile">
@@ -109,33 +121,6 @@ export default function CatalogPage() {
                     <div className="line-tile-media" aria-hidden="true">
                       {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
                     </div>
-                  </Link>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {rest.length ? (
-        <section className="catalog-sec">
-          <header className="sec-head">
-            <p className="chapter-kicker">Ещё</p>
-            <h2>Дополнительные линейки</h2>
-          </header>
-          <ul className="catalog-more-list">
-            {rest.map((c, i) => (
-              <li key={c.slug}>
-                <Reveal delay={Math.min(i, 4) * 0.03}>
-                  <Link to={`/catalog/${c.slug}`} className="catalog-more-item">
-                    <div className="catalog-more-media" aria-hidden="true">
-                      {c.cover ? <img src={c.cover} alt="" loading="lazy" /> : null}
-                    </div>
-                    <div>
-                      <strong>{c.name}</strong>
-                      <span>{modelsLabel(c.productSlugs?.length)}</span>
-                    </div>
-                    <em aria-hidden="true">→</em>
                   </Link>
                 </Reveal>
               </li>

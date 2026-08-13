@@ -282,8 +282,8 @@ function ContactsBody() {
             <Reveal>
               <Link to="/solutions" className="contacts-next-card">
                 <span className="contacts-next-num">01</span>
-                <strong>Изучите готовые решения</strong>
-                <span>Мы подготовили типовые варианты решений самых популярных задач разных типов бизнеса</span>
+                <strong>Изучите готовый софт</strong>
+                <span>Мы подготовили типовой софт для самых популярных задач разных типов бизнеса</span>
               </Link>
             </Reveal>
           </li>
@@ -413,7 +413,7 @@ function ServiceBody({ pageKey, page }) {
             <Reveal key={sec.title} delay={Math.min(i, 4) * 0.04}>
               <section className="service-section">
                 <header className="sec-head">
-                  <p className="chapter-kicker">Раздел</p>
+                  <p className="chapter-kicker">{String(i + 1).padStart(2, '0')}</p>
                   <h2>{sec.title}</h2>
                 </header>
                 {sec.text ? <p className="service-section-text">{sec.text}</p> : null}

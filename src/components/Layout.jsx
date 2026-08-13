@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 
 const NAV = [
   { to: '/catalog', label: 'Продукция' },
-  { to: '/solutions', label: 'Решения' },
+  { to: '/solutions', label: 'Софт' },
   { to: '/projects', label: 'Проекты' },
-  { to: '/areas', label: 'Области' },
+  { to: '/areas', label: 'Области применения' },
   { to: '/about', label: 'О компании' },
   { to: '/contacts', label: 'Контакты' },
 ];
@@ -16,11 +16,18 @@ const MORE = [
   { to: '/rent', label: 'Аренда' },
 ];
 
+const HOTLINE = { href: 'tel:88005502645', label: '8 800 550 26 45' };
+
+function closeDetails(el) {
+  if (el) el.open = false;
+}
+
 export default function Layout() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const mobileNavRef = useRef(null);
+  const moreNavRef = useRef(null);
 
   useEffect(() => {
     if (!isHome) {
@@ -34,9 +41,37 @@ export default function Layout() {
   }, [isHome]);
 
   useEffect(() => {
-    if (mobileNavRef.current) mobileNavRef.current.open = false;
+    closeDetails(mobileNavRef.current);
+    closeDetails(moreNavRef.current);
+    if (hash) {
+      const id = decodeURIComponent(hash.replace(/^#/, ''));
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView();
+      });
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
+
+  useEffect(() => {
+    const onPointerDown = (event) => {
+      const more = moreNavRef.current;
+      const mobile = mobileNavRef.current;
+      if (more?.open && !more.contains(event.target)) closeDetails(more);
+      if (mobile?.open && !mobile.contains(event.target)) closeDetails(mobile);
+    };
+    const onKeyDown = (event) => {
+      if (event.key !== 'Escape') return;
+      closeDetails(moreNavRef.current);
+      closeDetails(mobileNavRef.current);
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
   return (
     <div className={`site${isHome ? ' site--home' : ''}${scrolled ? ' site--scrolled' : ''}`}>
@@ -51,11 +86,11 @@ export default function Layout() {
                 {item.label}
               </NavLink>
             ))}
-            <details className="nav-more">
+            <details className="nav-more" ref={moreNavRef}>
               <summary>Ещё</summary>
               <div className="nav-more-panel">
                 {MORE.map((item) => (
-                  <NavLink key={item.to} to={item.to}>
+                  <NavLink key={item.to} to={item.to} onClick={() => closeDetails(moreNavRef.current)}>
                     {item.label}
                   </NavLink>
                 ))}
@@ -65,13 +100,19 @@ export default function Layout() {
           <details className="mobile-nav" ref={mobileNavRef}>
             <summary>Меню</summary>
             <div className="mobile-nav-panel">
+              <a className="mobile-nav-phone" href={HOTLINE.href} onClick={() => closeDetails(mobileNavRef.current)}>
+                {HOTLINE.label}
+              </a>
               {[...NAV, ...MORE].map((item) => (
-                <NavLink key={item.to} to={item.to}>
+                <NavLink key={item.to} to={item.to} onClick={() => closeDetails(mobileNavRef.current)}>
                   {item.label}
                 </NavLink>
               ))}
             </div>
           </details>
+          <a className="top-phone" href={HOTLINE.href}>
+            {HOTLINE.label}
+          </a>
           <Link className="btn primary top-cta" to="/contacts">Связаться</Link>
         </div>
       </header>
@@ -86,9 +127,9 @@ export default function Layout() {
           </div>
           <div className="foot-links">
             <Link to="/catalog">Каталог</Link>
-            <Link to="/solutions">Решения</Link>
+            <Link to="/solutions">Софт</Link>
             <Link to="/projects">Проекты</Link>
-            <Link to="/areas">Области</Link>
+            <Link to="/areas">Области применения</Link>
             <Link to="/about">О компании</Link>
             <Link to="/delivery">Доставка</Link>
             <Link to="/support">Поддержка</Link>
