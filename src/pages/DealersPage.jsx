@@ -4,7 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import StudioHoverMedia from '../components/StudioHoverMedia';
+import { assetUrl } from '../lib/data/asset.js';
 import copy from '../data/dealers.json';
+
+function accentCopy(text) {
+  return String(text)
+    .split(/(25%)/)
+    .map((part, i) => (part === '25%' ? <em key={i}>{part}</em> : part));
+}
 
 function StatValue({ value, prefix = '', suffix = '' }) {
   const ref = useRef(null);
@@ -30,9 +37,8 @@ function StatValue({ value, prefix = '', suffix = '' }) {
   );
 }
 
-function DealersForm({ variant = 'full' }) {
+function DealersForm() {
   const [sent, setSent] = useState(false);
-  const isCompact = variant === 'compact';
 
   function onSubmit(event) {
     event.preventDefault();
@@ -41,20 +47,18 @@ function DealersForm({ variant = 'full' }) {
     const phone = String(data.get('phone') || '').trim();
     const company = String(data.get('company') || '').trim();
     const city = String(data.get('city') || '').trim();
-    if (!phone || (!isCompact && !name)) return;
+    if (!name || !phone) return;
 
     const subject = encodeURIComponent('Заявка в дилерскую сеть Zorgtech');
     const body = encodeURIComponent(
       [
-        name ? `Имя: ${name}` : null,
+        `Имя: ${name}`,
         `Телефон: ${phone}`,
-        company ? `Компания: ${company}` : null,
-        city ? `Регион: ${city}` : null,
+        `Компания: ${company || '—'}`,
+        `Регион: ${city || '—'}`,
         '',
         'Источник: страница дилеров',
-      ]
-        .filter(Boolean)
-        .join('\n'),
+      ].join('\n'),
     );
     window.location.href = `mailto:${copy.form.email}?subject=${subject}&body=${body}`;
     setSent(true);
@@ -71,23 +75,19 @@ function DealersForm({ variant = 'full' }) {
   }
 
   return (
-    <form className={`dealers-form${isCompact ? ' dealers-form--compact' : ''}`} onSubmit={onSubmit}>
-      {isCompact ? null : (
-        <>
-          <label className="dealers-field">
-            <span>Имя</span>
-            <input name="name" type="text" autoComplete="name" required placeholder="Как к вам обращаться" />
-          </label>
-          <label className="dealers-field">
-            <span>Компания</span>
-            <input name="company" type="text" autoComplete="organization" placeholder="Необязательно" />
-          </label>
-          <label className="dealers-field">
-            <span>Регион</span>
-            <input name="city" type="text" autoComplete="address-level1" placeholder="Город или область" />
-          </label>
-        </>
-      )}
+    <form className="dealers-form" onSubmit={onSubmit}>
+      <label className="dealers-field">
+        <span>Имя</span>
+        <input name="name" type="text" autoComplete="name" required placeholder="Как к вам обращаться" />
+      </label>
+      <label className="dealers-field">
+        <span>Компания</span>
+        <input name="company" type="text" autoComplete="organization" placeholder="Необязательно" />
+      </label>
+      <label className="dealers-field">
+        <span>Регион</span>
+        <input name="city" type="text" autoComplete="address-level1" placeholder="Город или область" />
+      </label>
       <label className="dealers-field">
         <span>Телефон</span>
         <input
@@ -100,7 +100,7 @@ function DealersForm({ variant = 'full' }) {
         />
       </label>
       <button className="btn primary btn--lg dealers-submit" type="submit">
-        {isCompact ? copy.cta.submit : copy.form.submit}
+        {copy.cta.submit}
       </button>
       <p className="dealers-consent">
         {copy.cta.consent}.{' '}
@@ -119,9 +119,8 @@ export default function DealersPage() {
         <div className="dealers-hero-copy">
           <p className="chapter-kicker">{copy.hero.kicker}</p>
           <h1>{copy.hero.title}</h1>
-          <p className="dealers-hero-lead">{copy.hero.lead}</p>
+          <p className="dealers-hero-lead">{accentCopy(copy.hero.lead)}</p>
           <p className="dealers-hero-note">{copy.hero.note}</p>
-          <p className="dealers-status">{copy.status}</p>
           <div className="actions">
             <a className="btn primary btn--lg" href="#dealer-form">
               {copy.hero.cta}
@@ -136,9 +135,20 @@ export default function DealersPage() {
         </div>
       </header>
 
-      <Reveal>
-        <p className="dealers-intro">{copy.intro}</p>
-      </Reveal>
+      <section className="dealers-proof">
+        <Reveal>
+          <figure className="dealers-proof-media">
+            <img src={assetUrl(copy.proof.media)} alt="" />
+          </figure>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <div className="dealers-proof-copy">
+            <p className="chapter-kicker">{copy.proof.kicker}</p>
+            <p className="dealers-status">{copy.status}</p>
+            <p className="dealers-intro">{copy.intro}</p>
+          </div>
+        </Reveal>
+      </section>
 
       <section className="dealers-section">
         <Reveal>
@@ -173,8 +183,13 @@ export default function DealersPage() {
             <li key={item.title}>
               <Reveal delay={Math.min(i, 5) * 0.03}>
                 <Link to={item.to} className="dealers-sphere">
-                  <strong>{item.title}</strong>
-                  <span aria-hidden="true">→</span>
+                  <div className="dealers-sphere-media" aria-hidden="true">
+                    {item.image ? <img src={assetUrl(item.image)} alt="" loading="lazy" /> : null}
+                  </div>
+                  <div className="dealers-sphere-copy">
+                    <strong>{item.title}</strong>
+                    <span aria-hidden="true">→</span>
+                  </div>
                 </Link>
               </Reveal>
             </li>
@@ -182,7 +197,7 @@ export default function DealersPage() {
         </ul>
       </section>
 
-      <section className="dealers-section dealers-stats">
+      <section className="dealers-section dealers-stats dealers-band">
         <Reveal>
           <header className="sec-head">
             <p className="chapter-kicker">{copy.stats.kicker}</p>
@@ -224,27 +239,6 @@ export default function DealersPage() {
         </ol>
       </section>
 
-      <section className="dealers-section dealers-band dealers-apply" id="dealer-form">
-        <Reveal>
-          <header className="sec-head">
-            <p className="chapter-kicker">{copy.form.kicker}</p>
-            <h2>{copy.form.title}</h2>
-          </header>
-        </Reveal>
-        <div className="dealers-apply-grid">
-          <Reveal>
-            <ul className="dealers-perk-list">
-              {copy.form.perks.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <DealersForm />
-          </Reveal>
-        </div>
-      </section>
-
       <section className="dealers-section">
         <Reveal>
           <header className="sec-head">
@@ -266,16 +260,25 @@ export default function DealersPage() {
         </ul>
       </section>
 
-      <section className="dealers-section dealers-band dealers-cta">
+      <section className="dealers-section dealers-band dealers-apply" id="dealer-form">
         <Reveal>
           <header className="sec-head">
-            <p className="chapter-kicker">{copy.cta.kicker}</p>
+            <p className="chapter-kicker">{copy.form.kicker}</p>
             <h2>{copy.cta.title}</h2>
           </header>
         </Reveal>
-        <Reveal delay={0.05}>
-          <DealersForm variant="compact" />
-        </Reveal>
+        <div className="dealers-apply-grid">
+          <Reveal>
+            <ul className="dealers-perk-list">
+              {copy.form.perks.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <DealersForm />
+          </Reveal>
+        </div>
       </section>
 
       <section className="dealers-section dealers-contacts">
