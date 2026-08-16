@@ -3,6 +3,7 @@ import { animate, useInView } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
+import StudioHoverMedia from '../components/StudioHoverMedia';
 import copy from '../data/dealers.json';
 
 function StatValue({ value, prefix = '', suffix = '' }) {
@@ -115,25 +116,27 @@ export default function DealersPage() {
       <Seo title={copy.seo.title} description={copy.seo.description} path="/dealers" />
 
       <header className="dealers-hero">
-        <p className="chapter-kicker">{copy.hero.kicker}</p>
-        <h1>{copy.hero.title}</h1>
-        <p className="dealers-hero-lead">{copy.hero.lead}</p>
-        <p className="dealers-hero-note">{copy.hero.note}</p>
-        <div className="actions">
-          <a className="btn primary btn--lg" href="#dealer-form">
-            {copy.hero.cta}
-          </a>
-          <a className="btn secondary btn--lg" href={copy.contacts.phone.href}>
-            {copy.contacts.phone.label}
-          </a>
+        <div className="dealers-hero-copy">
+          <p className="chapter-kicker">{copy.hero.kicker}</p>
+          <h1>{copy.hero.title}</h1>
+          <p className="dealers-hero-lead">{copy.hero.lead}</p>
+          <p className="dealers-hero-note">{copy.hero.note}</p>
+          <p className="dealers-status">{copy.status}</p>
+          <div className="actions">
+            <a className="btn primary btn--lg" href="#dealer-form">
+              {copy.hero.cta}
+            </a>
+            <a className="btn secondary btn--lg" href={copy.contacts.phone.href}>
+              {copy.contacts.phone.label}
+            </a>
+          </div>
+        </div>
+        <div className="dealers-hero-stage" aria-hidden="true">
+          <StudioHoverMedia cover={copy.hero.media} />
         </div>
       </header>
 
       <Reveal>
-        <p className="dealers-status">{copy.status}</p>
-      </Reveal>
-
-      <Reveal delay={0.04}>
         <p className="dealers-intro">{copy.intro}</p>
       </Reveal>
 
@@ -221,7 +224,7 @@ export default function DealersPage() {
         </ol>
       </section>
 
-      <section className="dealers-section dealers-apply" id="dealer-form">
+      <section className="dealers-section dealers-band dealers-apply" id="dealer-form">
         <Reveal>
           <header className="sec-head">
             <p className="chapter-kicker">{copy.form.kicker}</p>
@@ -263,7 +266,7 @@ export default function DealersPage() {
         </ul>
       </section>
 
-      <section className="dealers-section dealers-cta">
+      <section className="dealers-section dealers-band dealers-cta">
         <Reveal>
           <header className="sec-head">
             <p className="chapter-kicker">{copy.cta.kicker}</p>

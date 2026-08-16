@@ -796,30 +796,55 @@
 }
 
 /* —— Dealers —— */
-.dealers-hero {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--line);
+.dealers-page {
+  padding-bottom: 1rem;
 }
 
-.dealers-hero h1 {
-  max-width: 18ch;
+.dealers-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.dealers-hero-copy h1 {
+  max-width: 12ch;
+  margin: 0.35rem 0 0;
+  font-size: var(--text-display);
 }
 
 .dealers-hero-lead {
-  margin: 0.85rem 0 0;
-  max-width: 28rem;
+  margin: 0.9rem 0 0;
+  max-width: 22rem;
   color: var(--ink);
-  font-size: var(--text-lead);
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .dealers-hero-note {
   margin: 0.7rem 0 0;
-  max-width: 32rem;
+  max-width: 28rem;
   color: var(--muted);
   font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.dealers-status {
+  display: inline-block;
+  max-width: 36rem;
+  margin: 1.1rem 0 0;
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--cyan-soft);
+  color: var(--cyan-ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .dealers-hero .actions {
@@ -829,30 +854,55 @@
   margin-top: 1.5rem;
 }
 
-.dealers-status {
-  margin: 0 0 1.75rem;
-  padding: 1.05rem 1.2rem;
-  border-radius: var(--radius-tile);
-  background: var(--cyan-soft);
-  color: var(--cyan-ink);
-  font-weight: 500;
-  line-height: 1.45;
+.dealers-hero-stage {
+  min-height: clamp(280px, 42vw, 460px);
+  padding: 1.25rem;
+  border-radius: calc(var(--radius-tile) + 0.25rem);
+  background:
+    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
+    radial-gradient(ellipse 52% 42% at 50% 40%, rgba(42, 170, 221, 0.07), transparent 68%),
+    var(--bg-soft);
+  overflow: hidden;
+}
+
+.dealers-hero-stage .studio-hover-media {
+  min-height: clamp(240px, 36vw, 400px);
+}
+
+.dealers-hero-stage:hover .studio-hover-media--duo .studio-hover-media-alt,
+.dealers-hero-stage:focus-within .studio-hover-media--duo .studio-hover-media-alt {
+  opacity: 1;
+}
+
+.dealers-hero-stage:hover .studio-hover-media--duo .studio-hover-media-front,
+.dealers-hero-stage:focus-within .studio-hover-media--duo .studio-hover-media-front {
+  opacity: 0;
 }
 
 .dealers-intro {
-  margin: 0 0 2.5rem;
-  max-width: 42rem;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  max-width: 40rem;
   color: var(--ink);
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: -0.015em;
   line-height: 1.55;
 }
 
 .dealers-section {
-  margin: 0 0 2.75rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--line);
+  margin: 0 0 clamp(2.75rem, 6vw, 4.5rem);
+  padding-top: 0;
+  border-top: none;
+}
+
+.dealers-section .sec-head {
+  margin-bottom: 1.35rem;
+}
+
+.dealers-band {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: calc(var(--radius-tile) + 0.2rem);
+  background: var(--bg-soft);
 }
 
 .dealers-benefit-list,
@@ -868,22 +918,27 @@
 }
 
 .dealers-benefit-list,
-.dealers-steps {
+.dealers-portal-grid {
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
 .dealers-benefit,
-.dealers-step,
 .dealers-portal-card {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.9rem;
-  align-items: start;
+  gap: 0.7rem;
+  align-content: start;
   height: 100%;
-  padding: 1.15rem 1.2rem;
+  min-height: 7rem;
+  padding: 1.35rem 1.3rem 1.4rem;
   border-radius: var(--radius-tile);
   background: var(--bg-soft);
+}
+
+.dealers-band .dealers-form,
+.dealers-band .dealers-portal-card {
+  background: #fff;
 }
 
 .dealers-benefit p,
@@ -891,33 +946,32 @@
 .dealers-portal-card p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 0.98rem;
-  line-height: 1.5;
+  font-size: 1.02rem;
+  line-height: 1.45;
 }
 
 .dealers-num {
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--cyan-deep);
-  padding-top: 0.15rem;
 }
 
 .dealers-sphere-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .dealers-sphere {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.7rem;
   height: 100%;
-  min-height: 5.25rem;
-  padding: 1.15rem 1.2rem;
+  min-height: 4.4rem;
+  padding: 1rem 1.1rem;
   border-radius: var(--radius-tile);
   background: var(--bg-soft);
   text-decoration: none;
@@ -930,9 +984,10 @@
 }
 
 .dealers-sphere strong {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   font-weight: 600;
   letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
 .dealers-sphere span {
@@ -940,47 +995,69 @@
   flex-shrink: 0;
 }
 
-.dealers-stat-grid,
-.dealers-portal-grid,
-.dealers-contact-grid {
+.dealers-stats {
+  padding: clamp(1rem, 3vw, 2rem) 0;
+}
+
+.dealers-stat-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 1.5rem;
+  text-align: center;
 }
 
-.dealers-contact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.dealers-stat,
-.dealers-contact-card {
+.dealers-stat {
   display: grid;
-  gap: 0.45rem;
-  align-content: start;
-  height: 100%;
-  padding: 1.25rem 1.3rem;
-  border-radius: var(--radius-tile);
-  background: var(--bg-soft);
+  gap: 0.7rem;
+  justify-items: center;
 }
 
-.dealers-stat strong,
-.dealers-contact-card strong {
+.dealers-stat strong {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
   font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
   color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
-.dealers-stat span,
-.dealers-contact-card span:last-child {
-  color: var(--muted);
-  font-size: 0.92rem;
+.dealers-stat span {
+  max-width: 16rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
   line-height: 1.4;
 }
 
+.dealers-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.25rem;
+}
+
+.dealers-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.dealers-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
 .dealers-contact-card {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+  height: 100%;
+  padding: 1.3rem 1.3rem 1.35rem;
+  border-radius: var(--radius-tile);
+  background: var(--bg-soft);
   text-decoration: none;
   color: inherit;
   transition: background 0.2s ease;
@@ -991,8 +1068,17 @@ a.dealers-contact-card:hover {
 }
 
 .dealers-contact-card strong {
+  font-family: var(--font-display);
   font-size: 1.2rem;
+  font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.dealers-contact-card span:last-child {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
 }
 
 .dealers-apply-grid {
@@ -1004,7 +1090,7 @@ a.dealers-contact-card:hover {
 
 .dealers-perk-list {
   display: grid;
-  gap: 0.7rem;
+  gap: 0;
 }
 
 .dealers-perk-list li {
@@ -1023,11 +1109,20 @@ a.dealers-contact-card:hover {
   gap: 0.85rem;
   padding: 1.35rem 1.3rem 1.4rem;
   border-radius: var(--radius-tile);
-  background: var(--bg-soft);
+  background: #fff;
 }
 
 .dealers-form--compact {
-  max-width: 28rem;
+  max-width: 26rem;
+}
+
+.dealers-cta {
+  display: grid;
+  justify-items: start;
+}
+
+.dealers-cta .sec-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
 }
 
 .dealers-field {
@@ -1080,17 +1175,21 @@ a.dealers-contact-card:hover {
   color: var(--cyan-deep);
 }
 
-.dealers-cta .dealers-form--compact {
-  margin-top: 0.25rem;
-}
-
 @media (max-width: 900px) {
+  .dealers-hero,
+  .dealers-benefit-list,
   .dealers-sphere-grid,
   .dealers-stat-grid,
+  .dealers-steps,
   .dealers-portal-grid,
   .dealers-contact-grid,
   .dealers-apply-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dealers-hero-stage {
+    min-height: 240px;
+    order: -1;
   }
 }
 
