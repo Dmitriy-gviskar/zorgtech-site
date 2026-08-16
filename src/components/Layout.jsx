@@ -7,6 +7,7 @@ const NAV = [
   { to: '/projects', label: 'Проекты' },
   { to: '/areas', label: 'Области применения' },
   { to: '/about', label: 'О компании' },
+  { to: '/dealers', label: 'Дилерам' },
   { to: '/contacts', label: 'Контакты' },
 ];
 
@@ -131,6 +132,7 @@ export default function Layout() {
             <Link to="/projects">Проекты</Link>
             <Link to="/areas">Области применения</Link>
             <Link to="/about">О компании</Link>
+            <Link to="/dealers">Дилерам</Link>
             <Link to="/delivery">Доставка</Link>
             <Link to="/support">Поддержка</Link>
             <Link to="/rent">Аренда</Link>
