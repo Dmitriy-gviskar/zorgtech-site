@@ -1,5 +1,22 @@
 /* styles/solutions.css — решения */
 /* —— Solutions —— */
+.solutions-page .solution-toc {
+  margin-top: 1.25rem;
+}
+
+.solutions-page .solution-group {
+  margin: 2.35rem 0 0;
+  scroll-margin-top: 5.5rem;
+}
+
+.solutions-page .solution-group .sec-head {
+  margin-bottom: 1.1rem;
+}
+
+.solutions-page .solution-group .sec-head h2 {
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+}
+
 .solutions-page .solution-cards {
   list-style: none;
   margin: 0.5rem 0 0;
@@ -28,6 +45,12 @@
   aspect-ratio: 16 / 10;
   background: #ffffff;
   overflow: hidden;
+}
+
+.solution-card-media--empty {
+  background:
+    linear-gradient(165deg, rgba(42, 170, 221, 0.08), rgba(42, 170, 221, 0) 62%),
+    #fff;
 }
 
 .solution-card-media img:not(.solution-card-icon) {

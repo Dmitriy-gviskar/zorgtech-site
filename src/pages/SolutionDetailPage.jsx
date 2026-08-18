@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
-import { getSolution, presentSolution } from '../lib/data/solutions.js';
+import { getSolution, presentSolution, solutionGroupMeta } from '../lib/data/solutions.js';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
@@ -20,6 +20,7 @@ export default function SolutionDetailPage() {
   }
 
   const copy = presentSolution(solution);
+  const group = solutionGroupMeta(solution.group);
   const hero = copy.images[0];
   const gallery = copy.images.slice(1, 9);
 
@@ -39,7 +40,7 @@ export default function SolutionDetailPage() {
 
       <header className="detail-hero solution-hero">
         <div className="detail-hero-copy">
-          <p className="chapter-kicker">Софт</p>
+          <p className="chapter-kicker">{group.title}</p>
           <h1>{copy.title}</h1>
           {copy.lead ? <p className="lead">{copy.lead}</p> : null}
           {copy.features.length ? (

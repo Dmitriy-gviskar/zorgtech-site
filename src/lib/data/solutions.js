@@ -1,7 +1,24 @@
-import solutions from '../../data/solutions.json';
+import canonSolutions from '../../data/solutions.json';
+import ourBoxes from '../../data/our-boxes.json';
 import { oneLine } from './content-utils.js';
 
-export { solutions };
+export const SOLUTION_GROUPS = [
+  { key: 'Коробки для интерактива', id: 'interactive', kicker: 'Интерактив', title: 'Коробки для интерактива' },
+  { key: 'Презентации в Импульсе', id: 'presentations', kicker: 'Презентации', title: 'Презентации' },
+  { key: 'Игры', id: 'games', kicker: 'Образование', title: 'Игры' },
+  { key: '3д пособия', id: 'lessons-3d', kicker: 'Образование', title: '3D-пособия' },
+  { key: 'VR-тренажёры', id: 'vr', kicker: 'VR', title: 'VR-тренажёры' },
+  { key: 'Отраслевые системы', id: 'industry', kicker: 'Киоски', title: 'Отраслевые системы' },
+];
+
+export const solutions = [
+  ...ourBoxes,
+  ...canonSolutions.map((s) => ({ ...s, group: 'Отраслевые системы' })),
+];
+
+export function solutionGroupMeta(groupKey) {
+  return SOLUTION_GROUPS.find((g) => g.key === groupKey) || SOLUTION_GROUPS[0];
+}
 
 export function getSolution(slug) {
   return solutions.find((s) => s.slug === slug) || null;
