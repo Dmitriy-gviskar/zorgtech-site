@@ -1,0 +1,20 @@
+---
+description: Куда класть CSS-правки по зонам
+globs: src/styles/**/*.css,src/App.css,src/index.css
+alwaysApply: false
+---
+
+# Styles map
+
+`App.css` — только `@import`. Токены — `src/index.css`.
+
+| Файл | Зона |
+|------|------|
+| `shell.css` | layout, header/footer, buttons |
+| `home.css` | главная |
+| `catalog.css` | каталог / категория / товар / specs |
+| `lists.css` | проекты, области, общие list/detail |
+| `service.css` | about, contacts, delivery, support, rent, policy |
+| `solutions.css` | решения |
+
+Правка: найти селектор через `rg`, читать узкий диапазон строк.

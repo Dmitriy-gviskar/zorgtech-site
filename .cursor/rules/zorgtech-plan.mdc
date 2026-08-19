@@ -1,0 +1,21 @@
+---
+description: Zorgtech-site — план, канон, экономия контекста. Полный гайд уже в AGENTS.md.
+alwaysApply: false
+---
+
+# zorgtech-site
+
+Полный гайд: `AGENTS.md`. Статус этапов: `PLAN.md`.
+
+## Сейчас
+Данные + скелет + канон + раскатка ✅. Дальше — полировка/деплой. Блог **не** в nav.
+
+## Железо
+- Контент только с `zorgtech.com`. Не выдумывать. `zorgtech-hero` не трогать.
+- Стек: React + Vite + React Router + чистый CSS.
+- Визуал: светлая студия, `#2aaadd`, Plus Jakarta Sans, pill CTA. Один язык.
+
+## Контекст — не жечь
+- CSS править в `src/styles/<зона>.css` (±40 строк вокруг селектора), не читать все файлы.
+- JSON/`html` не дампить — `src/lib/data.js` + точечный запрос по slug.
+- Браузер: screenshot, не полный a11y-tree. Картинки `public/img/` не открывать без нужды.
