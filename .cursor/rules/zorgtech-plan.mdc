@@ -1,21 +1,19 @@
 ---
-description: Zorgtech-site — план, канон, экономия контекста. Полный гайд уже в AGENTS.md.
+description: Zorgtech-site — WebP/bake, не дампить JSON и картинки, свежий dev-порт
 alwaysApply: false
 ---
 
-# zorgtech-site
+# Полировка и контекст
 
-Полный гайд: `AGENTS.md`. Статус этапов: `PLAN.md`.
+Оригиналы PNG/JPG не удалять. WebP рядом: `npm run optimize:images` (regen/home q=92, без апскейла).
+Манифест `src/data/media-webp.json` — `assetUrl` предпочитает `.webp`.
+Сырой HTML: `src/data/source/*.json`. Рантайм без html: `npm run bake:content`.
+После scrape: `npm run optimize` (bake + images).
 
-## Сейчас
-Данные + скелет + канон + раскатка ✅. Дальше — полировка/деплой. Блог **не** в nav.
+- Не читать целиком `src/styles/*.css`, `src/data/*.json`, html-поля.
+- Данные: `src/lib/data.js` + точечный запрос по slug.
+- Браузер: screenshot, не полный a11y-tree.
+- `public/img/` (особенно `blog/`) не открывать без нужды.
+- Если CSS «не применился» — свежий порт (часто 5174), не зависший 5173.
 
-## Железо
-- Контент только с `zorgtech.com`. Не выдумывать. `zorgtech-hero` не трогать.
-- Стек: React + Vite + React Router + чистый CSS.
-- Визуал: светлая студия, `#2aaadd`, Plus Jakarta Sans, pill CTA. Один язык.
-
-## Контекст — не жечь
-- CSS править в `src/styles/<зона>.css` (±40 строк вокруг селектора), не читать все файлы.
-- JSON/`html` не дампить — `src/lib/data.js` + точечный запрос по slug.
-- Браузер: screenshot, не полный a11y-tree. Картинки `public/img/` не открывать без нужды.
+`src/data/` — scraped контент. `src/pages/` — страницы.
