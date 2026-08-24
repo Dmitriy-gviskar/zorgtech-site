@@ -45,7 +45,7 @@ function absoluteUrl(pathOrUrl) {
 }
 
 /** Client-side title / description / OG / canonical from scraped meta. */
-export default function Seo({ title, description, path, image }) {
+export default function Seo({ title, description, path, image, noIndex = false }) {
   useEffect(() => {
     const pageTitle = title || DEFAULT_TITLE;
     const pageDescription = description || DEFAULT_DESCRIPTION;
@@ -53,6 +53,7 @@ export default function Seo({ title, description, path, image }) {
 
     document.title = pageTitle;
     upsertMeta('name', 'description', pageDescription);
+    upsertMeta('name', 'robots', noIndex ? 'noindex, nofollow' : 'index, follow');
     upsertMeta('property', 'og:title', pageTitle);
     upsertMeta('property', 'og:description', pageDescription);
     upsertMeta('property', 'og:type', 'website');
@@ -64,7 +65,7 @@ export default function Seo({ title, description, path, image }) {
     if (image) {
       upsertMeta('property', 'og:image', absoluteUrl(image));
     }
-  }, [title, description, path, image]);
+  }, [title, description, path, image, noIndex]);
 
   return null;
 }

@@ -125,6 +125,9 @@ export default function DealersPage() {
             <a className="btn primary btn--lg" href="#dealer-form">
               {copy.hero.cta}
             </a>
+            <Link className="btn secondary btn--lg" to="/dealers/portal">
+              {copy.cabinet.loginCta}
+            </Link>
             <a className="btn secondary btn--lg" href={copy.contacts.phone.href}>
               {copy.contacts.phone.label}
             </a>
@@ -244,6 +247,9 @@ export default function DealersPage() {
           <header className="sec-head">
             <p className="chapter-kicker">{copy.portal.kicker}</p>
             <h2>{copy.portal.title}</h2>
+            <Link className="btn primary" to="/dealers/portal">
+              {copy.cabinet.loginCta}
+            </Link>
           </header>
         </Reveal>
         <ul className="dealers-portal-grid">

@@ -1230,6 +1230,134 @@ a.dealers-contact-card:hover {
   color: var(--cyan-deep);
 }
 
+.dealer-portal-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.dealer-portal-head h1 {
+  margin: 0.2rem 0 0.45rem;
+}
+
+.dealer-portal-head--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.dealer-portal-head-actions,
+.dealer-portal-toolbar,
+.dealer-portal-panel .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.dealer-portal-login,
+.dealer-portal-panel .dealers-form {
+  max-width: 28rem;
+}
+
+.dealer-portal-panel .dealers-form {
+  padding: 0;
+}
+
+.dealer-portal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.dealer-portal-tabs button {
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--ink-soft);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dealer-portal-tabs button.is-on {
+  border-color: var(--cyan);
+  background: var(--cyan-soft);
+  color: var(--cyan-ink);
+}
+
+.dealer-portal-note,
+.dealer-portal-panel p {
+  max-width: 46rem;
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.dealer-portal-toolbar {
+  margin: 0 0 1.25rem;
+}
+
+.dealer-portal-group h2 {
+  margin: 1.4rem 0 0.65rem;
+  font-size: 1.2rem;
+}
+
+.dealer-portal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dealer-portal-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.dealer-portal-item span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.dealer-portal-item em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.88rem;
+}
+
+.dealer-portal-materials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.dealer-portal-materials a {
+  display: grid;
+  gap: 0.45rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dealer-portal-materials img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-tile);
+  background: var(--bg-soft);
+}
+
+.dealers-section .sec-head .btn {
+  margin-top: 0.75rem;
+  justify-self: start;
+}
+
 @media (max-width: 900px) {
   .dealers-hero,
   .dealers-proof,
@@ -1239,7 +1367,8 @@ a.dealers-contact-card:hover {
   .dealers-steps,
   .dealers-portal-grid,
   .dealers-contact-grid,
-  .dealers-apply-grid {
+  .dealers-apply-grid,
+  .dealer-portal-materials {
     grid-template-columns: 1fr;
   }
 

@@ -15,6 +15,7 @@ const AreasPage = lazy(() => import('./pages/AreasPage'));
 const AreaDetailPage = lazy(() => import('./pages/AreaDetailPage'));
 const StaticPage = lazy(() => import('./pages/StaticPage'));
 const DealersPage = lazy(() => import('./pages/DealersPage'));
+const DealerPortalPage = lazy(() => import('./pages/DealerPortalPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/support" element={<StaticPage pageKey="support" />} />
             <Route path="/rent" element={<StaticPage pageKey="rent" />} />
             <Route path="/dealers" element={<DealersPage />} />
+            <Route path="/dealers/portal" element={<DealerPortalPage />} />
             <Route path="/policy" element={<StaticPage pageKey="policy" />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
