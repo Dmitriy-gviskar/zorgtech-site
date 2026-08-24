@@ -11,7 +11,7 @@ function clip(text, max = 110) {
   return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
 }
 
-function SolutionCard({ raw, copy, delay }) {
+function SolutionCard({ raw, copy, delay, groupTitle }) {
   const cover = copy.images[0];
   return (
     <Reveal delay={delay}>
@@ -21,6 +21,7 @@ function SolutionCard({ raw, copy, delay }) {
           aria-hidden="true"
         >
           {cover ? <img src={assetUrl(cover)} alt="" loading="lazy" /> : null}
+          {!cover ? <span className="solution-card-media-label">{groupTitle}</span> : null}
           {copy.icon ? (
             <img className="solution-card-icon" src={assetUrl(copy.icon)} alt="" />
           ) : null}
@@ -78,7 +79,12 @@ export default function SolutionsPage() {
           <ul className="solution-cards">
             {group.items.map(({ raw, copy }, i) => (
               <li key={raw.slug}>
-                <SolutionCard raw={raw} copy={copy} delay={Math.min(i, 5) * 0.04} />
+                <SolutionCard
+                  raw={raw}
+                  copy={copy}
+                  delay={Math.min(i, 5) * 0.04}
+                  groupTitle={group.title}
+                />
               </li>
             ))}
           </ul>

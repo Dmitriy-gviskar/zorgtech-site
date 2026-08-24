@@ -406,7 +406,14 @@ export default function HomePage() {
 
       <section className="home-begin">
         <div className="wrap">
-          <RevealTitle kicker={homeBlocks.begin.kicker} title={homeBlocks.begin.title} />
+          <header className="home-sec-head home-sec-head--row">
+            <RevealTitle kicker={homeBlocks.begin.kicker} title={homeBlocks.begin.title} />
+            {homeBlocks.begin.cta ? (
+              <Link className="btn primary" to={homeBlocks.begin.cta.to}>
+                {homeBlocks.begin.cta.label}
+              </Link>
+            ) : null}
+          </header>
           <div className="home-begin-grid">
             {homeBlocks.begin.paths.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05}>

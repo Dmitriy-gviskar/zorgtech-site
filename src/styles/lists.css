@@ -536,6 +536,21 @@
   align-self: start;
 }
 
+.about-section--next .sec-head--row,
+.contacts-next .sec-head--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: none;
+}
+
+.about-section--next .sec-head h2,
+.contacts-next .sec-head h2 {
+  max-width: 46rem;
+}
+
 .about-next-grid {
   list-style: none;
   margin: 1.35rem 0 0;

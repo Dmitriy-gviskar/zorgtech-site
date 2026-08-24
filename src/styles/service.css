@@ -696,6 +696,15 @@
   letter-spacing: -0.03em;
 }
 
+.contacts-next .sec-head--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: none;
+}
+
 .contacts-place-grid,
 .contacts-next-grid {
   list-style: none;

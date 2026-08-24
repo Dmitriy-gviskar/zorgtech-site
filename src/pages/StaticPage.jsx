@@ -176,9 +176,14 @@ function AboutBody({ page }) {
       {about.next.length ? (
         <section className="about-section about-section--next" id="about-next">
           <Reveal>
-            <header className="sec-head">
-              <p className="chapter-kicker">С чего начать</p>
-              <h2>Не знаете, с чего начать?</h2>
+            <header className="sec-head sec-head--row">
+              <div>
+                <p className="chapter-kicker">Дилерам</p>
+                <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой 20%</h2>
+              </div>
+              <Link className="btn primary" to="/dealers">
+                Станьте дилером
+              </Link>
             </header>
           </Reveal>
           <ul className="about-next-grid">
@@ -273,9 +278,14 @@ function ContactsBody() {
       </section>
 
       <section className="contacts-next">
-        <header className="sec-head">
-          <p className="chapter-kicker">С чего начать</p>
-          <h2>Не знаете, с чего начать?</h2>
+        <header className="sec-head sec-head--row">
+          <div>
+            <p className="chapter-kicker">Дилерам</p>
+            <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой 20%</h2>
+          </div>
+          <Link className="btn primary" to="/dealers">
+            Станьте дилером
+          </Link>
         </header>
         <ul className="contacts-next-grid">
           <li>

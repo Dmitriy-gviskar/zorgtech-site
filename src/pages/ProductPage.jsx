@@ -128,13 +128,6 @@ export default function ProductPage() {
               {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
             </div>
             <ProductPriceForm title={product.title} slug={product.slug} price={copy.price} />
-            {cat ? (
-              <div className="actions">
-                <Link className="btn secondary btn--lg" to={`/catalog/${cat.slug}`}>
-                  Вся линейка
-                </Link>
-              </div>
-            ) : null}
           </div>
 
           {copy.features.length ? (

@@ -1651,6 +1651,10 @@
   border-top: 1px solid var(--line);
 }
 
+.home-begin .home-sec-head--row .home-sec-head {
+  max-width: 46rem;
+}
+
 /* DJI-like media chapters — immersive split, still light studio */
 .chapter--home {
   /* Wider copy track so long Russian display titles don't paint over media */

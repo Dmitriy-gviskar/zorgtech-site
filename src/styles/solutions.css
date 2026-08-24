@@ -48,9 +48,19 @@
 }
 
 .solution-card-media--empty {
+  display: flex;
+  align-items: flex-end;
   background:
     linear-gradient(165deg, rgba(42, 170, 221, 0.08), rgba(42, 170, 221, 0) 62%),
     #fff;
+}
+
+.solution-card-media-label {
+  margin: 0.9rem 1rem;
+  color: var(--cyan-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: var(--track-kicker);
 }
 
 .solution-card-media img:not(.solution-card-icon) {
