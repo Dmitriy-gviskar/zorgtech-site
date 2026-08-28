@@ -15,6 +15,7 @@ import { HOME_SEO } from '../lib/seo-defaults.js';
 import homeCatalog from '../data/home-catalog.json';
 import homeBlocks from '../data/home-blocks.json';
 import projectTeasers from '../data/project-teasers.json';
+import { paths } from '../lib/paths.js';
 
 const LINE_LINKS = homeCatalog.lines || [];
 const POPULAR = homeCatalog.popular || [];
@@ -83,7 +84,7 @@ export default function HomePage() {
           </div>
 
           <Reveal>
-            <Link to={`/product/${POPULAR[0].slug}`} className="home-popular-hero">
+            <Link to={paths.product(POPULAR[0].slug)} className="home-popular-hero">
               <div className="home-popular-hero-media" aria-hidden="true">
                 <StudioHoverMedia cover={POPULAR[0].cover} />
               </div>
@@ -103,7 +104,7 @@ export default function HomePage() {
               <div className="home-popular-rail">
                 {POPULAR.slice(1).map((item, i) => (
                   <Reveal key={item.slug} delay={Math.min(i, 2) * 0.05}>
-                    <Link to={`/product/${item.slug}`} className="home-popular-rail-card">
+                    <Link to={paths.product(item.slug)} className="home-popular-rail-card">
                       <div className="home-popular-rail-media" aria-hidden="true">
                         <StudioHoverMedia cover={item.cover} />
                       </div>
@@ -339,7 +340,7 @@ export default function HomePage() {
           <div className="shot-on-grid">
             {projectTeasers.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 2) * 0.06} className={i === 0 ? 'span-2' : ''}>
-                <Link to={`/projects/${p.slug}`} className={`shot-card${i === 0 ? ' shot-card--xl' : ''}`}>
+                <Link to={paths.project(p.slug)} className={`shot-card${i === 0 ? ' shot-card--xl' : ''}`}>
                   <div className="shot-card-media">
                     {p.images?.[0] ? <img src={assetUrl(p.images[0])} alt="" loading="lazy" /> : null}
                   </div>
@@ -352,7 +353,7 @@ export default function HomePage() {
             ))}
           </div>
           <Reveal>
-            <Link className="chapter-link chapter-link--light" to="/projects">
+            <Link className="chapter-link chapter-link--light" to={paths.projects}>
               Все проекты <span aria-hidden="true">→</span>
             </Link>
           </Reveal>

@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getSolution, presentSolution, solutionGroupMeta } from '../lib/data/solutions.js';
+import { paths } from '../lib/paths.js';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
@@ -12,7 +13,7 @@ export default function SolutionDetailPage() {
     return (
       <div className="page">
         <h1>Софт не найден</h1>
-        <Link className="text-link" to="/solutions">
+        <Link className="text-link" to={paths.solutions}>
           ← Ко всему софту
         </Link>
       </div>
@@ -29,11 +30,11 @@ export default function SolutionDetailPage() {
       <Seo
         title={solution.meta?.title || copy.title}
         description={solution.meta?.description || copy.lead || ''}
-        path={`/solutions/${solution.slug}`}
+        path={paths.solution(solution.slug)}
         image={solution.meta?.image || hero || undefined}
       />
       <p className="crumbs">
-        <Link to="/solutions">Софт</Link>
+        <Link to={paths.solutions}>Софт</Link>
         <span aria-hidden="true"> / </span>
         {copy.title}
       </p>
@@ -56,7 +57,7 @@ export default function SolutionDetailPage() {
             <Link className="btn primary btn--lg" to="/contacts">
               Запросить внедрение
             </Link>
-            <Link className="btn secondary btn--lg" to="/solutions">
+            <Link className="btn secondary btn--lg" to={paths.solutions}>
               Весь софт
             </Link>
           </div>

@@ -16,17 +16,17 @@ export const LIST_SEO = {
   projects: {
     title: 'Реализованные проекты Zorgtech',
     description: 'Кейсы внедрения сенсорных киосков и интерактивных систем на объектах клиентов Zorgtech',
-    path: '/projects',
+    path: '/realizovanye-proekty',
   },
   solutions: {
     title: 'Готовый софт для сенсорных киосков',
     description: 'Отраслевой софт Zorgtech для ритейла, музеев, образования и госуслуг',
-    path: '/solutions',
+    path: '/gotovye-resheniya',
   },
   areas: {
     title: 'Области применения сенсорного оборудования',
     description: 'Сферы применения интерактивных киосков и сенсорных столов Zorgtech',
-    path: '/areas',
+    path: '/oblasti-primeneniya',
   },
   dealers: {
     title: 'Станьте дилером Zorgtech — интерактивное оборудование со скидкой до 25%',

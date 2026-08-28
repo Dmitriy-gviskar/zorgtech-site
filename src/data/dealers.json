@@ -31,15 +31,15 @@
     "kicker": "Применение",
     "title": "Сферы применения нашего оборудования",
     "items": [
-      { "title": "Школы и образование", "to": "/solutions/gid-uchashchegosya", "image": "/img/solutions/gid-uchashchegosya_cover_605483cbdd8d69.jpg" },
-      { "title": "Торговые и бизнес-центры", "to": "/areas/putevoditel-po-torgovym-tsentram", "image": "/img/pages/area-putevoditel-po-torgo_a1c78ddf37a07811f9aaf2a4712774b7-413545adc24930c0.jpg" },
-      { "title": "Банки и финансовые учреждения", "to": "/areas/dlya-bankov-nbsp-nbsp-interaktivnyy-konsultant", "image": "/img/pages/area-dlya-bankov-nbsp-nbs_e3b6613441fc613bd21b94e46d6459d1-089fd6d3e1db2708.jpg" },
-      { "title": "Музеи и выставочные залы", "to": "/solutions/muzeynyy-gid", "image": "/img/solutions/muzeynyy-gid_cover_2049b87efe6d5a.jpg" },
-      { "title": "Государственные учреждения", "to": "/solutions/gosinform", "image": "/img/solutions/gosinform_cover_2397918ed5a455.jpg" },
-      { "title": "Медицинские центры", "to": "/areas/dlya-meditsinskiy-uchrezhdeniy-zapis-na-priem", "image": "/img/pages/area-dlya-meditsinskiy-uc_4c2e48f865d7d8e20b0e923c867c7cb6-11cbf7312f600830.png" },
-      { "title": "Ритейл и HoReCa", "to": "/solutions/gid-pokupatelya", "image": "/img/solutions/gid-pokupatelya_cover_e2d50a9bb20eaa.jpg" },
-      { "title": "Автосалоны", "to": "/areas/dlya-avtosalonov", "image": "/img/pages/area-dlya-avtosalonov_0862c569cc9cec674338b24218927c72-0943aade98fccbaa.jpg" },
-      { "title": "Промышленные предприятия", "to": "/areas/dlya-promyshlennykh-predpriyatiy-avtomatizatsiya-biznesa", "image": "/img/pages/area-dlya-promyshlennykh-_3105b575cf7e6d2e5cd9104912a25689-b76a681ec077b62e.jpg" }
+      { "title": "Школы и образование", "to": "/gotovye-resheniya/gid-uchashchegosya", "image": "/img/solutions/gid-uchashchegosya_cover_605483cbdd8d69.jpg" },
+      { "title": "Торговые и бизнес-центры", "to": "/oblasti-primeneniya/putevoditel-po-torgovym-tsentram", "image": "/img/pages/area-putevoditel-po-torgo_a1c78ddf37a07811f9aaf2a4712774b7-413545adc24930c0.jpg" },
+      { "title": "Банки и финансовые учреждения", "to": "/oblasti-primeneniya/dlya-bankov-nbsp-nbsp-interaktivnyy-konsultant", "image": "/img/pages/area-dlya-bankov-nbsp-nbs_e3b6613441fc613bd21b94e46d6459d1-089fd6d3e1db2708.jpg" },
+      { "title": "Музеи и выставочные залы", "to": "/gotovye-resheniya/muzeynyy-gid", "image": "/img/solutions/muzeynyy-gid_cover_2049b87efe6d5a.jpg" },
+      { "title": "Государственные учреждения", "to": "/gotovye-resheniya/gosinform", "image": "/img/solutions/gosinform_cover_2397918ed5a455.jpg" },
+      { "title": "Медицинские центры", "to": "/oblasti-primeneniya/dlya-meditsinskiy-uchrezhdeniy-zapis-na-priem", "image": "/img/pages/area-dlya-meditsinskiy-uc_4c2e48f865d7d8e20b0e923c867c7cb6-11cbf7312f600830.png" },
+      { "title": "Ритейл и HoReCa", "to": "/gotovye-resheniya/gid-pokupatelya", "image": "/img/solutions/gid-pokupatelya_cover_e2d50a9bb20eaa.jpg" },
+      { "title": "Автосалоны", "to": "/oblasti-primeneniya/dlya-avtosalonov", "image": "/img/pages/area-dlya-avtosalonov_0862c569cc9cec674338b24218927c72-0943aade98fccbaa.jpg" },
+      { "title": "Промышленные предприятия", "to": "/oblasti-primeneniya/dlya-promyshlennykh-predpriyatiy-avtomatizatsiya-biznesa", "image": "/img/pages/area-dlya-promyshlennykh-_3105b575cf7e6d2e5cd9104912a25689-b76a681ec077b62e.jpg" }
     ]
   },
   "stats": {

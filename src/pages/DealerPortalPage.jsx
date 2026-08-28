@@ -15,6 +15,7 @@ import {
   writeDealerSession,
 } from '../lib/dealer-session.js';
 import copy from '../data/dealers.json';
+import { paths } from '../lib/paths.js';
 
 const LINE_ORDER = [
   'novinki',
@@ -189,7 +190,7 @@ export default function DealerPortalPage() {
         rows.push([
           p.title,
           g.cat.name,
-          `${origin}${base}/product/${p.slug}`,
+          `${origin}${base}${paths.product(p.slug)}`,
           'по запросу, скидка дилера до 25%',
         ]);
       });
@@ -287,7 +288,7 @@ export default function DealerPortalPage() {
                         <strong>{p.title}</strong>
                         <em>скидка до 25% · цена в счёте</em>
                       </span>
-                      <Link to={`/product/${p.slug}`}>Карточка</Link>
+                      <Link to={paths.product(p.slug)}>Карточка</Link>
                     </label>
                   </li>
                 ))}

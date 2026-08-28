@@ -3,6 +3,7 @@ import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getArea, presentArea } from '../lib/data/areas.js';
+import { paths } from '../lib/paths.js';
 
 export default function AreaDetailPage() {
   const { slug } = useParams();
@@ -12,7 +13,7 @@ export default function AreaDetailPage() {
     return (
       <div className="page">
         <h1>Раздел не найден</h1>
-        <Link className="text-link" to="/areas">
+        <Link className="text-link" to={paths.areas}>
           ← К областям применения
         </Link>
       </div>
@@ -28,11 +29,11 @@ export default function AreaDetailPage() {
       <Seo
         title={area.meta?.title || copy.title}
         description={area.meta?.description || copy.lead || ''}
-        path={`/areas/${area.slug}`}
+        path={paths.area(area.slug)}
         image={area.meta?.image || hero || undefined}
       />
       <p className="crumbs">
-        <Link to="/areas">Области применения</Link>
+        <Link to={paths.areas}>Области применения</Link>
         <span aria-hidden="true"> / </span>
         {copy.title}
       </p>
@@ -46,7 +47,7 @@ export default function AreaDetailPage() {
             <Link className="btn primary btn--lg" to="/contacts">
               Обсудить задачу
             </Link>
-            <Link className="btn secondary btn--lg" to="/solutions">
+            <Link className="btn secondary btn--lg" to={paths.solutions}>
               Готовый софт
             </Link>
           </div>
@@ -117,7 +118,7 @@ export default function AreaDetailPage() {
         <Link className="btn primary btn--lg" to="/contacts">
           Обсудить внедрение
         </Link>
-        <Link className="btn secondary btn--lg" to="/areas">
+        <Link className="btn secondary btn--lg" to={paths.areas}>
           Все области
         </Link>
       </div>

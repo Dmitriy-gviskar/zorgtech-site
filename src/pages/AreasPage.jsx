@@ -4,6 +4,7 @@ import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { areas, presentArea } from '../lib/data/areas.js';
 import { LIST_SEO } from '../lib/seo-defaults.js';
+import { paths } from '../lib/paths.js';
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -27,7 +28,7 @@ export default function AreasPage() {
 
       {featured ? (
         <Reveal>
-          <Link to={`/areas/${featured.raw.slug}`} className="areas-feature">
+          <Link to={paths.area(featured.raw.slug)} className="areas-feature">
             <div className="areas-feature-media" aria-hidden="true">
               {featured.copy.images[0] ? (
                 <img src={assetUrl(featured.copy.images[0])} alt="" />
@@ -50,7 +51,7 @@ export default function AreasPage() {
           {rest.map(({ raw, copy }, i) => (
             <li key={raw.slug}>
               <Reveal delay={Math.min(i, 5) * 0.04}>
-                <Link to={`/areas/${raw.slug}`} className="area-card">
+                <Link to={paths.area(raw.slug)} className="area-card">
                   <div className="area-card-media" aria-hidden="true">
                     {copy.images[0] ? (
                       <img src={assetUrl(copy.images[0])} alt="" loading="lazy" />

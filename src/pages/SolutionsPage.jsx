@@ -4,6 +4,7 @@ import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { presentSolution, SOLUTION_GROUPS, solutions } from '../lib/data/solutions.js';
 import { LIST_SEO } from '../lib/seo-defaults.js';
+import { paths } from '../lib/paths.js';
 
 function clip(text, max = 110) {
   if (!text) return '';
@@ -15,7 +16,7 @@ function SolutionCard({ raw, copy, delay, groupTitle }) {
   const cover = copy.images[0];
   return (
     <Reveal delay={delay}>
-      <Link to={`/solutions/${raw.slug}`} className="solution-card">
+      <Link to={paths.solution(raw.slug)} className="solution-card">
         <div
           className={`solution-card-media${cover ? '' : ' solution-card-media--empty'}`}
           aria-hidden="true"

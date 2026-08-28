@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import homeBlocks from '../data/home-blocks.json';
+import { paths } from '../lib/paths.js';
 
 const EMAIL = homeBlocks.leadForm?.email || 'sale@zorgtech.ru';
 
@@ -27,7 +28,7 @@ export default function ProductPriceForm({ title, slug, price }) {
         `Телефон: ${phone}`,
         `Модель: ${title || '—'}`,
         `Цена: ${price || 'Цена по запросу'}`,
-        slug ? `Страница: /product/${slug}` : null,
+        slug ? `Страница: ${paths.product(slug)}` : null,
         '',
         'Источник: карточка товара',
       ]

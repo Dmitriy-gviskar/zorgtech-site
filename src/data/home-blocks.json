@@ -71,7 +71,7 @@
       "Интегрировать платёжные модули, CRM, внешние сервисы и базы данных"
     ],
     "outro": "Подберём готовое решение или разработаем с нуля под вас.",
-    "cta": { "to": "/solutions", "label": "Подробнее" },
+    "cta": { "to": "/gotovye-resheniya", "label": "Подробнее" },
     "media": "/img/home/widget-ui.png"
   },
   "museum": {
@@ -80,17 +80,17 @@
     "text": "Справочно-информационная система «Музейный гид» на сенсорных киосках — чтобы посетители сами знакомились с фондами и экспозициями.",
     "usesLabel": "В составе:",
     "uses": [
-      { "label": "Интерактивный терминал Diamant 32 N", "to": "/product/diamant-32-n" },
-      { "label": "ПО «Музейный Гид»", "to": "/solutions/muzeynyy-gid" }
+      { "label": "Интерактивный терминал Diamant 32 N", "to": "/catalog/product/diamant-32-n" },
+      { "label": "ПО «Музейный Гид»", "to": "/gotovye-resheniya/muzeynyy-gid" }
     ],
-    "cta": { "to": "/solutions/muzeynyy-gid", "label": "Смотреть софт" },
-    "all": { "to": "/solutions", "label": "Весь софт" },
+    "cta": { "to": "/gotovye-resheniya/muzeynyy-gid", "label": "Смотреть софт" },
+    "all": { "to": "/gotovye-resheniya", "label": "Весь софт" },
     "solutionSlug": "muzeynyy-gid",
     "productSlug": "diamant-32-n"
   },
   "begin": {
     "kicker": "Дилерам",
-    "title": "Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой 20%",
+    "title": "Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%",
     "cta": { "to": "/dealers", "label": "Станьте дилером" },
     "paths": [
       {
@@ -103,7 +103,7 @@
       {
         "title": "Изучите готовый софт",
         "text": "Мы подготовили типовой софт для самых популярных задач разных типов бизнеса",
-        "to": "/solutions",
+        "to": "/gotovye-resheniya",
         "label": "Софт"
       },
       {

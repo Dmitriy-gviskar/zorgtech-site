@@ -59,7 +59,7 @@ export function presentAboutPage(page) {
       const text = stripTags(raw[3]);
       if (!title || !text) continue;
       let to = null;
-      if (/gotovye-resheniya|solutions/i.test(href)) to = '/solutions';
+      if (/gotovye-resheniya|solutions/i.test(href)) to = '/gotovye-resheniya';
       else if (/catalog/i.test(href)) to = '/catalog';
       else to = '/contacts';
       next.push({ title, text, to });

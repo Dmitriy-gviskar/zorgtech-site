@@ -9,6 +9,7 @@ import {
   productGallery,
 } from '../lib/data/catalog.js';
 import { getProject, presentProject } from '../lib/data/projects.js';
+import { paths } from '../lib/paths.js';
 
 function studioCover(product) {
   if (!product) return null;
@@ -24,7 +25,7 @@ export default function ProjectDetailPage() {
     return (
       <div className="page">
         <h1>Проект не найден</h1>
-        <Link className="text-link" to="/projects">
+        <Link className="text-link" to={paths.projects}>
           ← Ко всем проектам
         </Link>
       </div>
@@ -43,11 +44,11 @@ export default function ProjectDetailPage() {
       <Seo
         title={project.meta?.title || copy.title}
         description={project.meta?.description || copy.lead || copy.task || ''}
-        path={`/projects/${project.slug}`}
+        path={paths.project(project.slug)}
         image={project.meta?.image || hero || undefined}
       />
       <p className="crumbs">
-        <Link to="/projects">Проекты</Link>
+        <Link to={paths.projects}>Проекты</Link>
         <span aria-hidden="true"> / </span>
         {copy.title}
       </p>
@@ -61,7 +62,7 @@ export default function ProjectDetailPage() {
             <Link className="btn primary btn--lg" to="/contacts">
               Обсудить похожий проект
             </Link>
-            <Link className="btn secondary btn--lg" to="/projects">
+            <Link className="btn secondary btn--lg" to={paths.projects}>
               Все проекты
             </Link>
           </div>
@@ -150,7 +151,7 @@ export default function ProjectDetailPage() {
               return (
                 <li key={u.slug}>
                   <Reveal delay={Math.min(i, 4) * 0.04}>
-                    <Link to={`/product/${u.slug}`} className="project-used-card">
+                    <Link to={paths.product(u.slug)} className="project-used-card">
                       <div className="project-used-media" aria-hidden="true">
                         {cover ? <img src={cover} alt="" loading="lazy" /> : null}
                       </div>

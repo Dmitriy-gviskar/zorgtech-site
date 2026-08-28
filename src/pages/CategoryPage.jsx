@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { ruCount } from '../lib/data/content-utils.js';
@@ -12,6 +12,7 @@ import {
   productDiagonal,
   productGallery,
 } from '../lib/data/catalog.js';
+import { paths } from '../lib/paths.js';
 
 function studioCover(product) {
   if (!product) return null;
@@ -44,6 +45,8 @@ export default function CategoryPage() {
   }, [items, diagonal]);
 
   if (!cat || cat.missing) {
+    const product = getProduct(slug);
+    if (product) return <Navigate to={paths.product(slug)} replace />;
     return (
       <div className="page">
         <h1>Категория не найдена</h1>
@@ -129,7 +132,7 @@ export default function CategoryPage() {
             return (
               <li key={p.slug}>
                 <Reveal delay={Math.min(i, 5) * 0.04}>
-                  <Link to={`/product/${p.slug}`} className="feature-card category-product-card">
+                  <Link to={paths.product(p.slug)} className="feature-card category-product-card">
                     <div className="feature-card-copy">
                       <h2 className="feature-card-title">{p.title}</h2>
                       <span className="feature-card-cta">

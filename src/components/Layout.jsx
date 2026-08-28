@@ -1,20 +1,21 @@
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { paths } from '../lib/paths.js';
 
 const NAV = [
-  { to: '/catalog', label: 'Продукция' },
-  { to: '/solutions', label: 'Софт' },
-  { to: '/projects', label: 'Проекты' },
-  { to: '/areas', label: 'Области применения' },
-  { to: '/about', label: 'О компании' },
-  { to: '/dealers', label: 'Дилерам' },
-  { to: '/contacts', label: 'Контакты' },
+  { to: paths.catalog, label: 'Продукция' },
+  { to: paths.solutions, label: 'Софт' },
+  { to: paths.projects, label: 'Проекты' },
+  { to: paths.areas, label: 'Области применения' },
+  { to: paths.about, label: 'О компании' },
+  { to: paths.dealers, label: 'Дилерам' },
+  { to: paths.contacts, label: 'Контакты' },
 ];
 
 const MORE = [
-  { to: '/delivery', label: 'Доставка' },
-  { to: '/support', label: 'Поддержка' },
-  { to: '/rent', label: 'Аренда' },
+  { to: paths.delivery, label: 'Доставка' },
+  { to: paths.support, label: 'Поддержка' },
+  { to: paths.rent, label: 'Аренда' },
 ];
 
 const HOTLINE = { href: 'tel:88005502645', label: '8 800 550 26 45' };
@@ -127,18 +128,18 @@ export default function Layout() {
             <p>Российский производитель интерактивного оборудования. Полный цикл — от идеи до установки.</p>
           </div>
           <div className="foot-links">
-            <Link to="/catalog">Каталог</Link>
-            <Link to="/solutions">Софт</Link>
-            <Link to="/projects">Проекты</Link>
-            <Link to="/areas">Области применения</Link>
-            <Link to="/about">О компании</Link>
-            <Link to="/dealers">Дилерам</Link>
-            <Link to="/dealers/portal">Портал дилера</Link>
-            <Link to="/delivery">Доставка</Link>
-            <Link to="/support">Поддержка</Link>
-            <Link to="/rent">Аренда</Link>
-            <Link to="/contacts">Контакты</Link>
-            <Link to="/policy">Политика</Link>
+            <Link to={paths.catalog}>Каталог</Link>
+            <Link to={paths.solutions}>Софт</Link>
+            <Link to={paths.projects}>Проекты</Link>
+            <Link to={paths.areas}>Области применения</Link>
+            <Link to={paths.about}>О компании</Link>
+            <Link to={paths.dealers}>Дилерам</Link>
+            <Link to={paths.dealerPortal}>Портал дилера</Link>
+            <Link to={paths.delivery}>Доставка</Link>
+            <Link to={paths.support}>Поддержка</Link>
+            <Link to={paths.rent}>Аренда</Link>
+            <Link to={paths.contacts}>Контакты</Link>
+            <Link to={paths.policy}>Политика</Link>
           </div>
           <p className="muted">© {new Date().getFullYear()} Zorgtech · демо-копия контента с zorgtech.com</p>
         </div>

@@ -4,6 +4,7 @@ import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { presentProject, projects } from '../lib/data/projects.js';
 import { LIST_SEO } from '../lib/seo-defaults.js';
+import { paths } from '../lib/paths.js';
 
 function clip(text, max = 72) {
   if (!text) return '';
@@ -32,7 +33,7 @@ export default function ProjectsPage() {
 
       {featured ? (
         <Reveal>
-          <Link to={`/projects/${featured.raw.slug}`} className="projects-feature">
+          <Link to={paths.project(featured.raw.slug)} className="projects-feature">
             <div className="projects-feature-media" aria-hidden="true">
               {featured.copy.images[0] ? (
                 <img src={assetUrl(featured.copy.images[0])} alt="" />
@@ -66,7 +67,7 @@ export default function ProjectsPage() {
               delay={Math.min(i, 6) * 0.03}
             >
               <Link
-                to={`/projects/${raw.slug}`}
+                to={paths.project(raw.slug)}
                 className={`shot-card${wide ? ' shot-card--xl' : ''}${
                   Number(raw.cardImageRatio) > 0 && Number(raw.cardImageRatio) < 1
                     ? ' shot-card--portrait'

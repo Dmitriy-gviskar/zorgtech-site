@@ -13,6 +13,7 @@ import Seo from '../components/Seo';
 import SpecIcon from '../components/SpecIcon';
 import ProductPriceForm from '../components/ProductPriceForm';
 import { rewriteSourceUrls } from '../lib/data/content-utils.js';
+import { paths } from '../lib/paths.js';
 
 function SpecValue({ value }) {
   const v = String(value || '').trim();
@@ -79,7 +80,7 @@ export default function ProductPage() {
       <Seo
         title={seoTitle}
         description={seoDescription}
-        path={`/product/${product.slug}`}
+        path={paths.product(product.slug)}
         image={seoImage}
       />
       <p className="crumbs">

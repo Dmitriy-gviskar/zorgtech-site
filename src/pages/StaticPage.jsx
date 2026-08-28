@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getPage, presentAboutPage, presentServicePage } from '../lib/data/pages.js';
+import { pagePath, paths } from '../lib/paths.js';
 
 const META = {
   about: { kicker: 'Компания', fallback: 'О компании' },
@@ -179,7 +180,7 @@ function AboutBody({ page }) {
             <header className="sec-head sec-head--row">
               <div>
                 <p className="chapter-kicker">Дилерам</p>
-                <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой 20%</h2>
+                <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%</h2>
               </div>
               <Link className="btn primary" to="/dealers">
                 Станьте дилером
@@ -281,7 +282,7 @@ function ContactsBody() {
         <header className="sec-head sec-head--row">
           <div>
             <p className="chapter-kicker">Дилерам</p>
-            <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой 20%</h2>
+            <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%</h2>
           </div>
           <Link className="btn primary" to="/dealers">
             Станьте дилером
@@ -290,7 +291,7 @@ function ContactsBody() {
         <ul className="contacts-next-grid">
           <li>
             <Reveal>
-              <Link to="/solutions" className="contacts-next-card">
+              <Link to={paths.solutions} className="contacts-next-card">
                 <span className="contacts-next-num">01</span>
                 <strong>Изучите готовый софт</strong>
                 <span>Мы подготовили типовой софт для самых популярных задач разных типов бизнеса</span>
@@ -495,7 +496,7 @@ export default function StaticPage({ pageKey }) {
       <Seo
         title={page?.meta?.title || title}
         description={page?.meta?.description || lead || ''}
-        path={`/${pageKey}`}
+        path={pagePath(pageKey)}
         image={page?.meta?.image || undefined}
       />
       <header className="category-head category-head--simple">
