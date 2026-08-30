@@ -25,7 +25,6 @@ const LINE_ORDER = [
   'ulichnye',
   'apriori',
   'kioski-samoobsluzhivaniya',
-  'mono-napolnye',
   'dezinfektora-ruk',
   'otraslevye',
   'detskie-stoliki',

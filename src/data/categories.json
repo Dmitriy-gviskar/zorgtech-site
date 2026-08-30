@@ -32,10 +32,7 @@
       "diamant-65-f",
       "diamant-75-f",
       "diamant-86-f-grand",
-      "interaktivnyy-kiosk-apriori-19-print",
-      "mono-32-f-scan",
-      "mono-32-f",
-      "mono-43-f"
+      "interaktivnyy-kiosk-apriori-19-print"
     ],
     "products": [
       {
@@ -141,18 +138,6 @@
       {
         "slug": "interaktivnyy-kiosk-apriori-19-print",
         "title": "Apriori 19\" Print"
-      },
-      {
-        "slug": "mono-32-f-scan",
-        "title": "Mono 32 F Scan"
-      },
-      {
-        "slug": "mono-32-f",
-        "title": "Mono 32 F"
-      },
-      {
-        "slug": "mono-43-f",
-        "title": "Mono 43 F"
       }
     ],
     "sourceUrl": "https://zorgtech.com/catalog/napolnye/",
@@ -316,7 +301,10 @@
       "apriori-22-key",
       "apriori-22",
       "apriori",
-      "interaktivnyy-kiosk-apriori-19-print"
+      "interaktivnyy-kiosk-apriori-19-print",
+      "mono-32-f-scan",
+      "mono-32-f",
+      "mono-43-f"
     ],
     "products": [
       {
@@ -346,6 +334,18 @@
       {
         "slug": "interaktivnyy-kiosk-apriori-19-print",
         "title": "Apriori 19\" Print"
+      },
+      {
+        "slug": "mono-32-f-scan",
+        "title": "Mono 32 F Scan"
+      },
+      {
+        "slug": "mono-32-f",
+        "title": "Mono 32 F"
+      },
+      {
+        "slug": "mono-43-f",
+        "title": "Mono 43 F"
       }
     ],
     "sourceUrl": "https://zorgtech.com/catalog/apriori/"

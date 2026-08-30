@@ -503,7 +503,7 @@ const CATEGORY_NAME_OVERRIDE = {
   otraslevye: 'Уникальное оборудование',
 };
 
-const HIDDEN_CATEGORY_SLUGS = new Set(['avtokassy']);
+const HIDDEN_CATEGORY_SLUGS = new Set(['avtokassy', 'mono-napolnye']);
 
 function withCategoryName(category) {
   if (!category) return category;

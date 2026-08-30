@@ -21,8 +21,13 @@ function studioCover(product) {
   return gallery[0] || productCover(product);
 }
 
+const CATEGORY_REDIRECTS = {
+  'mono-napolnye': 'apriori',
+};
+
 export default function CategoryPage() {
   const { slug } = useParams();
+  const redirectTo = CATEGORY_REDIRECTS[slug];
   const cat = getCategory(slug);
   const [diagonal, setDiagonal] = useState(null);
 
@@ -44,6 +49,8 @@ export default function CategoryPage() {
     if (!diagonal) return items;
     return items.filter((p) => productDiagonal(p) === diagonal);
   }, [items, diagonal]);
+
+  if (redirectTo) return <Navigate to={paths.category(redirectTo)} replace />;
 
   if (!cat || cat.missing) {
     const product = getProduct(slug);
