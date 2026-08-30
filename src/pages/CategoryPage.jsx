@@ -92,9 +92,6 @@ export default function CategoryPage() {
             <Link className="btn primary btn--lg" to="/contacts">
               Запросить подбор
             </Link>
-            <Link className="btn secondary btn--lg" to="/catalog">
-              Все линейки
-            </Link>
           </div>
           {availableDiagonals.length > 1 ? (
             <div className="category-diagonal" role="group" aria-label="Фильтр по диагонали">
