@@ -1,6 +1,10 @@
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { paths } from '../lib/paths.js';
+
+function PageFallback() {
+  return <div className="page page-fallback" aria-hidden="true" />;
+}
 
 const NAV = [
   { to: paths.catalog, label: 'Продукция' },
@@ -119,7 +123,9 @@ export default function Layout() {
         </div>
       </header>
       <main className="main">
-        <Outlet />
+        <Suspense fallback={<PageFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
       <footer className="foot">
         <div className="foot-inner">

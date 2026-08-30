@@ -4,21 +4,13 @@ import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getSolution, presentSolution, solutionGroupMeta } from '../lib/data/solutions.js';
 import { paths } from '../lib/paths.js';
+import NotFoundPage from './NotFoundPage';
 
 export default function SolutionDetailPage() {
   const { slug } = useParams();
   const solution = getSolution(slug);
 
-  if (!solution) {
-    return (
-      <div className="page">
-        <h1>Софт не найден</h1>
-        <Link className="text-link" to={paths.solutions}>
-          ← Ко всему софту
-        </Link>
-      </div>
-    );
-  }
+  if (!solution) return <NotFoundPage />;
 
   const copy = presentSolution(solution);
   const group = solutionGroupMeta(solution.group);

@@ -14,6 +14,7 @@ import SpecIcon from '../components/SpecIcon';
 import ProductPriceForm from '../components/ProductPriceForm';
 import { rewriteSourceUrls } from '../lib/data/content-utils.js';
 import { paths } from '../lib/paths.js';
+import NotFoundPage from './NotFoundPage';
 
 function SpecValue({ value }) {
   const v = String(value || '').trim();
@@ -34,14 +35,7 @@ export default function ProductPage() {
     setOpenSpec('display'); // falls back to first available group when missing
   }, [slug]);
 
-  if (!product) {
-    return (
-      <div className="page">
-        <h1>Товар не найден</h1>
-        <Link to="/catalog">← В каталог</Link>
-      </div>
-    );
-  }
+  if (!product) return <NotFoundPage />;
 
   const cat = getCategory(product.categorySlug);
   const gallery = productGallery(product);

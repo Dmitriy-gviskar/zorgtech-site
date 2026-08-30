@@ -10,6 +10,7 @@ import {
 } from '../lib/data/catalog.js';
 import { getProject, presentProject } from '../lib/data/projects.js';
 import { paths } from '../lib/paths.js';
+import NotFoundPage from './NotFoundPage';
 
 function studioCover(product) {
   if (!product) return null;
@@ -21,16 +22,7 @@ export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProject(slug);
 
-  if (!project) {
-    return (
-      <div className="page">
-        <h1>Проект не найден</h1>
-        <Link className="text-link" to={paths.projects}>
-          ← Ко всем проектам
-        </Link>
-      </div>
-    );
-  }
+  if (!project) return <NotFoundPage />;
 
   const copy = presentProject(project);
   const hero = copy.images[0];

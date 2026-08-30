@@ -13,6 +13,7 @@ import {
   productGallery,
 } from '../lib/data/catalog.js';
 import { paths } from '../lib/paths.js';
+import NotFoundPage from './NotFoundPage';
 
 function studioCover(product) {
   if (!product) return null;
@@ -47,12 +48,7 @@ export default function CategoryPage() {
   if (!cat || cat.missing) {
     const product = getProduct(slug);
     if (product) return <Navigate to={paths.product(slug)} replace />;
-    return (
-      <div className="page">
-        <h1>Категория не найдена</h1>
-        <Link to="/catalog">← В каталог</Link>
-      </div>
-    );
+    return <NotFoundPage />;
   }
 
   const intro = presentCategoryIntro(cat);

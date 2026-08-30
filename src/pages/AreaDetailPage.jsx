@@ -4,21 +4,13 @@ import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
 import { getArea, presentArea } from '../lib/data/areas.js';
 import { paths } from '../lib/paths.js';
+import NotFoundPage from './NotFoundPage';
 
 export default function AreaDetailPage() {
   const { slug } = useParams();
   const area = getArea(slug);
 
-  if (!area) {
-    return (
-      <div className="page">
-        <h1>Раздел не найден</h1>
-        <Link className="text-link" to={paths.areas}>
-          ← К областям применения
-        </Link>
-      </div>
-    );
-  }
+  if (!area) return <NotFoundPage />;
 
   const copy = presentArea(area);
   const hero = copy.images[0];
