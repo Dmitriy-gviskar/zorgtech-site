@@ -15,6 +15,12 @@ export function getProject(slug) {
   return projects.find((p) => p.slug === slug) || null;
 }
 
+function displayProjectTitle(title) {
+  return oneLine(title)
+    .replace(/&quot;/g, '"')
+    .replace(/\bг\.\s+/gu, 'г.\u00a0');
+}
+
 const CHROME_SECTION = /другие проекты|галерея|кадры проекта|назад к/i;
 
 function visibleSections(list) {
@@ -128,13 +134,14 @@ export function presentProject(projectOrSlug) {
   if (project.presented && !canParse && !bakedBroken) {
     return {
       ...project.presented,
+      title: displayProjectTitle(project.presented.title || project.title),
       images: project.images || project.presented.images || [],
       usedProducts: project.usedProducts || project.presented.usedProducts || [],
       sections: visibleSections(project.presented.sections),
     };
   }
 
-  const title = oneLine(project.title).replace(/&quot;/g, '"').replace(/\u00a0/g, ' ');
+  const title = displayProjectTitle(project.title);
   let lead = cleanSeoLead(project.lead);
   if (lead && title && lead.toLowerCase().startsWith(title.toLowerCase().slice(0, 24))) {
     lead = '';
