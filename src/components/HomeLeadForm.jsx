@@ -6,7 +6,7 @@ import homeBlocks from '../data/home-blocks.json';
 const COPY = homeBlocks.leadForm || {
   kicker: 'Заявка',
   title: 'Оставьте заявку',
-  lead: 'Перезвоним в рабочее время и поможем выбрать решение под задачу.',
+  lead: 'Перезвоним в рабочее время и поможем выбрать решение под\u00a0задачу.',
   submit: 'Отправить',
   email: 'sale@zorgtech.ru',
   note: 'Или позвоните 8 800 550 26 45 — звонок по России бесплатный.',
