@@ -115,8 +115,8 @@
     ]
   },
   "blog": {
-    "kicker": "Материалы",
-    "title": "Кейсы и экспертиза",
+    "kicker": "",
+    "title": "Материалы. Экспертиза в мире интерактива",
     "slugs": [
       "dizayn-polzovatelskogo-interfeysa-dlya-kioskov",
       "sensornye-kioski-diamant-n-multitouch-v-tsarskom-sele",

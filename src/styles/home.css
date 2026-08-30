@@ -1651,6 +1651,16 @@
   border-top: 1px solid var(--line);
 }
 
+.home-blog .home-sec-head {
+  max-width: 48rem;
+}
+
+.home-blog .home-sec-title {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
 .home-begin .home-sec-head--row .home-sec-head {
   max-width: 46rem;
 }
