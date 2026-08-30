@@ -15,6 +15,37 @@ export function getProject(slug) {
   return projects.find((p) => p.slug === slug) || null;
 }
 
+const CHROME_SECTION = /другие проекты|галерея|кадры проекта|назад к/i;
+
+function visibleSections(list) {
+  return (list || []).filter(
+    (sec) =>
+      sec &&
+      !CHROME_SECTION.test(sec.title || '') &&
+      ((sec.paragraphs && sec.paragraphs.length) || oneLine(sec.text || '')),
+  );
+}
+
+const RELATED_THEME = /навигац|logicmap|гид/i;
+
+export function relatedProjects(slug, limit = 3) {
+  const current = getProject(slug);
+  const currentBlob = `${current?.title || ''} ${current?.lead || ''}`;
+  const themed = RELATED_THEME.test(currentBlob);
+
+  return projects
+    .filter((p) => p.slug !== slug && (p.images || []).length)
+    .map((p) => {
+      const blob = `${p.title || ''} ${p.lead || ''}`;
+      let score = (p.images || []).length;
+      if (themed && RELATED_THEME.test(blob)) score += 100;
+      return { raw: p, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ raw }) => raw);
+}
+
 /** Product cards under «Что мы использовали в проекте». */
 export function extractUsedProducts(html) {
   const block =
@@ -99,6 +130,7 @@ export function presentProject(projectOrSlug) {
       ...project.presented,
       images: project.images || project.presented.images || [],
       usedProducts: project.usedProducts || project.presented.usedProducts || [],
+      sections: visibleSections(project.presented.sections),
     };
   }
 
@@ -123,7 +155,7 @@ export function presentProject(projectOrSlug) {
       task: '',
       solution: story,
       story,
-      sections: other.slice(0, 6),
+      sections: visibleSections(other).slice(0, 6),
       images: project.images || [],
       usedProducts,
     };
@@ -135,7 +167,7 @@ export function presentProject(projectOrSlug) {
     task,
     solution,
     story: [],
-    sections: other.slice(0, 6),
+    sections: visibleSections(other).slice(0, 6),
     images: project.images || [],
     usedProducts,
   };

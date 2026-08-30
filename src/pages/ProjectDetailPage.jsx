@@ -8,7 +8,7 @@ import {
   productCover,
   productGallery,
 } from '../lib/data/catalog.js';
-import { getProject, presentProject } from '../lib/data/projects.js';
+import { getProject, presentProject, relatedProjects } from '../lib/data/projects.js';
 import { paths } from '../lib/paths.js';
 import NotFoundPage from './NotFoundPage';
 
@@ -30,6 +30,10 @@ export default function ProjectDetailPage() {
   const used = (copy.usedProducts || project.usedProducts || [])
     .map((u) => getProduct(u.slug) || u)
     .filter(Boolean);
+  const more = relatedProjects(project.slug, 3).map((p) => ({
+    raw: p,
+    copy: presentProject(p),
+  }));
 
   return (
     <div className="page detail-page project-detail">
@@ -156,6 +160,31 @@ export default function ProjectDetailPage() {
                 </li>
               );
             })}
+          </ul>
+        </section>
+      ) : null}
+
+      {more.length ? (
+        <section className="project-more-sec">
+          <header className="sec-head">
+            <p className="chapter-kicker">Ещё кейсы</p>
+            <h2>Похожие проекты</h2>
+          </header>
+          <ul className="project-more-grid">
+            {more.map(({ raw, copy: item }, i) => (
+              <li key={raw.slug}>
+                <Reveal delay={Math.min(i, 3) * 0.04}>
+                  <Link to={paths.project(raw.slug)} className="project-more-card">
+                    <div className="project-more-media" aria-hidden="true">
+                      {item.images[0] ? (
+                        <img src={assetUrl(item.images[0])} alt="" loading="lazy" />
+                      ) : null}
+                    </div>
+                    <strong>{item.title}</strong>
+                  </Link>
+                </Reveal>
+              </li>
+            ))}
           </ul>
         </section>
       ) : null}
