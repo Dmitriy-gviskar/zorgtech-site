@@ -1765,12 +1765,14 @@
   max-width: 32rem;
 }
 
+.chapter--home .home-ui-title,
 .home-ui-title {
-  max-width: 24ch;
+  max-width: 28ch;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
-  text-wrap: balance;
+  -webkit-hyphens: none;
+  text-wrap: pretty;
   font-size: clamp(1.9rem, 1.7vw + 1.1rem, 2.7rem);
   line-height: 1.14;
   letter-spacing: -0.03em;
