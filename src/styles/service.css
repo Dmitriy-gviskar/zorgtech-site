@@ -527,11 +527,23 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.85rem;
+  align-items: stretch;
+}
+
+.project-more-grid > li,
+.project-more-grid .reveal {
+  height: 100%;
+}
+
+.project-more-grid .reveal {
+  display: flex;
 }
 
 .project-more-card {
   display: grid;
+  grid-template-rows: auto 1fr;
   gap: 0.8rem;
+  height: 100%;
   padding: 0 0 1rem;
   border-radius: var(--radius-tile);
   background: var(--bg-soft);
@@ -561,6 +573,7 @@
   font-size: 0.98rem;
   letter-spacing: -0.015em;
   line-height: 1.35;
+  min-height: calc(1.35em * 2);
 }
 
 .project-used-card span {

@@ -127,7 +127,9 @@ export default function ProjectDetailPage() {
           </header>
           <div className="solution-gallery project-gallery">
             {gallery.map((src) => (
-              <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+              <figure key={src} className="solution-gallery-shot">
+                <img src={assetUrl(src)} alt="" loading="lazy" />
+              </figure>
             ))}
           </div>
         </section>
