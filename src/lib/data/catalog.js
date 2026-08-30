@@ -502,6 +502,8 @@ const CATEGORY_NAME_OVERRIDE = {
   apriori: 'Интерактивные терминалы',
 };
 
+const HIDDEN_CATEGORY_SLUGS = new Set(['avtokassy']);
+
 function withCategoryName(category) {
   if (!category) return category;
   const name = CATEGORY_NAME_OVERRIDE[category.slug];
@@ -509,12 +511,14 @@ function withCategoryName(category) {
 }
 
 export function getCategory(slug) {
+  if (!slug || HIDDEN_CATEGORY_SLUGS.has(slug)) return null;
   return withCategoryName(categories[slug] || null);
 }
 
 export function categoryList() {
   return Object.values(categories)
     .filter((c) => !c.missing && c.productSlugs && c.productSlugs.length > 0)
+    .filter((c) => !HIDDEN_CATEGORY_SLUGS.has(c.slug))
     .map(withCategoryName);
 }
 
