@@ -1665,6 +1665,39 @@
   max-width: 46rem;
 }
 
+.home-begin-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.home-begin-copy .home-sec-head {
+  max-width: 36rem;
+}
+
+.home-begin-copy .btn {
+  margin-top: 1.35rem;
+}
+
+.home-begin-stage {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 0.95fr;
+  align-items: end;
+  gap: 0.35rem;
+  min-height: 16rem;
+}
+
+.home-begin-stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 18rem;
+  object-fit: contain;
+  object-position: bottom center;
+  mix-blend-mode: multiply;
+}
+
 /* DJI-like media chapters — immersive split, still light studio */
 .chapter--home {
   /* Wider copy track so long Russian display titles don't paint over media */
@@ -2495,6 +2528,19 @@
 
   .home-props-list li:nth-child(-n + 2) {
     border-bottom: 1px solid var(--line);
+  }
+
+  .home-begin-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .home-begin-stage {
+    min-height: 12rem;
+    order: -1;
+  }
+
+  .home-begin-stage img {
+    max-height: 13rem;
   }
 
   .home-cycle-grid,

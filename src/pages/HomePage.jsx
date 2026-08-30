@@ -407,14 +407,23 @@ export default function HomePage() {
 
       <section className="home-begin">
         <div className="wrap">
-          <header className="home-sec-head home-sec-head--row">
-            <RevealTitle kicker={homeBlocks.begin.kicker} title={homeBlocks.begin.title} />
-            {homeBlocks.begin.cta ? (
-              <Link className="btn primary" to={homeBlocks.begin.cta.to}>
-                {homeBlocks.begin.cta.label}
-              </Link>
+          <div className="home-begin-banner">
+            <div className="home-begin-copy">
+              <RevealTitle kicker={homeBlocks.begin.kicker} title={homeBlocks.begin.title} />
+              {homeBlocks.begin.cta ? (
+                <Link className="btn primary" to={homeBlocks.begin.cta.to}>
+                  {homeBlocks.begin.cta.label}
+                </Link>
+              ) : null}
+            </div>
+            {homeBlocks.begin.media?.length ? (
+              <div className="home-begin-stage" aria-hidden="true">
+                {homeBlocks.begin.media.map((src) => (
+                  <img key={src} src={assetUrl(src)} alt="" loading="lazy" />
+                ))}
+              </div>
             ) : null}
-          </header>
+          </div>
           <div className="home-begin-grid">
             {homeBlocks.begin.paths.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.05}>
