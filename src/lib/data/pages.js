@@ -108,20 +108,31 @@ export function presentAboutPage(page) {
   };
 }
 
+function tightMoney(value) {
+  return oneLine(value)
+    .replace(/\(\s+/g, '(')
+    .replace(/(\d)\s*\*/g, '$1')
+    .replace(/(\d)\s+(?=\d{3}\b)/g, '$1\u202f')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 function polishRentPage(copy) {
   if (!copy) return copy;
   return {
     ...copy,
     prices: (copy.prices || []).map((row) => ({
       label: row.label === 'от' ? 'Терминал' : row.label,
-      value: oneLine(row.value)
-        .replace(/(\d)\s*\*/g, '$1')
-        .replace(/\s{2,}/g, ' ')
-        .trim(),
+      value: tightMoney(row.value),
     })),
     facts: (copy.facts || []).map((f) => ({
       ...f,
-      value: oneLine(f.value).replace(/^\*+\s*/, ''),
+      value: tightMoney(String(f.value || '').replace(/^\*+\s*/, '')),
+    })),
+    sections: (copy.sections || []).map((sec) => ({
+      ...sec,
+      text: tightMoney(sec.text || ''),
+      items: (sec.items || []).map(tightMoney),
     })),
   };
 }
