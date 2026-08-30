@@ -51,7 +51,8 @@ export default function SolutionsPage() {
     ...group,
     items: solutions
       .filter((s) => s.group === group.key)
-      .map((s) => ({ raw: s, copy: presentSolution(s) })),
+      .map((s) => ({ raw: s, copy: presentSolution(s) }))
+      .filter(({ copy }) => copy.images[0]),
     index: gi,
   })).filter((g) => g.items.length);
 
