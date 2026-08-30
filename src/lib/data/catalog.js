@@ -61,7 +61,6 @@ const REGEN_FRAMES = {
     '/img/regen/apriori-19-print-frame-34.png',
     '/img/regen/apriori-19-print-a4-frame-side.png',
     '/img/regen/apriori-19-print-a4-frame-rear.png',
-    '/img/regen/apriori-19-print-a4-frame-print.png',
   ],
   'interaktivnyy-kiosk-apriori-19-print': [
     '/img/regen/apriori-19-print-frame-front.png',
@@ -471,8 +470,11 @@ export function productGallery(productOrSlug) {
  * When studio regen frames own the hero, return all scrape images;
  * otherwise skip the first (already used as cover).
  */
+const HIDE_LIVE_GALLERY = new Set(['apriori-19-print-a4']);
+
 export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
   const slug = typeof productOrSlug === 'string' ? productOrSlug : productOrSlug?.slug;
+  if (HIDE_LIVE_GALLERY.has(slug)) return [];
   const product = typeof productOrSlug === 'string' ? getProduct(slug) : productOrSlug;
   const images = product?.images || [];
   if (!images.length) return [];
