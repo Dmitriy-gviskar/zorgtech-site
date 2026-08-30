@@ -441,7 +441,7 @@ function ServiceBody({ pageKey, page }) {
         </div>
       ) : null}
 
-      {copy.hotline ? (
+      {copy.hotline && pageKey !== 'support' ? (
         <div className="service-hotline">
           <span className="chapter-kicker">Горячая линия</span>
           <a href={`tel:${copy.hotline.replace(/\s+/g, '')}`}>{copy.hotline}</a>
@@ -500,9 +500,17 @@ export default function StaticPage({ pageKey }) {
         image={page?.meta?.image || undefined}
       />
       <header className="category-head category-head--simple">
-        <p className="chapter-kicker">{meta.kicker}</p>
-        <h1>{title}</h1>
-        {lead ? <p className="lead">{lead}</p> : null}
+        <div>
+          <p className="chapter-kicker">{meta.kicker}</p>
+          <h1>{title}</h1>
+          {lead ? <p className="lead">{lead}</p> : null}
+        </div>
+        {isService && service?.hotline ? (
+          <div className="service-hotline">
+            <span className="chapter-kicker">Горячая линия</span>
+            <a href={`tel:${service.hotline.replace(/\s+/g, '')}`}>{service.hotline}</a>
+          </div>
+        ) : null}
       </header>
 
       {isContacts ? <ContactsBody /> : null}

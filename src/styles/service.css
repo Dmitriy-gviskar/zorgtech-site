@@ -223,6 +223,43 @@
   color: var(--cyan-deep);
 }
 
+.static-page--support .category-head--simple {
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.static-page--support .category-head--simple .lead {
+  max-width: 40rem;
+}
+
+.static-page--support .service-hotline {
+  max-width: none;
+  margin: 0;
+}
+
+.static-page--support .service-sections {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.15rem;
+}
+
+.static-page--support .service-section {
+  height: 100%;
+  padding: 1.35rem 1.4rem 1.5rem;
+  border-top: none;
+  border-radius: var(--radius-tile);
+  background: var(--bg-soft);
+}
+
+.static-page--support .service-section-text {
+  max-width: none;
+}
+
+.static-page--support .service-section-list {
+  max-width: none;
+  grid-template-columns: 1fr;
+}
+
 .project-task,
 .project-solution {
   margin: 0 0 2.25rem;
@@ -780,6 +817,8 @@
 }
 
 @media (max-width: 900px) {
+  .static-page--support .category-head--simple,
+  .static-page--support .service-sections,
   .service-facts,
   .service-section-list {
     grid-template-columns: 1fr;
