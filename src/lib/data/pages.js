@@ -108,8 +108,28 @@ export function presentAboutPage(page) {
   };
 }
 
+function polishRentPage(copy) {
+  if (!copy) return copy;
+  return {
+    ...copy,
+    prices: (copy.prices || []).map((row) => ({
+      label: row.label === 'от' ? 'Терминал' : row.label,
+      value: oneLine(row.value)
+        .replace(/(\d)\s*\*/g, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .trim(),
+    })),
+    facts: (copy.facts || []).map((f) => ({
+      ...f,
+      value: oneLine(f.value).replace(/^\*+\s*/, ''),
+    })),
+  };
+}
+
 export function presentServicePage(pageKey, page) {
-  if (page?.presented) return page.presented;
+  if (page?.presented) {
+    return pageKey === 'rent' ? polishRentPage(page.presented) : page.presented;
+  }
 
   const html = cutPageChrome(page?.html || '');
   const title = oneLine(page?.title || '');
@@ -237,13 +257,16 @@ export function presentServicePage(pageKey, page) {
       // Ranges like 19"-22" — require spaces around the price dash, not the inch hyphen.
       const diagonal = p.match(/диагональю\s*(.+?)\s+[-–—]\s+(.+)$/i);
       if (diagonal) {
-        prices.push({ label: oneLine(diagonal[1]), value: oneLine(diagonal[2]) });
+        prices.push({
+          label: oneLine(diagonal[1]),
+          value: oneLine(diagonal[2]).replace(/(\d)\s*\*/g, '$1'),
+        });
         continue;
       }
       if (/стоимость аренды терминала\s+от/i.test(p) || /от\s*8\s*000/i.test(p)) {
         const from = p.match(/от\s*8[\s\u00a0]*000[^.]*\.?/i);
         prices.push({
-          label: 'от',
+          label: 'Терминал',
           value: oneLine(from?.[0] || 'от 8 000 рублей в сутки, в зависимости от размера экрана'),
         });
         // Keep the marketing sentences in story, not inside the tariff row.
@@ -304,10 +327,10 @@ export function presentServicePage(pageKey, page) {
             p,
           ),
       ),
-      facts: note ? [{ label: 'Условия', value: note }] : [],
+      facts: note ? [{ label: 'Условия', value: oneLine(note).replace(/^\*+\s*/, '') }] : [],
       carriers: [],
       sections,
-      prices,
+      prices: polishRentPage({ prices }).prices,
       lists: [],
       images: page?.images || [],
       hotline: '8 800 550 26 45',

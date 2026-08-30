@@ -305,6 +305,10 @@
   align-content: start;
 }
 
+.static-page--rent .service-price-list span {
+  font-variant-numeric: tabular-nums;
+}
+
 .project-task,
 .project-solution {
   margin: 0 0 2.25rem;
