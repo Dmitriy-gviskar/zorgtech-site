@@ -1825,7 +1825,6 @@
 .home-about-list li,
 .home-ui-points li {
   position: relative;
-  padding-left: 1.1rem;
   color: var(--ink-soft);
   line-height: 1.5;
   font-size: 0.98rem;
@@ -1836,25 +1835,11 @@
   counter-increment: ui-cap;
 }
 
-.home-about-list li::before,
-.home-ui-points li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: var(--cyan);
-}
-
 .home-ui-points li::before {
   content: counter(ui-cap, decimal-leading-zero);
+  position: absolute;
+  left: 0;
   top: 0.1em;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  background: none;
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
