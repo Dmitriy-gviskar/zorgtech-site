@@ -1766,7 +1766,7 @@
 }
 
 .home-ui-title {
-  max-width: 16ch;
+  max-width: 24ch;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
@@ -1801,6 +1801,19 @@
   font-weight: 700;
   color: var(--ink);
   font-size: 0.95rem;
+}
+
+.home-about-list {
+  list-style: disc;
+  padding-inline-start: 1.2em;
+}
+
+.home-about-list li::marker {
+  color: var(--ink);
+}
+
+.home-about-list li::before {
+  content: none;
 }
 
 .home-ui-points {
