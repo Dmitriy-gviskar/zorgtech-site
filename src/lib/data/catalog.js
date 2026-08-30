@@ -59,8 +59,6 @@ const REGEN_FRAMES = {
   'apriori-19-print-a4': [
     '/img/regen/apriori-19-print-frame-front.png',
     '/img/regen/apriori-19-print-frame-34.png',
-    '/img/regen/apriori-19-print-a4-frame-side.png',
-    '/img/regen/apriori-19-print-a4-frame-rear.png',
   ],
   'interaktivnyy-kiosk-apriori-19-print': [
     '/img/regen/apriori-19-print-frame-front.png',
