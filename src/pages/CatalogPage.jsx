@@ -36,7 +36,7 @@ const LINE_COVER_SLUG = {
   'mono-napolnye': 'mono-32-n',
   'dezinfektora-ruk': 'beskontaktnyy-dezinfektor-agat-7',
   otraslevye: 'diamant-tmedical',
-  'detskie-stoliki': 'diamant-22-n',
+  'detskie-stoliki': 'eco-kid-22',
 };
 
 function studioCover(product) {
