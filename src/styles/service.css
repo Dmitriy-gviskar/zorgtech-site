@@ -240,11 +240,12 @@
 
 .static-page--support .service-sections {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 1rem 1.15rem;
 }
 
 .static-page--support .service-section {
-  height: 100%;
+  height: auto;
   padding: 1.35rem 1.4rem 1.5rem;
   border-top: none;
   border-radius: var(--radius-tile);
@@ -252,7 +253,15 @@
 }
 
 .static-page--support .service-section-text {
-  max-width: none;
+  max-width: 38rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.static-page--support .service-section-text p {
+  margin: 0;
+  line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .static-page--support .service-section-list {

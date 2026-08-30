@@ -17,6 +17,13 @@ const META = {
 
 const SERVICE_KEYS = new Set(['delivery', 'support', 'rent', 'policy']);
 
+function sectionParagraphs(text) {
+  return String(text || '')
+    .split(/(?<=[.!?…])\s+(?=[«"А-ЯA-ZЁ])/u)
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
 function paragraphs(text) {
   if (!text) return [];
   return text
@@ -427,7 +434,13 @@ function ServiceBody({ pageKey, page }) {
                   <p className="chapter-kicker">{String(i + 1).padStart(2, '0')}</p>
                   <h2>{sec.title}</h2>
                 </header>
-                {sec.text ? <p className="service-section-text">{sec.text}</p> : null}
+                {sec.text ? (
+                  <div className="service-section-text">
+                    {sectionParagraphs(sec.text).map((p) => (
+                      <p key={p.slice(0, 48)}>{p}</p>
+                    ))}
+                  </div>
+                ) : null}
                 {sec.items?.length ? (
                   <ul className="service-section-list">
                     {sec.items.map((item) => (
