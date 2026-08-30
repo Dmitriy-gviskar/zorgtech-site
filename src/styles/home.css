@@ -428,7 +428,9 @@
   min-width: 0;
   min-height: min(68vh, 640px);
   display: grid;
-  place-items: center;
+  align-content: center;
+  justify-items: center;
+  gap: 0.7rem;
   padding: clamp(1.25rem, 3.5vw, 2.75rem);
   background:
     radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.1), transparent 58%),
@@ -513,7 +515,9 @@
 }
 
 .design-lab-hint {
-  margin: 1.15rem 0 0;
+  margin: 0;
+  max-width: 640px;
+  text-align: center;
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--muted);
@@ -530,16 +534,22 @@
   }
 }
 
+.design-compare-block {
+  display: grid;
+  gap: 0.55rem;
+  width: min(100%, 640px);
+  justify-self: center;
+}
+
 .design-compare {
   position: relative;
-  width: min(100%, 640px);
+  width: 100%;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-tile);
   overflow: hidden;
   background: #ffffff;
   touch-action: none;
   user-select: none;
-  justify-self: center;
 }
 
 .design-compare-layer {
@@ -612,32 +622,22 @@
 }
 
 .design-compare-labels {
-  position: absolute;
-  left: 0.9rem;
-  right: 0.9rem;
-  bottom: 0.85rem;
-  z-index: 2;
   display: flex;
   justify-content: space-between;
+  padding: 0 0.15rem;
   pointer-events: none;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--muted);
 }
 
-.design-compare-labels span:first-child {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.92);
-  padding: 0.3rem 0.55rem;
-  border-radius: 999px;
-}
-
+.design-compare-labels span:first-child,
 .design-compare-labels span:last-child {
-  color: #fff;
-  background: rgba(15, 23, 32, 0.55);
-  padding: 0.3rem 0.55rem;
-  border-radius: 999px;
+  color: var(--ink);
+  background: none;
+  padding: 0;
 }
 
 .lines {

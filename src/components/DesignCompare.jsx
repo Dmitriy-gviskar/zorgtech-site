@@ -87,45 +87,46 @@ export default function DesignCompare({
   };
 
   return (
-    <div
-      ref={rootRef}
-      className="design-compare"
-      role="group"
-      aria-label="Сравнение чертежа и готового киоска. Тяните вертикальную линию."
-    >
-      <img className="design-compare-layer design-compare-render" src={render} alt="" draggable={false} />
-      <div className="design-compare-clip" style={{ width: `${pos}%` }}>
-        <img
-          className="design-compare-layer design-compare-wire"
-          src={wire}
-          alt=""
-          draggable={false}
-          style={{ width: width ? `${width}px` : '100%' }}
-        />
-      </div>
-
+    <div className="design-compare-block">
       <div
-        className="design-compare-handle"
-        style={{ left: `${pos}%` }}
-        onPointerDown={startDrag}
-        onTouchStart={startDrag}
-        role="slider"
-        tabIndex={0}
-        aria-valuemin={8}
-        aria-valuemax={92}
-        aria-valuenow={Math.round(pos)}
-        aria-label="Граница между чертежом и киоском"
-        onKeyDown={(e) => {
-          if (e.key === 'ArrowLeft') setPos((p) => Math.max(8, p - 3));
-          if (e.key === 'ArrowRight') setPos((p) => Math.min(92, p + 3));
-        }}
+        ref={rootRef}
+        className="design-compare"
+        role="group"
+        aria-label="Сравнение чертежа и готового киоска. Тяните вертикальную линию."
       >
-        <span className="design-compare-line" aria-hidden="true" />
-        <span className="design-compare-knob" aria-hidden="true">
-          ↔
-        </span>
-      </div>
+        <img className="design-compare-layer design-compare-render" src={render} alt="" draggable={false} />
+        <div className="design-compare-clip" style={{ width: `${pos}%` }}>
+          <img
+            className="design-compare-layer design-compare-wire"
+            src={wire}
+            alt=""
+            draggable={false}
+            style={{ width: width ? `${width}px` : '100%' }}
+          />
+        </div>
 
+        <div
+          className="design-compare-handle"
+          style={{ left: `${pos}%` }}
+          onPointerDown={startDrag}
+          onTouchStart={startDrag}
+          role="slider"
+          tabIndex={0}
+          aria-valuemin={8}
+          aria-valuemax={92}
+          aria-valuenow={Math.round(pos)}
+          aria-label="Граница между чертежом и киоском"
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') setPos((p) => Math.max(8, p - 3));
+            if (e.key === 'ArrowRight') setPos((p) => Math.min(92, p + 3));
+          }}
+        >
+          <span className="design-compare-line" aria-hidden="true" />
+          <span className="design-compare-knob" aria-hidden="true">
+            ↔
+          </span>
+        </div>
+      </div>
       <div className="design-compare-labels" aria-hidden="true">
         <span>Чертёж</span>
         <span>Стол</span>

@@ -289,11 +289,11 @@ export default function HomePage() {
                 обеспечивая полный цикл, контроль качества и точное соответствие вашим требованиям.
               </p>
               <DesignLabLeadForm />
-              <p className="design-lab-hint">Тяните линию: влево — стол, вправо — чертёж</p>
             </div>
           </Reveal>
           <Reveal className="design-lab-media" delay={0.08}>
             <DesignCompare />
+            <p className="design-lab-hint">Тяните линию: влево — чертёж, вправо — стол</p>
           </Reveal>
         </div>
       </section>
