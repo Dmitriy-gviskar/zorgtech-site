@@ -338,11 +338,16 @@ function ServiceBody({ pageKey, page }) {
       {copy.story.length ? (
         <Reveal>
           <section className="service-story">
-            {copy.story.map((p, i) => (
-              <p key={p.slice(0, 48)} className={i === 0 ? 'is-lead' : undefined}>
-                {p}
-              </p>
-            ))}
+            {copy.story.flatMap((block, i) =>
+              sectionParagraphs(block).map((p, j) => (
+                <p
+                  key={`${i}-${p.slice(0, 40)}`}
+                  className={i === 0 && j === 0 ? 'is-lead' : undefined}
+                >
+                  {p}
+                </p>
+              )),
+            )}
           </section>
         </Reveal>
       ) : null}
@@ -451,13 +456,6 @@ function ServiceBody({ pageKey, page }) {
               </section>
             </Reveal>
           ))}
-        </div>
-      ) : null}
-
-      {copy.hotline && pageKey !== 'support' ? (
-        <div className="service-hotline">
-          <span className="chapter-kicker">Горячая линия</span>
-          <a href={`tel:${copy.hotline.replace(/\s+/g, '')}`}>{copy.hotline}</a>
         </div>
       ) : null}
 

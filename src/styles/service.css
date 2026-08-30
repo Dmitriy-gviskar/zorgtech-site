@@ -223,28 +223,33 @@
   color: var(--cyan-deep);
 }
 
-.static-page--support .category-head--simple {
+.static-page--support .category-head--simple,
+.static-page--rent .category-head--simple {
   grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3rem);
 }
 
-.static-page--support .category-head--simple .lead {
+.static-page--support .category-head--simple .lead,
+.static-page--rent .category-head--simple .lead {
   max-width: 40rem;
 }
 
-.static-page--support .service-hotline {
+.static-page--support .service-hotline,
+.static-page--rent .service-hotline {
   max-width: none;
   margin: 0;
 }
 
-.static-page--support .service-sections {
+.static-page--support .service-sections,
+.static-page--rent .service-sections {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 1rem 1.15rem;
 }
 
-.static-page--support .service-section {
+.static-page--support .service-section,
+.static-page--rent .service-section {
   height: auto;
   padding: 1.35rem 1.4rem 1.5rem;
   border-top: none;
@@ -252,21 +257,52 @@
   background: var(--bg-soft);
 }
 
-.static-page--support .service-section-text {
+.static-page--support .service-section-text,
+.static-page--rent .service-section-text {
   max-width: 38rem;
   display: grid;
   gap: 0.7rem;
 }
 
-.static-page--support .service-section-text p {
+.static-page--support .service-section-text p,
+.static-page--rent .service-section-text p {
   margin: 0;
   line-height: 1.6;
   text-wrap: pretty;
 }
 
-.static-page--support .service-section-list {
+.static-page--support .service-section-list,
+.static-page--rent .service-section-list {
   max-width: none;
   grid-template-columns: 1fr;
+}
+
+.static-page--rent .service-story {
+  max-width: 40rem;
+}
+
+.static-page--rent .service-story p {
+  text-wrap: pretty;
+}
+
+.static-page--rent .service-facts {
+  grid-template-columns: 1fr;
+}
+
+.static-page--rent .service-price-list {
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.static-page--rent .service-price-list li {
+  padding: 1rem 1.15rem;
+  border-top: none;
+  border-radius: var(--radius-tile);
+  background: var(--bg-soft);
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  align-content: start;
 }
 
 .project-task,
@@ -827,7 +863,10 @@
 
 @media (max-width: 900px) {
   .static-page--support .category-head--simple,
+  .static-page--rent .category-head--simple,
   .static-page--support .service-sections,
+  .static-page--rent .service-sections,
+  .static-page--rent .service-price-list,
   .service-facts,
   .service-section-list {
     grid-template-columns: 1fr;
