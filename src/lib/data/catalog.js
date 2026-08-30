@@ -499,6 +499,7 @@ const CATEGORY_NAME_OVERRIDE = {
   napolnye: 'Интерактивные киоски',
   nastennyy: 'Интерактивные панели',
   ulichnye: 'Уличные интерактивные киоски',
+  apriori: 'Интерактивные терминалы',
 };
 
 function withCategoryName(category) {
