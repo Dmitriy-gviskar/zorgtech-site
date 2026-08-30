@@ -351,6 +351,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-intercon-frame-detail.png',
   ],
   'diamant-tmedical': [
+    '/img/regen/diamant-tmedical-card.jpg',
     '/img/regen/diamant-tmedical-frame-front.png',
     '/img/regen/diamant-tmedical-frame-34.png',
     '/img/regen/diamant-tmedical-frame-side.png',
@@ -500,6 +501,7 @@ const CATEGORY_NAME_OVERRIDE = {
   nastennyy: 'Интерактивные панели',
   ulichnye: 'Уличные интерактивные киоски',
   apriori: 'Интерактивные терминалы',
+  otraslevye: 'Уникальное оборудование',
 };
 
 const HIDDEN_CATEGORY_SLUGS = new Set(['avtokassy']);

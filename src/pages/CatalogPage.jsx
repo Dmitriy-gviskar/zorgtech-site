@@ -12,6 +12,7 @@ import { LIST_SEO } from '../lib/seo-defaults.js';
 
 /** Display order for the single catalog list (hero = first). */
 const LINE_ORDER = [
+  'novinki',
   'napolnye',
   'stoly',
   'nastennyy',
@@ -19,13 +20,13 @@ const LINE_ORDER = [
   'apriori',
   'kioski-samoobsluzhivaniya',
   'mono-napolnye',
-  'avtokassy',
   'dezinfektora-ruk',
   'otraslevye',
   'detskie-stoliki',
 ];
 
 const LINE_COVER_SLUG = {
+  novinki: 'novinka-1',
   napolnye: 'diamant-32-fe',
   stoly: 'diamant-55-n',
   nastennyy: 'diamant-32-w',
@@ -33,9 +34,8 @@ const LINE_COVER_SLUG = {
   apriori: 'apriori-22',
   'kioski-samoobsluzhivaniya': 'diamant-32-w-pay',
   'mono-napolnye': 'mono-32-n',
-  avtokassy: 'diamant-32-w-pay',
   'dezinfektora-ruk': 'beskontaktnyy-dezinfektor-agat-7',
-  otraslevye: 'diamant-43-f',
+  otraslevye: 'diamant-tmedical',
   'detskie-stoliki': 'diamant-22-n',
 };
 
