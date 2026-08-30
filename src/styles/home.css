@@ -1667,35 +1667,42 @@
 
 .home-begin-banner {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(14rem, 0.72fr) minmax(20rem, 1.28fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
   align-items: center;
 }
 
 .home-begin-copy .home-sec-head {
-  max-width: 36rem;
+  max-width: 22rem;
+}
+
+.home-begin-copy .home-sec-title {
+  margin-top: 0.4rem;
+  font-size: clamp(1.35rem, 1.2vw + 0.85rem, 1.85rem);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
 }
 
 .home-begin-copy .btn {
-  margin-top: 1.35rem;
+  margin-top: 1.1rem;
 }
 
 .home-begin-stage {
   display: grid;
-  grid-template-columns: 1fr 1.15fr 0.95fr;
+  grid-template-columns: 0.9fr 1.2fr 1fr;
   align-items: end;
-  gap: 0.35rem;
-  min-height: 16rem;
+  gap: 0.55rem;
+  min-height: 17rem;
+  padding: 0.5rem 0.25rem 0;
 }
 
 .home-begin-stage img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 18rem;
+  max-height: 17.5rem;
   object-fit: contain;
   object-position: bottom center;
-  mix-blend-mode: multiply;
 }
 
 /* DJI-like media chapters — immersive split, still light studio */
