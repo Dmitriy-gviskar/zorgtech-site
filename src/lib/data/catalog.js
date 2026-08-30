@@ -494,14 +494,27 @@ export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
   return out;
 }
 
+/** Customer display names — scraped `name` stays in JSON. */
+const CATEGORY_NAME_OVERRIDE = {
+  napolnye: 'Интерактивные киоски',
+  nastennyy: 'Интерактивные панели',
+  ulichnye: 'Уличные интерактивные киоски',
+};
+
+function withCategoryName(category) {
+  if (!category) return category;
+  const name = CATEGORY_NAME_OVERRIDE[category.slug];
+  return name ? { ...category, name } : category;
+}
+
 export function getCategory(slug) {
-  return categories[slug] || null;
+  return withCategoryName(categories[slug] || null);
 }
 
 export function categoryList() {
-  return Object.values(categories).filter(
-    (c) => !c.missing && c.productSlugs && c.productSlugs.length > 0,
-  );
+  return Object.values(categories)
+    .filter((c) => !c.missing && c.productSlugs && c.productSlugs.length > 0)
+    .map(withCategoryName);
 }
 
 export function popularProducts(limit = 8) {
