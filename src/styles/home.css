@@ -1154,11 +1154,6 @@
   color: var(--ink);
 }
 
-.feature-card .product-gift {
-  margin: 0;
-  line-height: 1;
-}
-
 .product-card,
 .solution-card {
   display: flex;

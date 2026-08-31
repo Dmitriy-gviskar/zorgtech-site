@@ -119,8 +119,9 @@ export default function ProductPage() {
 
           <div className="product-buy">
             <div className="product-buy-meta">
-              <p className="price">{copy.price}</p>
-              {copy.gift ? <span className="product-gift">ПО в подарок</span> : null}
+              <p className="price">
+                <span className="btn primary">{copy.price}</span>
+              </p>
             </div>
             <ProductPriceForm title={product.title} slug={product.slug} price={copy.price} />
           </div>

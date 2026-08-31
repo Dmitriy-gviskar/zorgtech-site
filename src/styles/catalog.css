@@ -717,22 +717,11 @@
 
 .product-hero-copy .price {
   margin: 0;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--ink);
 }
 
-.product-gift {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.32rem 0.7rem;
-  border-radius: var(--radius-pill);
-  background: rgba(42, 170, 221, 0.1);
-  color: var(--cyan-deep);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+.product-hero-copy .price .btn {
+  cursor: default;
+  color: #fff;
 }
 
 .product-hero-copy .actions {
