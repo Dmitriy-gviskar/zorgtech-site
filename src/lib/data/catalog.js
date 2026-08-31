@@ -76,7 +76,7 @@ const REGEN_FRAMES = {
   ],
   'apriori-22-key': [
     '/img/regen/apriori-22-key-frame-front.png',
-    '/img/regen/apriori-22-key-frame-34.png',
+    '/img/regen/apriori-22-key-frame-34-v2.png',
     '/img/regen/apriori-22-key-frame-side.png',
     '/img/regen/apriori-22-key-frame-rear.png',
     '/img/regen/apriori-22-key-frame-keyboard.png',
