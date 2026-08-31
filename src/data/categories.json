@@ -7,13 +7,6 @@
     "lead": "Напольные сенсорные киоски являются флагманом модельной линейки Zorgtech и используются в таких сферах, как интерактивная навигация, выставки и презентации, информирование в государственных учреждениях, оказание услуг. Эстетичный дизайн и большой выбор диагоналей экрана позволяют выбрать терминалы под любые задачи.\r\nВозможность встраивания дополнительного оборудования позволяет значительно расширить функционал напольных сенсорных киосков. Веб-камера, сканер штрих-кода и считыватель карт помогают идентифицировать пользователя, термопринтер распечатывает необходимую информацию, датчик приближения позволяет разрабатывать различные сценарии поведения интерактивного киоска в зависимости от удаленности пользователя.",
     "image": "/img/pages/cat-napolnye_75ef7fec2d69d5e49a391307576d0bf6-628e59e7e50675cb.png",
     "productSlugs": [
-      "apriori-19-keyboard",
-      "apriori-19-print-a4",
-      "apriori-19-print",
-      "apriori-22-key",
-      "apriori-22",
-      "apriori",
-      "diamant-22-f",
       "diamant-32-f-general",
       "diamant-32-f-key",
       "diamant-32-f-print",
@@ -31,38 +24,9 @@
       "diamant-55-f",
       "diamant-65-f",
       "diamant-75-f",
-      "diamant-86-f-grand",
-      "interaktivnyy-kiosk-apriori-19-print"
+      "diamant-86-f-grand"
     ],
     "products": [
-      {
-        "slug": "apriori-19-keyboard",
-        "title": "Apriori 19 Keyboard"
-      },
-      {
-        "slug": "apriori-19-print-a4",
-        "title": "Apriori 19 Print A4"
-      },
-      {
-        "slug": "apriori-19-print",
-        "title": "Apriori 19 Print-Scan"
-      },
-      {
-        "slug": "apriori-22-key",
-        "title": "Apriori 22 Key"
-      },
-      {
-        "slug": "apriori-22",
-        "title": "Apriori 22"
-      },
-      {
-        "slug": "apriori",
-        "title": "Apriori 19"
-      },
-      {
-        "slug": "diamant-22-f",
-        "title": "Diamant 22 F"
-      },
       {
         "slug": "diamant-32-f-general",
         "title": "Diamant 32 F General"
@@ -134,10 +98,6 @@
       {
         "slug": "diamant-86-f-grand",
         "title": "Diamant 86 F Grand"
-      },
-      {
-        "slug": "interaktivnyy-kiosk-apriori-19-print",
-        "title": "Apriori 19\" Print"
       }
     ],
     "sourceUrl": "https://zorgtech.com/catalog/napolnye/",
@@ -302,6 +262,7 @@
       "apriori-22",
       "apriori",
       "interaktivnyy-kiosk-apriori-19-print",
+      "diamant-22-f",
       "mono-32-f-scan",
       "mono-32-f",
       "mono-43-f"
@@ -334,6 +295,10 @@
       {
         "slug": "interaktivnyy-kiosk-apriori-19-print",
         "title": "Apriori 19\" Print"
+      },
+      {
+        "slug": "diamant-22-f",
+        "title": "Diamant 22 F"
       },
       {
         "slug": "mono-32-f-scan",
