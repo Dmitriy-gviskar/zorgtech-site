@@ -37,6 +37,52 @@ function StatValue({ value, prefix = '', suffix = '' }) {
   );
 }
 
+function DealersHeroForm() {
+  const [sent, setSent] = useState(false);
+
+  function onSubmit(event) {
+    event.preventDefault();
+    const phone = String(new FormData(event.currentTarget).get('phone') || '').trim();
+    if (!phone) return;
+
+    const subject = encodeURIComponent('Заявка в дилерскую сеть Zorgtech');
+    const body = encodeURIComponent(
+      [`Телефон: ${phone}`, '', 'Источник: страница дилеров'].join('\n'),
+    );
+    window.location.href = `mailto:${copy.form.email}?subject=${subject}&body=${body}`;
+    setSent(true);
+  }
+
+  if (sent) {
+    return (
+      <p className="product-price-form-thanks dealers-hero-thanks" role="status">
+        Спасибо. Если почтовый клиент не открылся — напишите на{' '}
+        <a href={`mailto:${copy.form.email}`}>{copy.form.email}</a> или позвоните{' '}
+        <a href={copy.contacts.phone.href}>{copy.contacts.phone.label}</a>.
+      </p>
+    );
+  }
+
+  return (
+    <form className="product-price-form dealers-hero-leadform" onSubmit={onSubmit}>
+      <label className="product-price-field">
+        <span className="product-price-field-label">Телефон</span>
+        <input
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          inputMode="tel"
+          placeholder="+7 …"
+        />
+      </label>
+      <button className="btn primary btn--lg product-price-submit" type="submit">
+        {copy.hero.cta}
+      </button>
+    </form>
+  );
+}
+
 function DealersForm() {
   const [sent, setSent] = useState(false);
 
@@ -121,17 +167,7 @@ export default function DealersPage() {
           <h1>{copy.hero.title}</h1>
           <p className="dealers-hero-lead">{accentCopy(copy.hero.lead)}</p>
           <p className="dealers-hero-note">{copy.hero.note}</p>
-          <div className="actions">
-            <a className="btn primary btn--lg" href="#dealer-form">
-              {copy.hero.cta}
-            </a>
-            <Link className="btn secondary btn--lg" to="/dealers/portal">
-              {copy.cabinet.loginCta}
-            </Link>
-            <a className="btn secondary btn--lg" href={copy.contacts.phone.href}>
-              {copy.contacts.phone.label}
-            </a>
-          </div>
+          <DealersHeroForm />
         </div>
         <div className="dealers-hero-stage" aria-hidden="true">
           <StudioHoverMedia cover={copy.hero.media} />
@@ -185,15 +221,14 @@ export default function DealersPage() {
           {copy.spheres.items.map((item, i) => (
             <li key={item.title}>
               <Reveal delay={Math.min(i, 5) * 0.03}>
-                <Link to={item.to} className="dealers-sphere">
+                <article className="dealers-sphere">
                   <div className="dealers-sphere-media" aria-hidden="true">
                     {item.image ? <img src={assetUrl(item.image)} alt="" loading="lazy" /> : null}
                   </div>
                   <div className="dealers-sphere-copy">
                     <strong>{item.title}</strong>
-                    <span aria-hidden="true">→</span>
                   </div>
-                </Link>
+                </article>
               </Reveal>
             </li>
           ))}
