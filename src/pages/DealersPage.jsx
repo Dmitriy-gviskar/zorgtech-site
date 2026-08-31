@@ -221,51 +221,6 @@ export default function DealersPage() {
         </ul>
       </section>
 
-      <section className="dealers-section">
-        <Reveal>
-          <header className="sec-head">
-            <p className="chapter-kicker">{copy.roadmap.kicker}</p>
-            <h2>{copy.roadmap.title}</h2>
-          </header>
-        </Reveal>
-        <ol className="dealers-steps">
-          {copy.roadmap.steps.map((step, i) => (
-            <li key={step}>
-              <Reveal delay={Math.min(i, 6) * 0.04}>
-                <article className="dealers-step">
-                  <span className="dealers-num">{String(i + 1).padStart(2, '0')}</span>
-                  <p>{step}</p>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="dealers-section">
-        <Reveal>
-          <header className="sec-head">
-            <p className="chapter-kicker">{copy.portal.kicker}</p>
-            <h2>{copy.portal.title}</h2>
-            <Link className="btn primary" to="/dealers/portal">
-              {copy.cabinet.loginCta}
-            </Link>
-          </header>
-        </Reveal>
-        <ul className="dealers-portal-grid">
-          {copy.portal.items.map((item, i) => (
-            <li key={item}>
-              <Reveal delay={Math.min(i, 3) * 0.04}>
-                <article className="dealers-portal-card">
-                  <span className="dealers-num">{String(i + 1).padStart(2, '0')}</span>
-                  <p>{item}</p>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section className="dealers-section dealers-band dealers-apply" id="dealer-form">
         <Reveal>
           <header className="sec-head">
