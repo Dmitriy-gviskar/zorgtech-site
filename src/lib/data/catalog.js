@@ -204,8 +204,8 @@ const REGEN_FRAMES = {
   ],
   'diamant-43-f-general': [
     '/img/regen/diamant-43-f-frame-front.png',
-    '/img/regen/diamant-43-f-general-frame-34.png',
     '/img/regen/diamant-43-f-frame-side.png',
+    '/img/regen/diamant-43-f-general-frame-34.png',
     '/img/regen/diamant-43-f-general-frame-rear.png',
   ],
   'diamant-43-f-print': [
