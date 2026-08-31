@@ -187,7 +187,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-we-pay-frame-front.png',
     '/img/regen/diamant-32-we-pay-frame-34.png',
     '/img/regen/diamant-32-we-pay-frame-side.png',
-    '/img/regen/diamant-32-we-pay-frame-detail.png',
+    '/img/regen/diamant-32-we-pay-frame-detail-v2.png',
   ],
   'diamant-32-wea-pay': [
     '/img/regen/diamant-32-wea-pay-frame-front.png',
