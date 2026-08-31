@@ -1026,13 +1026,8 @@
 
 .dealers-hero-stage {
   min-height: clamp(280px, 42vw, 460px);
-  padding: 1.25rem;
-  border-radius: calc(var(--radius-tile) + 0.25rem);
-  background:
-    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(42, 170, 221, 0.16), transparent 58%),
-    radial-gradient(ellipse 52% 42% at 50% 40%, rgba(42, 170, 221, 0.07), transparent 68%),
-    var(--bg-soft);
-  overflow: hidden;
+  padding: 0;
+  background: none;
 }
 
 .dealers-hero-stage .studio-hover-media {
