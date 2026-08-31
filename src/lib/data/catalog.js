@@ -337,7 +337,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-86-f-grand-frame-front.png',
     '/img/regen/diamant-86-f-grand-frame-34.png',
     '/img/regen/diamant-86-f-grand-frame-rear.png',
-    '/img/regen/diamant-86-f-grand-frame-detail.png',
+    '/img/regen/diamant-86-f-grand-frame-detail-v2.png',
   ],
   'diamant-intercon': [
     '/img/regen/diamant-intercon-frame-front.png',
