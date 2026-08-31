@@ -13,6 +13,7 @@ const NAV = [
   { to: paths.areas, label: 'Области применения' },
   { to: paths.about, label: 'О компании' },
   { to: paths.dealers, label: 'Дилерам' },
+  { to: paths.support, label: 'Сервисный центр' },
   { to: paths.contacts, label: 'Контакты' },
 ];
 
