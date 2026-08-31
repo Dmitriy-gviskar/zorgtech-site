@@ -71,8 +71,6 @@ const REGEN_FRAMES = {
   ],
   'apriori-22': [
     '/img/regen/apriori-22-frame-front.png',
-    '/img/regen/apriori-22-frame-34.png',
-    '/img/regen/apriori-22-frame-side.png',
     '/img/regen/apriori-22-frame-rear.png',
     '/img/regen/apriori-22-frame-detail.png',
   ],
