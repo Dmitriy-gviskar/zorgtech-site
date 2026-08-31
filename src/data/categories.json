@@ -11,7 +11,6 @@
       "diamant-32-f-key",
       "diamant-32-f-print",
       "diamant-32-f",
-      "diamant-32-fe-pro",
       "diamant-32-fe",
       "diamant-43-f-general",
       "diamant-43-f-print",
@@ -42,10 +41,6 @@
       {
         "slug": "diamant-32-f",
         "title": "Diamant 32 F"
-      },
-      {
-        "slug": "diamant-32-fe-pro",
-        "title": "Diamant 32 FE Pro"
       },
       {
         "slug": "diamant-32-fe",
@@ -263,6 +258,7 @@
       "apriori",
       "interaktivnyy-kiosk-apriori-19-print",
       "diamant-22-f",
+      "diamant-32-fe-pro",
       "mono-32-f-scan",
       "mono-32-f",
       "mono-43-f"
@@ -299,6 +295,10 @@
       {
         "slug": "diamant-22-f",
         "title": "Diamant 22 F"
+      },
+      {
+        "slug": "diamant-32-fe-pro",
+        "title": "Diamant 32 FE Pro"
       },
       {
         "slug": "mono-32-f-scan",
