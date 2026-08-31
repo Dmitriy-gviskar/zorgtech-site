@@ -640,8 +640,13 @@ export function presentProduct(productOrSlug) {
   const { slogan, body } = splitProductCopy(raw);
   const source = body || raw;
   const sentences = splitSentences(source);
-  const hook = sentences[0] ? clipSentence(sentences[0], 160) : firstSentences(source, 160, 1);
-  const story = sentences.slice(1).filter((s) => s.length > 28);
+  const tease = sentences[0] && /отличительн|уникальн\w*\s+черт/iu.test(sentences[0]);
+  const hook = tease && sentences[1]
+    ? `${sentences[0]} ${sentences[1]}`
+    : sentences[0]
+      ? clipSentence(sentences[0], 160)
+      : firstSentences(source, 160, 1);
+  const story = sentences.slice(tease && sentences[1] ? 2 : 1).filter((s) => s.length > 28);
   // Longer lead kept for places that still want 1–2 sentences
   const lead = firstSentences(source, 210, 2);
   const { gift, items } = presentFeatures(product.features, 3);
