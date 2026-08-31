@@ -405,7 +405,6 @@ const REGEN_FRAMES = {
     '/img/regen/mono-43-f-frame-detail.png',
   ],
   'mono-55-t': [
-    '/img/regen/mono-55-t-frame-front.png',
     '/img/regen/mono-55-t-frame-34-v2.png',
     '/img/regen/mono-55-t-frame-side.png',
     '/img/regen/mono-55-t-frame-rear.png',
