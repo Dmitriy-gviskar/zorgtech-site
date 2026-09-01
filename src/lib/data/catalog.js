@@ -302,7 +302,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-55-f-outdoor-dual-frame-detail.png',
   ],
   'diamant-55-n': [
-    '/img/regen/diamant-55-n-frame-front-v2.png',
+    '/img/regen/diamant-55-n-frame-front-v3.png',
     '/img/regen/diamant-55-n-frame-34-v2.png',
     '/img/regen/diamant-55-n-frame-side-v2.png',
     '/img/regen/diamant-55-n-frame-rear-v2.png',
