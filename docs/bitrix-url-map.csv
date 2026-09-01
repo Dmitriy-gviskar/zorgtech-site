@@ -330,4 +330,4 @@ https://zorgtech.com/realizovanye-proekty/,/realizovanye-proekty/,/realizovanye-
 https://zorgtech.com/realizovanye-proekty/interaktivnaya-navigatsiya-logicmap-v-trk-zanevskiy-kaskad/,/realizovanye-proekty/interaktivnaya-navigatsiya-logicmap-v-trk-zanevskiy-kaskad/,,sitemap-realizovanye-proekty,interaktivnaya-navigatsiya-logicmap-v-trk-zanevskiy-kaskad,,yes,no,keep-url-not-in-demo,"В sitemap живого сайта, в скрейпе/демо нет — URL нельзя терять"
 https://zorgtech.com/realizovanye-proekty/interaktivnaya-vystavka-pravoslavnaya-rus-romanovy-g-moskva/,/realizovanye-proekty/interaktivnaya-vystavka-pravoslavnaya-rus-romanovy-g-moskva/,,sitemap-realizovanye-proekty,interaktivnaya-vystavka-pravoslavnaya-rus-romanovy-g-moskva,,yes,no,keep-url-not-in-demo,"В sitemap живого сайта, в скрейпе/демо нет — URL нельзя терять"
 ,,/dealers,new,dealers,Дилерам,no,no,new-in-demo,Новая страница. Можно добавить. Портал — noindex
-,,/dealers/portal,new,dealers-portal,Портал дилера,no,no,new-in-demo,Новая страница. Можно добавить. Портал — noindex
+,,/dealers/portal,new,dealers-portal,Портал дилера,no,no,dropped,Раздел снят из демо. В демо редирект на /dealers

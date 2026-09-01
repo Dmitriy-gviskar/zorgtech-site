@@ -141,7 +141,6 @@ export default function Layout() {
             <Link to={paths.areas}>Области применения</Link>
             <Link to={paths.about}>О компании</Link>
             <Link to={paths.dealers}>Дилерам</Link>
-            <Link to={paths.dealerPortal}>Портал дилера</Link>
             <Link to={paths.delivery}>Доставка</Link>
             <Link to={paths.support}>Поддержка</Link>
             <Link to={paths.rent}>Аренда</Link>

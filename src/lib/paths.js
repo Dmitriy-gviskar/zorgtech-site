@@ -18,7 +18,6 @@ export const paths = {
   rent: '/rent',
   policy: '/policy',
   dealers: '/dealers',
-  dealerPortal: '/dealers/portal',
 };
 
 const PAGE_KEYS = {

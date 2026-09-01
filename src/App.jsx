@@ -17,7 +17,6 @@ const AreasPage = lazy(() => import('./pages/AreasPage'));
 const AreaDetailPage = lazy(() => import('./pages/AreaDetailPage'));
 const StaticPage = lazy(() => import('./pages/StaticPage'));
 const DealersPage = lazy(() => import('./pages/DealersPage'));
-const DealerPortalPage = lazy(() => import('./pages/DealerPortalPage'));
 
 const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 
@@ -57,7 +56,6 @@ export default function App() {
             <Route path={paths.support} element={<StaticPage pageKey="support" />} />
             <Route path={paths.rent} element={<StaticPage pageKey="rent" />} />
             <Route path={paths.dealers} element={<DealersPage />} />
-            <Route path={paths.dealerPortal} element={<DealerPortalPage />} />
             <Route path={paths.policy} element={<StaticPage pageKey="policy" />} />
 
             <Route path="/product/:slug" element={<RedirectSlug prefix="/catalog/product" />} />
@@ -68,6 +66,7 @@ export default function App() {
             <Route path="/areas" element={<Navigate to={paths.areas} replace />} />
             <Route path="/areas/:slug" element={<RedirectSlug prefix={paths.areas} />} />
             <Route path="/delivery" element={<Navigate to={paths.delivery} replace />} />
+            <Route path="/dealers/portal" element={<Navigate to={paths.dealers} replace />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Route>

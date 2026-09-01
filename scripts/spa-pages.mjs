@@ -18,7 +18,6 @@ if (!existsSync(index)) {
 /** Top-level and nested paths that must open without client-side navigation. */
 const routes = [
   'dealers',
-  'dealers/portal',
   'catalog',
   'realizovanye-proekty',
   'gotovye-resheniya',
