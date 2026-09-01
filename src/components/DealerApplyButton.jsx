@@ -31,7 +31,7 @@ function DealerApplyForm({ source }) {
 
   if (note) {
     return (
-      <p className="dealers-form-thanks" role="status">
+      <p className="dealer-apply-consent" role="status">
         Откроется почтовый клиент. Если нет — напишите на{' '}
         <a href={`mailto:${copy.form.email}`}>{copy.form.email}</a> или позвоните{' '}
         <a href={copy.contacts.phone.href}>{copy.contacts.phone.label}</a>.
@@ -40,20 +40,22 @@ function DealerApplyForm({ source }) {
   }
 
   return (
-    <form className="dealers-form dealer-apply-form" onSubmit={onSubmit}>
-      <label className="dealers-field">
+    <form className="dealer-apply-form" onSubmit={onSubmit}>
+      <label className="dealer-apply-field">
         <span>Имя</span>
         <input name="name" type="text" autoComplete="name" required placeholder="Как к вам обращаться" />
       </label>
-      <label className="dealers-field">
-        <span>Компания</span>
-        <input name="company" type="text" autoComplete="organization" placeholder="Необязательно" />
-      </label>
-      <label className="dealers-field">
-        <span>Регион</span>
-        <input name="city" type="text" autoComplete="address-level1" placeholder="Город или область" />
-      </label>
-      <label className="dealers-field">
+      <div className="dealer-apply-row">
+        <label className="dealer-apply-field">
+          <span>Компания</span>
+          <input name="company" type="text" autoComplete="organization" placeholder="Необязательно" />
+        </label>
+        <label className="dealer-apply-field">
+          <span>Регион</span>
+          <input name="city" type="text" autoComplete="address-level1" placeholder="Город или область" />
+        </label>
+      </div>
+      <label className="dealer-apply-field">
         <span>Телефон</span>
         <input
           name="phone"
@@ -64,10 +66,10 @@ function DealerApplyForm({ source }) {
           placeholder="+7 …"
         />
       </label>
-      <button className="btn primary btn--lg dealers-submit" type="submit">
+      <button className="btn primary dealer-apply-submit" type="submit">
         {copy.form.submit}
       </button>
-      <p className="dealers-consent">
+      <p className="dealer-apply-consent">
         {copy.cta.consent}. <Link to="/policy">Политика конфиденциальности</Link>
       </p>
     </form>
@@ -109,7 +111,9 @@ function DealerApplyDialog({ source, onClose }) {
           <p className="chapter-kicker">{copy.form.kicker}</p>
           <h2 id={titleId}>{copy.form.title}</h2>
           <button type="button" className="dealer-apply-close" onClick={onClose} aria-label="Закрыть">
-            ×
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M3.2 3.2l9.6 9.6M12.8 3.2l-9.6 9.6" />
+            </svg>
           </button>
         </header>
         <DealerApplyForm source={source} />

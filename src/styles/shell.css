@@ -381,8 +381,8 @@
 }
 
 .dealer-apply-dialog {
-  width: min(26rem, calc(100vw - 2rem));
-  max-height: calc(100vh - 2rem);
+  width: min(28rem, calc(100vw - 1.5rem));
+  max-height: calc(100vh - 1.5rem);
   padding: 0;
   border: 0;
   background: transparent;
@@ -390,43 +390,60 @@
 }
 
 .dealer-apply-dialog::backdrop {
-  background: rgba(10, 10, 10, 0.42);
+  background: rgba(10, 10, 10, 0.48);
 }
 
 .dealer-apply-panel {
   position: relative;
-  padding: 1.35rem 1.3rem 0.35rem;
-  border-radius: var(--radius-tile);
+  padding: 1.45rem 1.4rem 1.25rem;
+  border-radius: var(--radius-lg);
   background: #fff;
-  box-shadow: 0 18px 48px rgba(10, 10, 10, 0.16);
+  box-shadow: 0 22px 56px rgba(10, 10, 10, 0.2);
 }
 
 .dealer-apply-head {
-  position: relative;
   padding-right: 2.4rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+.dealer-apply-head .chapter-kicker {
+  margin-bottom: 0.28rem;
 }
 
 .dealer-apply-head h2 {
   margin: 0;
-  font-size: clamp(1.35rem, 3vw, 1.7rem);
-  letter-spacing: var(--track-display);
-  line-height: var(--leading-snug);
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
 }
 
 .dealer-apply-close {
   position: absolute;
-  top: -0.2rem;
-  right: -0.2rem;
-  width: 2.2rem;
-  height: 2.2rem;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
   border: 0;
-  border-radius: var(--radius-pill);
+  border-radius: 50%;
   background: var(--bg-soft);
   color: var(--ink);
-  font-size: 1.45rem;
-  line-height: 1;
   cursor: pointer;
+}
+
+.dealer-apply-close svg {
+  display: block;
+  width: 13px;
+  height: 13px;
+}
+
+.dealer-apply-close path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
 }
 
 .dealer-apply-close:hover {
@@ -434,7 +451,72 @@
 }
 
 .dealer-apply-form {
-  padding: 0 0 1.2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dealer-apply-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.dealer-apply-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.dealer-apply-field span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dealer-apply-field input {
+  width: 100%;
+  min-height: 2.65rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #d8d8d8;
+  border-radius: 0.7rem;
+  background: var(--bg-soft);
+  color: var(--ink);
+  font: inherit;
+}
+
+.dealer-apply-field input::placeholder {
+  color: #a3a3a3;
+}
+
+.dealer-apply-field input:focus {
+  outline: none;
+  border-color: var(--cyan);
+  background: #fff;
+}
+
+.dealer-apply-submit {
+  width: 100%;
+  margin-top: 0.15rem;
+}
+
+.dealer-apply-consent,
+.dealer-apply-form .dealers-form-thanks {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.dealer-apply-consent a,
+.dealer-apply-form .dealers-form-thanks a {
+  color: var(--cyan-deep);
+}
+
+@media (max-width: 520px) {
+  .dealer-apply-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .eyebrow,

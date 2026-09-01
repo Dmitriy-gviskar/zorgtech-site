@@ -45,7 +45,7 @@ function AboutBody({ page }) {
   const activeClients =
     about.clients.groups.find((g) => g.title === clientGroup) || about.clients.groups[0] || null;
   const productionHero = about.production[0] || null;
-  const productionRest = about.production.slice(1);
+  const productionRest = about.production.slice(1, -3);
 
   return (
     <>
