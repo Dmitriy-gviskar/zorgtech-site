@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import DealerApplyButton from '../components/DealerApplyButton';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -189,9 +190,9 @@ function AboutBody({ page }) {
                 <p className="chapter-kicker">Дилерам</p>
                 <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%</h2>
               </div>
-              <Link className="btn primary" to="/dealers">
+              <DealerApplyButton className="btn primary" source="о компании">
                 Станьте дилером
-              </Link>
+              </DealerApplyButton>
             </header>
           </Reveal>
           <ul className="about-next-grid">
@@ -291,9 +292,9 @@ function ContactsBody() {
             <p className="chapter-kicker">Дилерам</p>
             <h2>Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%</h2>
           </div>
-          <Link className="btn primary" to="/dealers">
+          <DealerApplyButton className="btn primary" source="контакты">
             Станьте дилером
-          </Link>
+          </DealerApplyButton>
         </header>
         <ul className="contacts-next-grid">
           <li>

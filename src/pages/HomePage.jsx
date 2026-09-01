@@ -6,6 +6,7 @@ import RevealTitle from '../components/RevealTitle';
 import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
+import DealerApplyButton from '../components/DealerApplyButton';
 import DesignLabLeadForm from '../components/DesignLabLeadForm';
 import HomeLeadForm from '../components/HomeLeadForm';
 import Seo from '../components/Seo';
@@ -411,9 +412,9 @@ export default function HomePage() {
             <div className="home-begin-copy">
               <RevealTitle kicker={homeBlocks.begin.kicker} title={homeBlocks.begin.title} />
               {homeBlocks.begin.cta ? (
-                <Link className="btn primary" to={homeBlocks.begin.cta.to}>
+                <DealerApplyButton className="btn primary" source="главная">
                   {homeBlocks.begin.cta.label}
-                </Link>
+                </DealerApplyButton>
               ) : null}
             </div>
             {homeBlocks.begin.media?.length ? (
