@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import DealerApplyButton from '../components/DealerApplyButton';
 import LeadApplyButton from '../components/LeadApplyButton';
+import ServiceRequestForm from '../components/ServiceRequestForm';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -460,6 +461,8 @@ function ServiceBody({ pageKey, page }) {
           ))}
         </div>
       ) : null}
+
+      {pageKey === 'support' ? <ServiceRequestForm /> : null}
 
       <div className="actions about-actions">
         <LeadApplyButton className="btn primary btn--lg" source={copy.title || pageKey}>
