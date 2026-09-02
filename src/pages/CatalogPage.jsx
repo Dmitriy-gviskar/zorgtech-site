@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import {
+  categoryCardCount,
   categoryList,
   getProduct,
   productCover,
@@ -63,7 +64,7 @@ export default function CatalogPage() {
   ].map(withCover);
   const hero = ordered[0] || null;
   const lines = ordered.slice(1);
-  const totalModels = ordered.reduce((sum, c) => sum + (c.productSlugs?.length || 0), 0);
+  const totalModels = ordered.reduce((sum, c) => sum + categoryCardCount(c), 0);
 
   return (
     <div className="page catalog-page">
@@ -86,7 +87,7 @@ export default function CatalogPage() {
             <div className="catalog-hero-line-copy">
               <p className="chapter-kicker">Флагманская линейка</p>
               <h2>{hero.name}</h2>
-              <em>{modelsLabel(hero.productSlugs?.length)}</em>
+              <em>{modelsLabel(categoryCardCount(hero))}</em>
               <span className="feature-card-cta">
                 Смотреть линейку <span aria-hidden="true">→</span>
               </span>
@@ -111,7 +112,7 @@ export default function CatalogPage() {
                   <Link to={`/catalog/${c.slug}`} className="line-tile">
                     <div className="line-tile-body">
                       <h3>{c.name}</h3>
-                      <em>{modelsLabel(c.productSlugs?.length)}</em>
+                      <em>{modelsLabel(categoryCardCount(c))}</em>
                       <span className="line-tile-cta">
                         Смотреть <span aria-hidden="true">→</span>
                       </span>

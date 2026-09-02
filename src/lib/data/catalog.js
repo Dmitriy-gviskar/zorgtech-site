@@ -412,7 +412,8 @@ export function getProduct(slug) {
 /**
  * Модельные линейки: диагонали одной модели — варианты одной карточки.
  * URL каждой диагонали остаётся живым (SEO), переключатель ведёт между ними.
- * Прототип — Diamant N; после утверждения раскатываем на остальные линейки.
+ * Объединяем только одинаковые модификации одной серии; Print/Key/General/NE
+ * и прочие модификации — свои семейства или одиночные карточки.
  */
 const PRODUCT_FAMILIES = [
   {
@@ -421,11 +422,99 @@ const PRODUCT_FAMILIES = [
     lead: 'diamant-32-n', // самая продаваемая — её показываем в категории
     variants: ['diamant-22-n', 'diamant-32-n', 'diamant-43-n', 'diamant-49-n', 'diamant-55-n'],
   },
+  {
+    id: 'diamant-ne',
+    title: 'Diamant NE',
+    lead: 'diamant-32-ne',
+    variants: ['diamant-32-ne', 'diamant-55-ne'],
+  },
+  {
+    id: 'diamant-f',
+    title: 'Diamant F',
+    lead: 'diamant-32-f',
+    variants: [
+      'diamant-32-f',
+      'diamant-43-f',
+      'diamant-49-f',
+      'diamant-55-f',
+      'diamant-65-f',
+      'diamant-75-f',
+    ],
+  },
+  {
+    id: 'diamant-f-general',
+    title: 'Diamant F General',
+    lead: 'diamant-32-f-general',
+    variants: ['diamant-32-f-general', 'diamant-43-f-general', 'diamant-49-f-general'],
+  },
+  {
+    id: 'diamant-f-print',
+    title: 'Diamant F Print',
+    lead: 'diamant-32-f-print',
+    variants: ['diamant-32-f-print', 'diamant-43-f-print', 'diamant-49-f-print'],
+  },
+  {
+    id: 'diamant-fe',
+    title: 'Diamant FE',
+    lead: 'diamant-32-fe',
+    variants: ['diamant-32-fe', 'diamant-43-fl'],
+  },
+  {
+    id: 'diamant-w',
+    title: 'Diamant W',
+    lead: 'diamant-32-w',
+    variants: ['diamant-22-w', 'diamant-32-w', 'diamant-43-w', 'diamant-49-w', 'diamant-55-w'],
+  },
+  {
+    id: 'diamant-f-outdoor',
+    title: 'Diamant F Outdoor',
+    lead: 'diamant-46-f-outdoor',
+    variants: ['diamant-46-f-outdoor', 'diamant-55-f-outdoor'],
+  },
+  {
+    id: 'mono-f',
+    title: 'Mono F',
+    lead: 'mono-32-f',
+    variants: ['mono-32-f', 'mono-43-f'],
+  },
+  {
+    id: 'apriori',
+    title: 'Apriori',
+    lead: 'apriori',
+    variants: ['apriori', 'apriori-22'],
+  },
+  {
+    id: 'apriori-key',
+    title: 'Apriori Key',
+    lead: 'apriori-19-keyboard',
+    variants: ['apriori-19-keyboard', 'apriori-22-key'],
+  },
+  {
+    id: 'eco-kid',
+    title: 'Eco Kid',
+    lead: 'eco-kid-22',
+    variants: ['eco-kid-22', 'eco-kid-32'],
+  },
 ];
 
 const FAMILY_BY_SLUG = new Map();
 for (const family of PRODUCT_FAMILIES) {
   for (const slug of family.variants) FAMILY_BY_SLUG.set(slug, family);
+}
+
+/** Сколько карточек в категории после схлопывания семейств. */
+export function categoryCardCount(category) {
+  const seen = new Set();
+  let count = 0;
+  for (const slug of category?.productSlugs || []) {
+    const family = FAMILY_BY_SLUG.get(slug);
+    if (family) {
+      if (seen.has(family.id)) continue;
+      seen.add(family.id);
+    }
+    count += 1;
+  }
+  return count;
 }
 
 /** Семейство модели для slug: { id, title, lead, variants: [{slug, title, diagonal, product}] }. */
