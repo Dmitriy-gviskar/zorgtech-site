@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import LeadApplyButton from '../components/LeadApplyButton';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -36,9 +37,9 @@ export default function AreaDetailPage() {
           <h1>{copy.title}</h1>
           {copy.lead ? <p className="lead">{copy.lead}</p> : null}
           <div className="actions">
-            <Link className="btn primary btn--lg" to="/contacts">
+            <LeadApplyButton className="btn primary btn--lg" source={`область: ${copy.title}`}>
               Обсудить задачу
-            </Link>
+            </LeadApplyButton>
             <Link className="btn secondary btn--lg" to={paths.solutions}>
               Готовый софт
             </Link>

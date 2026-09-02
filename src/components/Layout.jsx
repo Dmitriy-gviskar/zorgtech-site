@@ -1,5 +1,6 @@
 import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
 import { Suspense, useEffect, useRef, useState } from 'react';
+import LeadApplyButton from './LeadApplyButton';
 import { paths } from '../lib/paths.js';
 
 function PageFallback() {
@@ -120,7 +121,7 @@ export default function Layout() {
           <a className="top-phone" href={HOTLINE.href}>
             {HOTLINE.label}
           </a>
-          <Link className="btn primary top-cta" to="/contacts">Связаться</Link>
+          <LeadApplyButton className="btn primary top-cta" source="шапка сайта">Связаться</LeadApplyButton>
         </div>
       </header>
       <main className="main">

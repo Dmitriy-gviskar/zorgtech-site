@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ApplyDialog from './ApplyDialog';
-import copy from '../data/dealers.json';
+import homeBlocks from '../data/home-blocks.json';
 
-function DealerApplyForm({ source }) {
+const COPY = homeBlocks.leadForm || {};
+const EMAIL = COPY.email || 'sale@zorgtech.ru';
+const LEAD = COPY.lead || 'Перезвоним в рабочее время и поможем выбрать решение под\u00a0задачу.';
+
+function LeadApplyForm({ source }) {
   const [note, setNote] = useState(false);
 
   function onSubmit(event) {
@@ -12,21 +16,21 @@ function DealerApplyForm({ source }) {
     const name = String(data.get('name') || '').trim();
     const phone = String(data.get('phone') || '').trim();
     const company = String(data.get('company') || '').trim();
-    const city = String(data.get('city') || '').trim();
+    const task = String(data.get('task') || '').trim();
     if (!name || !phone) return;
 
-    const subject = encodeURIComponent('Заявка в дилерскую сеть Zorgtech');
+    const subject = encodeURIComponent('Заявка с сайта Zorgtech');
     const body = encodeURIComponent(
       [
         `Имя: ${name}`,
         `Телефон: ${phone}`,
         `Компания: ${company || '—'}`,
-        `Регион: ${city || '—'}`,
+        `Задача: ${task || '—'}`,
         '',
         `Источник: ${source}`,
       ].join('\n'),
     );
-    window.location.href = `mailto:${copy.form.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     setNote(true);
   }
 
@@ -34,8 +38,8 @@ function DealerApplyForm({ source }) {
     return (
       <p className="apply-consent" role="status">
         Откроется почтовый клиент. Если нет — напишите на{' '}
-        <a href={`mailto:${copy.form.email}`}>{copy.form.email}</a> или позвоните{' '}
-        <a href={copy.contacts.phone.href}>{copy.contacts.phone.label}</a>.
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a> или позвоните{' '}
+        <a href="tel:88005502645">8 800 550 26 45</a>.
       </p>
     );
   }
@@ -48,29 +52,31 @@ function DealerApplyForm({ source }) {
       </label>
       <div className="apply-row">
         <label className="apply-field">
+          <span>Телефон</span>
+          <input name="phone" type="tel" autoComplete="tel" required inputMode="tel" placeholder="+7 …" />
+        </label>
+        <label className="apply-field">
           <span>Компания</span>
           <input name="company" type="text" autoComplete="organization" placeholder="Необязательно" />
         </label>
-        <label className="apply-field">
-          <span>Регион</span>
-          <input name="city" type="text" autoComplete="address-level1" placeholder="Город или область" />
-        </label>
       </div>
       <label className="apply-field">
-        <span>Телефон</span>
-        <input name="phone" type="tel" autoComplete="tel" required inputMode="tel" placeholder="+7 …" />
+        <span>Задача</span>
+        <textarea name="task" rows="3" placeholder="Пара слов о задаче — необязательно" />
       </label>
       <button className="btn primary apply-submit" type="submit">
-        {copy.form.submit}
+        {COPY.submit || 'Отправить'}
       </button>
       <p className="apply-consent">
-        {copy.cta.consent}. <Link to="/policy">Политика конфиденциальности</Link>
+        Нажимая кнопку, вы даете согласие на обработку персональных данных.{' '}
+        <Link to="/policy">Политика конфиденциальности</Link>
       </p>
     </form>
   );
 }
 
-export default function DealerApplyButton({ className, children, source }) {
+/** CTA that opens the request popup instead of navigating to /contacts. */
+export default function LeadApplyButton({ className, children, source }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -79,8 +85,8 @@ export default function DealerApplyButton({ className, children, source }) {
         {children}
       </button>
       {open ? (
-        <ApplyDialog kicker={copy.form.kicker} title={copy.form.title} onClose={() => setOpen(false)}>
-          <DealerApplyForm source={source} />
+        <ApplyDialog kicker="Заявка" title="Обсудить задачу" lead={LEAD} onClose={() => setOpen(false)}>
+          <LeadApplyForm source={source} />
         </ApplyDialog>
       ) : null}
     </>

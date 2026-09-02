@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import DealerApplyButton from '../components/DealerApplyButton';
+import LeadApplyButton from '../components/LeadApplyButton';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -212,9 +213,9 @@ function AboutBody({ page }) {
       ) : null}
 
       <div className="actions about-actions">
-        <Link className="btn primary btn--lg" to="/contacts">
+        <LeadApplyButton className="btn primary btn--lg" source="о компании">
           Связаться
-        </Link>
+        </LeadApplyButton>
         <Link className="btn secondary btn--lg" to="/catalog">
           В каталог
         </Link>
@@ -461,9 +462,9 @@ function ServiceBody({ pageKey, page }) {
       ) : null}
 
       <div className="actions about-actions">
-        <Link className="btn primary btn--lg" to="/contacts">
+        <LeadApplyButton className="btn primary btn--lg" source={copy.title || pageKey}>
           Связаться с нами
-        </Link>
+        </LeadApplyButton>
         <Link className="btn secondary btn--lg" to="/catalog">
           В каталог
         </Link>

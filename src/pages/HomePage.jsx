@@ -7,6 +7,7 @@ import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
 import DealerApplyButton from '../components/DealerApplyButton';
+import LeadApplyButton from '../components/LeadApplyButton';
 import DesignLabLeadForm from '../components/DesignLabLeadForm';
 import HomeLeadForm from '../components/HomeLeadForm';
 import Seo from '../components/Seo';
@@ -66,9 +67,9 @@ export default function HomePage() {
             <Link className="btn primary btn--lg" to="/catalog">
               В каталог →
             </Link>
-            <Link className="btn secondary btn--lg" to="/contacts">
+            <LeadApplyButton className="btn secondary btn--lg" source="главная — hero">
               Обсудить задачу
-            </Link>
+            </LeadApplyButton>
           </div>
         </div>
       </section>
@@ -460,9 +461,9 @@ export default function HomePage() {
               Проектируем, производим и обслуживаем сенсорные системы для бизнеса, государства и образования.
             </p>
             <div className="hero-actions">
-              <Link className="btn primary btn--lg" to="/contacts">
+              <LeadApplyButton className="btn primary btn--lg" source="главная — финальный блок">
                 Обсудить задачу
-              </Link>
+              </LeadApplyButton>
               <Link className="btn secondary btn--lg" to="/about">
                 О компании
               </Link>
