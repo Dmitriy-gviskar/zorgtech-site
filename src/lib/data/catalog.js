@@ -44,7 +44,6 @@ const REGEN_FRAMES = {
   ],
   'apriori-19-keyboard': [
     '/img/regen/apriori-19-keyboard-frame-front.png',
-    '/img/regen/apriori-19-keyboard-frame-34.png',
     '/img/regen/apriori-19-keyboard-frame-side.png',
     '/img/regen/apriori-19-keyboard-frame-rear.png',
     '/img/regen/apriori-19-keyboard-frame-keyboard.png',
@@ -71,8 +70,6 @@ const REGEN_FRAMES = {
   ],
   'apriori-22': [
     '/img/regen/apriori-22-frame-front.png',
-    '/img/regen/apriori-22-frame-rear.png',
-    '/img/regen/apriori-22-frame-detail.png',
   ],
   'apriori-22-key': [
     '/img/regen/apriori-22-key-frame-front.png',
