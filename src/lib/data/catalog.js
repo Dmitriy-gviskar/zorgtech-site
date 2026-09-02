@@ -409,6 +409,40 @@ export function getProduct(slug) {
   return products[slug] || null;
 }
 
+/**
+ * Модельные линейки: диагонали одной модели — варианты одной карточки.
+ * URL каждой диагонали остаётся живым (SEO), переключатель ведёт между ними.
+ * Прототип — Diamant N; после утверждения раскатываем на остальные линейки.
+ */
+const PRODUCT_FAMILIES = [
+  {
+    id: 'diamant-n',
+    title: 'Diamant N',
+    lead: 'diamant-32-n', // самая продаваемая — её показываем в категории
+    variants: ['diamant-22-n', 'diamant-32-n', 'diamant-43-n', 'diamant-49-n', 'diamant-55-n'],
+  },
+];
+
+const FAMILY_BY_SLUG = new Map();
+for (const family of PRODUCT_FAMILIES) {
+  for (const slug of family.variants) FAMILY_BY_SLUG.set(slug, family);
+}
+
+/** Семейство модели для slug: { id, title, lead, variants: [{slug, title, diagonal, product}] }. */
+export function productFamily(slug) {
+  const family = FAMILY_BY_SLUG.get(slug);
+  if (!family) return null;
+  const variants = family.variants
+    .map((s) => {
+      const product = getProduct(s);
+      return product ? { slug: s, title: product.title, diagonal: productDiagonal(product), product } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => (a.diagonal || 0) - (b.diagonal || 0));
+  if (variants.length < 2) return null;
+  return { id: family.id, title: family.title, lead: family.lead, variants };
+}
+
 /** Screen diagonal in inches from specs or model title, or null. */
 export function productDiagonal(productOrSlug) {
   const product = typeof productOrSlug === 'string' ? getProduct(productOrSlug) : productOrSlug;

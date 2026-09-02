@@ -10,6 +10,7 @@ import {
   presentCategoryIntro,
   productCover,
   productDiagonal,
+  productFamily,
   productGallery,
 } from '../lib/data/catalog.js';
 import { paths } from '../lib/paths.js';
@@ -40,15 +41,37 @@ export default function CategoryPage() {
     [cat],
   );
 
+  // Одна карточка на линейку: варианты диагоналей схлопываются в семейство
+  const cards = useMemo(() => {
+    const out = [];
+    const seenFamilies = new Set();
+    for (const p of items) {
+      const family = productFamily(p.slug);
+      if (!family) {
+        out.push({ key: p.slug, family: null, product: p });
+        continue;
+      }
+      if (seenFamilies.has(family.id)) continue;
+      seenFamilies.add(family.id);
+      const lead = family.variants.find((v) => v.slug === family.lead) || family.variants[0];
+      out.push({ key: family.id, family, product: lead.product });
+    }
+    return out;
+  }, [items]);
+
   const availableDiagonals = useMemo(() => {
     const present = [...new Set(items.map(productDiagonal).filter(Boolean))];
     return present.sort((a, b) => a - b);
   }, [items]);
 
   const visible = useMemo(() => {
-    if (!diagonal) return items;
-    return items.filter((p) => productDiagonal(p) === diagonal);
-  }, [items, diagonal]);
+    if (!diagonal) return cards;
+    return cards.filter((card) =>
+      card.family
+        ? card.family.variants.some((v) => v.diagonal === diagonal)
+        : productDiagonal(card.product) === diagonal,
+    );
+  }, [cards, diagonal]);
 
   if (redirectTo) return <Navigate to={paths.category(redirectTo)} replace />;
 
@@ -91,8 +114,8 @@ export default function CategoryPage() {
         ) : null}
         <p className="category-head-count">
           {diagonal
-            ? `${visible.length} из ${items.length} · диагональ ${diagonal}″`
-            : ruCount(items.length, 'модель в линейке', 'модели в линейке', 'моделей в линейке')}
+            ? `${visible.length} из ${cards.length} · диагональ ${diagonal}″`
+            : ruCount(cards.length, 'модель в линейке', 'модели в линейке', 'моделей в линейке')}
         </p>
         <div className="category-head-toolbar">
           <div className="actions">
@@ -126,15 +149,40 @@ export default function CategoryPage() {
 
       {visible.length ? (
         <ul className="product-grid product-tiles">
-          {visible.map((p, i) => {
-            const cover = studioCover(p);
+          {visible.map((card, i) => {
+            const { family } = card;
+            // При активном фильтре семейная карточка ведёт на выбранную диагональ
+            const target = family
+              ? (diagonal && family.variants.find((v) => v.diagonal === diagonal)) ||
+                family.variants.find((v) => v.slug === family.lead) ||
+                family.variants[0]
+              : null;
+            const product = target ? target.product : card.product;
+            const cover = studioCover(product);
 
             return (
-              <li key={p.slug}>
+              <li key={card.key}>
                 <Reveal delay={Math.min(i, 5) * 0.04}>
-                  <Link to={paths.product(p.slug)} className="feature-card category-product-card">
+                  <Link
+                    to={paths.product(target ? target.slug : card.product.slug)}
+                    className="feature-card category-product-card"
+                  >
                     <div className="feature-card-copy">
-                      <h2 className="feature-card-title">{p.title}</h2>
+                      <h2 className="feature-card-title">{family ? family.title : card.product.title}</h2>
+                      {family ? (
+                        <span className="category-card-variants" aria-label="Доступные диагонали">
+                          {family.variants.map((v) => (
+                            <span
+                              key={v.slug}
+                              className={`category-card-variant${
+                                diagonal === v.diagonal ? ' is-active' : ''
+                              }`}
+                            >
+                              {v.diagonal}″
+                            </span>
+                          ))}
+                        </span>
+                      ) : null}
                       <span className="feature-card-cta">
                         Подробнее <span aria-hidden="true">→</span>
                       </span>

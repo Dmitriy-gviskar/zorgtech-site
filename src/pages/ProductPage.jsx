@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {
   getProduct,
   getCategory,
+  productFamily,
   productGallery,
   productLiveGallery,
   presentProduct,
@@ -38,6 +39,7 @@ export default function ProductPage() {
   if (!product) return <NotFoundPage />;
 
   const cat = getCategory(product.categorySlug);
+  const family = productFamily(slug);
   const gallery = productGallery(product);
   const liveGallery = productLiveGallery(product);
   const hero = gallery[Math.min(active, Math.max(gallery.length - 1, 0))] || gallery[0];
@@ -116,6 +118,30 @@ export default function ProductPage() {
 
           {copy.slogan ? <p className="product-slogan">{copy.slogan}</p> : null}
           {copy.hook ? <p className="product-hook">{copy.hook}</p> : null}
+
+          {family ? (
+            <div className="product-variants" role="group" aria-label="Диагональ экрана">
+              <span className="product-variants-label">Диагональ</span>
+              <div className="product-variants-options">
+                {family.variants.map((v) =>
+                  v.slug === slug ? (
+                    <span key={v.slug} className="product-variant is-active" aria-current="page">
+                      {v.diagonal}″
+                    </span>
+                  ) : (
+                    <Link
+                      key={v.slug}
+                      className="product-variant"
+                      to={paths.product(v.slug)}
+                      title={v.title}
+                    >
+                      {v.diagonal}″
+                    </Link>
+                  ),
+                )}
+              </div>
+            </div>
+          ) : null}
 
           <div className="product-buy">
             <div className="product-buy-meta">

@@ -312,6 +312,30 @@
   color: #fff;
 }
 
+/* Диагонали семейства на карточке линейки */
+.category-card-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.55rem;
+}
+
+.category-card-variant {
+  padding: 0.14rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: #fff;
+}
+
+.category-card-variant.is-active {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  color: #fff;
+}
+
 .category-filter-empty {
   margin: 1.5rem 0 0;
   color: var(--ink-soft);
@@ -644,6 +668,55 @@
   font-size: 1.02rem;
   line-height: 1.5;
   color: var(--ink-soft);
+}
+
+/* Переключатель диагоналей внутри карточки модели */
+.product-variants {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+}
+
+.product-variants-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.product-variants-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.product-variant {
+  min-width: 3.2rem;
+  padding: 0.42rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+a.product-variant:hover {
+  border-color: var(--cyan);
+  color: var(--cyan-deep);
+}
+
+.product-variant.is-active {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  color: #fff;
 }
 
 .product-buy {
