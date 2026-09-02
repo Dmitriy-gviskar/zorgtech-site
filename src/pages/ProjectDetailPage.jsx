@@ -1,4 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import Lightbox from '../components/Lightbox';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -21,12 +23,14 @@ function studioCover(product) {
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProject(slug);
+  const [shot, setShot] = useState(-1);
 
   if (!project) return <NotFoundPage />;
 
   const copy = presentProject(project);
   const hero = copy.images[0];
   const gallery = copy.images.slice(1, 10);
+  const shots = (hero ? [hero, ...gallery] : gallery).map((src) => assetUrl(src));
   const used = (copy.usedProducts || project.usedProducts || [])
     .map((u) => getProduct(u.slug) || u)
     .filter(Boolean);
@@ -64,9 +68,9 @@ export default function ProjectDetailPage() {
           </div>
         </div>
         {hero ? (
-          <div className="detail-hero-media" aria-hidden="true">
+          <button type="button" className="detail-hero-media gallery-zoom" onClick={() => setShot(0)} aria-label="Открыть изображение">
             <img src={assetUrl(hero)} alt="" />
-          </div>
+          </button>
         ) : null}
       </header>
 
@@ -126,13 +130,23 @@ export default function ProjectDetailPage() {
             <h2>Кадры проекта</h2>
           </header>
           <div className="solution-gallery project-gallery">
-            {gallery.map((src) => (
-              <figure key={src} className="solution-gallery-shot">
+            {gallery.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                className="solution-gallery-shot gallery-zoom"
+                onClick={() => setShot(hero ? i + 1 : i)}
+                aria-label="Открыть изображение"
+              >
                 <img src={assetUrl(src)} alt="" loading="lazy" />
-              </figure>
+              </button>
             ))}
           </div>
         </section>
+      ) : null}
+
+      {shot >= 0 ? (
+        <Lightbox images={shots} index={shot} onIndex={setShot} onClose={() => setShot(-1)} />
       ) : null}
 
       {used.length ? (

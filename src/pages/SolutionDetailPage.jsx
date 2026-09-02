@@ -1,4 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import Lightbox from '../components/Lightbox';
 import Reveal from '../components/Reveal';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
@@ -9,6 +11,7 @@ import NotFoundPage from './NotFoundPage';
 export default function SolutionDetailPage() {
   const { slug } = useParams();
   const solution = getSolution(slug);
+  const [shot, setShot] = useState(-1);
 
   if (!solution) return <NotFoundPage />;
 
@@ -16,6 +19,7 @@ export default function SolutionDetailPage() {
   const group = solutionGroupMeta(solution.group);
   const hero = copy.images[0];
   const gallery = copy.images.slice(1, 9);
+  const shots = (hero ? [hero, ...gallery] : gallery).map((src) => assetUrl(src));
 
   return (
     <div className="page detail-page solution-detail">
@@ -55,9 +59,9 @@ export default function SolutionDetailPage() {
           </div>
         </div>
         {hero ? (
-          <div className="detail-hero-media" aria-hidden="true">
+          <button type="button" className="detail-hero-media gallery-zoom" onClick={() => setShot(0)} aria-label="Открыть изображение">
             <img src={assetUrl(hero)} alt="" />
-          </div>
+          </button>
         ) : null}
       </header>
 
@@ -98,13 +102,23 @@ export default function SolutionDetailPage() {
             <h2>Как выглядит софт</h2>
           </header>
           <div className={`solution-gallery${gallery.length === 1 ? ' solution-gallery--solo' : ''}`}>
-            {gallery.map((src) => (
-              <figure key={src} className="solution-gallery-shot">
+            {gallery.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                className="solution-gallery-shot gallery-zoom"
+                onClick={() => setShot(hero ? i + 1 : i)}
+                aria-label="Открыть изображение"
+              >
                 <img src={assetUrl(src)} alt="" loading="lazy" />
-              </figure>
+              </button>
             ))}
           </div>
         </section>
+      ) : null}
+
+      {shot >= 0 ? (
+        <Lightbox images={shots} index={shot} onIndex={setShot} onClose={() => setShot(-1)} />
       ) : null}
 
       <div className="actions about-actions">
