@@ -12,15 +12,14 @@ const NAV = [
   { to: paths.solutions, label: 'Софт' },
   { to: paths.projects, label: 'Проекты' },
   { to: paths.areas, label: 'Области применения' },
-  { to: paths.about, label: 'О компании' },
-  { to: paths.dealers, label: 'Дилерам' },
   { to: paths.support, label: 'Сервисный центр' },
-  { to: paths.contacts, label: 'Контакты' },
 ];
 
 const MORE = [
+  { to: paths.about, label: 'О компании' },
+  { to: paths.dealers, label: 'Дилерам' },
+  { to: paths.contacts, label: 'Контакты' },
   { to: paths.delivery, label: 'Доставка' },
-  { to: paths.support, label: 'Поддержка' },
   { to: paths.rent, label: 'Аренда' },
 ];
 
