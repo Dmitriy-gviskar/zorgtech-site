@@ -86,8 +86,8 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-22-f-frame-detail.png',
   ],
   'diamant-22-n': [
-    '/img/regen/diamant-22-n-frame-34-v11.png',
-    '/img/regen/diamant-22-n-frame-side-v11.png',
+    '/img/regen/diamant-22-n-frame-34-v12.png',
+    '/img/regen/diamant-22-n-frame-side-v12.png',
   ],
   'diamant-22-w': [
     '/img/regen/diamant-22-w-frame-front.png',
@@ -136,9 +136,9 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-pro-frame-detail.png',
   ],
   'diamant-32-n': [
-    '/img/regen/diamant-32-n-frame-front-v1.png',
-    '/img/regen/diamant-32-n-frame-34-v1.png',
-    '/img/regen/diamant-32-n-frame-side-v1.png',
+    '/img/regen/diamant-32-n-frame-front-v2.png',
+    '/img/regen/diamant-32-n-frame-34-v2.png',
+    '/img/regen/diamant-32-n-frame-side-v2.png',
   ],
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
