@@ -136,10 +136,9 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-pro-frame-detail.png',
   ],
   'diamant-32-n': [
-    '/img/regen/diamant-32-n-frame-front.png',
-    '/img/regen/diamant-32-n-frame-34.png',
-    '/img/regen/diamant-32-n-frame-side.png',
-    '/img/regen/diamant-32-n-frame-rear.png',
+    '/img/regen/diamant-32-n-frame-front-v1.png',
+    '/img/regen/diamant-32-n-frame-34-v1.png',
+    '/img/regen/diamant-32-n-frame-side-v1.png',
   ],
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
