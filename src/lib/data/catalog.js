@@ -335,8 +335,6 @@ const REGEN_FRAMES = {
   ],
   'eco-kid-22': [
     '/img/regen/eco-kid-22-frame-front.png',
-    '/img/regen/eco-kid-22-frame-34-v2.png',
-    '/img/regen/eco-kid-22-frame-side.png',
     '/img/regen/eco-kid-22-frame-rear.png',
     '/img/regen/eco-kid-22-frame-detail.png',
   ],
