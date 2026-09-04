@@ -329,7 +329,6 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-intercon-frame-front.png',
     '/img/regen/diamant-intercon-frame-34.png',
     '/img/regen/diamant-intercon-frame-rear.png',
-    '/img/regen/diamant-intercon-frame-detail.png',
   ],
   'diamant-tmedical': [
     '/img/regen/diamant-tmedical-frame-34.png',
