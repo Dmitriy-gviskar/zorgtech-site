@@ -333,8 +333,6 @@ const REGEN_FRAMES = {
   'diamant-tmedical': [
     '/img/regen/diamant-tmedical-frame-34.png',
     '/img/regen/diamant-tmedical-frame-front.png',
-    '/img/regen/diamant-tmedical-frame-side.png',
-    '/img/regen/diamant-tmedical-frame-detail.png',
   ],
   'eco-kid-22': [
     '/img/regen/eco-kid-22-frame-front.png',
