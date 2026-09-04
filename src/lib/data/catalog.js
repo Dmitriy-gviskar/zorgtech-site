@@ -396,7 +396,6 @@ const REGEN_FRAMES = {
   ],
   'mono-55-t': [
     '/img/regen/mono-55-t-frame-34-v2.png',
-    '/img/regen/mono-55-t-frame-rear-v2.png',
     '/img/regen/mono-55-t-frame-detail-v2.png',
   ],
 };
