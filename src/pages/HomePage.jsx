@@ -56,36 +56,46 @@ export default function HomePage() {
   return (
     <div className="home">
       <Seo {...HOME_SEO} />
-      <section className="home-hero home-hero--banner" aria-label="Zorgtech — интерактивное оборудование">
-        <h1 className="home-hero-sr">
-          ZORGTECH — российский производитель. Интерактивное оборудование премиального качества
-        </h1>
-        <div className="home-hero-banner-frame">
-          <img
-            className="home-hero-banner"
-            src={assetUrl('/img/home/hero-3units-v5.png')}
-            alt=""
-            width={1376}
-            height={768}
-            decoding="async"
-            fetchPriority="high"
-          />
-          <div className="home-hero-hits" aria-hidden="false">
-            <Link className="home-hero-hit home-hero-hit--catalog" to="/catalog">
-              <span className="home-hero-sr">В каталог</span>
+      <section className="home-hero home-hero--units" aria-label="Zorgtech — интерактивное оборудование">
+        <div className="wrap home-hero-copy">
+          <h1 className="home-hero-word">
+            ZORG<span>TECH</span>
+          </h1>
+          <p className="home-hero-kicker">российский производитель</p>
+          <p className="home-hero-lead">Интерактивное оборудование премиального качества</p>
+          <div className="home-hero-cta">
+            <Link className="btn primary btn--lg" to="/catalog">
+              В каталог →
             </Link>
-            <LeadApplyButton className="home-hero-hit home-hero-hit--lead" source="главная — hero">
-              <span className="home-hero-sr">Обсудить задачу</span>
+            <LeadApplyButton className="btn secondary btn--lg" source="главная — hero">
+              Обсудить задачу
             </LeadApplyButton>
           </div>
         </div>
-        <div className="home-hero-cta home-hero-cta--mobile wrap">
-          <Link className="btn primary btn--lg" to="/catalog">
-            В каталог →
-          </Link>
-          <LeadApplyButton className="btn secondary btn--lg" source="главная — hero">
-            Обсудить задачу
-          </LeadApplyButton>
+        <div className="home-hero-units" aria-hidden="true">
+          <img
+            src={assetUrl('/img/home/hero-unit-fe-v1.png')}
+            alt=""
+            width={896}
+            height={1200}
+            decoding="async"
+            fetchPriority="high"
+          />
+          <img
+            src={assetUrl('/img/home/hero-unit-table-v1.png')}
+            alt=""
+            width={896}
+            height={1200}
+            decoding="async"
+            fetchPriority="high"
+          />
+          <img
+            src={assetUrl('/img/home/hero-unit-apriori-v1.png')}
+            alt=""
+            width={896}
+            height={1200}
+            decoding="async"
+          />
         </div>
       </section>
 
