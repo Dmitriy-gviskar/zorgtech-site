@@ -90,7 +90,7 @@ export default function HomePage() {
             fetchPriority="high"
           />
           <img
-            src={assetUrl('/img/home/hero-unit-apriori-v1.png')}
+            src={assetUrl('/img/home/hero-unit-apriori-v2.png')}
             alt=""
             width={896}
             height={1200}
