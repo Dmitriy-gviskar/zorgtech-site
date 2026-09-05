@@ -63,7 +63,7 @@ export default function HomePage() {
         <div className="home-hero-banner-frame">
           <img
             className="home-hero-banner"
-            src={assetUrl('/img/home/hero-3units-v4.png')}
+            src={assetUrl('/img/home/hero-3units-v5.png')}
             alt=""
             width={1376}
             height={768}
