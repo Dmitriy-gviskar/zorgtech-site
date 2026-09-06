@@ -295,8 +295,6 @@ const REGEN_FRAMES = {
   'diamant-55-n': [
     '/img/regen/diamant-55-n-frame-front-v3.png',
     '/img/regen/diamant-55-n-frame-34-v2.png',
-    '/img/regen/diamant-55-n-frame-side-v2.png',
-    '/img/regen/diamant-55-n-frame-rear-v2.png',
   ],
   'diamant-55-ne': [
     '/img/regen/diamant-55-ne-frame-front-v2.png',
@@ -741,7 +739,7 @@ export function presentProduct(productOrSlug) {
   const story = sentences.slice(tease && sentences[1] ? 2 : 1).filter((s) => s.length > 28);
   // Longer lead kept for places that still want 1–2 sentences
   const lead = firstSentences(source, 210, 2);
-  const { gift, items } = presentFeatures(product.features, 3);
+  const { gift, items } = presentFeatures(product.features, 4);
   return {
     slogan,
     hook,
@@ -887,6 +885,10 @@ export function presentSpecGlance(specs) {
   if (diagonal) {
     const n = diagonal.value.match(/\d+(?:[.,]\d+)?/);
     push('Диагональ', n ? `${n[0]}″` : diagonal.value, 'display');
+  }
+  const tilt = pick('Угол наклона');
+  if (tilt && /0\s*[-–—]\s*90/u.test(tilt.value)) {
+    push('Наклон', '0–90°', 'tilt');
   }
   const weight = pick('Вес нетто, кг', 'Вес, кг');
   if (weight) {

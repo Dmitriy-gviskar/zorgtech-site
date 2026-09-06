@@ -19,6 +19,13 @@ const ICONS = {
       <path d="M10 20v-6h4v6" />
     </>
   ),
+  tilt: (
+    <>
+      <path d="M4 19h16" />
+      <path d="M6 19 18 8" />
+      <path d="M6 19v-6" />
+    </>
+  ),
   touch: (
     <>
       <path d="M9 11.5V7.2a1.7 1.7 0 0 1 3.4 0V12" />
@@ -107,6 +114,7 @@ export function resolveSpecIcon(label) {
   if (/диагонал|монитор|разрешен/.test(t)) return 'display';
   if (/вес/.test(t)) return 'weight';
   if (/установ/.test(t)) return 'install';
+  if (/наклон|угол/.test(t)) return 'tilt';
   if (/касани|сенсор|мультитач|метод ввода/.test(t)) return 'touch';
   if (/яркост/.test(t)) return 'brightness';
   if (/памят|озу/.test(t)) return 'memory';
