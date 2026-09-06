@@ -75,6 +75,49 @@ function LeadApplyForm({ source }) {
   );
 }
 
+function PhoneApplyForm({ source, submitLabel }) {
+  const [note, setNote] = useState(false);
+
+  function onSubmit(event) {
+    event.preventDefault();
+    const phone = String(new FormData(event.currentTarget).get('phone') || '').trim();
+    if (!phone) return;
+
+    const subject = encodeURIComponent('Заказ звонка с сайта Zorgtech');
+    const body = encodeURIComponent(
+      [`Телефон: ${phone}`, '', `Источник: ${source}`].join('\n'),
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    setNote(true);
+  }
+
+  if (note) {
+    return (
+      <p className="apply-consent" role="status">
+        Спасибо. Если почта не открылась — напишите на{' '}
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a> или позвоните{' '}
+        <a href="tel:88005502645">8 800 550 26 45</a>.
+      </p>
+    );
+  }
+
+  return (
+    <form className="apply-form" onSubmit={onSubmit}>
+      <label className="apply-field">
+        <span>Телефон</span>
+        <input name="phone" type="tel" autoComplete="tel" required inputMode="tel" placeholder="+7 …" />
+      </label>
+      <button className="btn primary apply-submit" type="submit">
+        {submitLabel}
+      </button>
+      <p className="apply-consent">
+        Нажимая кнопку, вы даете согласие на обработку персональных данных.{' '}
+        <Link to="/policy">Политика конфиденциальности</Link>
+      </p>
+    </form>
+  );
+}
+
 /** CTA that opens the request popup instead of navigating to /contacts. */
 export default function LeadApplyButton({ className, children, source }) {
   const [open, setOpen] = useState(false);
@@ -87,6 +130,29 @@ export default function LeadApplyButton({ className, children, source }) {
       {open ? (
         <ApplyDialog kicker="Заявка" title="Обсудить задачу" lead={LEAD} onClose={() => setOpen(false)}>
           <LeadApplyForm source={source} />
+        </ApplyDialog>
+      ) : null}
+    </>
+  );
+}
+
+/** Phone-only callback popup. */
+export function CallRequestButton({ className, children, source }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button type="button" className={className} onClick={() => setOpen(true)}>
+        {children}
+      </button>
+      {open ? (
+        <ApplyDialog
+          kicker="Звонок"
+          title="Заказать звонок"
+          lead="Оставьте телефон — перезвоним в рабочее время."
+          onClose={() => setOpen(false)}
+        >
+          <PhoneApplyForm source={source} submitLabel="Заказать звонок" />
         </ApplyDialog>
       ) : null}
     </>

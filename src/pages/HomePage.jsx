@@ -7,7 +7,7 @@ import ChapterMediaMotion from '../components/ChapterMediaMotion';
 import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
 import DealerApplyButton from '../components/DealerApplyButton';
-import LeadApplyButton from '../components/LeadApplyButton';
+import LeadApplyButton, { CallRequestButton } from '../components/LeadApplyButton';
 import DesignLabLeadForm from '../components/DesignLabLeadForm';
 import HomeLeadForm from '../components/HomeLeadForm';
 import Seo from '../components/Seo';
@@ -72,29 +72,14 @@ export default function HomePage() {
             </LeadApplyButton>
           </div>
         </div>
-        <div className="home-hero-units" aria-hidden="true">
+        <div className="home-hero-units home-hero-units--lineup" aria-hidden="true">
           <img
-            src={assetUrl('/img/home/hero-unit-fe-v1.png')}
+            src={assetUrl('/img/home/hero-lineup-v1.png')}
             alt=""
-            width={896}
-            height={1200}
+            width={1024}
+            height={746}
             decoding="async"
             fetchPriority="high"
-          />
-          <img
-            src={assetUrl('/img/home/hero-unit-table-v1.png')}
-            alt=""
-            width={896}
-            height={1200}
-            decoding="async"
-            fetchPriority="high"
-          />
-          <img
-            src={assetUrl('/img/home/hero-unit-apriori-v3.png')}
-            alt=""
-            width={896}
-            height={1200}
-            decoding="async"
           />
         </div>
       </section>
@@ -458,9 +443,17 @@ export default function HomePage() {
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                   {item.external ? (
-                    <a className="btn secondary" href={item.href}>
-                      {item.label}
-                    </a>
+                    <div className="home-begin-card-actions">
+                      <a className="btn secondary" href={item.href}>
+                        {item.label}
+                      </a>
+                      <CallRequestButton
+                        className="btn primary"
+                        source="главная — позвоните нам"
+                      >
+                        Заказать звонок
+                      </CallRequestButton>
+                    </div>
                   ) : (
                     <Link className="btn secondary" to={item.to}>
                       {item.label}
