@@ -74,10 +74,10 @@ export default function HomePage() {
         </div>
         <div className="home-hero-units home-hero-units--lineup" aria-hidden="true">
           <img
-            src={assetUrl('/img/home/hero-lineup-v1.png')}
+            src={assetUrl('/img/home/hero-lineup-v2.png')}
             alt=""
-            width={1024}
-            height={746}
+            width={858}
+            height={638}
             decoding="async"
             fetchPriority="high"
           />
