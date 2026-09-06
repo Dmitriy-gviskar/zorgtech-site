@@ -376,7 +376,6 @@ const REGEN_FRAMES = {
     '/img/regen/mono-32-f-scan-frame-modules.png',
   ],
   'mono-32-n': [
-    '/img/regen/mono-32-n-frame-front-v2.png',
     '/img/regen/mono-32-n-frame-34-v2.png',
   ],
   'mono-43-f': [
