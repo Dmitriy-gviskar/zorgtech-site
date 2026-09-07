@@ -56,31 +56,25 @@ export default function HomePage() {
   return (
     <div className="home">
       <Seo {...HOME_SEO} />
-      <section className="home-hero home-hero--units" aria-label="Zorgtech — интерактивное оборудование">
-        <div className="wrap home-hero-copy">
-          <h1 className="home-hero-word">
-            ZORG<span>TECH</span>
-          </h1>
-          <p className="home-hero-kicker">российский производитель</p>
-          <p className="home-hero-lead">Интерактивное оборудование премиального качества</p>
-          <div className="home-hero-cta">
-            <Link className="btn primary btn--lg" to="/catalog">
-              В каталог →
-            </Link>
-            <LeadApplyButton className="btn secondary btn--lg" source="главная — hero">
-              Обсудить задачу
-            </LeadApplyButton>
-          </div>
-        </div>
-        <div className="home-hero-units home-hero-units--lineup" aria-hidden="true">
+      <section className="home-hero home-hero--ref" aria-label="Zorgtech — интерактивное оборудование">
+        <div className="home-hero-shot">
           <img
-            src={assetUrl('/img/home/hero-lineup-v2.png')}
-            alt=""
-            width={858}
-            height={638}
+            className="home-hero-ref"
+            src={assetUrl('/img/home/hero-dark/preview.png')}
+            alt="ZORGTECH — интерактивное оборудование премиального качества"
+            width={1920}
+            height={1080}
             decoding="async"
             fetchPriority="high"
           />
+          <div className="home-hero-hotspots">
+            <Link className="home-hero-hotspot" to="/catalog">
+              В каталог
+            </Link>
+            <LeadApplyButton className="home-hero-hotspot" source="главная — hero">
+              Обсудить задачу
+            </LeadApplyButton>
+          </div>
         </div>
       </section>
 

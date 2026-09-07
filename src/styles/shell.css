@@ -26,14 +26,14 @@
   backdrop-filter: blur(14px);
 }
 
-/* Home: soft fade into hero, then solid glass after scroll */
+/* Home: dark overlay on first screen, light glass after scroll */
 .site--home .top {
   position: sticky;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.48) 58%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(2, 8, 13, 0.72) 0%,
+    rgba(2, 8, 13, 0.28) 58%,
+    rgba(2, 8, 13, 0) 100%
   );
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(2px);
@@ -41,7 +41,8 @@
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
-    backdrop-filter 0.3s ease;
+    backdrop-filter 0.3s ease,
+    color 0.3s ease;
 }
 
 .site--home.site--scrolled .top {
@@ -81,6 +82,13 @@
 .site--home .nav a,
 .site--home .nav-more summary,
 .site--home .mobile-nav summary {
+  color: #fff;
+}
+
+.site--home.site--scrolled .logo,
+.site--home.site--scrolled .nav a,
+.site--home.site--scrolled .nav-more summary,
+.site--home.site--scrolled .mobile-nav summary {
   color: var(--ink);
 }
 
@@ -114,6 +122,12 @@
 .site--home .nav a.active,
 .site--home .nav a:hover,
 .site--home .nav-more summary:hover {
+  color: #9fe2ff;
+}
+
+.site--home.site--scrolled .nav a.active,
+.site--home.site--scrolled .nav a:hover,
+.site--home.site--scrolled .nav-more summary:hover {
   color: var(--cyan-deep);
 }
 
@@ -174,11 +188,31 @@
 }
 
 .site--home .top-phone {
-  color: var(--ink);
+  color: #fff;
 }
 
 .site--home .top-phone:hover {
+  color: #9fe2ff;
+}
+
+.site--home.site--scrolled .top-phone {
+  color: var(--ink);
+}
+
+.site--home.site--scrolled .top-phone:hover {
   color: var(--cyan-deep);
+}
+
+.site--home .mobile-nav summary {
+  color: #fff;
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 34%);
+}
+
+.site--home.site--scrolled .mobile-nav summary {
+  color: var(--ink);
+  background: #fff;
+  border-color: var(--line);
 }
 
 .top-cta {
