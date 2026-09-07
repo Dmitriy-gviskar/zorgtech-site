@@ -38,29 +38,36 @@
 
 .home-hero-hotspots {
   position: absolute;
+  inset: 0;
   z-index: 4;
-  top: 23%;
-  left: 4.8%;
-  width: 41.2%;
-  height: 60%;
-  display: flex;
-  align-items: flex-end;
-  gap: 20px;
-  padding: clamp(30px, 2.6vw, 50px);
+  pointer-events: none;
 }
 
 .home-hero-hotspot {
-  display: inline-flex;
-  min-height: 68px;
-  min-width: 11rem;
-  align-items: center;
-  justify-content: center;
-  padding: 0 34px;
+  position: absolute;
+  display: block;
+  padding: 0;
   border: 0;
   background: transparent;
   color: transparent;
   font-size: 0;
   cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Painted buttons in preview.png (1920×1080) */
+.home-hero-hotspot--catalog {
+  left: 7.2%;
+  top: 63.5%;
+  width: 12.4%;
+  height: 6.8%;
+}
+
+.home-hero-hotspot--lead {
+  left: 20.2%;
+  top: 63.5%;
+  width: 15.2%;
+  height: 6.8%;
 }
 
 @media (max-width: 720px) {

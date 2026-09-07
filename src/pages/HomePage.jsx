@@ -68,10 +68,10 @@ export default function HomePage() {
             fetchPriority="high"
           />
           <div className="home-hero-hotspots">
-            <Link className="home-hero-hotspot" to="/catalog">
+            <Link className="home-hero-hotspot home-hero-hotspot--catalog" to={paths.catalog}>
               В каталог
             </Link>
-            <LeadApplyButton className="home-hero-hotspot" source="главная — hero">
+            <LeadApplyButton className="home-hero-hotspot home-hero-hotspot--lead" source="главная — hero">
               Обсудить задачу
             </LeadApplyButton>
           </div>
