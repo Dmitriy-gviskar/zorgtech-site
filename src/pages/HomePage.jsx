@@ -34,6 +34,14 @@ function modelsLabel(count) {
   return ruCount(count, 'модель', 'модели', 'моделей');
 }
 
+function HeroGear({ children }) {
+  return (
+    <div className="home-hero-gear" aria-hidden="true">
+      <div className="home-hero-gear-stage">{children}</div>
+    </div>
+  );
+}
+
 function StatValue({ value }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
@@ -56,26 +64,66 @@ export default function HomePage() {
   return (
     <div className="home">
       <Seo {...HOME_SEO} />
-      <section className="home-hero home-hero--ref" aria-label="Zorgtech — интерактивное оборудование">
-        <div className="home-hero-shot">
-          <img
-            className="home-hero-ref"
-            src={assetUrl('/img/home/hero-dark/preview.png')}
-            alt="ZORGTECH — интерактивное оборудование премиального качества"
-            width={1920}
-            height={1080}
-            decoding="async"
-            fetchPriority="high"
-          />
-          <div className="home-hero-hotspots">
-            <Link className="home-hero-hotspot home-hero-hotspot--catalog" to={paths.catalog}>
-              В каталог
+      <section
+        className="home-hero"
+        aria-label="Zorgtech — интерактивное оборудование"
+        style={{ backgroundImage: `url(${assetUrl('/img/home/hero-dark/background.svg')})` }}
+      >
+        <img
+          className="home-hero-logo"
+          src={assetUrl('/img/home/hero-dark/logo-light.png')}
+          alt=""
+          width={790}
+          height={120}
+          decoding="async"
+        />
+        <div className="home-hero-copy">
+          <p className="home-hero-eyebrow">Российский производитель</p>
+          <h1>
+            Интерактивное оборудование
+            <span>премиального качества</span>
+          </h1>
+          <p className="home-hero-lead">
+            Премиальные устройства для бизнеса
+            <br />
+            и общественных пространств.
+          </p>
+          <div className="home-hero-actions">
+            <Link className="home-hero-btn home-hero-btn--primary" to={paths.catalog}>
+              В каталог →
             </Link>
-            <LeadApplyButton className="home-hero-hotspot home-hero-hotspot--lead" source="главная — hero">
+            <LeadApplyButton className="home-hero-btn home-hero-btn--ghost" source="главная — hero">
               Обсудить задачу
             </LeadApplyButton>
           </div>
         </div>
+        <HeroGear>
+          <img
+            className="home-hero-kiosk"
+            src={assetUrl('/img/home/hero-dark/kiosk.png')}
+            alt=""
+            width={317}
+            height={860}
+            decoding="async"
+          />
+          <img
+            className="home-hero-terminal"
+            src={assetUrl('/img/home/hero-dark/terminal.png')}
+            alt=""
+            width={295}
+            height={730}
+            decoding="async"
+          />
+          <img
+            className="home-hero-table"
+            src={assetUrl('/img/home/hero-dark/table.png')}
+            alt=""
+            width={686}
+            height={560}
+            decoding="async"
+            fetchPriority="high"
+          />
+        </HeroGear>
       </section>
 
       {POPULAR.length ? (
