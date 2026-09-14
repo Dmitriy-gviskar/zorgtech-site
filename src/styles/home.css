@@ -181,21 +181,21 @@
   z-index: 1;
   bottom: 0;
   left: 0;
-  width: 29%;
+  width: 24%;
 }
 
 .home-hero-terminal {
   z-index: 1;
   bottom: 0;
   right: 0;
-  width: 29%;
+  width: 24%;
 }
 
 .home-hero-table {
   z-index: 2;
   bottom: 0;
   left: 50%;
-  width: 40%;
+  width: 50%;
   transform: translateX(-50%);
 }
 
@@ -258,7 +258,7 @@
     top: auto;
     bottom: 0;
     left: 0;
-    width: 29%;
+    width: 24%;
   }
 
   .home-hero-terminal {
@@ -266,14 +266,14 @@
     bottom: 0;
     left: auto;
     right: 0;
-    width: 29%;
+    width: 24%;
   }
 
   .home-hero-table {
     top: auto;
     bottom: 0;
     left: 50%;
-    width: 40%;
+    width: 50%;
     transform: translateX(-50%);
   }
 }
