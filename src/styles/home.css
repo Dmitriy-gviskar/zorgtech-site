@@ -238,6 +238,11 @@
     padding-inline: clamp(24px, 4vw, 48px);
   }
 
+  .home-hero-kiosk {
+    left: 7%;
+    width: 27%;
+  }
+
   .home-hero-btn {
     min-height: 48px;
     padding-inline: 20px;
