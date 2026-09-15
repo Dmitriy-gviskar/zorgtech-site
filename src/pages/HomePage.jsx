@@ -67,20 +67,11 @@ export default function HomePage() {
       <section
         className="home-hero"
         aria-label="Zorgtech — интерактивное оборудование"
-        style={{ backgroundImage: `url(${assetUrl('/img/home/hero-dark/background.svg')})` }}
       >
-        <img
-          className="home-hero-logo"
-          src={assetUrl('/img/home/hero-dark/logo-light.png')}
-          alt=""
-          width={790}
-          height={120}
-          decoding="async"
-        />
         <div className="home-hero-copy">
           <p className="home-hero-eyebrow">Российский производитель</p>
           <h1>
-            Интерактивное оборудование
+            Интерактивное оборудование{' '}
             <span>премиального качества</span>
           </h1>
           <p className="home-hero-lead">
@@ -100,7 +91,7 @@ export default function HomePage() {
         <HeroGear>
           <img
             className="home-hero-kiosk"
-            src={assetUrl('/img/home/hero-dark/kiosk.png')}
+            src={assetUrl('/img/home/hero-dark/kiosk-sharp.png')}
             alt=""
             width={317}
             height={860}
@@ -108,7 +99,7 @@ export default function HomePage() {
           />
           <img
             className="home-hero-terminal"
-            src={assetUrl('/img/home/hero-dark/terminal.png')}
+            src={assetUrl('/img/home/hero-dark/terminal-sharp.png')}
             alt=""
             width={295}
             height={730}
@@ -116,7 +107,7 @@ export default function HomePage() {
           />
           <img
             className="home-hero-table"
-            src={assetUrl('/img/home/hero-dark/table.png')}
+            src={assetUrl('/img/home/hero-dark/table-sharp.png')}
             alt=""
             width={686}
             height={560}

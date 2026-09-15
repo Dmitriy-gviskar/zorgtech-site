@@ -26,18 +26,13 @@
   backdrop-filter: blur(14px);
 }
 
-/* Home: dark overlay on first screen, light glass after scroll */
+/* Home: dark studio glass over the hero */
 .site--home .top {
   position: sticky;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 8, 13, 0.72) 0%,
-    rgba(2, 8, 13, 0.28) 58%,
-    rgba(2, 8, 13, 0) 100%
-  );
-  border-bottom: 1px solid transparent;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgb(3 11 16 / 62%);
+  border-bottom: 1px solid rgb(173 224 245 / 8%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -82,7 +77,7 @@
 .site--home .nav a,
 .site--home .nav-more summary,
 .site--home .mobile-nav summary {
-  color: #fff;
+  color: #f5fbfe;
 }
 
 .site--home.site--scrolled .logo,
@@ -122,7 +117,7 @@
 .site--home .nav a.active,
 .site--home .nav a:hover,
 .site--home .nav-more summary:hover {
-  color: #9fe2ff;
+  color: #83d6f6;
 }
 
 .site--home.site--scrolled .nav a.active,
@@ -188,11 +183,11 @@
 }
 
 .site--home .top-phone {
-  color: #fff;
+  color: #f5fbfe;
 }
 
 .site--home .top-phone:hover {
-  color: #9fe2ff;
+  color: #83d6f6;
 }
 
 .site--home.site--scrolled .top-phone {
@@ -204,9 +199,9 @@
 }
 
 .site--home .mobile-nav summary {
-  color: #fff;
-  background: rgb(255 255 255 / 8%);
-  border-color: rgb(255 255 255 / 34%);
+  color: #f5fbfe;
+  background: rgb(255 255 255 / 7%);
+  border-color: rgb(255 255 255 / 22%);
 }
 
 .site--home.site--scrolled .mobile-nav summary {
@@ -577,6 +572,16 @@
 .apply-consent a,
 .apply-form .dealers-form-thanks a {
   color: var(--cyan-deep);
+}
+
+@media (max-width: 1120px) {
+  .site--home .nav {
+    display: none;
+  }
+
+  .site--home .mobile-nav {
+    display: block;
+  }
 }
 
 @media (max-width: 520px) {
