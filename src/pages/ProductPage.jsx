@@ -168,7 +168,7 @@ export default function ProductPage() {
               className="product-readmore"
               href={showStory ? '#product-story' : showLive ? '#product-live' : '#product-specs'}
             >
-              {showStory ? 'Читать описание' : showLive ? 'Живые фото' : 'К характеристикам'}{' '}
+              {showStory ? 'Читать описание' : showLive ? 'Оборудование в интерьере' : 'К характеристикам'}{' '}
               <span aria-hidden="true">↓</span>
             </a>
           ) : null}
@@ -193,7 +193,7 @@ export default function ProductPage() {
         <section className="sec product-live" id="product-live">
           <header className="sec-head">
             <p className="chapter-kicker">Галерея</p>
-            <h2>Живые фото</h2>
+            <h2>Оборудование в интерьере</h2>
           </header>
           <div
             className={`product-live-grid${
