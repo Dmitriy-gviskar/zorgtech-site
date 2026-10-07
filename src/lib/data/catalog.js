@@ -206,12 +206,13 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-43-f-print-frame-rear.png',
     '/img/regen/diamant-43-f-print-frame-print.png',
   ],
+  // v2 — v1 были пересвечены (правки); переэкспонированы в стиль Diamant 32 FE
   'diamant-43-fl': [
-    '/img/regen/diamant-43-fl-frame-front.png',
-    '/img/regen/diamant-43-fl-frame-34.png',
-    '/img/regen/diamant-43-fl-frame-side.png',
-    '/img/regen/diamant-43-fl-frame-rear.png',
-    '/img/regen/diamant-43-fl-frame-detail.png',
+    '/img/regen/diamant-43-fl-frame-front-v2.png',
+    '/img/regen/diamant-43-fl-frame-34-v2.png',
+    '/img/regen/diamant-43-fl-frame-side-v2.png',
+    '/img/regen/diamant-43-fl-frame-rear-v2.png',
+    '/img/regen/diamant-43-fl-frame-detail-v2.png',
   ],
   'diamant-43-n': [
     '/img/regen/diamant-43-n-frame-front.png',
