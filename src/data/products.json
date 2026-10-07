@@ -5785,5 +5785,77 @@
       "image": "https://zorgtech.com/local/templates/zorgtech/img/OG_logo_zorgtech.png"
     },
     "sourceUrl": "https://zorgtech.com/catalog/product/mono-32-f-pin/"
+  },
+  "diamant-v": {
+    "slug": "diamant-v",
+    "title": "Diamant V",
+    "categorySlug": "tribuny",
+    "lead": "Интерактивная трибуна для выступающего.",
+    "description": "Интерактивная трибуна для выступающего.",
+    "descriptionHtml": "",
+    "features": [],
+    "specs": {},
+    "price": "Цена по запросу",
+    "images": [],
+    "sourceImages": [],
+    "meta": {
+      "title": "Интерактивная трибуна Diamant V от производителя Zorgtech",
+      "description": "Diamant V — интерактивная трибуна для выступающего. Интерактивные трибуны Zorgtech: цена по запросу, доставка по РФ."
+    },
+    "sourceUrl": ""
+  },
+  "diamant-v-dual": {
+    "slug": "diamant-v-dual",
+    "title": "Diamant V Dual",
+    "categorySlug": "tribuny",
+    "lead": "Интерактивная трибуна с экраном для зала.",
+    "description": "Интерактивная трибуна с экраном для зала.",
+    "descriptionHtml": "",
+    "features": [],
+    "specs": {},
+    "price": "Цена по запросу",
+    "images": [],
+    "sourceImages": [],
+    "meta": {
+      "title": "Интерактивная трибуна Diamant V Dual от производителя Zorgtech",
+      "description": "Diamant V Dual — интерактивная трибуна с экраном для зала. Интерактивные трибуны Zorgtech: цена по запросу, доставка по РФ."
+    },
+    "sourceUrl": ""
+  },
+  "diamant-vw": {
+    "slug": "diamant-vw",
+    "title": "Diamant VW",
+    "categorySlug": "tribuny",
+    "lead": "Интерактивная трибуна в корпусе из МДФ.",
+    "description": "Интерактивная трибуна в корпусе из МДФ.",
+    "descriptionHtml": "",
+    "features": [],
+    "specs": {},
+    "price": "Цена по запросу",
+    "images": [],
+    "sourceImages": [],
+    "meta": {
+      "title": "Интерактивная трибуна Diamant VW от производителя Zorgtech",
+      "description": "Diamant VW — интерактивная трибуна в корпусе из МДФ. Интерактивные трибуны Zorgtech: цена по запросу, доставка по РФ."
+    },
+    "sourceUrl": ""
+  },
+  "diamant-vw-light": {
+    "slug": "diamant-vw-light",
+    "title": "Diamant VW light",
+    "categorySlug": "tribuny",
+    "lead": "Облегчённая интерактивная трибуна.",
+    "description": "Облегчённая интерактивная трибуна.",
+    "descriptionHtml": "",
+    "features": [],
+    "specs": {},
+    "price": "Цена по запросу",
+    "images": [],
+    "sourceImages": [],
+    "meta": {
+      "title": "Интерактивная трибуна Diamant VW light от производителя Zorgtech",
+      "description": "Diamant VW light — облегчённая интерактивная трибуна. Интерактивные трибуны Zorgtech: цена по запросу, доставка по РФ."
+    },
+    "sourceUrl": ""
   }
 }

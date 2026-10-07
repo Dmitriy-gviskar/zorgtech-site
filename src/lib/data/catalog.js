@@ -331,6 +331,11 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-tmedical-frame-34.png',
     '/img/regen/diamant-tmedical-frame-front.png',
   ],
+  // Интерактивные трибуны — рендеры из презентации zorgtech-deck-2026 (слайд 24)
+  'diamant-v': ['/img/regen/diamant-v-frame-34.png'],
+  'diamant-v-dual': ['/img/regen/diamant-v-dual-frame-34.png'],
+  'diamant-vw': ['/img/regen/diamant-vw-frame-34.png'],
+  'diamant-vw-light': ['/img/regen/diamant-vw-light-frame-34.png'],
   'eco-kid-22': [
     '/img/regen/eco-kid-22-frame-front.png',
     '/img/regen/eco-kid-22-frame-rear.png',

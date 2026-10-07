@@ -481,6 +481,100 @@
     "sourceUrl": "https://zorgtech.com/catalog/kioski-samoobsluzhivaniya/",
     "leadHtml": "Киоски самообслуживания сейчас можно встретить повсеместно, функция оплаты позволяет проводить оплату без участия кассира, программное обеспечение подсказывает пользователю порядок действий, термопринтер печатает чек, а фискальный регистратор отправляет данные в налоговую службу. Возможность брендирования терминала самообслуживания позволяет придерживаться фирменного стиля заказчика."
   },
+  "tribuny": {
+    "slug": "tribuny",
+    "name": "Интерактивные трибуны",
+    "title": "Интерактивные трибуны Diamant V, V Dual, VW и VW light от производителя Zorgtech",
+    "description": "Интерактивные трибуны Zorgtech: трибуна для выступающего и экран для зала. Модели Diamant V, V Dual, VW и VW light.",
+    "lead": "Трибуна для выступающего и экран для зала.\n\nГде применяются: конференции и форумы, залы, музеи и лектории, обучение.",
+    "image": "/img/regen/diamant-v-frame-34.png",
+    "productSlugs": [
+      "diamant-v",
+      "diamant-v-dual",
+      "diamant-vw",
+      "diamant-vw-light"
+    ],
+    "products": [
+      {
+        "slug": "diamant-v",
+        "title": "Diamant V"
+      },
+      {
+        "slug": "diamant-v-dual",
+        "title": "Diamant V Dual"
+      },
+      {
+        "slug": "diamant-vw",
+        "title": "Diamant VW"
+      },
+      {
+        "slug": "diamant-vw-light",
+        "title": "Diamant VW light"
+      }
+    ],
+    "sourceUrl": "",
+    "leadHtml": "<p>Трибуна для выступающего и экран для зала.</p>\n<p>Где применяются: конференции и форумы, залы, музеи и лектории, обучение.</p>",
+    "missing": false
+  },
+  "novinki": {
+    "slug": "novinki",
+    "name": "Новинки",
+    "title": "Новинки",
+    "description": "Новые модели интерактивных терминалов. Названия и характеристики уточняются.",
+    "lead": "Карточки собраны по 3D-рендерам. Названия моделей появятся отдельно.",
+    "image": "/img/regen/novinka-1-frame-34.png",
+    "productSlugs": [
+      "novinka-1",
+      "novinka-2",
+      "novinka-3",
+      "novinka-4",
+      "novinka-5",
+      "novinka-6",
+      "novinka-7",
+      "novinka-8",
+      "novinka-9"
+    ],
+    "products": [
+      {
+        "slug": "novinka-1",
+        "title": "Новинка 1"
+      },
+      {
+        "slug": "novinka-2",
+        "title": "Новинка 2"
+      },
+      {
+        "slug": "novinka-3",
+        "title": "Новинка 3"
+      },
+      {
+        "slug": "novinka-4",
+        "title": "Новинка 4"
+      },
+      {
+        "slug": "novinka-5",
+        "title": "Новинка 5"
+      },
+      {
+        "slug": "novinka-6",
+        "title": "Новинка 6"
+      },
+      {
+        "slug": "novinka-7",
+        "title": "Новинка 7"
+      },
+      {
+        "slug": "novinka-8",
+        "title": "Новинка 8"
+      },
+      {
+        "slug": "novinka-9",
+        "title": "Новинка 9"
+      }
+    ],
+    "sourceUrl": "",
+    "missing": false
+  },
   "unique": {
     "slug": "unique",
     "name": "unique",
