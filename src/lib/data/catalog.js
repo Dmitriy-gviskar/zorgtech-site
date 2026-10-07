@@ -253,12 +253,11 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-49-f-frame-rear.png',
     '/img/regen/diamant-49-f-frame-detail.png',
   ],
+  // Retail — глянцевый чёрный корпус с янтарной боковой подсветкой (по рендеру zorgtech.com)
+  // 3/4 первым — на обложке в сетке должна читаться боковая подсветка
   'diamant-49-f-retail': [
-    '/img/regen/diamant-49-f-frame-front.png',
-    '/img/regen/diamant-49-f-frame-34.png',
-    '/img/regen/diamant-49-f-frame-side.png',
-    '/img/regen/diamant-49-f-frame-rear.png',
-    '/img/regen/diamant-49-f-frame-detail.png',
+    '/img/regen/diamant-49-f-retail-frame-34.png',
+    '/img/regen/diamant-49-f-retail-frame-front.png',
   ],
   'diamant-49-n': [
     '/img/regen/diamant-49-n-frame-front.png',
