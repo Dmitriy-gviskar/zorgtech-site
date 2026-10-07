@@ -214,11 +214,12 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-43-fl-frame-rear-v2.png',
     '/img/regen/diamant-43-fl-frame-detail-v2.png',
   ],
+  // side/rear v2 — единая стойка-пластина, как на фронте и официальном рендере (правки: «разное исполнение»)
   'diamant-43-n': [
     '/img/regen/diamant-43-n-frame-front.png',
     '/img/regen/diamant-43-n-frame-34.png',
-    '/img/regen/diamant-43-n-frame-side.png',
-    '/img/regen/diamant-43-n-frame-rear.png',
+    '/img/regen/diamant-43-n-frame-side-v2.png',
+    '/img/regen/diamant-43-n-frame-rear-v2.png',
   ],
   'diamant-43-w': [
     '/img/regen/diamant-43-w-frame-front.png',
