@@ -195,11 +195,17 @@ export default function ProductPage() {
             <p className="chapter-kicker">Галерея</p>
             <h2>Живые фото</h2>
           </header>
-          <div className="product-live-grid">
-            {liveGallery.map((src, i) => (
+          <div
+            className={`product-live-grid${
+              liveGallery.every((shot) => shot.portrait) ? ' product-live-grid--portrait' : ''
+            }`}
+          >
+            {liveGallery.map(({ src, portrait, lead }) => (
               <figure
                 key={src}
-                className={`product-live-shot${i === 0 ? ' product-live-shot--lead' : ''}`}
+                className={`product-live-shot${lead ? ' product-live-shot--lead' : ''}${
+                  portrait ? ' product-live-shot--portrait' : ''
+                }`}
               >
                 <img src={src} alt="" loading="lazy" />
               </figure>

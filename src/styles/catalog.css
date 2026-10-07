@@ -920,6 +920,18 @@ a.product-variant:hover {
   transform: scale(1.06);
 }
 
+/* Вертикальные кадры (рендеры, фото в портрете) показываем целиком, а не обрезком */
+.product-live-shot--portrait img {
+  object-fit: contain;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* Галерея целиком из вертикальных кадров — вертикальные плитки */
+.product-live-grid--portrait .product-live-shot {
+  aspect-ratio: 3 / 4;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .product-live-shot img {
     transform: none;

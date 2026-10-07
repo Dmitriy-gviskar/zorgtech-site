@@ -9,6 +9,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "media:dims": "node scripts/media-dims.mjs",
     "bake:content": "vite-node scripts/bake-content.mjs",
     "optimize": "npm run bake:content && npm run optimize:images"
   },

@@ -1,5 +1,6 @@
 import categories from '../../data/categories.json';
 import products from '../../data/products.json';
+import mediaDims from '../../data/media-dims.json';
 import { assetUrl } from './asset.js';
 import {
   oneLine,
@@ -565,8 +566,18 @@ export function productGallery(productOrSlug) {
  * Scraped “live” photos for a product page section.
  * When studio regen frames own the hero, return all scrape images;
  * otherwise skip the first (already used as cover).
+ *
+ * Each item: { src, portrait }. The wide lead tile (21:9) gets the first landscape
+ * photo — a portrait render cropped into it read as a random slice (правки №3/№7);
+ * portrait shots are flagged so the grid shows them whole instead of cropping.
  */
 const HIDE_LIVE_GALLERY = new Set(['apriori-19-print-a4']);
+const LEAD_MIN_ASPECT = 1.25;
+
+function imageAspect(src) {
+  const dims = mediaDims[src];
+  return dims && dims[1] ? dims[0] / dims[1] : null;
+}
 
 export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
   const slug = typeof productOrSlug === 'string' ? productOrSlug : productOrSlug?.slug;
@@ -585,9 +596,15 @@ export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
     const url = assetUrl(src);
     if (!url || seen.has(url)) continue;
     seen.add(url);
-    out.push(url);
+    const aspect = imageAspect(src);
+    out.push({ src: url, aspect, portrait: aspect !== null && aspect < 1 });
     if (out.length >= limit) break;
   }
+
+  // Wide lead tile only when there is a landscape photo to fill it; otherwise a plain grid.
+  const leadIndex = out.findIndex((shot) => shot.aspect !== null && shot.aspect >= LEAD_MIN_ASPECT);
+  if (leadIndex > 0) out.unshift(...out.splice(leadIndex, 1));
+  if (leadIndex >= 0) out[0].lead = true;
 
   return out;
 }
