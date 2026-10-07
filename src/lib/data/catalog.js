@@ -302,6 +302,14 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-55-ne-frame-front-v2.png',
     '/img/regen/diamant-55-ne-frame-34-v2.png',
   ],
+  // Diamant S (55–110″) — панель на мобильной стойке по рендеру из презентации zorgtech-deck-2026;
+  // один комплект кадров на все диагонали
+  ...Object.fromEntries(
+    [55, 65, 75, 86, 98, 110].map((d) => [
+      `diamant-s-${d}`,
+      ['/img/regen/diamant-s-frame-front.png', '/img/regen/diamant-s-frame-34.png'],
+    ]),
+  ),
   'diamant-55-w': [
     '/img/regen/diamant-55-w-frame-front.png',
     '/img/regen/diamant-55-w-frame-34.png',
@@ -455,6 +463,12 @@ const PRODUCT_FAMILIES = [
     title: 'Diamant W',
     lead: 'diamant-32-w',
     variants: ['diamant-22-w', 'diamant-32-w', 'diamant-43-w', 'diamant-49-w', 'diamant-55-w'],
+  },
+  {
+    id: 'diamant-s',
+    title: 'Diamant S',
+    lead: 'diamant-s-75',
+    variants: ['diamant-s-55', 'diamant-s-65', 'diamant-s-75', 'diamant-s-86', 'diamant-s-98', 'diamant-s-110'],
   },
   {
     id: 'diamant-f-outdoor',
