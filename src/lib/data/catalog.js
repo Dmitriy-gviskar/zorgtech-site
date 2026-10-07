@@ -361,6 +361,16 @@ const REGEN_FRAMES = {
   'diamant-v-dual': ['/img/regen/diamant-v-dual-frame-34.png'],
   'diamant-vw': ['/img/regen/diamant-vw-frame-34.png'],
   'diamant-vw-light': ['/img/regen/diamant-vw-light-frame-34.png'],
+  // Новинки — кадры по 3D-рендерам (scripts/ingest_novinki_frames.py); названия моделей появятся отдельно
+  'novinka-1': ['/img/regen/novinka-1-frame-34.png', '/img/regen/novinka-1-frame-rear.png'],
+  'novinka-2': ['/img/regen/novinka-2-frame-34.png'],
+  'novinka-3': ['/img/regen/novinka-3-frame-front.png', '/img/regen/novinka-3-frame-rear.png'],
+  'novinka-4': ['/img/regen/novinka-4-frame-34.png'],
+  'novinka-5': ['/img/regen/novinka-5-frame-34.png'],
+  'novinka-6': ['/img/regen/novinka-6-frame-34.png'],
+  'novinka-7': ['/img/regen/novinka-7-frame-34.png'],
+  'novinka-8': ['/img/regen/novinka-8-frame-34.png', '/img/regen/novinka-8-frame-rear.png'],
+  'novinka-9': ['/img/regen/novinka-9-frame-34.png', '/img/regen/novinka-9-frame-side.png'],
   'eco-kid-22': [
     '/img/regen/eco-kid-22-frame-front.png',
     '/img/regen/eco-kid-22-frame-rear.png',
