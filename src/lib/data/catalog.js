@@ -193,12 +193,12 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-43-f-frame-rear.png',
     '/img/regen/diamant-43-f-frame-detail.png',
   ],
-  'diamant-43-f-general': [
-    '/img/regen/diamant-43-f-frame-front.png',
-    '/img/regen/diamant-43-f-frame-side.png',
-    '/img/regen/diamant-43-f-general-frame-34.png',
-    '/img/regen/diamant-43-f-general-frame-rear.png',
-  ],
+    // General — все три кадра перегенерированы по правкам (устройства утоплены в корпус, как в ¾)
+    'diamant-43-f-general': [
+      '/img/regen/diamant-43-f-general-frame-front.png',
+      '/img/regen/diamant-43-f-general-frame-side.png',
+      '/img/regen/diamant-43-f-general-frame-34-v2.png', // v1 — чужой стиль
+    ],
   'diamant-43-f-print': [
     '/img/regen/diamant-43-f-print-frame-front.png',
     '/img/regen/diamant-43-f-print-frame-34.png',
