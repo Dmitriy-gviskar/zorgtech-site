@@ -235,6 +235,20 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-46-f-outdoor-frame-rear.png',
     '/img/regen/diamant-46-f-outdoor-frame-detail.png',
   ],
+  // Уличные 32/43/50/65/75 (правки №10): своих рендеров нет — общие кадры линейки
+  // (32–50 → кадры 46″, 65–75 → кадры 55″)
+  ...Object.fromEntries(
+    [32, 43, 50].map((d) => [
+      `diamant-${d}-f-outdoor`,
+      ['front', '34', 'side', 'rear', 'detail'].map((v) => `/img/regen/diamant-46-f-outdoor-frame-${v}.png`),
+    ]),
+  ),
+  ...Object.fromEntries(
+    [65, 75].map((d) => [
+      `diamant-${d}-f-outdoor`,
+      ['front', '34', 'side', 'rear', 'detail'].map((v) => `/img/regen/diamant-55-f-outdoor-frame-${v}.png`),
+    ]),
+  ),
   'diamant-49-f': [
     '/img/regen/diamant-49-f-frame-front.png',
     '/img/regen/diamant-49-f-frame-34.png',
@@ -474,7 +488,15 @@ const PRODUCT_FAMILIES = [
     id: 'diamant-f-outdoor',
     title: 'Diamant F Outdoor',
     lead: 'diamant-46-f-outdoor',
-    variants: ['diamant-46-f-outdoor', 'diamant-55-f-outdoor'],
+    variants: [
+      'diamant-32-f-outdoor',
+      'diamant-43-f-outdoor',
+      'diamant-46-f-outdoor',
+      'diamant-50-f-outdoor',
+      'diamant-55-f-outdoor',
+      'diamant-65-f-outdoor',
+      'diamant-75-f-outdoor',
+    ],
   },
   {
     id: 'mono-f',
