@@ -301,13 +301,6 @@ export default function DealersPage() {
           </Reveal>
           <Reveal delay={0.08}>
             <article className="dealers-contact-card">
-              <span className="chapter-kicker">{copy.contacts.office.kicker}</span>
-              <strong>{copy.contacts.office.city}</strong>
-              <span>{copy.contacts.office.address}</span>
-            </article>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <article className="dealers-contact-card">
               <span className="chapter-kicker">{copy.contacts.production.kicker}</span>
               <strong>{copy.contacts.production.city}</strong>
               <span>{copy.contacts.production.address}</span>

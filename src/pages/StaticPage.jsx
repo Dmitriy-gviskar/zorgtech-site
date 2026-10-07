@@ -276,15 +276,6 @@ function ContactsBody() {
               </article>
             </Reveal>
           </li>
-          <li>
-            <Reveal delay={0.05}>
-              <article className="contacts-place contacts-place--accent">
-                <span className="chapter-kicker">Офис и шоурум</span>
-                <h3>Москва</h3>
-                <p>119530, г. Москва, Очаковское ш., 28стр2, БЦ Дорохофф.</p>
-              </article>
-            </Reveal>
-          </li>
         </ul>
       </section>
 

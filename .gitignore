@@ -25,6 +25,7 @@ dist-ssr
 
 # Local tooling / regen scratch
 .venv-rembg/
+tmp/ntables/.meshy
 public/img/regen/_prewhite/
 public/img/regen/_qa/
 public/img/regen/_whiten_report.json

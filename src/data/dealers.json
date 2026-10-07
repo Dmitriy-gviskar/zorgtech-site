@@ -122,11 +122,6 @@
     "title": "Контакты для дилеров",
     "phone": { "label": "8 800 550 26 45", "href": "tel:88005502645", "note": "Многоканальный, звонок по России бесплатный" },
     "email": { "label": "dealers@zorgtech.ru", "href": "mailto:dealers@zorgtech.ru" },
-    "office": {
-      "kicker": "Офис и шоурум",
-      "city": "Москва",
-      "address": "119530, г. Москва, Очаковское ш., 28стр2, БЦ Дорохофф."
-    },
     "production": {
       "kicker": "Производство",
       "city": "Дубна",
