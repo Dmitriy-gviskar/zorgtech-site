@@ -1,6 +1,7 @@
 import categories from '../../data/categories.json';
 import products from '../../data/products.json';
 import mediaDims from '../../data/media-dims.json';
+import galleryRenders from '../../data/gallery-renders.json';
 import { assetUrl } from './asset.js';
 import {
   oneLine,
@@ -606,8 +607,12 @@ export function productGallery(productOrSlug) {
  * Each item: { src, portrait }. The wide lead tile (21:9) gets the first landscape
  * photo — a portrait render cropped into it read as a random slice (правки №3/№7);
  * portrait shots are flagged so the grid shows them whole instead of cropping.
+ *
+ * Only real photos in situ: studio renders scraped from the reference site
+ * (white/transparent background, listed in gallery-renders.json) are skipped.
  */
 const HIDE_LIVE_GALLERY = new Set(['apriori-19-print-a4']);
+const GALLERY_RENDERS = new Set(galleryRenders);
 const LEAD_MIN_ASPECT = 1.25;
 
 function imageAspect(src) {
@@ -628,7 +633,7 @@ export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
   const seen = new Set();
 
   for (const src of pool) {
-    if (!src || /\/regen\//.test(src)) continue;
+    if (!src || /\/regen\//.test(src) || GALLERY_RENDERS.has(src)) continue;
     const url = assetUrl(src);
     if (!url || seen.has(url)) continue;
     seen.add(url);
