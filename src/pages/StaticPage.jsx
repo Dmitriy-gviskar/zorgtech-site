@@ -13,7 +13,7 @@ const META = {
   about: { kicker: 'Компания', fallback: 'О компании' },
   contacts: { kicker: 'Связь', fallback: 'Контакты' },
   delivery: { kicker: 'Сервис', fallback: 'Доставка и сервис' },
-  support: { kicker: 'Сервис', fallback: 'Поддержка' },
+  support: { kicker: 'Сервис', fallback: 'Гарантийное обслуживание' },
   rent: { kicker: 'Сервис', fallback: 'Аренда' },
   policy: { kicker: 'Документы', fallback: 'Политика конфиденциальности' },
 };
@@ -329,7 +329,17 @@ function ServiceBody({ pageKey, page }) {
 
   return (
     <div className="service-body">
-      {copy.story.length ? (
+      {copy.story.length && pageKey === 'support' ? (
+        <Reveal>
+          <ol className="service-steps">
+            {copy.story.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </Reveal>
+      ) : null}
+
+      {copy.story.length && pageKey !== 'support' ? (
         <Reveal>
           <section className="service-story">
             {copy.story.flatMap((block, i) =>
@@ -425,10 +435,10 @@ function ServiceBody({ pageKey, page }) {
       ) : null}
 
       {copy.sections.length && pageKey !== 'policy' ? (
-        <div className="service-sections">
-          {copy.sections.map((sec, i) => (
-            <Reveal key={sec.title} delay={Math.min(i, 4) * 0.04}>
-              <section className="service-section">
+        <Reveal>
+          <div className="service-sections">
+            {copy.sections.map((sec, i) => (
+              <section key={sec.title} className="service-section">
                 <header className="sec-head">
                   <p className="chapter-kicker">{String(i + 1).padStart(2, '0')}</p>
                   <h2>{sec.title}</h2>
@@ -448,9 +458,9 @@ function ServiceBody({ pageKey, page }) {
                   </ul>
                 ) : null}
               </section>
-            </Reveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       ) : null}
 
       {pageKey === 'support' ? <ServiceRequestForm /> : null}

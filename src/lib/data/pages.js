@@ -137,7 +137,82 @@ function polishRentPage(copy) {
   };
 }
 
+/** Канон /support из макета «сайт зорга» (support-page.html). */
+const SUPPORT_PAGE = {
+  title: 'Гарантийное обслуживание',
+  lead: 'Ремонтируем и сопровождаем интерактивное оборудование. И в гарантийный срок, и после него.',
+  story: [
+    'Если оборудование работает со сбоями, оставьте заявку на сайте.',
+    'Мы перезвоним и договоримся, когда будет удобно проверить устройство.',
+    'Найдём причину поломки.',
+    'Если нужен ремонт, сделаем его у вас на месте или в сервисном центре.',
+    'Срок назовём сразу и постараемся в него уложиться.',
+  ],
+  facts: [],
+  carriers: [],
+  sections: [
+    {
+      title: 'На связи круглые сутки',
+      text: 'Диспетчер примет звонок и заявку ночью и в выходной. Вы не останетесь с поломкой один.',
+      items: [],
+    },
+    {
+      title: 'Сервис по всей России',
+      text: 'Обслуживаем оборудование от Калининграда до Владивостока. Гарантия действует по всей стране.',
+      items: [],
+    },
+    {
+      title: 'Отвечаем быстро',
+      text: 'После заявки ответим в течение часа. Уточним, что случилось, и поможем удалённо или приедем к вам.',
+      items: [],
+    },
+    {
+      title: 'Консультация бесплатно',
+      text: 'Не знаете, как настроить устройство, подключить его или относится ли случай к гарантии? Позвоните. Инженер скажет, что делать дальше.',
+      items: [],
+    },
+    {
+      title: 'Как мы проверяем ремонт',
+      text: 'После ремонта проверяем устройство ещё раз. Так мы видим, что та же поломка не вернулась.',
+      items: [
+        'Ставим запчасти от производителя',
+        'Ремонт делают инженеры, которые знают это оборудование',
+        'После ремонта каждое устройство проверяем снова',
+      ],
+    },
+    {
+      title: 'Когда гарантия закончилась',
+      text: 'Гарантия может закончиться. Обслуживание на этом не останавливается.',
+      items: [
+        'Договор на сервис с фиксированной ценой',
+        'Ремонт на запчастях производителя',
+        'Приоритет и скидки постоянным клиентам',
+      ],
+    },
+    {
+      title: 'Помогаем с техникой и программами',
+      text: 'Помогаем и с оборудованием, и с программами. Если договора на обслуживание ещё нет — позвоните, подберём условия.',
+      items: [],
+    },
+    {
+      title: 'Что входит в обслуживание',
+      text: 'Что входит в гарантию и в обслуживание после неё, расскажем по телефону или по почте.',
+      items: [],
+    },
+    {
+      title: 'Поддержка программ',
+      text: 'Поддерживаем софтовую часть: ищем сбои, настраиваем, сохраняем копии и выпускаем обновления.',
+      items: ['Поиск сбоев и настройка', 'Резервные копии', 'Новые функции', 'Исправление ошибок'],
+    },
+  ],
+  prices: [],
+  lists: [],
+  images: [],
+  hotline: '8 800 550 26 45',
+};
+
 export function presentServicePage(pageKey, page) {
+  if (pageKey === 'support') return SUPPORT_PAGE;
   if (page?.presented) {
     return pageKey === 'rent' ? polishRentPage(page.presented) : page.presented;
   }
@@ -207,56 +282,6 @@ export function presentServicePage(pageKey, page) {
       lists: [],
       images: page?.images || [],
       hotline: null,
-    };
-  }
-
-  if (pageKey === 'support') {
-    const sections = [];
-    for (const raw of html.matchAll(/<p[^>]*>\s*<strong>([\s\S]*?)<\/strong>([\s\S]*?)<\/p>/gi)) {
-      const heading = stripTags(raw[1]).replace(/:$/, '');
-      const text = stripTags(raw[2]);
-      if (!heading || heading.length > 80) continue;
-      sections.push({ title: heading, text, items: [] });
-    }
-
-    // attach software support list to matching section
-    const softItems = htmlListItems(
-      (html.match(/Поддержка программного обеспечения[\s\S]*?<\/ul>/i) || [])[0] || '',
-    );
-    const soft = sections.find((s) => /поддержка программного/i.test(s.title));
-    if (soft) soft.items = softItems;
-
-    const corpItems = htmlListItems(
-      (html.match(/Сервис для корпоративных клиентов[\s\S]*?<\/ul>/i) ||
-        html.match(/widget-service[\s\S]*?<\/ul>/i) ||
-        [])[0] || '',
-    );
-    const corpTextMatch = html.match(
-      /Сервис для корпоративных клиентов[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/i,
-    );
-    const corpText = corpTextMatch ? stripTags(corpTextMatch[1]) : '';
-    if (corpItems.length || corpText) {
-      sections.push({
-        title: 'Сервис для корпоративных клиентов',
-        text: corpText,
-        items: corpItems,
-      });
-    }
-
-    const phoneMatch = html.match(/8[\s\u00a0]*800[\s\u00a0]*550[\s\u00a0]*26[\s\u00a0]*45/);
-    const hotline = phoneMatch ? '8 800 550 26 45' : null;
-
-    return {
-      title: 'Поддержка',
-      lead: firstSentences(metaLead || sections[0]?.text || '', 180, 2),
-      story: [],
-      facts: [],
-      carriers: [],
-      sections,
-      prices: [],
-      lists: [],
-      images: page?.images || [],
-      hotline,
     };
   }
 

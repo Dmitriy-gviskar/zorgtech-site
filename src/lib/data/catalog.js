@@ -127,7 +127,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-frame-front.png',
     '/img/regen/diamant-32-fe-frame-34.png',
     '/img/regen/diamant-32-fe-frame-side.png',
-    '/img/regen/diamant-32-fe-frame-rear-v9.png', // v9 — задняя крышка без лючка/замка, кнопка питания снизу на торце (правки)
+    '/img/regen/diamant-32-fe-frame-rear-v10.png', // v10 — сервисный лючок на 4 винтах + планка разъёмов с ключом питания, как у Diamant 43 F (правки)
     '/img/regen/diamant-32-fe-frame-detail.png',
   ],
   'diamant-32-fe-pro': [
@@ -137,13 +137,13 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-pro-frame-detail.png',
   ],
   'diamant-32-n': [
-    '/img/regen/diamant-32-n-frame-front-v2.png',
-    '/img/regen/diamant-32-n-frame-34-v2.png',
-    '/img/regen/diamant-32-n-frame-side-v2.png',
+    '/img/regen/diamant-32-n-frame-front-v4.png', // v4 — v2 без рваных теней на полу
+    '/img/regen/diamant-32-n-frame-34-v4.png',
+    '/img/regen/diamant-32-n-frame-side-v4.png', // v4 — шарнир: хромированная ось с ручкой-барашком на стойке (правки)
   ],
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
-    '/img/regen/diamant-32-ne-frame-rear.png',
+    '/img/regen/diamant-32-ne-frame-rear-v3.png', // v3 — белый корпус, читаемые рёбра на светлом фоне (без потери белизны)
   ],
   'diamant-32-w': [
     '/img/regen/diamant-32-w-frame-front.png',
@@ -379,7 +379,6 @@ const REGEN_FRAMES = {
   'eco-kid-32': [
     '/img/regen/eco-kid-32-frame-front.png',
     '/img/regen/eco-kid-32-frame-34.png',
-    '/img/regen/eco-kid-32-frame-rear.png',
     '/img/regen/eco-kid-32-frame-detail.png',
   ],
   'mono-19-f': [
