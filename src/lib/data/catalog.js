@@ -792,6 +792,21 @@ export function presentProduct(productOrSlug) {
       features: [],
     };
   }
+  const ownLead = oneLine(product.lead || '');
+  const ownDescription = oneLine(product.description || '');
+  if (ownLead && ownDescription && !ownDescription.startsWith(ownLead)) {
+    // Separate short lead → description stays whole in «Описание»
+    const { gift, items } = presentFeatures(product.features, 4);
+    return {
+      slogan: '',
+      hook: ownLead,
+      lead: ownLead,
+      story: [ownDescription],
+      price: presentPrice(product.price),
+      gift,
+      features: items.map(presentFeatureAnchor).filter(Boolean),
+    };
+  }
   const raw = productCopySource(product);
   const { slogan, body } = splitProductCopy(raw);
   const source = body || raw;
