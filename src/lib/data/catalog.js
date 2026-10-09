@@ -139,11 +139,11 @@ const REGEN_FRAMES = {
   'diamant-32-n': [
     '/img/regen/diamant-32-n-frame-front-v4.png', // v4 — v2 без рваных теней на полу
     '/img/regen/diamant-32-n-frame-34-v4.png',
-    '/img/regen/diamant-32-n-frame-side-v4.png', // v4 — шарнир: хромированная ось с ручкой-барашком на стойке (правки)
+    '/img/regen/diamant-32-n-frame-side-v5.png', // v5 — барашек анфас, вкручен в паз длинной пластины, а не в ось (правки)
   ],
   'diamant-32-ne': [
     '/img/regen/diamant-32-ne-frame-front.png',
-    '/img/regen/diamant-32-ne-frame-rear-v3.png', // v3 — белый корпус, читаемые рёбра на светлом фоне (без потери белизны)
+    '/img/regen/diamant-32-ne-frame-rear-v5.png', // v5 — v4 с притемнёнными полутонами и мягкой кромкой по силуэту, чтобы корпус не сливался с фоном карточки
   ],
   'diamant-32-w': [
     '/img/regen/diamant-32-w-frame-front.png',
