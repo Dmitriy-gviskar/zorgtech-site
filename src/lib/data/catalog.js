@@ -279,7 +279,6 @@ const REGEN_FRAMES = {
   ],
   'diamant-49-n': [
     '/img/regen/diamant-49-n-frame-front.png',
-    '/img/regen/diamant-49-n-frame-34.png',
     '/img/regen/diamant-49-n-frame-side.png',
     '/img/regen/diamant-49-n-frame-rear.png',
   ],
