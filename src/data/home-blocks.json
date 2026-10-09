@@ -93,9 +93,9 @@
     "title": "Присоединяйтесь к нашей дилерской программе, приобретайте оборудование со скидкой до 25%",
     "cta": { "to": "/dealers", "label": "Станьте дилером" },
     "media": [
-      "/img/regen/diamant-32-fe-frame-front.png",
-      "/img/regen/diamant-55-n-frame-front.png",
-      "/img/regen/apriori-22-frame-34.png"
+      "/img/home/hero-dark/kiosk-sharp.png",
+      "/img/home/hero-dark/table-sharp.png",
+      "/img/home/hero-dark/terminal-sharp.png"
     ],
     "paths": [
       {
