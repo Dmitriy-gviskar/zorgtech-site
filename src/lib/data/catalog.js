@@ -127,7 +127,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-fe-frame-front.png',
     '/img/regen/diamant-32-fe-frame-34.png',
     '/img/regen/diamant-32-fe-frame-side.png',
-    '/img/regen/diamant-32-fe-frame-rear-v10.png', // v10 — сервисный лючок на 4 винтах + планка разъёмов с ключом питания, как у Diamant 43 F (правки)
+    '/img/regen/diamant-32-fe-frame-rear-v11.png', // v11 — только сервисный лючок на 4 винтах, без планки разъёмов (правки)
     '/img/regen/diamant-32-fe-frame-detail.png',
   ],
   'diamant-32-fe-pro': [
@@ -190,7 +190,6 @@ const REGEN_FRAMES = {
   ],
   'diamant-43-f': [
     '/img/regen/diamant-43-f-frame-front.png',
-    '/img/regen/diamant-43-f-frame-34.png',
     '/img/regen/diamant-43-f-frame-side.png',
     '/img/regen/diamant-43-f-frame-rear.png',
     '/img/regen/diamant-43-f-frame-detail.png',
@@ -252,21 +251,18 @@ const REGEN_FRAMES = {
   ),
   'diamant-49-f': [
     '/img/regen/diamant-49-f-frame-front.png',
-    '/img/regen/diamant-49-f-frame-34.png',
     '/img/regen/diamant-49-f-frame-side.png',
     '/img/regen/diamant-49-f-frame-rear.png',
     '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-f-general': [
     '/img/regen/diamant-49-f-frame-front.png',
-    '/img/regen/diamant-49-f-frame-34.png',
     '/img/regen/diamant-49-f-frame-side.png',
     '/img/regen/diamant-49-f-frame-rear.png',
     '/img/regen/diamant-49-f-frame-detail.png',
   ],
   'diamant-49-f-print': [
     '/img/regen/diamant-49-f-frame-front.png',
-    '/img/regen/diamant-49-f-frame-34.png',
     '/img/regen/diamant-49-f-frame-side.png',
     '/img/regen/diamant-49-f-frame-rear.png',
     '/img/regen/diamant-49-f-frame-detail.png',
@@ -290,7 +286,6 @@ const REGEN_FRAMES = {
   ],
   'diamant-55-f': [
     '/img/regen/diamant-55-f-frame-front.png',
-    '/img/regen/diamant-55-f-frame-34.png',
     '/img/regen/diamant-55-f-frame-side.png',
     '/img/regen/diamant-55-f-frame-rear.png',
     '/img/regen/diamant-55-f-frame-detail.png',
@@ -336,7 +331,6 @@ const REGEN_FRAMES = {
   ],
   'diamant-75-f': [
     '/img/regen/diamant-75-f-frame-front.png',
-    '/img/regen/diamant-75-f-frame-34.png',
     '/img/regen/diamant-75-f-frame-side.png',
     '/img/regen/diamant-75-f-frame-rear.png',
     '/img/regen/diamant-75-f-frame-detail.png',
