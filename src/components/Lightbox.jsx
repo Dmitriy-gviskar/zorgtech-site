@@ -1,8 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-/** Fullscreen image viewer for page galleries: Esc / backdrop close, arrows. */
+const ZOOM = 2.4;
+
+/** Fullscreen image viewer for page galleries: Esc / backdrop close, arrows, click to zoom. */
 export default function Lightbox({ images, index, onIndex, onClose }) {
   const dialogRef = useRef(null);
+  const [zoom, setZoom] = useState(null);
   const count = images.length;
 
   useEffect(() => {
@@ -21,22 +24,48 @@ export default function Lightbox({ images, index, onIndex, onClose }) {
   }, [onClose]);
 
   useEffect(() => {
+    setZoom(null);
+  }, [index]);
+
+  useEffect(() => {
     const onKey = (event) => {
       if (event.key === 'ArrowRight') onIndex((index + 1) % count);
       if (event.key === 'ArrowLeft') onIndex((index - 1 + count) % count);
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onClose();
+      }
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [index, count, onIndex]);
+  }, [index, count, onIndex, onClose]);
 
   function onBackdrop(event) {
     if (event.target === dialogRef.current) onClose();
   }
 
+  function pointAt(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    return {
+      x: ((event.clientX - rect.left) / rect.width) * 100,
+      y: ((event.clientY - rect.top) / rect.height) * 100,
+    };
+  }
+
   return (
     <dialog ref={dialogRef} className="lightbox" aria-label="Просмотр изображения" onClick={onBackdrop}>
       <div className="lightbox-stage">
-        <img src={images[index]} alt="" />
+        <div
+          className={`lightbox-frame${zoom ? ' is-zoomed' : ''}`}
+          onClick={(event) => setZoom(zoom ? null : pointAt(event))}
+          onMouseMove={(event) => zoom && setZoom(pointAt(event))}
+        >
+          <img
+            src={images[index]}
+            alt=""
+            style={zoom ? { transform: `scale(${ZOOM})`, transformOrigin: `${zoom.x}% ${zoom.y}%` } : undefined}
+          />
+        </div>
         <button type="button" className="lightbox-close" onClick={onClose} aria-label="Закрыть">
           <svg viewBox="0 0 16 16" aria-hidden="true">
             <path d="M3.2 3.2l9.6 9.6M12.8 3.2l-9.6 9.6" />

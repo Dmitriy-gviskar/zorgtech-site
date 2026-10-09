@@ -625,12 +625,22 @@
   place-items: center;
 }
 
-.lightbox-stage img {
+.lightbox-frame {
+  overflow: hidden;
+  border-radius: 0.9rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  cursor: zoom-in;
+}
+
+.lightbox-frame.is-zoomed {
+  cursor: zoom-out;
+}
+
+.lightbox-frame img {
   display: block;
   max-width: min(92vw, 1280px);
   max-height: 86dvh;
-  border-radius: 0.9rem;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease;
 }
 
 .lightbox-close,

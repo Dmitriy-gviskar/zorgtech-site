@@ -10,6 +10,7 @@ import {
   groupProductSpecs,
   presentSpecGlance,
 } from '../lib/data/catalog.js';
+import Lightbox from '../components/Lightbox';
 import Seo from '../components/Seo';
 import SpecIcon from '../components/SpecIcon';
 import ProductPriceForm from '../components/ProductPriceForm';
@@ -30,9 +31,11 @@ export default function ProductPage() {
   const product = getProduct(slug);
   const [active, setActive] = useState(0);
   const [openSpec, setOpenSpec] = useState('display');
+  const [liveShot, setLiveShot] = useState(-1);
 
   useEffect(() => {
     setActive(0);
+    setLiveShot(-1);
     setOpenSpec('display'); // falls back to first available group when missing
   }, [slug]);
 
@@ -200,18 +203,30 @@ export default function ProductPage() {
               liveGallery.every((shot) => shot.portrait) ? ' product-live-grid--portrait' : ''
             }`}
           >
-            {liveGallery.map(({ src, portrait, lead }) => (
-              <figure
+            {liveGallery.map(({ src, portrait, lead }, i) => (
+              <button
                 key={src}
-                className={`product-live-shot${lead ? ' product-live-shot--lead' : ''}${
+                type="button"
+                className={`product-live-shot gallery-zoom${lead ? ' product-live-shot--lead' : ''}${
                   portrait ? ' product-live-shot--portrait' : ''
                 }`}
+                onClick={() => setLiveShot(i)}
+                aria-label="Открыть изображение"
               >
                 <img src={src} alt="" loading="lazy" />
-              </figure>
+              </button>
             ))}
           </div>
         </section>
+      ) : null}
+
+      {liveShot >= 0 ? (
+        <Lightbox
+          images={liveGallery.map((shot) => shot.src)}
+          index={liveShot}
+          onIndex={setLiveShot}
+          onClose={() => setLiveShot(-1)}
+        />
       ) : null}
 
       {specGroups.length ? (
