@@ -705,7 +705,7 @@
 .design-lab .home-sec-title,
 .design-lab-title {
   margin-top: 0.45rem;
-  max-width: 18ch;
+  max-width: 24ch;
   font-size: clamp(1.85rem, 1.7vw + 1.05rem, 2.7rem);
   line-height: 1.14;
   letter-spacing: -0.03em;
@@ -926,9 +926,15 @@
 
 .design-compare-labels span:first-child,
 .design-compare-labels span:last-child {
+  max-width: 46%;
+  line-height: 1.25;
   color: var(--ink);
   background: none;
   padding: 0;
+}
+
+.design-compare-labels span:last-child {
+  text-align: right;
 }
 
 .lines {
@@ -995,7 +1001,7 @@
 
 .line-tile {
   display: grid;
-  grid-template-rows: auto minmax(10.5rem, 1fr);
+  grid-template-rows: auto 11.5rem;
   min-height: 280px;
   height: 100%;
   padding: 1.25rem 1.1rem 1rem;
@@ -1014,13 +1020,17 @@
 .line-tile-media {
   display: grid;
   place-items: center;
+  height: 11.5rem;
   min-height: 0;
   padding: 0.65rem 0.85rem 0.25rem;
+  overflow: hidden;
 }
 
 .line-tile-media img {
-  width: min(78%, 160px);
-  max-height: 148px;
+  width: auto;
+  height: auto;
+  max-width: 86%;
+  max-height: 10rem;
   object-fit: contain;
   object-position: center center;
   transition: transform 0.55s var(--ease-out);
@@ -1212,7 +1222,7 @@
 }
 
 .home-cta-title {
-  /* Sized so the longest line ("Производство в России.") fits without clip */
+  /* Sized so the longest line ("Российское производство") fits without clip */
   margin-top: 1rem;
   max-width: none;
   width: 100%;
@@ -2135,6 +2145,10 @@
   margin-top: 1.5rem;
 }
 
+.home-ui .chapter-actions .chapter-link {
+  margin-top: 0;
+}
+
 .home-about-list,
 .home-ui-points-label {
   margin: 0;
@@ -2866,10 +2880,11 @@
 
   .home-popular-hero-media {
     min-height: 280px;
-    order: -1;
+    order: 2;
   }
 
   .home-popular-hero-copy {
+    order: 1;
     padding: 0.25rem 0.35rem 0.5rem;
     justify-items: center;
     text-align: center;

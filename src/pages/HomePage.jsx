@@ -8,11 +8,9 @@ import StudioHoverMedia from '../components/StudioHoverMedia';
 import DesignCompare from '../components/DesignCompare';
 import DealerApplyButton from '../components/DealerApplyButton';
 import LeadApplyButton, { CallRequestButton } from '../components/LeadApplyButton';
-import DesignLabLeadForm from '../components/DesignLabLeadForm';
 import HomeLeadForm from '../components/HomeLeadForm';
 import Seo from '../components/Seo';
 import { assetUrl } from '../lib/data/asset.js';
-import { ruCount } from '../lib/data/content-utils.js';
 import { HOME_SEO } from '../lib/seo-defaults.js';
 import homeCatalog from '../data/home-catalog.json';
 import homeBlocks from '../data/home-blocks.json';
@@ -21,17 +19,12 @@ import { paths } from '../lib/paths.js';
 
 const LINE_LINKS = homeCatalog.lines || [];
 const POPULAR = homeCatalog.popular || [];
-const BLOG = homeCatalog.blog || [];
 const MUSEUM = homeCatalog.museum || null;
 
 function clip(text, max = 110) {
   if (!text) return '';
   const clean = text.replace(/\s+/g, ' ').trim();
   return clean.length > max ? `${clean.slice(0, max - 1)}…` : clean;
-}
-
-function modelsLabel(count) {
-  return ruCount(count, 'модель', 'модели', 'моделей');
 }
 
 function HeroGear({ children }) {
@@ -75,7 +68,7 @@ export default function HomePage() {
             <span>премиального качества</span>
           </h1>
           <p className="home-hero-lead">
-            Премиальные устройства для бизнеса
+            Премиальные устройства для бизнеса{' '}
             <br />
             и общественных пространств.
           </p>
@@ -177,7 +170,6 @@ export default function HomePage() {
                   <Link to={`/catalog/${c.slug}`} className="line-tile">
                     <div className="line-tile-body">
                       <h3>{c.name}</h3>
-                      <em>{modelsLabel(c.modelCount)}</em>
                       <span className="line-tile-cta">
                         Смотреть <span aria-hidden="true">→</span>
                       </span>
@@ -239,6 +231,35 @@ export default function HomePage() {
       </section>
 
       <HomeLeadForm />
+
+      <section className="design-lab" id="design-lab">
+        <div className="design-lab-inner">
+          <Reveal className="design-lab-copy-wrap">
+            <div className="design-lab-copy">
+              <RevealTitle
+                kicker="Конструкторское бюро"
+                title="Воплотим вашу идею в готовое оборудование"
+                titleClassName="home-sec-title design-lab-title"
+              />
+              <p className="design-lab-text">
+                Разрабатываем и производим интерактивное оборудование под ваши задачи. Наше конструкторское
+                бюро проработает решение с нуля: от технической идеи и проектирования до готового изделия.
+                Изготовим оборудование на собственных производственных мощностях и обеспечим контроль качества
+                на каждом этапе.
+              </p>
+              <div className="chapter-actions">
+                <LeadApplyButton className="btn primary" source="главная — конструкторское бюро">
+                  Обсудить проект
+                </LeadApplyButton>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal className="design-lab-media" delay={0.08}>
+            <DesignCompare />
+            <p className="design-lab-hint">Тяните линию: вправо — проект, влево — готовое оборудование</p>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="home-cycle" id="home-cycle">
         <div className="home-cycle-stage">
@@ -311,34 +332,10 @@ export default function HomePage() {
             </div>
             {homeBlocks.ui.outro ? <p className="home-ui-outro">{homeBlocks.ui.outro}</p> : null}
             <div className="chapter-actions">
-              <Link className="btn primary" to={homeBlocks.ui.cta.to}>
-                {homeBlocks.ui.cta.label}
+              <Link className="chapter-link" to={homeBlocks.ui.cta.to}>
+                {homeBlocks.ui.cta.label} <span aria-hidden="true">→</span>
               </Link>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="design-lab" id="design-lab">
-        <div className="design-lab-inner">
-          <Reveal className="design-lab-copy-wrap">
-            <div className="design-lab-copy">
-              <RevealTitle
-                kicker="Конструкторское бюро"
-                title="Разработка оборудования с нуля под ваши задачи"
-                titleClassName="home-sec-title design-lab-title"
-              />
-              <p className="design-lab-text">
-                Наше конструкторское бюро разрабатывает уникальное оборудование строго под ваши производственные
-                задачи — от эскиза до готового изделия, а затем мы производим его на собственных мощностях,
-                обеспечивая полный цикл, контроль качества и точное соответствие вашим требованиям.
-              </p>
-              <DesignLabLeadForm />
-            </div>
-          </Reveal>
-          <Reveal className="design-lab-media" delay={0.08}>
-            <DesignCompare />
-            <p className="design-lab-hint">Тяните линию: влево — чертёж, вправо — стол</p>
           </Reveal>
         </div>
       </section>
@@ -391,7 +388,7 @@ export default function HomePage() {
                   </div>
                   <div className="shot-card-body">
                     <span>Проект</span>
-                    <h3>{clip(p.title, 64)}</h3>
+                    <h3>{p.title}</h3>
                   </div>
                 </Link>
               </Reveal>
@@ -404,51 +401,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      {BLOG.length ? (
-        <section className="home-blog">
-          <div className="wrap">
-            <RevealTitle kicker={homeBlocks.blog.kicker} title={homeBlocks.blog.title} />
-            <div className="home-blog-grid">
-              {BLOG.map((post, i) => (
-                <Reveal key={post.slug} delay={Math.min(i, 2) * 0.05}>
-                  <a
-                    className="home-blog-card"
-                    href={post.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {post.image ? (
-                      <div className="home-blog-media" aria-hidden="true">
-                        <img src={assetUrl(post.image)} alt="" loading="lazy" />
-                      </div>
-                    ) : null}
-                    <div className="home-blog-copy">
-                      {post.date ? <time>{post.date}</time> : null}
-                      <h3>{post.title}</h3>
-                      {post.excerpt ? <p>{clip(post.excerpt, 140)}</p> : null}
-                    </div>
-                  </a>
-                </Reveal>
-              ))}
-            </div>
-            {homeBlocks.blog.all?.href ? (
-              <Reveal>
-                <div className="home-section-foot">
-                  <a
-                    className="chapter-link"
-                    href={homeBlocks.blog.all.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {homeBlocks.blog.all.label || 'Все материалы'} <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </Reveal>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
 
       <section className="home-begin">
         <div className="wrap">
@@ -505,11 +457,11 @@ export default function HomePage() {
             <p className="chapter-kicker">Компания</p>
             <h2 className="home-cta-brand">ZORGTECH</h2>
             <p className="home-sec-title home-cta-title">
-              <span className="home-cta-line">Производство в России.</span>
-              <span className="home-cta-line">Полный цикл.</span>
+              <span className="home-cta-line">Российское производство</span>
+              <span className="home-cta-line">полного цикла.</span>
             </p>
             <p className="home-cta-lead">
-              Проектируем, производим и обслуживаем сенсорные системы для бизнеса, государства и образования.
+              Проектируем, производим и обслуживаем сенсорные системы для бизнеса и государства.
             </p>
             <div className="hero-actions">
               <LeadApplyButton className="btn primary btn--lg" source="главная — финальный блок">

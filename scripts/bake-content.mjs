@@ -191,7 +191,7 @@ const homePopular = (homeBlocks.popular?.slugs || []).map((slug) => {
   return {
     slug: product.slug,
     title: product.title,
-    desc: copy.slogan || copy.hook || product.lead || '',
+    desc: homeBlocks.popular?.blurbs?.[slug] || copy.slogan || copy.hook || product.lead || '',
     price: copy.price,
     cover: productCoverPath(product),
   };

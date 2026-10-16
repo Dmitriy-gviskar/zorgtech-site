@@ -92,7 +92,7 @@ export default function DesignCompare({
         ref={rootRef}
         className="design-compare"
         role="group"
-        aria-label="Сравнение чертежа и готового киоска. Тяните вертикальную линию."
+        aria-label="Сравнение проекта и готового оборудования. Тяните вертикальную линию."
       >
         <img className="design-compare-layer design-compare-render" src={render} alt="" draggable={false} />
         <div className="design-compare-clip" style={{ width: `${pos}%` }}>
@@ -115,7 +115,7 @@ export default function DesignCompare({
           aria-valuemin={8}
           aria-valuemax={92}
           aria-valuenow={Math.round(pos)}
-          aria-label="Граница между чертежом и киоском"
+          aria-label="Граница между проектом и готовым оборудованием"
           onKeyDown={(e) => {
             if (e.key === 'ArrowLeft') setPos((p) => Math.max(8, p - 3));
             if (e.key === 'ArrowRight') setPos((p) => Math.min(92, p + 3));
@@ -128,8 +128,8 @@ export default function DesignCompare({
         </div>
       </div>
       <div className="design-compare-labels" aria-hidden="true">
-        <span>Чертёж</span>
-        <span>Стол</span>
+        <span>Проект</span>
+        <span>Готовое оборудование</span>
       </div>
     </div>
   );
