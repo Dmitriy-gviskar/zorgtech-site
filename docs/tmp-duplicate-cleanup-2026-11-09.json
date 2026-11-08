@@ -1,0 +1,2825 @@
+{
+  "description": "Removed only exact temporary image copies; unique originals, scripts and the working site were retained.",
+  "duplicates": [
+    {
+      "removed": "tmp/design-render.png",
+      "retained": "public/img/home/design-render.png",
+      "sha256": "e38482a16b9eb8081a5babc223b17fa5708735d74f86ffa0e60f293fcdf5ccd2"
+    },
+    {
+      "removed": "tmp/ek32/side.png",
+      "retained": "public/img/regen/eco-kid-32-frame-side.png",
+      "sha256": "90749a2250032d4bbcc492282eaf2c93149930f2810b3bcc6ae3060586fce2b4"
+    },
+    {
+      "removed": "tmp/ek32/34.png",
+      "retained": "public/img/regen/eco-kid-32-frame-34.png",
+      "sha256": "2bf53fda4a439d3e8bc17fba50bd1442c27fd6bff48623cb061f53c97fdaaef1"
+    },
+    {
+      "removed": "tmp/ek32/rear.png",
+      "retained": "public/img/regen/eco-kid-32-frame-rear.png",
+      "sha256": "19468b889b6b8ce86da613528120881bc6c9efcd0145328e9fcead9d91d816dd"
+    },
+    {
+      "removed": "tmp/ek32/detail.png",
+      "retained": "public/img/regen/eco-kid-32-frame-detail.png",
+      "sha256": "23253cdb99cfbd296286e2ed2e25e3480ce11ad48b5432a153db1e757922a859"
+    },
+    {
+      "removed": "tmp/ek32/front.png",
+      "retained": "public/img/regen/eco-kid-32-frame-front.png",
+      "sha256": "957d7cf0dde69dce3abe780b508c887f80f95f9cdd3aea9df9fae0f3b7802b1c"
+    },
+    {
+      "removed": "tmp/widget/widget-about.png",
+      "retained": "public/img/home/widget-about.png",
+      "sha256": "d0346c627eb50bbfd20f709f326d254407bac02025a12f785a4b3737ef9fa4cf"
+    },
+    {
+      "removed": "tmp/widget/prod_c8e1316a34843a.webp",
+      "retained": "public/img/about/prod_c8e1316a34843a.webp",
+      "sha256": "5940c817c890dd1e3780188a7769ed275a31586c17411d34165cd552727564c3"
+    },
+    {
+      "removed": "tmp/widget/widget-ui.png",
+      "retained": "public/img/home/widget-ui.png",
+      "sha256": "6c5900df9c2f4db8b9f6ec7df64d23a69cfeeeea43ece2110616f3b09cb5d0f6"
+    },
+    {
+      "removed": "tmp/widget/widget-cycle.jpg",
+      "retained": "public/img/home/widget-cycle.jpg",
+      "sha256": "20dfce87bec847f399d8853aade935f1091a0a849e32978994a4c6b3ed368064"
+    },
+    {
+      "removed": "tmp/widget/widget-po.png",
+      "retained": "public/img/home/widget-po.png",
+      "sha256": "1961e26ef7fa3bac5faa74ccba73e0b76d1974c174bcb30f5d4a6336c7198913"
+    },
+    {
+      "removed": "tmp/widget/rent1.jpg",
+      "retained": "public/img/pages/rent_c3975f291baa278fda8985cab94ba3f9-a986abb7d12333dc.jpg",
+      "sha256": "847064f080a25620c91051f7b032ad0c6783926a8b1f563fef5766c3d89c25fa"
+    },
+    {
+      "removed": "tmp/widget/rent2.jpg",
+      "retained": "public/img/pages/rent_1c565960b95a8702edd0582ecd6e2df3-2f69d9627d936a78.jpg",
+      "sha256": "c8a1705fd427d10e44af27806c456e47a1f80dfcb24f7e9758bb87c99b7dd71e"
+    },
+    {
+      "removed": "tmp/d32ne-exp/diamant-32-ne-frame-front.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-front.png",
+      "sha256": "eab77bbf4b5fb0e0bf226777a1927a92d62d04114d637ab045d1812ac68deaeb"
+    },
+    {
+      "removed": "tmp/d32ne-exp/diamant-32-ne-frame-34.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-34.png",
+      "sha256": "0d694ab6c383402e32760d86eb688ea5084cd9c8f87c764745ae5f6997a0839a"
+    },
+    {
+      "removed": "tmp/d32ne-exp/diamant-32-ne-frame-rear.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear.png",
+      "sha256": "263b0f84d7f84b30a33ed829f3466d520d645e685055a3e6b383a0a1ff9af72e"
+    },
+    {
+      "removed": "tmp/d32ne-exp/diamant-32-ne-frame-side.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-side.png",
+      "sha256": "174d7466f96d8df9b4bf77776fdae849a0a5c24533f7181aaa09d65e7cce4c18"
+    },
+    {
+      "removed": "tmp/d65f/rear-flush-cut.png",
+      "retained": "public/img/regen/diamant-65-f-frame-rear-v2.png",
+      "sha256": "5098447f9b7771f0df3e98c4dce16008df0f64a53a08862da619bc6c6b4543ea"
+    },
+    {
+      "removed": "tmp/d65f/detail-flush-cut.png",
+      "retained": "public/img/regen/diamant-65-f-frame-detail-v2.png",
+      "sha256": "13230481d68bf6d12a956e643cc5c136fe2ae8e98c9121e122fecfd57bb4eab8"
+    },
+    {
+      "removed": "tmp/d65f/side-flush-cut.png",
+      "retained": "public/img/regen/diamant-65-f-frame-side-v2.png",
+      "sha256": "04b4fbaf50e3d7c44c39a7c8683c0a28692285e4dd270888a38662c5f0afcb76"
+    },
+    {
+      "removed": "tmp/d65f/34-flush-cut.png",
+      "retained": "public/img/regen/diamant-65-f-frame-34-v2.png",
+      "sha256": "9f97f28be2f7a332bea566afea10e49dd9994c6f0a7228996859a00549dff1e8"
+    },
+    {
+      "removed": "tmp/d65f/front-flush-cut.png",
+      "retained": "public/img/regen/diamant-65-f-frame-front-v2.png",
+      "sha256": "3f153869216b4eaa1b72f537c4b20cc287f47237ad2fd251c214e93cd421b87a"
+    },
+    {
+      "removed": "tmp/begin/apriori-34.png",
+      "retained": "public/img/regen/apriori-22-frame-34.png",
+      "sha256": "96eda0ca06826f3efd22257d6bd28be9832b5ebce0d1f967f747d9c1de662419"
+    },
+    {
+      "removed": "tmp/begin/apriori-front.png",
+      "retained": "public/img/regen/apriori-22-frame-front.png",
+      "sha256": "b0b8375a1c4ba27fcc2f92614e4d5347fd84a7905a2aeef2d342a92104500ceb"
+    },
+    {
+      "removed": "tmp/begin-hq/apriori-22-frame-34.png",
+      "retained": "public/img/regen/apriori-22-frame-34.png",
+      "sha256": "96eda0ca06826f3efd22257d6bd28be9832b5ebce0d1f967f747d9c1de662419"
+    },
+    {
+      "removed": "tmp/begin-hq/diamant-55-n-frame-front.png",
+      "retained": "public/img/regen/diamant-55-n-frame-front.png",
+      "sha256": "00685511adfe08bab180e8b92df95619929317949b466641b37b1ede3f07c047"
+    },
+    {
+      "removed": "tmp/begin-hq/diamant-32-fe-frame-front.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.png",
+      "sha256": "352114df70407f811eb103d72da3d41f8817f047386a3a84f7ce1b97ff082bd9"
+    },
+    {
+      "removed": "tmp/mono32pin/mono-32-f-pin-frame-detail.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-detail.png",
+      "sha256": "7970d75c916715aa3334802b575b4cabcf1aabf7045a801edd677a96499d5e2d"
+    },
+    {
+      "removed": "tmp/mono32pin/mono-32-f-pin-frame-front.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-front.png",
+      "sha256": "e05517bb5fbf7f3d767fee2ab8715da272527de2cc0670c7e1ebc4ad92e96d8e"
+    },
+    {
+      "removed": "tmp/mono32pin/mono-32-f-pin-frame-side.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-side.png",
+      "sha256": "8f8741292529fd632640089ec71504499e7ba31e83920b4906e3ac5de72f5d84"
+    },
+    {
+      "removed": "tmp/mono32pin/etalon-cover.png",
+      "retained": "public/img/products/mono-32-f-pin_076e439e840700a404f82d6e3272aa4b-cf914d0c0817a65f.png",
+      "sha256": "bfb452e34045486333f1eb56162091eb37bedb21bb5de4f06252a3478669c5e2"
+    },
+    {
+      "removed": "tmp/novinki-refs/n5-34.png",
+      "retained": "public/img/regen/_precut/novinka-5-frame-34.png",
+      "sha256": "c3bb452578450c138b686e18ea5b1e4f6277a383224f1479b45b3ecee1dff184"
+    },
+    {
+      "removed": "tmp/novinki-refs/n9-34.png",
+      "retained": "public/img/regen/_precut/novinka-9-frame-34.png",
+      "sha256": "32cab489c98b0b1e4184be322597842ed6df986bb73b69c1b4f99c7653251e63"
+    },
+    {
+      "removed": "tmp/novinki-refs/n3-front.png",
+      "retained": "public/img/regen/_precut/novinka-3-frame-front.png",
+      "sha256": "d8bbc774631b4cc14db69979b80b9dc327636382defa059923f09b4122c133ec"
+    },
+    {
+      "removed": "tmp/novinki-refs/n9-side.png",
+      "retained": "public/img/regen/_precut/novinka-9-frame-side.png",
+      "sha256": "4245b90f86a409db6e3ebdb6eecee75989114d603bf5ff374f1e819087ebf09a"
+    },
+    {
+      "removed": "tmp/novinki-refs/n9-front.png",
+      "retained": "public/img/regen/_precut/novinka-9-frame-front.png",
+      "sha256": "731b1dab94598e68371c4c49023e2dff745a8c3d15e4af8b3c62c15f6593a0e4"
+    },
+    {
+      "removed": "tmp/novinki-refs/n1-34.png",
+      "retained": "public/img/regen/_precut/novinka-1-frame-34.png",
+      "sha256": "ba2939aa6df8840f9f6a6d797fa6acb1e184aaaa00ba695aaa7677b638c29f52"
+    },
+    {
+      "removed": "tmp/novinki-refs/n1-rear.png",
+      "retained": "public/img/regen/_precut/novinka-1-frame-rear.png",
+      "sha256": "b54b318d8051130194251b1c767488d2f185f17a36bd27448271dcd1fe12ac0f"
+    },
+    {
+      "removed": "tmp/novinki-refs/n6-34.png",
+      "retained": "public/img/regen/_precut/novinka-6-frame-34.png",
+      "sha256": "dfc2e103b3c0b2cb37e2cfc5daa9aab16619d6c3012fd9f21379b645c096da58"
+    },
+    {
+      "removed": "tmp/novinki-refs/n4-34.png",
+      "retained": "public/img/regen/_precut/novinka-4-frame-34.png",
+      "sha256": "bd8b78c576179abc215bdc81b70855637a8d420b275f17ab4e33e1fb4bc8fe4f"
+    },
+    {
+      "removed": "tmp/novinki-refs/n8-34.png",
+      "retained": "public/img/regen/_precut/novinka-8-frame-34.png",
+      "sha256": "82c8eaa52cc75dfeb24fb40c56e08235e8c5fa769e57fe2bc8e8db3908876f74"
+    },
+    {
+      "removed": "tmp/novinki-refs/n2-34.png",
+      "retained": "public/img/regen/_precut/novinka-2-frame-34.png",
+      "sha256": "1177d80bb5655b56714f23fc22dbaa9befb3403edeb1add2f62b5b8c6f8e3e17"
+    },
+    {
+      "removed": "tmp/novinki-refs/n3-rear.png",
+      "retained": "public/img/regen/_precut/novinka-3-frame-rear.png",
+      "sha256": "f6339af590a54eb0064a241d48293c9261e78ce636183fbb5eafe39b3dc7615e"
+    },
+    {
+      "removed": "tmp/novinki-refs/n8-rear.png",
+      "retained": "public/img/regen/_precut/novinka-8-frame-rear.png",
+      "sha256": "0ab93883d9dd00c4751c82ba3c7af223fc0e544cfd3525f312af0711f4641235"
+    },
+    {
+      "removed": "tmp/d32fe-hatch/ref-v8.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v8.png",
+      "sha256": "f096b704588864e5612b3c75fd9c6850c491084f2534aebf8f7a9292beaa401e"
+    },
+    {
+      "removed": "tmp/blog-pick/sensornye-kioski-diamant-pokoryayut-kaza.jpg",
+      "retained": "public/img/blog/sensornye-kioski-diamant_2122b233bf61f5cf8adfc400b93e7fbf-c1f9595e3d4bc184.jpg",
+      "sha256": "a2e6c035f25b18b50373044c3ba1e35f6a5b63076bd003a8983f20ad5b9daa27"
+    },
+    {
+      "removed": "tmp/blog-pick/ispolzovanie-analitiki-kioskov-dlya-uluc.webp",
+      "retained": "public/img/blog/ispolzovanie-analitiki-k_zska4lasex0i6medek4gnuyrh2achswo-f37107f0aa054b2b.webp",
+      "sha256": "8f12061e6ae9cfb2c382a92dae7374736d6896eb18897a054be5ffe9884aca09"
+    },
+    {
+      "removed": "tmp/blog-pick/istoriya-kompanii-zorgtech.png",
+      "retained": "public/img/blog/istoriya-kompanii-zorgte_87ea362a6324f47c56e638afc6e7842b-94e8fa86802c988f.png",
+      "sha256": "d3c3c7a6a81b4bf84bb1dc1e7e7326ad484c7f9d9ef369ef88749f97df70b1a0"
+    },
+    {
+      "removed": "tmp/blog-pick/zorgtech-uchastvuet-v-meropriyatiyakh-po.jpg",
+      "retained": "public/img/blog/zorgtech-uchastvuet-v-me_2c29b406c830257566cebc47d03d5d52-79a0685ec3974cd4.jpg",
+      "sha256": "25f10dd37386d0b61f36b33cb2ba6df8ff56a6038fbd7a2b913697c06409989c"
+    },
+    {
+      "removed": "tmp/blog-pick/kak-vybrat-sensornyy-kiosk.png",
+      "retained": "public/img/blog/kak-vybrat-sensornyy-kio_baed18b0db99ec638f19be8a52c1407e-d126a51f4efae1ff.png",
+      "sha256": "34c7a43f7dacd3f6aafb53623fea1c7b539c21bd8d3d3af7b86f875f0c0070f0"
+    },
+    {
+      "removed": "tmp/blog-pick/proekt-umnyy-gorod-s-zorgtech.jpg",
+      "retained": "public/img/blog/proekt-umnyy-gorod-s-zor_6f89d07421925b93fc324e5066b68291-469166a26c291e03.jpg",
+      "sha256": "10c082d0b933b04850a8e3bbabc262438c9e3c6216d7c15ea2d66c1d22b95e42"
+    },
+    {
+      "removed": "tmp/blog-pick/kioski-diamant-na-vystavke-pravoslavnaya.jpg",
+      "retained": "public/img/blog/kioski-diamant-na-vystav_d0318c3056d991cf4f88a4715e2aa1c5-86f1eb960fde9d32.jpg",
+      "sha256": "43f0bd1cd95c856a4fd80b8048d0c2f7969b668160f5b7506bd63150e66107e3"
+    },
+    {
+      "removed": "tmp/blog-pick/onlayn-portal-mezhdu-moskvoy-i-tuloy.jpg",
+      "retained": "public/img/blog/onlayn-portal-mezhdu-mos_99dcfdf97dfbc41b1960403dda8ab80b-993715856e7fcc82.jpg",
+      "sha256": "79b077a93e4a1e44ab890746724d7fa7632a793d0d38e3a11c228082be845996"
+    },
+    {
+      "removed": "tmp/blog-pick/3-prichiny-pochemu-sensornye-kioski-dela.png",
+      "retained": "public/img/blog/3-prichiny-pochemu-senso_bc712fffced8929bc4882223f453dfed-b9bcdd6ea8d277ec.png",
+      "sha256": "304609f7525b0114f071ea9b612eea1990f00ef747f0fec2fda7400451be4cee"
+    },
+    {
+      "removed": "tmp/blog-pick/diamant-na-vystavke-horeca-retailtech-20.jpg",
+      "retained": "public/img/blog/diamant-na-vystavke-hore_771f7191652d7ea759f1d41bf9de4bc7-d342e1bdcc43730f.jpg",
+      "sha256": "d0ede1fc31b21b0ed1abb10e0ace46ad5b3b29ac7f5e57fbd9b37fa1548ba4db"
+    },
+    {
+      "removed": "tmp/blog-pick/luchshie-praktiki-pri-dostavke-kioskov.webp",
+      "retained": "public/img/blog/luchshie-praktiki-pri-do_noyzqde6p5h3w9s6ubpbbtnv1739d9e9-16a5b31c92fcb16d.webp",
+      "sha256": "ca0fb6361746ad30103cd04befe1b4241f0ca9de611bdc09cf5f7d18f1ca2291"
+    },
+    {
+      "removed": "tmp/blog-pick/sensornye-kioski-diamant-n-multitouch-v-.jpg",
+      "retained": "public/img/blog/sensornye-kioski-diamant_30709d0006583a4d59655c589974bfa0-9b6242c5cd2dfcd1.jpg",
+      "sha256": "b722107d586a2bdb602d816041ba69a5092bbc543c9e617817ffc1140d172f04"
+    },
+    {
+      "removed": "tmp/blog-pick/sensornye-kioski-diamant-na-vystavke-isr.jpg",
+      "retained": "public/img/blog/sensornye-kioski-diamant_a4bd0886a1ff48dfaf92d0886fec9d08-6ea14f07968dda31.jpg",
+      "sha256": "52e8cd5aa78f793e2840d31688b2fdb40c72923a1a2a903bd3d2537f2a300474"
+    },
+    {
+      "removed": "tmp/blog-pick/interaktivnaya-vystavka-dzhimmi-nelsona.jpg",
+      "retained": "public/img/blog/interaktivnaya-vystavka-_2e37109fc5282937148fbc439425eced-cb2d9649d50499dd.jpg",
+      "sha256": "5ef68b0d091d9c21d807f8664ca3add61424e8efc7f4017ac1c24024403cecf4"
+    },
+    {
+      "removed": "tmp/blog-pick/my-zapustili-novyy-sayt-kompanii-zorgtec.jpg",
+      "retained": "public/img/blog/my-zapustili-novyy-sayt-_7480356424fdbd1c180d1476d2e19fd5-ed90dc2e325fa14c.jpg",
+      "sha256": "257f35de19ce9980282255297067ea4dbfbaeacd8e2e85ff80c721ed7ea80859"
+    },
+    {
+      "removed": "tmp/blog-pick/kompaniya-zorgtech-rasshiryaetsya.png",
+      "retained": "public/img/blog/kompaniya-zorgtech-rassh_6b013cccd1495d74e43fd749440c6bd1-f57dca55d1b9c6fd.png",
+      "sha256": "9e5985cd4769d679b291ad865cecf20bf57b2b6838a593d67f63474781c21444"
+    },
+    {
+      "removed": "tmp/hero-hq/terminal.png",
+      "retained": "public/img/home/hero-dark/terminal.png",
+      "sha256": "49d1abc940b21d3b7ca3af8925e82e85398dc08cb8275d799a4e03ddf4d7b509"
+    },
+    {
+      "removed": "tmp/hero-hq/hs-preview.png",
+      "retained": "public/img/home/hero-dark/preview.png",
+      "sha256": "8a5e90ed2631c7ae0ea890bd2d32885e52a0b01b8648e9c860a0d88ecdcfc116"
+    },
+    {
+      "removed": "tmp/hero-hq/hero-lineup-v2.png",
+      "retained": "public/img/home/hero-lineup-v2.png",
+      "sha256": "4ba6c09da1b903c383544d36e9f374dd3e6a2438009473a7817387ef4997bc94"
+    },
+    {
+      "removed": "tmp/hero-hq/kiosk.png",
+      "retained": "public/img/home/hero-dark/kiosk.png",
+      "sha256": "db7b3c2132b4d9e7945f21777a7de0e44505dede370cc8cfd409b6571721bf5a"
+    },
+    {
+      "removed": "tmp/hero-hq/hero-3units-v5.png",
+      "retained": "public/img/home/hero-3units-v5.png",
+      "sha256": "c7e37a9793838595eedac9119a050799054bcff039f3155af563c41c7cd3ce43"
+    },
+    {
+      "removed": "tmp/hero-hq/table.png",
+      "retained": "public/img/home/hero-dark/table.png",
+      "sha256": "443a0ec6f6f7d14b8b564c7481f209802dabee438309e86f0e3ed81e2a960200"
+    },
+    {
+      "removed": "tmp/mono32fpin/mono-32-f-pin-frame-detail.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-detail.png",
+      "sha256": "7970d75c916715aa3334802b575b4cabcf1aabf7045a801edd677a96499d5e2d"
+    },
+    {
+      "removed": "tmp/mono32fpin/mono-32-f-pin-frame-front.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-front.png",
+      "sha256": "e05517bb5fbf7f3d767fee2ab8715da272527de2cc0670c7e1ebc4ad92e96d8e"
+    },
+    {
+      "removed": "tmp/mono32fpin/cut-34.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-34.png",
+      "sha256": "3835ebac5803b8a414e0548ef4f9135797779915172bcfc77303ae211ddffc67"
+    },
+    {
+      "removed": "tmp/mono32fpin/mono-32-f-pin-frame-side.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-side.png",
+      "sha256": "8f8741292529fd632640089ec71504499e7ba31e83920b4906e3ac5de72f5d84"
+    },
+    {
+      "removed": "tmp/mono32fpin/etalon-1.png",
+      "retained": "public/img/products/mono-32-f-pin_076e439e840700a404f82d6e3272aa4b-cf914d0c0817a65f.png",
+      "sha256": "bfb452e34045486333f1eb56162091eb37bedb21bb5de4f06252a3478669c5e2"
+    },
+    {
+      "removed": "tmp/mono32fpin/etalon-2.jpg",
+      "retained": "public/img/products/mono-32-f-pin_705e891c735f2307da0681b4c3d4f2db-f9fab003741ecbe2.jpg",
+      "sha256": "3743e33a8200dc4ce15800487ad4ac7e651da94eb568db173274b069e41c1447"
+    },
+    {
+      "removed": "tmp/d86/detail-wide-cut.png",
+      "retained": "public/img/regen/diamant-86-f-grand-frame-detail-v2.png",
+      "sha256": "4e4692ca5230d6f70de6162b19176d02b8b4078c98b864a9f502344c91f520b5"
+    },
+    {
+      "removed": "tmp/a22k/34-clean-cut.png",
+      "retained": "public/img/regen/apriori-22-key-frame-34-v2.png",
+      "sha256": "802cfe5d17d6568d90b23bf5f2f6184bc5d06c80a4198dca574b69661fe5e608"
+    },
+    {
+      "removed": "tmp/a22k/34.png",
+      "retained": "public/img/regen/apriori-22-key-frame-34.png",
+      "sha256": "525ce4e042f0467ce3bdb965ae819ccf779193ebab4d014aec87a28fc92d56b3"
+    },
+    {
+      "removed": "tmp/a22k/front.png",
+      "retained": "public/img/regen/apriori-22-key-frame-front.png",
+      "sha256": "f59d7fbdac955f0029478fae80c737f45857002c8c0c6bbfdfd7e88edea85bd7"
+    },
+    {
+      "removed": "tmp/d32wep/old-front-full.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-front.png",
+      "sha256": "fd46bdd90c46e891aa8ff642a7fc0056c817443ebf9932c7aaff503cdce5e66c"
+    },
+    {
+      "removed": "tmp/d32wep/old-side-full.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-side.png",
+      "sha256": "7f891a1778fd3651ee754a7ad853217a60ca18c7819e4c7f4682dc2b66483eb8"
+    },
+    {
+      "removed": "tmp/d32wep/detail-healed2.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-detail-v2.png",
+      "sha256": "9e88446a0726e8f0c34c007fc98f3cf2755bb8c58232d733514c45db26714bc5"
+    },
+    {
+      "removed": "tmp/d32wep/old-34-full.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-34.png",
+      "sha256": "16a698ba673327306a871defb1499066bded24961f251249ba4db9181bfd48eb"
+    },
+    {
+      "removed": "tmp/d32wep/old-detail-full.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-detail.png",
+      "sha256": "e676dd39e9098dcb123a31abe811441cd656ddc4d5fc625a338b231f3de3d1cb"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_e921438fd2d3d3afc7f0028ca817e82e-f1d7a503881b18c0.jpeg",
+      "retained": "public/img/products/diamant-32-fe_e921438fd2d3d3afc7f0028ca817e82e-f1d7a503881b18c0.jpeg",
+      "sha256": "1cf93cc5808db95e010cbc1d6623117b487ebf8993c7d01ec01282e275295ee5"
+    },
+    {
+      "removed": "tmp/d32fe/cmp-front.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.png",
+      "sha256": "352114df70407f811eb103d72da3d41f8817f047386a3a84f7ce1b97ff082bd9"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_971f8f27b6cc08c6b66f39eddbcab00e-5d09d989189b6dd6.jpeg",
+      "retained": "public/img/products/diamant-32-fe_971f8f27b6cc08c6b66f39eddbcab00e-5d09d989189b6dd6.jpeg",
+      "sha256": "07ee88a788077bae8eeb16fb96a01eb3e9cb492d202f3a32d1a9ccd2082eec63"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_2fa2f4dbdf331178d7a21087a5fde848-f277ef48e9656ceb.jpeg",
+      "retained": "public/img/products/diamant-32-fe_2fa2f4dbdf331178d7a21087a5fde848-f277ef48e9656ceb.jpeg",
+      "sha256": "c1a3c7d8d9a838ecfcc18e7836231cc79e4efcccfe8f6b14f1b1c635750bd9c3"
+    },
+    {
+      "removed": "tmp/d32fe/cmp-side.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-side.png",
+      "sha256": "793eb76d24c1e3453145b339947c6214bd2e39e6fab20b518ae31e6814f71453"
+    },
+    {
+      "removed": "tmp/d32fe/dealers-hero-front-v2-cut.png",
+      "retained": "public/img/regen/dealers-hero-front-v2.png",
+      "sha256": "155373766e415b7f6627b972cb3ba42ee5df1b3ecff505dadd23101ea89db950"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_293ca5ac238892736a534ab266a74fbb-b7b35c604b3e885f.png",
+      "retained": "public/img/products/diamant-32-fe_293ca5ac238892736a534ab266a74fbb-b7b35c604b3e885f.png",
+      "sha256": "68595a5cd3aaa868b289151596eed36fd904fec18cb26582b42beee7374af6d4"
+    },
+    {
+      "removed": "tmp/d32fe/meshy-rear-white-f.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v7.png",
+      "sha256": "43697fe996f52669f379adf6de740519b02133f826c2b98e9c3b3182e6573f4f"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_42f7afa0cffa3e2869574b76e46eac53-45bb6e5db4d9285e.jpeg",
+      "retained": "public/img/products/diamant-32-fe_42f7afa0cffa3e2869574b76e46eac53-45bb6e5db4d9285e.jpeg",
+      "sha256": "b9fe80c5ad8da488b473b3927f104ac2632c5d4387448ab52683f45a66fc2e1e"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe-frame-side.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-side.png",
+      "sha256": "793eb76d24c1e3453145b339947c6214bd2e39e6fab20b518ae31e6814f71453"
+    },
+    {
+      "removed": "tmp/d32fe/meshy-rear-white-e.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v6.png",
+      "sha256": "4ee737c5b07db30e560804da9d3270fbf9eb5fb45edcec4d143001b38f92b845"
+    },
+    {
+      "removed": "tmp/d32fe/meshy-rear-b.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v2.png",
+      "sha256": "b0a83b6ae96137243ee38d7b81cb8e6cbfa2a44a43644a1b8970944f46fe348d"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe-frame-rear-v8.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v8.png",
+      "sha256": "f096b704588864e5612b3c75fd9c6850c491084f2534aebf8f7a9292beaa401e"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe-frame-rear-v9.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v9.png",
+      "sha256": "53f3f2cc5fb25f9e3cc82b37ed3d441c1d8ca6d7041112f273a9007470b8dc01"
+    },
+    {
+      "removed": "tmp/d32fe/dealers-hero-front-b-cut.png",
+      "retained": "public/img/regen/dealers-hero-front.png",
+      "sha256": "ba583c0a7cf6a68b5a755e6bc072e56af66a25f8c686ff7a62fddcf83e5176d2"
+    },
+    {
+      "removed": "tmp/d32fe/meshy-rear-white-c.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v4.png",
+      "sha256": "08e65a5a4bff708a41da8f73d2a4028989b585bf3b40233097b2275023fee4cc"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_293ca5ac238892736a534ab266a74fbb-b7b35c604b3e885f.webp",
+      "retained": "public/img/products/diamant-32-fe_293ca5ac238892736a534ab266a74fbb-b7b35c604b3e885f.webp",
+      "sha256": "783d49fc4ed2541c4e7c00a8330fa3a04833608ecefe6bb4208d127e34584f08"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe_dba8a9bba74d4ba2d09e038386861a89-d1c2808dab2413f9.jpeg",
+      "retained": "public/img/products/diamant-32-fe_dba8a9bba74d4ba2d09e038386861a89-d1c2808dab2413f9.jpeg",
+      "sha256": "0116411103720daa9e30953c515d2a08e7f996d90406975dd3d12973aa0922fa"
+    },
+    {
+      "removed": "tmp/d32fe/dealers-hero-front-live.png",
+      "retained": "public/img/regen/dealers-hero-front.png",
+      "sha256": "ba583c0a7cf6a68b5a755e6bc072e56af66a25f8c686ff7a62fddcf83e5176d2"
+    },
+    {
+      "removed": "tmp/d32fe/diamant-32-fe-frame-34.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-34.png",
+      "sha256": "3cbd8176e8894004ccb60b77e06a773ee2e36de04b66504018ca859f0dec5888"
+    },
+    {
+      "removed": "tmp/d32fe/cmp-34.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-34.png",
+      "sha256": "3cbd8176e8894004ccb60b77e06a773ee2e36de04b66504018ca859f0dec5888"
+    },
+    {
+      "removed": "tmp/d32fe/meshy-rear-cutout-v7.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v8.png",
+      "sha256": "f096b704588864e5612b3c75fd9c6850c491084f2534aebf8f7a9292beaa401e"
+    },
+    {
+      "removed": "tmp/d32fe/hero-front.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.png",
+      "sha256": "352114df70407f811eb103d72da3d41f8817f047386a3a84f7ce1b97ff082bd9"
+    },
+    {
+      "removed": "tmp/hinge/diamant-43-n-frame-front.png",
+      "retained": "public/img/regen/diamant-43-n-frame-front.png",
+      "sha256": "93e80f6b8682b1e3c2d745db2f83a33d518274d1299dc70135f692b840e088a7"
+    },
+    {
+      "removed": "tmp/hinge/diamant-49-n-frame-rear.png",
+      "retained": "public/img/regen/diamant-49-n-frame-rear.png",
+      "sha256": "0868e65c4e2962225a0a0b41acaafc5cbdb9b9233073268196b75cc39cab5bc6"
+    },
+    {
+      "removed": "tmp/hinge/diamant-43-n-frame-34.png",
+      "retained": "public/img/regen/diamant-43-n-frame-34.png",
+      "sha256": "4035d9c9e91fbc7bf10202c1c13dcfe446f530ea7ea8a45b5309eeb8e6e0376d"
+    },
+    {
+      "removed": "tmp/hinge/diamant-43-n-frame-rear-v2.png",
+      "retained": "public/img/regen/diamant-43-n-frame-rear-v2.png",
+      "sha256": "2f21c4f4fa138486f45ac5fc65f4a7145fc03c070a200fb3f0708eb0451fe653"
+    },
+    {
+      "removed": "tmp/hinge/diamant-49-n-frame-side.png",
+      "retained": "public/img/regen/diamant-49-n-frame-side.png",
+      "sha256": "12fc6515b7ec60f28faf74edcd8404fc0ba9cdc37b27c27c83e4e1def8ffa981"
+    },
+    {
+      "removed": "tmp/hinge/diamant-43-n-frame-side-v2.png",
+      "retained": "public/img/regen/diamant-43-n-frame-side-v2.png",
+      "sha256": "4d6d443eabcfee896d2dcee138500c83a8f1b49b7e9f865c0e047ad158c1d633"
+    },
+    {
+      "removed": "tmp/interior-refs/diamant-32-fe-front.webp",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.webp",
+      "sha256": "445ab7d2c72766df2b311137072d5f1c01c8edcb6691abf3557d32c2d5a72d5d"
+    },
+    {
+      "removed": "tmp/blog-pick2/elektronnyy-konsultant-na-vystavkakh-i-konfer.jpg",
+      "retained": "public/img/blog/elektronnyy-konsultant-n_c7a878268405eed663e32018330d33b0-029666ae9c5a1266.jpg",
+      "sha256": "cebb152b25e52dc29d4202f1ad2a01d4e4070d45e08a7607b063272e6f2b4eb7"
+    },
+    {
+      "removed": "tmp/blog-pick2/interaktivnoe-oborudovanie-zorgtech-na-festiv.jpeg",
+      "retained": "public/img/blog/interaktivnoe-oborudovan_dd39bc1bbab1bc77c277e23b0ec3443d-0dc4ebfcb6d314e7.jpeg",
+      "sha256": "8eba1fd253530a4568efb49e09079f8b6938b9fa223dc4d9976918cd3dece611"
+    },
+    {
+      "removed": "tmp/blog-pick2/vystavka-intermuzey-2015.jpg",
+      "retained": "public/img/blog/vystavka-intermuzey-2015_7e8e3144fdffc218e920070ee914f914-8d909e65f5165b9a.jpg",
+      "sha256": "fc517b1903ea91d990c595182244dff1c889063f59aac732d77015bc118eb45c"
+    },
+    {
+      "removed": "tmp/blog-pick2/dizayn-polzovatelskogo-interfeysa-dlya-kiosko.jpg",
+      "retained": "public/img/blog/dizayn-polzovatelskogo-i_3f4wtqcwcm7bkk7i8ger5f7et6ezpepk-1e72a275d2b86669.jpg",
+      "sha256": "10854bf9d4fcec52ae4df818d047e73f0d60a1da9f252ea4fd10343cc09629a0"
+    },
+    {
+      "removed": "tmp/blog-pick2/effektivnyy-dizayn-interfeysa-interaktivnogo-.jpg",
+      "retained": "public/img/blog/effektivnyy-dizayn-inter_0fa1bf05d4255710fe3cd8df363dabb0-30cd66524c8b9b25.jpg",
+      "sha256": "90ccc2090777433e82e393bbd9d3502d1378acb57527480d7de08702aabe09b3"
+    },
+    {
+      "removed": "tmp/blog-pick2/primenenie-sensornykh-kioskov-v-muzeyakh.jpg",
+      "retained": "public/img/blog/primenenie-sensornykh-ki_4b0a5729f47f53411891e9d070171420-0875ddf62c10d0a7.jpg",
+      "sha256": "70502c9678147baf6dde6ea275ab0566eaef9862d456d87f7fee1fe48ee928df"
+    },
+    {
+      "removed": "tmp/blog-pick2/navigatsionnye-sensornye-kioski-dlya-trk-colu.jpg",
+      "retained": "public/img/blog/navigatsionnye-sensornye_4513592354ac95bcef50a5dfc849190c-6213a5df5904ff91.jpg",
+      "sha256": "70446ee1660d59fee4ea66093a9ac5ca32c93ecb8f23a7a7f0c7f54c17bdb5af"
+    },
+    {
+      "removed": "tmp/blog-pick2/interaktivnaya-vystavka-dzhimmi-nelsona.jpg",
+      "retained": "public/img/blog/interaktivnaya-vystavka-_2e37109fc5282937148fbc439425eced-cb2d9649d50499dd.jpg",
+      "sha256": "5ef68b0d091d9c21d807f8664ca3add61424e8efc7f4017ac1c24024403cecf4"
+    },
+    {
+      "removed": "tmp/blog-pick2/v-tulu-so-svoim-sensornym-kioskom.jpeg",
+      "retained": "public/img/blog/v-tulu-so-svoim-sensorny_96295e5d0ff5b5de2dbb9a257747055f-765b53667f9b1d76.jpeg",
+      "sha256": "c87f74468ab4b00962315a3bf7b51bb6f92c1d66ede70cd4ffb6868e1ce74d84"
+    },
+    {
+      "removed": "tmp/blog-pick2/interaktivnaya-stena-v-muzee-mod-antverpen-be.jpg",
+      "retained": "public/img/blog/interaktivnaya-stena-v-m_9af53e2f9b0e4234d23e4ef62f41435b-a79c3fa506ce7181.jpg",
+      "sha256": "77b6fa43ef8714cff5127d66f5c52a6ab2b95c1b8d7bc2fa3b56dea61855799e"
+    },
+    {
+      "removed": "tmp/blog-pick2/diamant-55-dvustoronniy-eshche-bolshe-vozmozh.jpg",
+      "retained": "public/img/blog/diamant-55-dvustoronniy-_a5b2043feb9abb977e1b25e0b780882d-8965b6b37f6cdeac.jpg",
+      "sha256": "8d5365bba6bc2398ece1b7c734b9f4860cd46f0fd4f84e71022973c920907c07"
+    },
+    {
+      "removed": "tmp/d32fe-strip/diamant-32-fe-frame-rear-v10.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v10.png",
+      "sha256": "61e04d24930022353cf02cbf2ba4719d6f8c06ab36df3c08ffb5f315b743c61f"
+    },
+    {
+      "removed": "tmp/d32fe-strip/diamant-32-fe-frame-rear-v11.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v11.png",
+      "sha256": "c60283a647a1503150c73268e06dd2501c5b7be7a1612a77aec0afdb4fe77a30"
+    },
+    {
+      "removed": "tmp/bitrix-copy/agat-5-card.webp",
+      "retained": "public/img/regen/agat-5-frame-front.webp",
+      "sha256": "5b936b978bd550d62319a7416d74bd8ca2b4da5d42b71ecda5469f5e2773f87b"
+    },
+    {
+      "removed": "tmp/teaser-qa/columbus-3.jpg",
+      "retained": "public/img/projects/interaktivnaya-navigatsiya-v-t_88d654afd34ed8d31f7d61263a6ce6be-d588d2cd0b5a2807.jpg",
+      "sha256": "86ae7cf60cc8efe710755276cde75b070413588d414ad81a192dcedbbdd3d5b4"
+    },
+    {
+      "removed": "tmp/teaser-qa/zavidovo.jpg",
+      "retained": "public/img/projects/sozdanie-interaktivnoy-ekspozi_07f7f55c99ae49178221f351b3699b84-4adfbd8bff23ad8e.jpg",
+      "sha256": "f84528c963529a2ac85d5b53c97444e7de6d6b6a14668e156f523fbe095ee143"
+    },
+    {
+      "removed": "tmp/teaser-qa/seminary.jpg",
+      "retained": "public/img/products/diamant-49-w_d085e53f1cb794777b6fec00750de10d-1f422dde3ec88db8.jpg",
+      "sha256": "7bc8ae188ce0470905e7195e1ac189d573ce2aed6cb0b54797ca8ba738495b50"
+    },
+    {
+      "removed": "tmp/interior-preview/check-mono.jpg",
+      "retained": "public/img/interior/mono-19-f-1.webp",
+      "sha256": "2f2b676fb06cfc374b3506080b60bd6b2fde296592fc4e77df12d4fb8e59b605"
+    },
+    {
+      "removed": "tmp/ek22/side.png",
+      "retained": "public/img/regen/eco-kid-22-frame-side.png",
+      "sha256": "1d54ef93e51795332d71ebb73e1da13305880b07f7be18a8ec38ae35aca919d4"
+    },
+    {
+      "removed": "tmp/ek22/34-legs-cut.png",
+      "retained": "public/img/regen/eco-kid-22-frame-34-v2.png",
+      "sha256": "df8f40a784ac183d84232b2443136d83ec9e0a6129b867d53e7f02a27a34f47e"
+    },
+    {
+      "removed": "tmp/ek22/34.png",
+      "retained": "public/img/regen/eco-kid-22-frame-34.png",
+      "sha256": "e6474da3d77ccc539ff003fba398f2148980353df3c2cf4b84532e78559be8d7"
+    },
+    {
+      "removed": "tmp/ek22/rear.png",
+      "retained": "public/img/regen/eco-kid-22-frame-rear.png",
+      "sha256": "f0f5891f244a6f3fccf655bceb229e545911256baa8b047ca47bf2cb8324f566"
+    },
+    {
+      "removed": "tmp/ek22/detail.png",
+      "retained": "public/img/regen/eco-kid-22-frame-detail.png",
+      "sha256": "eb45171e908e3b3b71eb18e8d1f109f09ca8a54a466ed7ab5b3f94a957b73cdc"
+    },
+    {
+      "removed": "tmp/ek22/front.png",
+      "retained": "public/img/regen/eco-kid-22-frame-front.png",
+      "sha256": "569b15f0c55828fbf9f30c7674b82cd2f08a9f68dbf5231c276de2ce90dcd378"
+    },
+    {
+      "removed": "tmp/apriori19k/refs/cover.png",
+      "retained": "public/img/products/apriori-19-keyboard_9e21963f5d50c6e4fa97201a7a4abcc0-7e4c5c43eb9f8f4a.png",
+      "sha256": "41b904ab450a21144dcf366244140e60d31222974c1f5bbb01732e3a27901514"
+    },
+    {
+      "removed": "tmp/apriori19k/src/01.jpg",
+      "retained": "public/img/products/apriori-19-print_3f4eb80d6f4508e138578530a56d0ee9-3792be9d5dbe45ed.jpg",
+      "sha256": "21709957625f9d7e57949e5de649b0743b0af62e1b820940fd470f940e6071b4"
+    },
+    {
+      "removed": "tmp/apriori19k/src/03.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_7b822f396c8dcc034f37b818323de97c-f6eb17aed5f0b997.jpg",
+      "sha256": "f50686e53884c3135346cb097ed34af43bf8b926c3aaa773b7048dd062cf8771"
+    },
+    {
+      "removed": "tmp/apriori19k/src/02.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_ece622d34085042b9621ac252c35cf4d-03dacacfbf2d405a.jpg",
+      "sha256": "edb6504e57c3e0c50397d8db0815d0c5d26cd3b73e84aa455f1b529738677eb3"
+    },
+    {
+      "removed": "tmp/apriori19k/src/06.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_f12d06832ff0ed209df18392870de341-53d1c4a2cd668ae5.jpg",
+      "sha256": "e73716e2994eb902f5196360e315371dd560ba74e192ac45c6acd7b62ba84ef1"
+    },
+    {
+      "removed": "tmp/apriori19k/src/05.jpg",
+      "retained": "public/img/products/apriori-19-keyboard_97d46a22f810a3793ec607dd15b07cf5-d826245c1ee18306.jpg",
+      "sha256": "555f9a890cc51623919d9567a481ca4030c8667c1ef2c0014c229bb396c9468d"
+    },
+    {
+      "removed": "tmp/apriori19k/src/11.jpg",
+      "retained": "public/img/products/apriori-19-print_0d60dd85804345cbd8990f9670fe0ed9-db16261a34ae5aca.jpg",
+      "sha256": "4e1c6da30ee3e6843194e4c91de957845f324c1ff9180ad3936d7200f518e832"
+    },
+    {
+      "removed": "tmp/apriori19k/src/10.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_c8f6691e62548d72c4d8816cb8280541-65dcb632770fdc22.jpg",
+      "sha256": "0b213a43e836d15567fe853096496e9627a32508ce872ae9e744597d1ce12ac5"
+    },
+    {
+      "removed": "tmp/apriori19k/src/04.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_be4a07f85f5bb81282decec9654903f6-903754ce008dbc15.jpg",
+      "sha256": "9d68fa5b13c6184ad76dd55d8f3a78060dd25e203df1020f69ddddc10232cc65"
+    },
+    {
+      "removed": "tmp/apriori19k/src/09.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_73ba6a2adcbc1d62f6289b610aa74b58-03b07cd27f3bfdea.jpg",
+      "sha256": "52ff9ec7d48be93d08c30d3ffc30ec4fbda4c1bd0ff33809c599a5fe0cfbda89"
+    },
+    {
+      "removed": "tmp/apriori19print/refs/apriori-19-print-frame-34.png",
+      "retained": "public/img/regen/_precut/apriori-19-print-frame-34-presmear.png",
+      "sha256": "9c2ab7bfafb03de0e652aba0fd5aab19b36df2a7ada07ecdb3ff35a0e6e52dd1"
+    },
+    {
+      "removed": "tmp/apriori19print/refs/apriori-19-print-frame-front.png",
+      "retained": "public/img/regen/apriori-19-print-frame-front.png",
+      "sha256": "5c852622ea1116e75ba59b2703de790a78d523299d74fce5da175b4ac560d643"
+    },
+    {
+      "removed": "tmp/apriori19print/refs/cover.png",
+      "retained": "public/img/products/apriori-19-print_7220d1a713a346ccb7fa2df9961c9cac-110c7f6840a40018.png",
+      "sha256": "7866f9c916d5a8f21acdb6ec661040061610c676fcac515368d8aff136338177"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/out.webp",
+      "retained": "public/img/regen/diamant-46-f-outdoor-frame-front.webp",
+      "sha256": "336bb72a905b26e4f59d04a3b72137166af5c52aa110cbf2077ba9d1c08a0bd5"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/pop.webp",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.webp",
+      "sha256": "445ab7d2c72766df2b311137072d5f1c01c8edcb6691abf3557d32c2d5a72d5d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/kiosk.webp",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.webp",
+      "sha256": "445ab7d2c72766df2b311137072d5f1c01c8edcb6691abf3557d32c2d5a72d5d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/table.webp",
+      "retained": "public/img/regen/diamant-55-n-frame-front-v3.webp",
+      "sha256": "63691b0c5a1672cf16bbd855b53ab48cf5effbacbfb50db53ff6c56053543cac"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/pay.webp",
+      "retained": "public/img/regen/diamant-32-w-pay-frame-front.webp",
+      "sha256": "e375b1e3e721d25381f801d958cf0ac6a6878be8c0e4bc54504e218c10c5412b"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/wall.webp",
+      "retained": "public/img/regen/diamant-32-w-frame-front.webp",
+      "sha256": "63cdda17a3b0864b45befe937c86f93fbd34579153a1cd2b45dce1464988c061"
+    },
+    {
+      "removed": "tmp/bitrix-copy/line-check/ap.webp",
+      "retained": "public/img/regen/apriori-22-frame-front.webp",
+      "sha256": "6d20e1451f83682d419b06c6c664ca1f1daba4a254d0fe4bb84c1f0be9d7eec1"
+    },
+    {
+      "removed": "tmp/bitrix-copy/area-img/6fe320af21530c58948d95e8bbf7a118.jpg",
+      "retained": "public/img/pages/area-dlya-bankov-nbsp-nbs_6fe320af21530c58948d95e8bbf7a118-56ee586ecf8c734e.jpg",
+      "sha256": "02ef7af53ae88a8d4a657fabbbd958f4823e1b00e6a87743611f7795bc1b3fd7"
+    },
+    {
+      "removed": "tmp/bitrix-copy/area-img/564dafe9f85282d7af73c9fa5d703816.jpg",
+      "retained": "public/img/pages/area-dlya-avtosalonov_564dafe9f85282d7af73c9fa5d703816-5464c25c122f2be4.jpg",
+      "sha256": "fbe69f9d9e81c8d0c8d3c246e44af47a335eebd00eb94559fbb81d2d10f175bf"
+    },
+    {
+      "removed": "tmp/bitrix-copy/area-img/649eb50aed3750bb3ca7f8af3ff4d62b.jpg",
+      "retained": "public/img/pages/area-dlya-strakhovykh-kom_649eb50aed3750bb3ca7f8af3ff4d62b-3753185b544b5ed1.jpg",
+      "sha256": "233115e7de375fe4c35dce5e1e2a5388eb0509f747c49c0ed8c4ad8cea7f4d77"
+    },
+    {
+      "removed": "tmp/bitrix-copy/area-img/0e0b72346cbe7e9ebb4bc5ae1a5457b0.jpg",
+      "retained": "public/img/pages/area-putevoditel-po-torgo_0e0b72346cbe7e9ebb4bc5ae1a5457b0-79ba5dd84f59f467.jpg",
+      "sha256": "c5313f495d4c760d3bb349f86aa7302f61d522b9c8582ef278403347e9424bbb"
+    },
+    {
+      "removed": "tmp/bitrix-copy/area-img/6c432f69876b08c984a55e8427c2fc89.jpg",
+      "retained": "public/img/pages/area-dlya-bankov-nbsp-nbs_6c432f69876b08c984a55e8427c2fc89-c07246fb288473c6.jpg",
+      "sha256": "893b303d48fd44515882ec734580f785b617c29a919319a56d6d30d5f7ef4375"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gosinform-4.webp",
+      "retained": "public/img/solutions/gosinform_2d9b0ac0f4516c.webp",
+      "sha256": "fe46120232b147c9fa5ae15cca609d1ff437b5abe80aef78a248e73df5001e05"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-meditsinskikh-uchrezhdeniy-medkiosk-cover.jpg",
+      "retained": "public/img/solutions/dlya-meditsinskikh-uchrezhde_thumb_86b29146b29c1519.jpg",
+      "sha256": "fa16dda1b483a3ab851aac1a3992b6396787cebe34cb88d60a26a67439c7b48f"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/impulse-presentation-vov-1.webp",
+      "retained": "public/img/solutions/boxes/impulse-presentation-vov/screen-2.webp",
+      "sha256": "610552b25bf5a406a0d5a1bf35761b765f4cbd182a1c4b52788e746c4d6c4a28"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-7.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_8fa327781a9e1a.webp",
+      "sha256": "71c5a50d14d865a84937b3655fd2db2f53bbe6bb562c1e12b09432ac19ac2b78"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-human-2.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-human/screen-3.webp",
+      "sha256": "3f1f577be9fb5fe0e6bcbae67bc73e0465bd83de2526ecb1ed217ca45b2db7e9"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-solar-system-1.webp",
+      "retained": "public/img/solutions/boxes/3d-solar-system/screen-2.webp",
+      "sha256": "31b9eaf5bc51e8bb298f96c4bedbe0fd05ac310a98741348ea5ef6104dd025dc"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gosinform-cover.jpg",
+      "retained": "public/img/solutions/gosinform_cover_2397918ed5a455.jpg",
+      "sha256": "de4cba553e15379dbd175de59faa2f61ee4baa8c7cf66a3021ab23600a92eb0b"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-mechanics-2.webp",
+      "retained": "public/img/solutions/boxes/3d-mechanics/screen-3.webp",
+      "sha256": "af016addfcd5d7c1bf491ef1df4ab57ae3ee556e62e04a5b1ef1f094e778caba"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-meditsinskikh-uchrezhdeniy-medkiosk-1.webp",
+      "retained": "public/img/solutions/dlya-meditsinskikh-uch_4e72a81ba6cd29.webp",
+      "sha256": "ad3b25d70b6896c5685a0b5c73c4c33406a2bddb6cca91bc6d5ff2e83fa2b535"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gid-uchashchegosya-cover.jpg",
+      "retained": "public/img/solutions/gid-uchashchegosya_thumb_605483cbdd8d6945.jpg",
+      "sha256": "bed1ec15e02a3996904265edb3c67197ef0b51aa845be2a18d2d596c10507a40"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-mechanics-3.webp",
+      "retained": "public/img/solutions/boxes/3d-mechanics/screen-4.webp",
+      "sha256": "2c186f763f0f304715a74414a33dcb5fc58896c9a72ed9909f1de79225073101"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gid-uchashchegosya-6.webp",
+      "retained": "public/img/solutions/gid-uchashchegosya_e31a8211e53d71.webp",
+      "sha256": "13e40b62f0d0315d354b7aef7c3c4068324ccdb48cf3e3dbfd6bb89ebf291b91"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-human-3.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-human/a-highly-detailed-3d-anatomical-cross-section-of-a-human-mol.webp",
+      "sha256": "541a1eb26a77c25127fdabfbf43e456bc893c15087f4ef3e60b6c031db2f18f4"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/interaktivnaya-navigatsiya-logicmap-cover.jpg",
+      "retained": "public/img/solutions/interaktivnaya-navigat_cover_6ca7b8ae44c528.jpg",
+      "sha256": "1ebda1df9e6ee6ba1422512b65d5b1beed7e77d6c3233be6346f860f34232ba6"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-6.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_5cb9855e91f5e6.webp",
+      "sha256": "14e89549ec9fd97b812938e9b8f9afe21f354418a6bb14b32592f075740acc9c"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-geology-2.webp",
+      "retained": "public/img/solutions/boxes/3d-geology/screen-3.webp",
+      "sha256": "648750656a2ec81b44c6cf8a7b2fe670dd9baca62d3cd8126129abe86684a67f"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/interaktivnaya-navigatsiya-logicmap-1.webp",
+      "retained": "public/img/solutions/interaktivnaya-navigat_3a5400311abc70.webp",
+      "sha256": "6762ae0af04713ddbc6f7e6411565b486aecd2625d12c0330cad8ade3ba1d962"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-chemistry-basics-1.webp",
+      "retained": "public/img/solutions/boxes/3d-chemistry-basics/screen-2.webp",
+      "sha256": "5f03fae4c855f516a0d1c176bac20fd84a359e1284888a6c4da5751ccb6aefa9"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gosinform-2.webp",
+      "retained": "public/img/solutions/gosinform_274f6ca3ce3568.webp",
+      "sha256": "7ef597cddcce8486171d664b0e3a67f190804b11ab997ea586c99435f7eaed8d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-obzr-1.webp",
+      "retained": "public/img/solutions/boxes/3d-obzr/screen-2.webp",
+      "sha256": "a8555b7a81a816ce079809b9e20f3954ac84053d8af6091a71000448f676fa45"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-rocketry-2.webp",
+      "retained": "public/img/solutions/boxes/3d-rocketry/highly-detailed-3d-anatomical-cross-section-of-a-high-perfor.webp",
+      "sha256": "f8b08db1b92d8a0fd3b39c08d8d90131d94255b1213ae628f7a120a90297b7c2"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-1.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_c8210aa5ee4647.webp",
+      "sha256": "31ce8a2b0f03112c841c4b7195727931ac18a1adbf3e91bbcbca22a5d28918e3"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/virtualnyy-gid-cover.webp",
+      "retained": "public/img/solutions/virtualnyy-gid_thumb_36cf16ecdf3c145c.webp",
+      "sha256": "e8849b0c30b2eb8eff81ca0eb6741311ed8f0e5075f7c72d0710ce08fa345dcc"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-geology-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-geology/screen.webp",
+      "sha256": "7d2082eeeb5c425073a3ffa48b85f74954765bee77fac5d21c3b26bd7a496673"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gid-pokupatelya-cover.webp",
+      "retained": "public/img/solutions/gid-pokupatelya_thumb_e2d50a9bb20eaaed.webp",
+      "sha256": "779b6c27872943a95bece0df7f2421be13cd2a7f5e5b02b57138d93797ecf614"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-astronomy-1.webp",
+      "retained": "public/img/solutions/boxes/3d-astronomy/screen-2.webp",
+      "sha256": "a47d1510c96714f3a3cf123fd092b3cdb949633d284e7a94b407985244b99140"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gosinform-3.webp",
+      "retained": "public/img/solutions/gosinform_89731295b3be54.webp",
+      "sha256": "6c909dba8fcfd5fa50c451d87e56a8a640b229d95ed094032a4f899c77c4f53e"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-veterinary-1.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-veterinary/screen-2.webp",
+      "sha256": "2ab3609160ce11f7b9960dc85ffd9f04a71f9c64462f290c4fa266621b2b9f96"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-oteley-otelkiosk-1.webp",
+      "retained": "public/img/solutions/dlya-oteley-otelkiosk_b0b1ff0249b454.webp",
+      "sha256": "5290d652f5a7845fc76325dd49740801db93623e87f7cc762fff51e6c9e022b0"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-human-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-human/screen.webp",
+      "sha256": "ee85b6cc5dad71b4f8f587d7916bf128483b7ca8756495264bff2899737ae108"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-oteley-otelkiosk-2.webp",
+      "retained": "public/img/solutions/dlya-oteley-otelkiosk_138f85fb8ad136.webp",
+      "sha256": "79b1b9107054eb89c0a9ccf402f548f73de0a49e5b57672c235e4a7cf56d7744"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-cover.jpg",
+      "retained": "public/img/solutions/muzeynyy-gid_cover_2049b87efe6d5a.jpg",
+      "sha256": "c4bb2cfb7b077d039911b27cd7c94380a242e9b3d9c0cfbc468dedb6bb57c987"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/impulse-presentation-vov-cover.webp",
+      "retained": "public/img/solutions/boxes/impulse-presentation-vov/screen.webp",
+      "sha256": "68b74319ffcca0e33a957e050515675f85d172e805052c0570dabafeb11bee5e"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-chemistry-basics-3.webp",
+      "retained": "public/img/solutions/boxes/3d-chemistry-basics/screen-4.webp",
+      "sha256": "d992baae09f52f24e76c934cb885fa594aa5dfc8ff4074f7f805ae23e02df6f9"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-3.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_fe52f8f75b0795.webp",
+      "sha256": "707331bcbf9c6e88776e2e3d7bc752df8ac273e12a1328af04e0173bf2320064"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-astronomy-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-astronomy/screen.webp",
+      "sha256": "1b4f689d359e3c1df64d545f7c8cb423005cd042bdadd54f6f02a817567d5808"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/interaktivnaya-navigatsiya-logicmap-4.webp",
+      "retained": "public/img/solutions/interaktivnaya-navigat_1db758ab7d1a48.webp",
+      "sha256": "c051e7d896d7780ddb28e88300d39d51a522283e886612ad5cc66cec86ae1a46"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-chemistry-basics-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-chemistry-basics/screen.webp",
+      "sha256": "7e76dbbb48fdc9eda36f320c8f985eca93d0becf40ef0f64e314b850e6c1d117"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-veterinary-2.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-veterinary/screen-3.webp",
+      "sha256": "3849c08821fcccd7e1e8b77e095b5e3c2b17ddab6f8d98b1a37ce27a250b257e"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-veterinary-3.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-veterinary/screen-4.webp",
+      "sha256": "c3bd5d045b1244946588f2402ff611c5692efea4c7016cfbf1a97902f6cd5ade"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gosinform-1.webp",
+      "retained": "public/img/solutions/gosinform_e493148bc21bbf.webp",
+      "sha256": "fcdf011c405cb13a20a2adbcfa0cbeaaad694619cb82f82e92481951276af475"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/interaktivnaya-navigatsiya-logicmap-5.webp",
+      "retained": "public/img/solutions/interaktivnaya-navigat_0d4035e411cbc2.webp",
+      "sha256": "5e0ae8fab1ba1d7b3a7fbce34454a5b77bb7ed4eb8fd343d14f088ba3422b45b"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-obzr-2.webp",
+      "retained": "public/img/solutions/boxes/3d-obzr/screen-3.webp",
+      "sha256": "3a2f67e5f79bb135b46aabd4b6e14e26c3181153c4bbdf909052e9e714488eba"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-rocketry-1.webp",
+      "retained": "public/img/solutions/boxes/3d-rocketry/screen-2.webp",
+      "sha256": "2c53f1a1e21b0dd8e3ace25938f413309271637b31ac66384a0e9144d1bfa85a"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-2.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_bffd4e3f0c9f4f.webp",
+      "sha256": "8bfb51c87a2fcaa08856c7122a2d2087598d17cc2972c605ee847e3d51928bf3"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-chemistry-basics-2.webp",
+      "retained": "public/img/solutions/boxes/3d-chemistry-basics/screen-3.webp",
+      "sha256": "e1e2b3c8b5799907d5d407e8349ac4b571553c2c7488991bcbc2b39d9c4b6653"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-oteley-otelkiosk-3.webp",
+      "retained": "public/img/solutions/dlya-oteley-otelkiosk_e1564df1bb6736.webp",
+      "sha256": "196ae219d0244fd0ec114b73e117dc1c7d694c3840d9c8f1f4868a24c5b452ab"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-5.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_6d91b746080e4f.webp",
+      "sha256": "09d88ff08b60e29571a3f7b7581ada6909a76bca4be4939bb417d5e5091776f3"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-rocketry-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-rocketry/screen.webp",
+      "sha256": "86c478fa6cf5b19477f4ca04196e7191d2407e0e2acb8bcc2af9eba14b1282aa"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/impulse-presentation-vov-3.webp",
+      "retained": "public/img/solutions/boxes/impulse-presentation-vov/screen-5.webp",
+      "sha256": "37a2e0ea68b4ae205dd10cde182d38e73b23091f0d0420125bb1b4d43ffb0240"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-geology-1.webp",
+      "retained": "public/img/solutions/boxes/3d-geology/screen-2.webp",
+      "sha256": "7dfa8f637c530ac464aad81118120287923f9d95859d53e8997b036541af2fa6"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-oteley-otelkiosk-cover.webp",
+      "retained": "public/img/solutions/dlya-oteley-otelkiosk_cover_ebb691a832aa45.webp",
+      "sha256": "82f47fec83c30cf420b18f9db7c41726aa6c37c06eecc5521ca762bc190ded9a"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-solar-system-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-solar-system/screen.webp",
+      "sha256": "c9d7949f578aeacbbf331a262ffda192667eb813914736285205a47202f2327c"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/dlya-oteley-otelkiosk-4.webp",
+      "retained": "public/img/solutions/dlya-oteley-otelkiosk_202589b543ffe6.webp",
+      "sha256": "cfafd0083de4f0d953ab154715873a851c7f45606123ca1f913bfbe08cd14548"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-obzr-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-obzr/screen.webp",
+      "sha256": "404a02f741da470bfc269ccf95bd7ebab260101a3f558a926cc16caf09375df5"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-veterinary-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-veterinary/screen.webp",
+      "sha256": "1332ccd628c5d2d7ef9f6ad62775ebba85311214c250d770437d71b8911abf26"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-solar-system-2.webp",
+      "retained": "public/img/solutions/boxes/3d-solar-system/artboard-1.webp",
+      "sha256": "c6da57d52508a50652115dda8f10e0d6d350a8cac2c5ec2590af0695bc934fe0"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-anatomy-human-1.webp",
+      "retained": "public/img/solutions/boxes/3d-anatomy-human/screen-2.webp",
+      "sha256": "d7167671648cd4f792efd003f8b347e374d3780e19ca35a9b8964d96e36b3751"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/gid-uchashchegosya-4.webp",
+      "retained": "public/img/solutions/gid-uchashchegosya_2483850e61ae3d.webp",
+      "sha256": "548c769273f989ce7a10fbafcd30e3c9afdb4a4b64a9776e7bb8113e9fd19bfd"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/ofiskiosk-cover.webp",
+      "retained": "public/img/solutions/ofiskiosk_thumb_38a589c53d90961d.webp",
+      "sha256": "05dd92ac3ff700d155b82d0308e3231bee2b897d630dca0ce18381568cea6542"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-mechanics-1.webp",
+      "retained": "public/img/solutions/boxes/3d-mechanics/screen-2.webp",
+      "sha256": "7a266bc243874b54994d361a3660dd4203c798568c6934428a62b06335cc36be"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/3d-mechanics-cover.webp",
+      "retained": "public/img/solutions/boxes/3d-mechanics/screen.webp",
+      "sha256": "b0eeed1c17dfe4bf8da25ff99b3627b6bd797bcd9df45305a8b513a203dceb2f"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/interaktivnaya-navigatsiya-logicmap-3.webp",
+      "retained": "public/img/solutions/interaktivnaya-navigat_281c74eac53666.webp",
+      "sha256": "23e4aa76065ae9f9072fc15e72191801386419fc4ce57775c32dc257e31beb1a"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/impulse-presentation-vov-2.webp",
+      "retained": "public/img/solutions/boxes/impulse-presentation-vov/screen-3.webp",
+      "sha256": "72737b9ca5cc2f664814105edf3f251c67586dbdc85afd17b0d3ab93d753f5fa"
+    },
+    {
+      "removed": "tmp/bitrix-copy/soft-img/muzeynyy-gid-4.webp",
+      "retained": "public/img/solutions/muzeynyy-gid_7ee8fde1722cbe.webp",
+      "sha256": "9ea52e527723417a701297d1f85eb044d0d92f185e61eb7ec749c51e2f7bf491"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-55-f.webp",
+      "retained": "public/img/regen/diamant-55-f-frame-front.webp",
+      "sha256": "857e3562d7490abb5f1859a3e27157706085e923e99c8d60e09d78e6b52d845f"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-43-fl.webp",
+      "retained": "public/img/regen/diamant-43-fl-frame-front-v2.webp",
+      "sha256": "8ef8611571b5ef984db2effd87a261768491c5528dfedfc1256ad6c97f6c8832"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-apriori-19-keyboard.webp",
+      "retained": "public/img/regen/apriori-19-keyboard-frame-front.webp",
+      "sha256": "39f998b75744a078ca0f95c460cf0ca84cc341dcad41bfef738cd5e43ae35e9d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/f1a2d2b519ebf56bf36d05ef6e39836b.webp",
+      "retained": "public/img/projects/sensornye-kioski-dlya-uchebnyk_f1a2d2b519ebf56bf36d05ef6e39836b-2b106a59900c0b9e.webp",
+      "sha256": "2c1f663bc55929b6cffec9438d4a5db9adc13be037a45033f99534ec1d78bd81"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-49-f.webp",
+      "retained": "public/img/regen/diamant-49-f-frame-front.webp",
+      "sha256": "de17468d1f3aed7bf0fc066edfcc047b0d4ed9149dfe0d4e7e639bf07efced37"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-ne.webp",
+      "retained": "public/img/regen/diamant-32-ne-frame-front.webp",
+      "sha256": "0e51299bd47350df8c5ec2dd1898bdab7d3f030992024e1183eb22c6f05d1307"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/e319ecaced13fb7ceda4e9d3e6a88783.png",
+      "retained": "public/img/projects/sensornye-kioski-dlya-muzeya-t_e319ecaced13fb7ceda4e9d3e6a88783-97ad57714bee3e2a.png",
+      "sha256": "6c8fdd14fffc667f006c9efb08ee053e5a0654453666652be8ef82c4d80c013b"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/8e4b680efe1abb1cfd1bbfce3bd26ba1.jpeg",
+      "retained": "public/img/projects/terminal-dlya-prodazhi-biletov_8e4b680efe1abb1cfd1bbfce3bd26ba1-fb0065576d6e6dc2.jpeg",
+      "sha256": "3af4c8aea4c6890a8d32998d772cbc50ff32f36abda4da49e9845ba337291e69"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-22-f.webp",
+      "retained": "public/img/regen/diamant-22-f-frame-front.webp",
+      "sha256": "becdad36e720b30c12c8be6a9e7f44d1e67c78826abcf637a539075d8d0bde74"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-75-f.webp",
+      "retained": "public/img/regen/diamant-75-f-frame-front.webp",
+      "sha256": "ca29182b388c45e1762bb7704a895ff9c99eb84dd8d3747174563e8cb84b4a06"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-interaktivnyy-kiosk-apriori-19-print.webp",
+      "retained": "public/img/regen/apriori-19-print-frame-front.webp",
+      "sha256": "83d379d32081fcc1a0345223c66d414855db8644a9f3219add0a642719cf9f63"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-f.webp",
+      "retained": "public/img/regen/diamant-32-f-frame-front.webp",
+      "sha256": "8873e4c70265bc9c5633a39b2b0de78c2b73fbf04bb5d5f1f099589726aa6f6d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-43-f.webp",
+      "retained": "public/img/regen/diamant-43-f-frame-front.webp",
+      "sha256": "19cc720264ddf0cc90389fae2710d73b68384f9447062515d0ebb477652c21a7"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/33eb0a3b487c89fbadbeb614ccb6fd86.jpeg",
+      "retained": "public/img/projects/terminal-dlya-prodazhi-biletov_33eb0a3b487c89fbadbeb614ccb6fd86-0a423edb2a2b1df0.jpeg",
+      "sha256": "1e74a053f76fe5e464ed021f6288d50d8f1bd4e14835d8acce3842b3916d1311"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/bb2566c8f67542b2c66ac781946ac4b9.jpg",
+      "retained": "public/img/projects/akademiya-tsifrovykh-tekhnolog_bb2566c8f67542b2c66ac781946ac4b9-e9e15dd8a5259cb1.jpg",
+      "sha256": "df75f2596f49f42abe797a1c036de1d084baf5850d3a608039c0b4ba6e5abe93"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/8508047226854e99eb939936473718a3.jpeg",
+      "retained": "public/img/projects/avtomatizatsiya-promyshlennykh_8508047226854e99eb939936473718a3-41bac2a5a3b46668.jpeg",
+      "sha256": "a526279e8c3a73db0aca2b6b4998c7aebfb1f7dd40bc975610386254271944d6"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-55-w.webp",
+      "retained": "public/img/regen/diamant-55-w-frame-front.webp",
+      "sha256": "afeaf8e4832e2ef99bb46cd829da9efa2aca75dc0e3fce8f383e4d69760c2b8d"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-apriori-19-print.webp",
+      "retained": "public/img/regen/apriori-19-print-frame-front.webp",
+      "sha256": "83d379d32081fcc1a0345223c66d414855db8644a9f3219add0a642719cf9f63"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-w-pay.webp",
+      "retained": "public/img/regen/diamant-32-w-pay-frame-front.webp",
+      "sha256": "e375b1e3e721d25381f801d958cf0ac6a6878be8c0e4bc54504e218c10c5412b"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-eco-kid-22.webp",
+      "retained": "public/img/regen/eco-kid-22-frame-front.webp",
+      "sha256": "a52de7461eefcfbd3ab7243ff548d9a605c6327b00e25c7503fdbd453c62560e"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-46-f-outdoor.webp",
+      "retained": "public/img/regen/diamant-46-f-outdoor-frame-front.webp",
+      "sha256": "336bb72a905b26e4f59d04a3b72137166af5c52aa110cbf2077ba9d1c08a0bd5"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-49-w.webp",
+      "retained": "public/img/regen/diamant-49-w-frame-front.webp",
+      "sha256": "c85944115797b4d4185df9567ed7c32118d47416770b7eed001c5ffc3c52884f"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-49-f-retail.webp",
+      "retained": "public/img/regen/diamant-49-f-retail-frame-34.webp",
+      "sha256": "d15665eda119aee97c48d9777494081485087d274b62e9700be424e3f1f8ae41"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/af5d5403cc286ef4e48f36639058b810.webp",
+      "retained": "public/img/projects/sensornye-kioski-dlya-uchebnyk_af5d5403cc286ef4e48f36639058b810-3f2d128ac880ba73.webp",
+      "sha256": "e94606e3449df5d1bbcf4d84b5c1ba5980e663bb920201493eaa9c60f217c29a"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-49-n.webp",
+      "retained": "public/img/regen/diamant-49-n-frame-front.webp",
+      "sha256": "5e1c61a78fc934ebf6497acfc2faec316e2fc9511871ddbaf0d61e8670ccb3d2"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/9882f343917d3200604aa5d3880fa181.png",
+      "retained": "public/img/projects/sensornye-kioski-dlya-muzeya-t_9882f343917d3200604aa5d3880fa181-ad7c03586b76314b.png",
+      "sha256": "1383f864268391cb19bf1346cb4f56bedab90f37a8c0623d33eaedab9f85ad66"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/b07ed78791b5c3b2c8ec679644233041.jpg",
+      "retained": "public/img/projects/interaktivnyy-katalog-v-seti-m_b07ed78791b5c3b2c8ec679644233041-313eae55293a442d.jpg",
+      "sha256": "1f2fce6cd3790d703a955c9d28950fec71b311dc169eb3ad12cde8ecdadbf0b6"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-22-n.webp",
+      "retained": "public/img/regen/diamant-22-n-frame-34-v12.webp",
+      "sha256": "54e3e5b91e7d807efb00af5e62cc856cafd2a420b8c7718230025c0f8a0edb8c"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/09bf6a48aa488c9b5832e88fe1ac0091.jpg",
+      "retained": "public/img/projects/akademiya-tsifrovykh-tekhnolog_09bf6a48aa488c9b5832e88fe1ac0091-794048d5ad074d82.jpg",
+      "sha256": "6b0ea25e1ab6e326a94659834611d94a90b2deb4621dbecaf2b44050f8ff8250"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/95adc82de7e664cfa41fa5b177a74838.webp",
+      "retained": "public/img/projects/sensornye-kioski-dlya-uchebnyk_95adc82de7e664cfa41fa5b177a74838-6d6d2cbbb3badff8.webp",
+      "sha256": "f24ebfc6b76bb64b6ee650e4455b3da8bb84f9da1dbac9ebb26a7683d0928ff0"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-43-n.webp",
+      "retained": "public/img/regen/diamant-43-n-frame-front.webp",
+      "sha256": "1ee34002a752df7c2d81dbfbe460caa5c537df52661fa453f623eccabd210ef3"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-n.webp",
+      "retained": "public/img/regen/diamant-32-n-frame-front-v4.webp",
+      "sha256": "f5dac8cf1256081b1bec76f4c7681eec63ee8bb1e265212fe116d185481d9193"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-f-print.webp",
+      "retained": "public/img/regen/diamant-32-f-print-frame-front.webp",
+      "sha256": "e8ac0a7e38ffaff2cff8c61e379818f1564fdda3c968ffcd35efd2a32b9cc6ff"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-mono-32-f.webp",
+      "retained": "public/img/regen/mono-32-f-frame-front.webp",
+      "sha256": "8dc48d10daf37b1b22723e7445b399deeba81b73841facf67298efd71b4efc43"
+    },
+    {
+      "removed": "tmp/bitrix-copy/project-img/product-diamant-32-w.webp",
+      "retained": "public/img/regen/diamant-32-w-frame-front.webp",
+      "sha256": "63cdda17a3b0864b45befe937c86f93fbd34579153a1cd2b45dce1464988c061"
+    },
+    {
+      "removed": "tmp/hinge/out/diamant-32-n-frame-side-v4.png",
+      "retained": "public/img/regen/diamant-32-n-frame-side-v4.png",
+      "sha256": "b7b318980d68de65d81f9b60bca7c9219bdc27c819d28bec3a3fad90a7e9d625"
+    },
+    {
+      "removed": "tmp/hinge/out/diamant-32-n-frame-34-v4.png",
+      "retained": "public/img/regen/diamant-32-n-frame-34-v4.png",
+      "sha256": "75a51b3bf7c43bc79a0f1dce72fd9d9debc8819b9b33d83c469dd55e635a306d"
+    },
+    {
+      "removed": "tmp/hinge/out/diamant-32-n-frame-side-v5.png",
+      "retained": "public/img/regen/diamant-32-n-frame-side-v5.png",
+      "sha256": "05e78b629ff305200685d3b30d51d90c5ac7de82ae1633fe2b8c1c483b275e8d"
+    },
+    {
+      "removed": "tmp/hinge/out/diamant-32-n-frame-front-v4.png",
+      "retained": "public/img/regen/diamant-32-n-frame-front-v4.png",
+      "sha256": "11437efec78ca166f9607a6698395882e32b83eb86401c53a1a88f726d7cc98e"
+    },
+    {
+      "removed": "tmp/hinge/old/161e87b83bdd546e5d840b5890af6689.jpg",
+      "retained": "public/img/products/diamant-32-n_161e87b83bdd546e5d840b5890af6689-d07eaa96bfe8548a.jpg",
+      "sha256": "ffb7439608f8b7a2858f1f36b4bb6db8e692e4e9f100575a0beb9c0e67052948"
+    },
+    {
+      "removed": "tmp/hinge/old/1d580b47e5f72b2eb2ad28b2a1b8d848.jpg",
+      "retained": "public/img/products/diamant-32-n_1d580b47e5f72b2eb2ad28b2a1b8d848-546f6b9a6a44bd1c.jpg",
+      "sha256": "c1183aad935ef1e0d594bbab1d5041a94ef594296a081de5e13b3797eaeb9991"
+    },
+    {
+      "removed": "tmp/hinge/old/1852c1987a01bae91d67fd1a2e5d58cf.png",
+      "retained": "public/img/products/diamant-32-n_1852c1987a01bae91d67fd1a2e5d58cf-03a6a48bb41ba648.png",
+      "sha256": "4a885c0bf9ed9917ae80f78263253a9e47fb3583acec081de157227353bfbc12"
+    },
+    {
+      "removed": "tmp/hinge/old/d20a8e2211bde1a21954f30524804da8.jpg",
+      "retained": "public/img/products/diamant-32-n_d20a8e2211bde1a21954f30524804da8-e79e62ca1b9b898f.jpg",
+      "sha256": "150a97e28c169bce52953e9415512444ee306f61c1a254ebf907cd023164d279"
+    },
+    {
+      "removed": "tmp/hinge/old/ff7fd232af106b475259cc14a1bfb378.jpg",
+      "retained": "public/img/products/diamant-32-n_ff7fd232af106b475259cc14a1bfb378-1718c412922feecc.jpg",
+      "sha256": "4f03001f3d35215e13893321376396298b97eeb109a4b0514afc008f031a92bf"
+    },
+    {
+      "removed": "tmp/hinge/old/9ce1da73bb629a62e0b67cac110ff4f1.jpg",
+      "retained": "public/img/products/diamant-32-n_9ce1da73bb629a62e0b67cac110ff4f1-85a4ddd65311371a.jpg",
+      "sha256": "1c265babfc8cc8366b9cc6ecd3724fd9dfca98d31f2a84d97e3644144dddca80"
+    },
+    {
+      "removed": "tmp/hinge/old/3e6bb9e8e3a2e813914d6173caef40f5.jpg",
+      "retained": "public/img/products/diamant-32-n_3e6bb9e8e3a2e813914d6173caef40f5-b20a3adc6d6dccd5.jpg",
+      "sha256": "c97fc9d1bfd4ec3fb5582e2cd2dfcc0c69e5cfd8026cb0c7f33a8c760a991f1a"
+    },
+    {
+      "removed": "tmp/hinge/old/af9e1fd9fd41dbbd40ecee6c232be497.jpg",
+      "retained": "public/img/products/diamant-32-n_af9e1fd9fd41dbbd40ecee6c232be497-1205c723fed8f493.jpg",
+      "sha256": "646c7c16d2afab1dcfb83cf9886388c1ee9c2a15a3dc5c95688fe396b1cc0ae6"
+    },
+    {
+      "removed": "tmp/hinge/old/8ab7ecd699841fc83f3dd90aebf0cfeb.jpg",
+      "retained": "public/img/products/diamant-32-n_8ab7ecd699841fc83f3dd90aebf0cfeb-b9047cb95ee21587.jpg",
+      "sha256": "a65cb00987e3f97ed2185ca4f760d9cfe3b5c8db83d2a48971b3bd2984d9426c"
+    },
+    {
+      "removed": "tmp/hinge/old/7c19084f02f89a9d2e617b80d09af566.jpg",
+      "retained": "public/img/products/diamant-32-n_7c19084f02f89a9d2e617b80d09af566-a71f6e588892213f.jpg",
+      "sha256": "140f13fddc46c18c76e86b5b5a9e1213da75b0d34ffbb46ef1291363b9872da8"
+    },
+    {
+      "removed": "tmp/hinge/old/9cc3c791b41046b2951ee2f4fe849657.jpg",
+      "retained": "public/img/products/diamant-32-n_9cc3c791b41046b2951ee2f4fe849657-0989286b6306de4b.jpg",
+      "sha256": "e54e876c85d17d498d9a2e612d75cfead695cc8e9a02223d3b7df782f325ea23"
+    },
+    {
+      "removed": "tmp/hinge/old/b4fe0607836b8a3867f3c2f6b6201ddf.jpg",
+      "retained": "public/img/products/diamant-32-n_b4fe0607836b8a3867f3c2f6b6201ddf-69ec64f30a3bca84.jpg",
+      "sha256": "3fa6a290f35d01270837342d257d37dfb433637d6ea08144807d372120795fdd"
+    },
+    {
+      "removed": "tmp/hinge/old/00ae102b371532dd9815384064246f98.jpg",
+      "retained": "public/img/products/diamant-32-n_00ae102b371532dd9815384064246f98-fe6e70e0d479ec2d.jpg",
+      "sha256": "44cade1a564aed9338c1385b7060168231e83c0f0f525fa948233b40f6f11c65"
+    },
+    {
+      "removed": "tmp/hinge/old/c25884f6f8e454098bade4ad6f20ba2c.jpg",
+      "retained": "public/img/products/diamant-32-n_c25884f6f8e454098bade4ad6f20ba2c-07185d85df9447e3.jpg",
+      "sha256": "7f240d69bc43e8e7600fbf1cb71422de311770410c0aa64c9abc104f1ad55db5"
+    },
+    {
+      "removed": "tmp/hinge/old/05273f4fb6f9973dcc58355c214475c8.jpg",
+      "retained": "public/img/products/diamant-32-n_05273f4fb6f9973dcc58355c214475c8-63abcdffbeb2424a.jpg",
+      "sha256": "21286c9775fe0f4c848e3b31d7ae286b894c2aa920d352327d68ced6a5192a8b"
+    },
+    {
+      "removed": "tmp/hinge/old/031280a45eafdd79fad540363a60f366.jpg",
+      "retained": "public/img/products/diamant-32-n_031280a45eafdd79fad540363a60f366-f4e5a7614c3a8de8.jpg",
+      "sha256": "30e3d8e1d041d28dc0728e4ed189884f638ea702bd9ae2e398054e91b4039626"
+    },
+    {
+      "removed": "tmp/batch/d32f/refs/cover.png",
+      "retained": "public/img/products/diamant-32-f_bc5453db1b870176f1619d4ed77a08b7-e0223f0ac5f42087.png",
+      "sha256": "b05abe49524c644a8eb5d6a90aee14e2b76728633e00eb80506ec4e708071d1e"
+    },
+    {
+      "removed": "tmp/batch/d32f/refs/diamant-32-f-frame-front.png",
+      "retained": "public/img/regen/diamant-32-f-frame-front.png",
+      "sha256": "b308028a3f371b35652ce007c8a9cdb9bb4171de0c78bf8e7e469269b501776f"
+    },
+    {
+      "removed": "tmp/batch/d32f/refs/diamant-32-f-frame-34.png",
+      "retained": "public/img/regen/diamant-32-f-frame-34.png",
+      "sha256": "1ded25bf6c03bdcf19d06a42ab3eb97683e585be7a1c5f107a43bb51b546b277"
+    },
+    {
+      "removed": "tmp/batch/d43fprint/refs/diamant-43-f-print-frame-34.png",
+      "retained": "public/img/regen/diamant-43-f-print-frame-34.png",
+      "sha256": "be2441638b27890d3daa1317c9397a32cdde31eb7075037c275bbce38b9bce79"
+    },
+    {
+      "removed": "tmp/batch/d43fprint/refs/diamant-43-f-print-frame-front.png",
+      "retained": "public/img/regen/diamant-43-f-print-frame-front.png",
+      "sha256": "376476e8d28224194a7e0c5c7e4ae82953568ab713c1174572f5645cd821168b"
+    },
+    {
+      "removed": "tmp/batch/d32wprint/refs/diamant-32-w-print-frame-34.png",
+      "retained": "public/img/regen/diamant-32-w-print-frame-34.png",
+      "sha256": "774c17b71ed06d080ff726eb2291392ecce88fd793c625d40cef5d2a87005796"
+    },
+    {
+      "removed": "tmp/batch/mono32fscan/refs/mono-32-f-scan-frame-34.png",
+      "retained": "public/img/regen/mono-32-f-scan-frame-34.png",
+      "sha256": "87464760af0c87fee4ee70fb525cd6b2eb7a9dc1177397f23a5be6a8a4df2c8a"
+    },
+    {
+      "removed": "tmp/batch/mono32fscan/refs/mono-32-f-scan-frame-front.png",
+      "retained": "public/img/regen/mono-32-f-scan-frame-front.png",
+      "sha256": "5bc853c0abbcbf2b9f6a429f85f0eb06da9d8b616fd6eb0fac711d7102825789"
+    },
+    {
+      "removed": "tmp/batch/d32fepro/refs/diamant-32-fe-pro-frame-34.png",
+      "retained": "public/img/regen/diamant-32-fe-pro-frame-34.png",
+      "sha256": "ab79630b1a34127b290fadee866532b1fee36114962f3c47248fdf36e8e7e7e2"
+    },
+    {
+      "removed": "tmp/batch/d32fepro/refs/diamant-32-fe-pro-frame-front.png",
+      "retained": "public/img/regen/diamant-32-fe-pro-frame-front.png",
+      "sha256": "f122ca560f9e83a9be37f7597737c1220c34d73585a36f0826a2d014fff64de7"
+    },
+    {
+      "removed": "tmp/batch/d43w/refs/diamant-43-w-frame-34.png",
+      "retained": "public/img/regen/diamant-43-w-frame-34.png",
+      "sha256": "1be10158c2a1a0d7bfb465cfcf7233c51ac739c59a92821d5b0b6a75be236312"
+    },
+    {
+      "removed": "tmp/batch/d43w/refs/diamant-43-w-frame-front.png",
+      "retained": "public/img/regen/diamant-43-w-frame-front.png",
+      "sha256": "289224e2c26af5851a68b2f37bd1b5bc07b69e28194b55ec1010e0c64e6eb2d0"
+    },
+    {
+      "removed": "tmp/batch/intercon/refs/diamant-intercon-frame-34.png",
+      "retained": "public/img/regen/diamant-intercon-frame-34.png",
+      "sha256": "d629ae70dc9520ead3057c78abd5877149047dd3bd8a26c1f65da79226383dc6"
+    },
+    {
+      "removed": "tmp/batch/intercon/refs/diamant-intercon-frame-front.png",
+      "retained": "public/img/regen/diamant-intercon-frame-front.png",
+      "sha256": "c0cf3e664bc489523c3acc7d29227b4b0168e8ef2f812c2fff56b1c08186b518"
+    },
+    {
+      "removed": "tmp/batch/d46out/refs/diamant-46-f-outdoor-frame-front.png",
+      "retained": "public/img/regen/diamant-46-f-outdoor-frame-front.png",
+      "sha256": "290bf4fdf331dcb618ec88fa422d8381c138abb8a5ff3eb8651bc240b6d561b3"
+    },
+    {
+      "removed": "tmp/batch/d46out/refs/diamant-46-f-outdoor-frame-34.png",
+      "retained": "public/img/regen/diamant-46-f-outdoor-frame-34.png",
+      "sha256": "f2c4a28be49413fce64159e01d757a1ab3f2358ffeb847c683f40e6d8dde23b8"
+    },
+    {
+      "removed": "tmp/batch/d55ne/refs/diamant-55-ne-frame-front.png",
+      "retained": "public/img/regen/diamant-55-ne-frame-front.png",
+      "sha256": "81ba97a3cb25e116d8f803070a4c309a814a7d570456089d6fc33f12d9972dba"
+    },
+    {
+      "removed": "tmp/batch/d55ne/refs/diamant-55-ne-frame-34.png",
+      "retained": "public/img/regen/diamant-55-ne-frame-34.png",
+      "sha256": "7c251c24e4c5e10c13473a50bce3712aafeab73e572ae677e4ec86a5c7d679aa"
+    },
+    {
+      "removed": "tmp/batch/d49w/refs/diamant-49-w-frame-front.png",
+      "retained": "public/img/regen/diamant-49-w-frame-front.png",
+      "sha256": "c0bf2c0365d49881b8797b5c0f76f392e8cf8d1defdfa7fb542fb0d481349780"
+    },
+    {
+      "removed": "tmp/batch/d22w/refs/diamant-22-w-frame-34.png",
+      "retained": "public/img/regen/diamant-22-w-frame-34.png",
+      "sha256": "06715a197e103fa90985b9954a80b7e9ee45bd14cbd3743121eeb0a3d0aa2276"
+    },
+    {
+      "removed": "tmp/batch/d22w/refs/diamant-22-w-frame-front.png",
+      "retained": "public/img/regen/diamant-22-w-frame-front.png",
+      "sha256": "5bcae36bc7bf42b5664fdc359ca8d3a9c2c2405c253facfd351e288638504f24"
+    },
+    {
+      "removed": "tmp/batch/d32fe/refs/diamant-32-fe-frame-front.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-front.png",
+      "sha256": "352114df70407f811eb103d72da3d41f8817f047386a3a84f7ce1b97ff082bd9"
+    },
+    {
+      "removed": "tmp/batch/d32fe/refs/diamant-32-fe-frame-34.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-34.png",
+      "sha256": "3cbd8176e8894004ccb60b77e06a773ee2e36de04b66504018ca859f0dec5888"
+    },
+    {
+      "removed": "tmp/batch/agat9/refs/agat-9-frame-34.png",
+      "retained": "public/img/regen/agat-9-frame-34.png",
+      "sha256": "6c1d580a6102bad2803bdb209ef4e389909273729fde984f6307626da68ee084"
+    },
+    {
+      "removed": "tmp/batch/agat9/refs/agat-9-frame-front.png",
+      "retained": "public/img/regen/agat-9-frame-front.png",
+      "sha256": "674738bc9464835aed961d8b1d217aa81fec7b828bab75d38054bf18aad5762c"
+    },
+    {
+      "removed": "tmp/batch/agat7/refs/agat-7-frame-front.png",
+      "retained": "public/img/regen/agat-7-frame-front.png",
+      "sha256": "80b366f1d4a4f3ad9e9d334745302fd059a41e450575d381f235bfe90c1947cb"
+    },
+    {
+      "removed": "tmp/batch/agat7/refs/agat-7-frame-34.png",
+      "retained": "public/img/regen/agat-7-frame-34.png",
+      "sha256": "a29795d043ab11cc274e87c2c4c140c845790dc553d084117617e63b88451b52"
+    },
+    {
+      "removed": "tmp/batch/apriori22/refs/apriori-22-frame-34.png",
+      "retained": "public/img/regen/apriori-22-frame-34.png",
+      "sha256": "96eda0ca06826f3efd22257d6bd28be9832b5ebce0d1f967f747d9c1de662419"
+    },
+    {
+      "removed": "tmp/batch/apriori22/refs/apriori-22-frame-front.png",
+      "retained": "public/img/regen/apriori-22-frame-front.png",
+      "sha256": "b0b8375a1c4ba27fcc2f92614e4d5347fd84a7905a2aeef2d342a92104500ceb"
+    },
+    {
+      "removed": "tmp/batch/apriori22/refs/cover.png",
+      "retained": "public/img/products/apriori-22_5fff46c9d1e6037a6037557e84ab26ca-0e62da2a043a249a.png",
+      "sha256": "84999235a1c2b05299f26eb4634e0a2e002409382c918fe381ae1bd1e62d4800"
+    },
+    {
+      "removed": "tmp/batch/m55t/refs/mono-55-t-frame-34.png",
+      "retained": "public/img/regen/mono-55-t-frame-34.png",
+      "sha256": "4e85bffb9b88f52485881a5d592c05d0ec7b0f8dc6ebfa044d51d3fa07fdbb1c"
+    },
+    {
+      "removed": "tmp/batch/m55t/refs/mono-55-t-frame-front.png",
+      "retained": "public/img/regen/mono-55-t-frame-front.png",
+      "sha256": "21b393de13ad56d06a971894f66ba6b9aaec911cea7c6b288aa7dd962df956ba"
+    },
+    {
+      "removed": "tmp/batch/d43fl/refs/diamant-43-fl-frame-front.png",
+      "retained": "public/img/regen/diamant-43-fl-frame-front.png",
+      "sha256": "1a757b4165c154ee884447e3fad750af2cedad3b2ac4303a1c2d96d63276cd9d"
+    },
+    {
+      "removed": "tmp/batch/d43fl/refs/cover.png",
+      "retained": "public/img/products/diamant-43-fl_dbbf3v2wk5r4cclrnokfdd35w74bmsj5-e881b2c0b974b785.jpg",
+      "sha256": "e7c619dcdb4d5512e751e75d5e7032614ae117c36218e8c08a7a4ab21081c551"
+    },
+    {
+      "removed": "tmp/batch/d43fl/refs/diamant-43-fl-frame-34.png",
+      "retained": "public/img/regen/diamant-43-fl-frame-34.png",
+      "sha256": "c16a582ffeb7c883ba59093236a6490cb0d42512036d0130994236b9fd283530"
+    },
+    {
+      "removed": "tmp/batch/d32wapay/refs/diamant-32-wa-pay-frame-front.png",
+      "retained": "public/img/regen/diamant-32-wa-pay-frame-front.png",
+      "sha256": "c8194e95fb603250901103d82f129b48a19b02b314b50f0b41440478e777fd18"
+    },
+    {
+      "removed": "tmp/batch/d32wapay/refs/diamant-32-wa-pay-frame-34.png",
+      "retained": "public/img/regen/diamant-32-wa-pay-frame-34.png",
+      "sha256": "7b3e6445b6bb287ad2211436a10eeca413ea5480bf8c3a7a8c98b31073e319e5"
+    },
+    {
+      "removed": "tmp/batch/mono19/refs/mono-19-f-frame-front.png",
+      "retained": "public/img/regen/mono-19-f-frame-front.png",
+      "sha256": "a88d2a2f2b2c29ea714048a7219a938877e3d0ca21c25a2558d04fa89a36ebb7"
+    },
+    {
+      "removed": "tmp/batch/mono19/refs/mono-19-f-frame-34.png",
+      "retained": "public/img/regen/mono-19-f-frame-34.png",
+      "sha256": "f3728a7d0f1f87643609d9dec3507cd66e4c1f7b4797f2a689b65d7e1f25022d"
+    },
+    {
+      "removed": "tmp/batch/eco22/refs/eco-kid-22-frame-front.png",
+      "retained": "public/img/regen/eco-kid-22-frame-front.png",
+      "sha256": "569b15f0c55828fbf9f30c7674b82cd2f08a9f68dbf5231c276de2ce90dcd378"
+    },
+    {
+      "removed": "tmp/batch/eco22/refs/eco-kid-22-frame-34.png",
+      "retained": "public/img/regen/eco-kid-22-frame-34.png",
+      "sha256": "e6474da3d77ccc539ff003fba398f2148980353df3c2cf4b84532e78559be8d7"
+    },
+    {
+      "removed": "tmp/batch/d32wepay/refs/diamant-32-we-pay-frame-front.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-front.png",
+      "sha256": "fd46bdd90c46e891aa8ff642a7fc0056c817443ebf9932c7aaff503cdce5e66c"
+    },
+    {
+      "removed": "tmp/batch/d32wepay/refs/diamant-32-we-pay-frame-34.png",
+      "retained": "public/img/regen/diamant-32-we-pay-frame-34.png",
+      "sha256": "16a698ba673327306a871defb1499066bded24961f251249ba4db9181bfd48eb"
+    },
+    {
+      "removed": "tmp/batch/d55w/refs/diamant-55-w-frame-front.png",
+      "retained": "public/img/regen/diamant-55-w-frame-front.png",
+      "sha256": "68e02978a61ccd74d2304c9af737d4fb6a24da5ef3678b88ca857034c12cd591"
+    },
+    {
+      "removed": "tmp/batch/d55w/refs/diamant-55-w-frame-34.png",
+      "retained": "public/img/regen/diamant-55-w-frame-34.png",
+      "sha256": "a9e0fbaffec9a23be008d62bae8d731e006512a3953ec1de66216ced4fd1fa08"
+    },
+    {
+      "removed": "tmp/batch/d32we/refs/diamant-32-we-frame-front.png",
+      "retained": "public/img/regen/diamant-32-we-frame-front.png",
+      "sha256": "e4193718cc3f19e4fa36911269674cd3941f8a62faa7d758f9eb064465fea16d"
+    },
+    {
+      "removed": "tmp/batch/d32we/refs/diamant-32-we-frame-34.png",
+      "retained": "public/img/regen/diamant-32-we-frame-34.png",
+      "sha256": "a6171ac00fb7842aafe4fc71bd373975079a84fdda402dbc8b8d11027c598c7f"
+    },
+    {
+      "removed": "tmp/batch/d75f/refs/diamant-75-f-frame-front.png",
+      "retained": "public/img/regen/diamant-75-f-frame-front.png",
+      "sha256": "ab15169cca37d0c77bc100d92e6461dfe53009059ae92cb1baf6cd410cdf9e52"
+    },
+    {
+      "removed": "tmp/batch/d75f/refs/diamant-75-f-frame-34.png",
+      "retained": "public/img/regen/diamant-75-f-frame-34.png",
+      "sha256": "620c9702110a7fdcd7a90bc5cb2b960aebea43c62ecd38547fc0c078c07278fe"
+    },
+    {
+      "removed": "tmp/batch/d32fkey/refs/cover.png",
+      "retained": "public/img/products/diamant-32-f-key_b090e403e513582d1eae420f4a022f74-cc645d7b15be3e29.png",
+      "sha256": "3309cc75ed3b81d275ba3824abb0b10fd63dd30fc59a345e1c23d9635b673eee"
+    },
+    {
+      "removed": "tmp/batch/d32fkey/refs/diamant-32-f-key-frame-front.png",
+      "retained": "public/img/regen/diamant-32-f-key-frame-front.png",
+      "sha256": "f504e3ac9c21d633b01c267e07d0ec61a1686d9f6bd25cb2fb4a1e3b35d17f8f"
+    },
+    {
+      "removed": "tmp/batch/d32fkey/refs/diamant-32-f-key-frame-34.png",
+      "retained": "public/img/regen/diamant-32-f-key-frame-34.png",
+      "sha256": "2dba0cfd49a53330da4da24b88e1467f73890a771b9e327016c1fb7016b6108a"
+    },
+    {
+      "removed": "tmp/batch/mono32f/refs/mono-32-f-frame-34.png",
+      "retained": "public/img/regen/mono-32-f-frame-34.png",
+      "sha256": "e0d73d80912455d467bbd4ba345ad6635ace51ca8a07c7215aabe4e306b94e5e"
+    },
+    {
+      "removed": "tmp/batch/mono32f/refs/mono-32-f-frame-front.png",
+      "retained": "public/img/regen/mono-32-f-frame-front.png",
+      "sha256": "81b892ee2b954f687a1360297a846073ca5079ffbced02d82759785fc308240b"
+    },
+    {
+      "removed": "tmp/batch/m32pin/refs/mono-32-f-pin-frame-front.png",
+      "retained": "public/img/regen/mono-32-f-pin-frame-front.png",
+      "sha256": "e05517bb5fbf7f3d767fee2ab8715da272527de2cc0670c7e1ebc4ad92e96d8e"
+    },
+    {
+      "removed": "tmp/batch/d32w/refs/diamant-32-w-frame-front.png",
+      "retained": "public/img/regen/diamant-32-w-frame-front.png",
+      "sha256": "da1284f2eb3e4601af8b3a0d22de146dc101cd58ec28255a21f56a2293314aac"
+    },
+    {
+      "removed": "tmp/batch/d32w/refs/diamant-32-w-frame-34.png",
+      "retained": "public/img/regen/diamant-32-w-frame-34.png",
+      "sha256": "d60295967aa1f5da7ba205c70035c781be9bf327b2645808c98349a6866820ff"
+    },
+    {
+      "removed": "tmp/batch/d32weapay/refs/diamant-32-wea-pay-frame-34.png",
+      "retained": "public/img/regen/diamant-32-wea-pay-frame-34.png",
+      "sha256": "b12f83231897c9898989012a52fc44c9a2590a196b54a7f87df89ae8df3e9b5e"
+    },
+    {
+      "removed": "tmp/batch/d32weapay/refs/diamant-32-wea-pay-frame-front.png",
+      "retained": "public/img/regen/diamant-32-wea-pay-frame-front.png",
+      "sha256": "a093805e62664fc741dad0fb96a6608a6e45c4223ba1ab0f7d7089353b4e0f97"
+    },
+    {
+      "removed": "tmp/batch/eco32/refs/eco-kid-32-frame-34.png",
+      "retained": "public/img/regen/eco-kid-32-frame-34.png",
+      "sha256": "2bf53fda4a439d3e8bc17fba50bd1442c27fd6bff48623cb061f53c97fdaaef1"
+    },
+    {
+      "removed": "tmp/batch/eco32/refs/eco-kid-32-frame-front.png",
+      "retained": "public/img/regen/eco-kid-32-frame-front.png",
+      "sha256": "957d7cf0dde69dce3abe780b508c887f80f95f9cdd3aea9df9fae0f3b7802b1c"
+    },
+    {
+      "removed": "tmp/batch/d32fprint/refs/cover.jpg",
+      "retained": "public/img/products/diamant-32-f-print_8936af15b4a053f9e693a92fbf5a3d06-e373844ab38a7e5b.jpg",
+      "sha256": "8edb05fed612c6aec720c12c6e95b51b6e75cf0f1c5d46651aaa6bee78a66805"
+    },
+    {
+      "removed": "tmp/batch/d32fprint/refs/diamant-32-f-print-frame-34.png",
+      "retained": "public/img/regen/diamant-32-f-print-frame-34.png",
+      "sha256": "e7152a087a635575c732a41025fbf34627c9c0a45f99c138f5085912ad805e22"
+    },
+    {
+      "removed": "tmp/batch/d32fprint/refs/diamant-32-f-print-frame-front.png",
+      "retained": "public/img/regen/diamant-32-f-print-frame-front.png",
+      "sha256": "81fb95063032814622538ebca7199638e028ed96cdabcd9720e69ab2774d64d4"
+    },
+    {
+      "removed": "tmp/batch/d43f/refs/diamant-43-f-frame-front.png",
+      "retained": "public/img/regen/diamant-43-f-frame-front.png",
+      "sha256": "e11e373958bc667ad9526d1853511e80daa474bdb10e9a294a2606bf7eab7e5f"
+    },
+    {
+      "removed": "tmp/batch/d43f/refs/diamant-43-f-frame-34.png",
+      "retained": "public/img/regen/diamant-43-f-frame-34.png",
+      "sha256": "2bf4e33d3aed000793d14b03cc7eb7755c3a2a2503c1c007d85e9d9b296bda60"
+    },
+    {
+      "removed": "tmp/batch/d49f/refs/diamant-49-f-frame-34.png",
+      "retained": "public/img/regen/diamant-49-f-frame-34.png",
+      "sha256": "37552ca1d86035b0233fbbe611b3f112b5e1129b3be97a5c167b0b6699cc6a52"
+    },
+    {
+      "removed": "tmp/batch/d49f/refs/diamant-49-f-frame-front.png",
+      "retained": "public/img/regen/diamant-49-f-frame-front.png",
+      "sha256": "f65ae471aaa5eaadf28e75407202f45bbef27f27f426a2d782cd24fabdc497de"
+    },
+    {
+      "removed": "tmp/batch/d49f/refs/cover.png",
+      "retained": "public/img/products/diamant-49-f_0009162e8d7e4e9d3446ce21094b4e30-8eab41e264c608a1.png",
+      "sha256": "dd3a8ee492476667437b72016cb5f20d94ae4ff5a1b53601c49fea0de9084961"
+    },
+    {
+      "removed": "tmp/batch/d86f/refs/diamant-86-f-grand-frame-34.png",
+      "retained": "public/img/regen/diamant-86-f-grand-frame-34.png",
+      "sha256": "b1cf32cd0a104757e4c2db27d07debada76adf650aac3ef45131509d3c729558"
+    },
+    {
+      "removed": "tmp/batch/d86f/refs/diamant-86-f-grand-frame-front.png",
+      "retained": "public/img/regen/diamant-86-f-grand-frame-front.png",
+      "sha256": "3db0b4097106ac82ab2b76369c29d63f52c17eff434d1a5a0ce30c5caf684855"
+    },
+    {
+      "removed": "tmp/batch/m32n/refs/mono-32-n-frame-front.png",
+      "retained": "public/img/regen/mono-32-n-frame-front.png",
+      "sha256": "1a9bae2501eaa7146643458120c21ca80f9165751b5fdc48573e758a2b20335c"
+    },
+    {
+      "removed": "tmp/batch/m32n/refs/mono-32-n-frame-34.png",
+      "retained": "public/img/regen/mono-32-n-frame-34.png",
+      "sha256": "7edf92d9ad3faee8fdfb474e1e7686d7de5028585449507f5169405daaee19dc"
+    },
+    {
+      "removed": "tmp/batch/d55outdual/refs/diamant-55-f-outdoor-dual-frame-front.png",
+      "retained": "public/img/regen/diamant-55-f-outdoor-dual-frame-front.png",
+      "sha256": "1ab0d98b47ccd936ec940148ab2f9b3535e187b0e74840b05613be0589397997"
+    },
+    {
+      "removed": "tmp/batch/d55outdual/refs/diamant-55-f-outdoor-dual-frame-34.png",
+      "retained": "public/img/regen/diamant-55-f-outdoor-dual-frame-34.png",
+      "sha256": "5ffab1bf3aa1601694a186fb116911582337660244a11ed6c3c420a8838121e5"
+    },
+    {
+      "removed": "tmp/batch/d32ne/refs/diamant-32-ne-frame-front.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-front.png",
+      "sha256": "eab77bbf4b5fb0e0bf226777a1927a92d62d04114d637ab045d1812ac68deaeb"
+    },
+    {
+      "removed": "tmp/batch/d32ne/refs/diamant-32-ne-frame-34.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-34.png",
+      "sha256": "0d694ab6c383402e32760d86eb688ea5084cd9c8f87c764745ae5f6997a0839a"
+    },
+    {
+      "removed": "tmp/batch/d65f/refs/diamant-65-f-frame-34.png",
+      "retained": "public/img/regen/diamant-65-f-frame-34.png",
+      "sha256": "9a4798c2f33da6544f0a8c8391b71ca0ca3e5745b08ca4462cd5c4e34447f1fe"
+    },
+    {
+      "removed": "tmp/batch/d65f/refs/diamant-65-f-frame-front.png",
+      "retained": "public/img/regen/diamant-65-f-frame-front.png",
+      "sha256": "f975aac51c2372542cbff2d70e218e8b284f24bcd6b75df6d1d39742b2a2aaa7"
+    },
+    {
+      "removed": "tmp/batch/d32wpay/refs/diamant-32-w-pay-frame-34.png",
+      "retained": "public/img/regen/diamant-32-w-pay-frame-34.png",
+      "sha256": "bfde98e0ca02d499897e2fcfb3fab27fd1a3c200e57c5be8a016f49e5466ae2b"
+    },
+    {
+      "removed": "tmp/batch/d32wpay/refs/diamant-32-w-pay-frame-front.png",
+      "retained": "public/img/regen/diamant-32-w-pay-frame-front.png",
+      "sha256": "a51100623d06958ae024bebcf0d83dca5a7c023624fa53ebcc9a121a9d0ccb78"
+    },
+    {
+      "removed": "tmp/batch/d22f/refs/diamant-22-f-frame-front.png",
+      "retained": "public/img/regen/diamant-22-f-frame-front.png",
+      "sha256": "3a263cf570efbd5bbcee4c543bc4724cb21033bb9d953c677a4ca54a64c3eb1c"
+    },
+    {
+      "removed": "tmp/batch/d22f/refs/diamant-22-f-frame-34.png",
+      "retained": "public/img/regen/diamant-22-f-frame-34.png",
+      "sha256": "076b54da329ffd3da55212ca03eb9d81c7b091e828627521d132537225318b70"
+    },
+    {
+      "removed": "tmp/batch/d22f/refs/cover.png",
+      "retained": "public/img/products/diamant-22-f_1804ca9d671cc88693ec2f485df1c868-b856eae7d2a55ad2.png",
+      "sha256": "f491d31361b0af453b098575722e8bc2c11f29655cbd9cfcc849cb3adbdb56eb"
+    },
+    {
+      "removed": "tmp/batch/d22f/refs/front.png",
+      "retained": "public/img/regen/diamant-22-f-frame-front.png",
+      "sha256": "3a263cf570efbd5bbcee4c543bc4724cb21033bb9d953c677a4ca54a64c3eb1c"
+    },
+    {
+      "removed": "tmp/batch/d55out/refs/diamant-55-f-outdoor-frame-front.png",
+      "retained": "public/img/regen/diamant-55-f-outdoor-frame-front.png",
+      "sha256": "e1ef8f63592a265d1e07c64b8b40e200f1a246fec95abebefa719538da1e2b18"
+    },
+    {
+      "removed": "tmp/batch/d55out/refs/diamant-55-f-outdoor-frame-34.png",
+      "retained": "public/img/regen/diamant-55-f-outdoor-frame-34.png",
+      "sha256": "5b37c4562e6f0456648396323d12e8b602ba7b5e4153d59c73b4343e577cdcce"
+    },
+    {
+      "removed": "tmp/batch/agat5/refs/agat-5-frame-34.png",
+      "retained": "public/img/regen/agat-5-frame-34.png",
+      "sha256": "4c0697c0c8c86be90a8767a080acc17cf4080edf66b4578bae368b216e22d52d"
+    },
+    {
+      "removed": "tmp/batch/agat5/refs/agat-5-frame-front.png",
+      "retained": "public/img/regen/agat-5-frame-front.png",
+      "sha256": "7ba3f8df0a9f4289c292e478e8ead6d404385ad2a80c07c390b11e9be8484925"
+    },
+    {
+      "removed": "tmp/batch/m32fapin/refs/mono-32-fa-pin-frame-front.png",
+      "retained": "public/img/regen/mono-32-fa-pin-frame-front.png",
+      "sha256": "f363dc9c16961a4d980d0b22b403266a7098376b4d3d824098c789787913451f"
+    },
+    {
+      "removed": "tmp/batch/m32fapin/refs/mono-32-fa-pin-frame-34.png",
+      "retained": "public/img/regen/mono-32-fa-pin-frame-34.png",
+      "sha256": "7d1d72a7f092f6ffddb3cd94e9a44046ee59a545d180ebe07563ff89af5656aa"
+    },
+    {
+      "removed": "tmp/batch/apriori19/refs/apriori-19-frame-34.png",
+      "retained": "public/img/regen/apriori-19-frame-34.png",
+      "sha256": "e45584c1a6caeea1586ea38af16cb85c718d6c131a2dd57db7427d1bfc6bb3d7"
+    },
+    {
+      "removed": "tmp/batch/apriori19/refs/apriori-19-frame-front.png",
+      "retained": "public/img/regen/apriori-19-frame-front.png",
+      "sha256": "c102e4628969e58739908e91083213d6717e513ec3fe1b48596b6a4777a33c0d"
+    },
+    {
+      "removed": "tmp/batch/apriori19/refs/cover.png",
+      "retained": "public/img/products/apriori_3eecb969eb66429f88f247815dce108c-d6a8cae358aed3d2.png",
+      "sha256": "f6bc7239084046a5726fec004612e5e674b45dc76e5362770e4673dfaff0aa62"
+    },
+    {
+      "removed": "tmp/batch/apriori19/refs/front.png",
+      "retained": "public/img/regen/apriori-19-frame-front.png",
+      "sha256": "c102e4628969e58739908e91083213d6717e513ec3fe1b48596b6a4777a33c0d"
+    },
+    {
+      "removed": "tmp/batch/mono43f/refs/mono-43-f-frame-34.png",
+      "retained": "public/img/regen/mono-43-f-frame-34.png",
+      "sha256": "9bb083dc719a36818635c8723b38c0b540b067bf6c73979544d7ddfeb9a8e5af"
+    },
+    {
+      "removed": "tmp/batch/mono43f/refs/mono-43-f-frame-front.png",
+      "retained": "public/img/regen/mono-43-f-frame-front.png",
+      "sha256": "8c0979a33696793a84d2f775cb8e3809504dacde1d095a786b268b6507d9dd80"
+    },
+    {
+      "removed": "tmp/batch/d55n/refs/diamant-55-n-frame-34.png",
+      "retained": "public/img/regen/diamant-55-n-frame-34.png",
+      "sha256": "e18a99cbd56e6c5b8f7bdd34a702c81ea553109b8be2fc6f78c6b04d8b5e85df"
+    },
+    {
+      "removed": "tmp/batch/d55n/refs/diamant-55-n-frame-front.png",
+      "retained": "public/img/regen/diamant-55-n-frame-front.png",
+      "sha256": "00685511adfe08bab180e8b92df95619929317949b466641b37b1ede3f07c047"
+    },
+    {
+      "removed": "tmp/batch/d55f/refs/diamant-55-f-frame-front.png",
+      "retained": "public/img/regen/diamant-55-f-frame-front.png",
+      "sha256": "718e76ae21a240da2f1c3c35fd37b3a0548499a880043473587bdd5784f704df"
+    },
+    {
+      "removed": "tmp/batch/d55f/refs/diamant-55-f-frame-34.png",
+      "retained": "public/img/regen/diamant-55-f-frame-34.png",
+      "sha256": "41199452a887a41174597fd3743c4ab0b780b26dc6cd4594727c308b4fc6cddf"
+    },
+    {
+      "removed": "tmp/apriori19a4/refs/apriori-19-print-frame-34.png",
+      "retained": "public/img/regen/_precut/apriori-19-print-frame-34-presmear.png",
+      "sha256": "9c2ab7bfafb03de0e652aba0fd5aab19b36df2a7ada07ecdb3ff35a0e6e52dd1"
+    },
+    {
+      "removed": "tmp/apriori19a4/refs/apriori-19-print-frame-front.png",
+      "retained": "public/img/regen/apriori-19-print-frame-front.png",
+      "sha256": "5c852622ea1116e75ba59b2703de790a78d523299d74fce5da175b4ac560d643"
+    },
+    {
+      "removed": "tmp/apriori19a4/refs/cover.png",
+      "retained": "public/img/products/apriori-19-print-a4_7ec63a3f123c84c2ed3a4f02dedf64ec-fdc787e53b994595.png",
+      "sha256": "711e50aade7858f175a8d68f6e37cec0391387f8d5ca58a36d35cd44c99ce916"
+    },
+    {
+      "removed": "tmp/apriori19a4/src/cover-full.png",
+      "retained": "public/img/products/apriori-19-print-a4_7ec63a3f123c84c2ed3a4f02dedf64ec-fdc787e53b994595.png",
+      "sha256": "711e50aade7858f175a8d68f6e37cec0391387f8d5ca58a36d35cd44c99ce916"
+    },
+    {
+      "removed": "tmp/d32fe-hatch/out/diamant-32-fe-frame-rear-v10.png",
+      "retained": "public/img/regen/diamant-32-fe-frame-rear-v10.png",
+      "sha256": "61e04d24930022353cf02cbf2ba4719d6f8c06ab36df3c08ffb5f315b743c61f"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/rear-g18.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v2.png",
+      "sha256": "aba357447964250fed40d79691af73fce5445755d1088d65dda2a3bc88142ead"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/rear-t2-cut.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v4.png",
+      "sha256": "2e9434b63fa70c614019b68a9853496b9d4059d3ecc9a21833ae5a084e48024d"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/rear-c2.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v5.png",
+      "sha256": "e4eb8a1ea667fa8e896b6e3233be677fa4a4d74bf402304a553ad2c79abcb6ea"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/rear-v3.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v3.png",
+      "sha256": "9ccb92ff5f04a1d6dea6b483cc1e303f34685101259de27d541e02712654c798"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/current-v2.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v2.png",
+      "sha256": "aba357447964250fed40d79691af73fce5445755d1088d65dda2a3bc88142ead"
+    },
+    {
+      "removed": "tmp/d32ne-exp/out/rear-c0.png",
+      "retained": "public/img/regen/diamant-32-ne-frame-rear-v4.png",
+      "sha256": "2e9434b63fa70c614019b68a9853496b9d4059d3ecc9a21833ae5a084e48024d"
+    },
+    {
+      "removed": "tmp/apriori22key/refs/cover.png",
+      "retained": "public/img/products/apriori-22-key_79ff4cb4a66853ed1dc6fc9dee8c78db-d2e101f6503a6d88.png",
+      "sha256": "5542f40c53d2eb6f09fd49ecb69ec386aaa473dd5eec762bf58b768e555e90b1"
+    },
+    {
+      "removed": "tmp/apriori22key/refs/apriori-22-key-frame-34.png",
+      "retained": "public/img/regen/apriori-22-key-frame-34.png",
+      "sha256": "525ce4e042f0467ce3bdb965ae819ccf779193ebab4d014aec87a28fc92d56b3"
+    },
+    {
+      "removed": "tmp/apriori22key/refs/apriori-22-key-frame-front.png",
+      "retained": "public/img/regen/apriori-22-key-frame-front.png",
+      "sha256": "f59d7fbdac955f0029478fae80c737f45857002c8c0c6bbfdfd7e88edea85bd7"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_55fdaf69452580809fcd50a9c480a6d5-95f2ffb2415e6979.jpg",
+      "retained": "public/img/products/diamant-55-n_55fdaf69452580809fcd50a9c480a6d5-95f2ffb2415e6979.jpg",
+      "sha256": "9b3d03ed210e66a66936e1fb88a6d821e8570cc8f254cdae6e0725e852891bb4"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_9a7b540d7db29da8d05de4ac672cbe71-4a378faefeaf7eed.jpg",
+      "retained": "public/img/products/diamant-55-n_9a7b540d7db29da8d05de4ac672cbe71-4a378faefeaf7eed.jpg",
+      "sha256": "c2bf11c6bec99b56c1dba20ea2736d70c56f434383d440185f256c8538dfe77f"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_1c9ee5178a658a4dfe82847e9ef1c640-e999b33d61cbde5c.jpg",
+      "retained": "public/img/products/diamant-55-n_1c9ee5178a658a4dfe82847e9ef1c640-e999b33d61cbde5c.jpg",
+      "sha256": "b624656ff28fc2f194e2d260faa31856ffc85ac25b7aa487fe5a690944ac2036"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_a2f7bea8899406da4bfbc0565aaa9d56-1f4fb39f22ba1527.jpg",
+      "retained": "public/img/products/diamant-55-n_a2f7bea8899406da4bfbc0565aaa9d56-1f4fb39f22ba1527.jpg",
+      "sha256": "a8bb8930b8edd728b4404e94c809925b8a444c0caa9bf54132a5994329fb2f7b"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_c48c937d83b23722b2869da11f39fa34-195fa1061f3564fb.jpg",
+      "retained": "public/img/products/diamant-55-n_c48c937d83b23722b2869da11f39fa34-195fa1061f3564fb.jpg",
+      "sha256": "3353a23429fbc2000874266ef93645e4caba877bd9b85a63f5a8c429f1e737c0"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_7c2afab1e144cf0cf8a73b9e6097bf60-aefc1e4b7ff50eb3.jpg",
+      "retained": "public/img/products/diamant-55-n_7c2afab1e144cf0cf8a73b9e6097bf60-aefc1e4b7ff50eb3.jpg",
+      "sha256": "e524a34bf2e4b49a81592b8e036769a91524b59c60e5d6a4bfb3731b6a1a50df"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_c6db6bfed79687a296c593fb881e799e-242100d92599ecf3.jpg",
+      "retained": "public/img/products/diamant-55-n_c6db6bfed79687a296c593fb881e799e-242100d92599ecf3.jpg",
+      "sha256": "509d3da0a55b51c8e7bfd3bbe359f1451af6d25af097816db8734e7b0b1990c1"
+    },
+    {
+      "removed": "tmp/d55n/etalon/diamant-55-n_8711f07a1b18ffa8c3d72fbbdc51a73e-e0709bf80893cebd.jpg",
+      "retained": "public/img/products/diamant-55-n_8711f07a1b18ffa8c3d72fbbdc51a73e-e0709bf80893cebd.jpg",
+      "sha256": "adc5f7bbe1ceede40ce12884202581490ba572fc8486cc42753d63f08cc7dceb"
+    },
+    {
+      "removed": "tmp/d55n/etalon/cover.png",
+      "retained": "public/img/products/diamant-55-n_db813d5615a0246e50d8f32ed7a4156b-2e5c6758a274f635.png",
+      "sha256": "822a7fd216fc7326716cdebe81d0a36563a1a2b0d9ea1f7b2444884b46c6caf2"
+    },
+    {
+      "removed": "tmp/ntables/cmp/site-22-rear.png",
+      "retained": "public/img/regen/diamant-22-n-frame-rear.png",
+      "sha256": "e31dba5a91370ca4f2b9f6c65dea013f0458365de7fdd78e7de3e9e50736fc73"
+    },
+    {
+      "removed": "tmp/ntables/cmp/site-43-rear.png",
+      "retained": "public/img/regen/diamant-43-n-frame-rear.png",
+      "sha256": "06a20c4939ecc0929fc318deb1e3b46ab6e388c0231fa42b488ae2843708429e"
+    },
+    {
+      "removed": "tmp/ntables/fresh22/g3.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/fresh22/g2.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/fresh22/g1.png",
+      "retained": "public/img/pages/cat-napolnye_75ef7fec2d69d5e49a391307576d0bf6-628e59e7e50675cb.png",
+      "sha256": "f6a2ef0967fd49dcb03d4a0bdbb084bc2d55eed017ff5d039ea77771a33415ea"
+    },
+    {
+      "removed": "tmp/ntables/fresh22/g4.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/fresh22/etalon-full.png",
+      "retained": "public/img/products/diamant-22-n_50318f7b2fc453c3f3943beb31df12c5-27dfbdf8549d0a6b.png",
+      "sha256": "e0ae2fda9638ac10776c60f582663482af15d229a85aa087707979205f8b90f0"
+    },
+    {
+      "removed": "tmp/ntables/out/_etalon-r4.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-3units-banana-v1d.png",
+      "retained": "public/img/home/hero-3units-v4.png",
+      "sha256": "2a72d093ff24f6919971ae3ed835b5dab618d67f5c48e6dad641fb4b0ec71ad8"
+    },
+    {
+      "removed": "tmp/ntables/out/_etalon-r5.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/32n-side-v0.png",
+      "retained": "public/img/regen/diamant-32-n-frame-side-v1.png",
+      "sha256": "9b35d851d55e14d14fdda37988cbc065e635e20fb6b346b938d93f241e457511"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-apriori-34.png",
+      "retained": "public/img/regen/apriori-22-frame-34.png",
+      "sha256": "96eda0ca06826f3efd22257d6bd28be9832b5ebce0d1f967f747d9c1de662419"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-3units-banana-v1b.png",
+      "retained": "public/img/home/hero-3units-v1.png",
+      "sha256": "85cb3382b8d4a435d4d9cd31d227334849e77cd4e44d98e16e17576b52b7647d"
+    },
+    {
+      "removed": "tmp/ntables/out/32n-etalon-preview.png",
+      "retained": "public/img/products/diamant-32-n_1852c1987a01bae91d67fd1a2e5d58cf-03a6a48bb41ba648.png",
+      "sha256": "4a885c0bf9ed9917ae80f78263253a9e47fb3583acec081de157227353bfbc12"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-3units-banana-v1c.png",
+      "retained": "public/img/home/hero-3units-v3.png",
+      "sha256": "ee0898cdf0a7d7c8bcbad342ae4639d4ea21cf81b8688424e0eaf946978625a0"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori-hero-check.png",
+      "retained": "public/img/home/hero-unit-apriori-v1.png",
+      "sha256": "2190b62e859e161fe8eefee1122d6df35017563cf91d24b1f9faab4b66421e20"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-a19-34.png",
+      "retained": "public/img/regen/apriori-19-frame-34.png",
+      "sha256": "e45584c1a6caeea1586ea38af16cb85c718d6c131a2dd57db7427d1bfc6bb3d7"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon-32n-3.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori-v2-preview.png",
+      "retained": "public/img/home/hero-unit-apriori-v2.png",
+      "sha256": "2b90ad05bf6801ff1d580e69cac7b01cea0bd91b42862d7c42b0693d3986e7cb"
+    },
+    {
+      "removed": "tmp/ntables/out/22n-34-approved.png",
+      "retained": "public/img/regen/diamant-22-n-frame-34-v11.png",
+      "sha256": "c02520270f0db8fba15d042fda44e0bfc37014a14dbd5a39242b7bad95d332a8"
+    },
+    {
+      "removed": "tmp/ntables/out/22n-34-v1.png",
+      "retained": "public/img/regen/diamant-22-n-frame-34-v11.png",
+      "sha256": "c02520270f0db8fba15d042fda44e0bfc37014a14dbd5a39242b7bad95d332a8"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-a22-front.png",
+      "retained": "public/img/regen/apriori-22-frame-front.png",
+      "sha256": "b0b8375a1c4ba27fcc2f92614e4d5347fd84a7905a2aeef2d342a92104500ceb"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-apriori-v1.png",
+      "retained": "public/img/home/hero-unit-apriori-v1.png",
+      "sha256": "2190b62e859e161fe8eefee1122d6df35017563cf91d24b1f9faab4b66421e20"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-fe-v1.png",
+      "retained": "public/img/home/hero-unit-fe-v1.png",
+      "sha256": "7267ee7a6ce889dc8480bdc6ba020d7b315cfb130a2ff0b793b80fc1a2756863"
+    },
+    {
+      "removed": "tmp/ntables/out/32n-front-v1.png",
+      "retained": "public/img/regen/diamant-32-n-frame-front-v1.png",
+      "sha256": "614c3046f30aa360e5913b05da3ebc3c3b8b60f0c9f47132b143ad60de4efe63"
+    },
+    {
+      "removed": "tmp/ntables/out/_etalon-photo0.jpg",
+      "retained": "public/img/projects/sensornye-terminaly-dlya-aerop_a8257c26d4c2ff9d4868a5afe6b441da-7e26a89a25fc00a4.jpg",
+      "sha256": "332e63f2e6dde4ae424c820f827057ca2881779135381b78abfc2298e33e4db1"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-a19-front.png",
+      "retained": "public/img/regen/apriori-19-frame-front.png",
+      "sha256": "c102e4628969e58739908e91083213d6717e513ec3fe1b48596b6a4777a33c0d"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-table-v1.png",
+      "retained": "public/img/home/hero-unit-table-v1.png",
+      "sha256": "3127868c69f6ddc439b0f174d61a54ec8a190f020795d0fc95207bbff2afdf19"
+    },
+    {
+      "removed": "tmp/ntables/out/_etalon-a22-main.png",
+      "retained": "public/img/products/apriori-22_5fff46c9d1e6037a6037557e84ab26ca-0e62da2a043a249a.png",
+      "sha256": "84999235a1c2b05299f26eb4634e0a2e002409382c918fe381ae1bd1e62d4800"
+    },
+    {
+      "removed": "tmp/ntables/out/_check-cat-apriori.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/32n-34-v0.png",
+      "retained": "public/img/regen/diamant-32-n-frame-34-v1.png",
+      "sha256": "4ffa20518b6abc57dbbf2e822a1e9299d6c2ac9ccdd5bb44c74b5837300faeaf"
+    },
+    {
+      "removed": "tmp/ntables/out/22n-side-v0.png",
+      "retained": "public/img/regen/diamant-22-n-frame-side-v11.png",
+      "sha256": "201a55eca806d3171ff055792d6d5b29867eaf3ed070ba79ded2399f9609992b"
+    },
+    {
+      "removed": "tmp/ntables/out/32n-front-approved.png",
+      "retained": "public/img/regen/diamant-32-n-frame-front-v1.png",
+      "sha256": "614c3046f30aa360e5913b05da3ebc3c3b8b60f0c9f47132b143ad60de4efe63"
+    },
+    {
+      "removed": "tmp/ntables/out/mono55-rear.png",
+      "retained": "public/img/regen/mono-55-t-frame-rear.png",
+      "sha256": "1b6944a1e21b20e53995820df1db0164cff14c24accab392f949a2f5ea18fe20"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon-32n-wide.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon-32n-main.png",
+      "retained": "public/img/pages/cat-napolnye_75ef7fec2d69d5e49a391307576d0bf6-628e59e7e50675cb.png",
+      "sha256": "f6a2ef0967fd49dcb03d4a0bdbb084bc2d55eed017ff5d039ea77771a33415ea"
+    },
+    {
+      "removed": "tmp/ntables/out/mono55-detail.png",
+      "retained": "public/img/regen/mono-55-t-frame-detail.png",
+      "sha256": "a78d3de7cc977bf453b6dbef762eb3e7eaa1f8b187ec98e2705820990f1869b1"
+    },
+    {
+      "removed": "tmp/ntables/fresh32/etalon.png",
+      "retained": "public/img/products/diamant-32-n_1852c1987a01bae91d67fd1a2e5d58cf-03a6a48bb41ba648.png",
+      "sha256": "4a885c0bf9ed9917ae80f78263253a9e47fb3583acec081de157227353bfbc12"
+    },
+    {
+      "removed": "tmp/ntables/fresh32/etalon-alt.jpg",
+      "retained": "public/img/products/diamant-32-n_00ae102b371532dd9815384064246f98-fe6e70e0d479ec2d.jpg",
+      "sha256": "44cade1a564aed9338c1385b7060168231e83c0f0f525fa948233b40f6f11c65"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_55fdaf69452580809fcd50a9c480a6d5-95f2ffb2415e6979.jpg",
+      "retained": "public/img/products/diamant-55-n_55fdaf69452580809fcd50a9c480a6d5-95f2ffb2415e6979.jpg",
+      "sha256": "9b3d03ed210e66a66936e1fb88a6d821e8570cc8f254cdae6e0725e852891bb4"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_9a7b540d7db29da8d05de4ac672cbe71-4a378faefeaf7eed.jpg",
+      "retained": "public/img/products/diamant-55-n_9a7b540d7db29da8d05de4ac672cbe71-4a378faefeaf7eed.jpg",
+      "sha256": "c2bf11c6bec99b56c1dba20ea2736d70c56f434383d440185f256c8538dfe77f"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_1c9ee5178a658a4dfe82847e9ef1c640-e999b33d61cbde5c.jpg",
+      "retained": "public/img/products/diamant-55-n_1c9ee5178a658a4dfe82847e9ef1c640-e999b33d61cbde5c.jpg",
+      "sha256": "b624656ff28fc2f194e2d260faa31856ffc85ac25b7aa487fe5a690944ac2036"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_a2f7bea8899406da4bfbc0565aaa9d56-1f4fb39f22ba1527.jpg",
+      "retained": "public/img/products/diamant-55-n_a2f7bea8899406da4bfbc0565aaa9d56-1f4fb39f22ba1527.jpg",
+      "sha256": "a8bb8930b8edd728b4404e94c809925b8a444c0caa9bf54132a5994329fb2f7b"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_c48c937d83b23722b2869da11f39fa34-195fa1061f3564fb.jpg",
+      "retained": "public/img/products/diamant-55-n_c48c937d83b23722b2869da11f39fa34-195fa1061f3564fb.jpg",
+      "sha256": "3353a23429fbc2000874266ef93645e4caba877bd9b85a63f5a8c429f1e737c0"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/official-side.jpg",
+      "retained": "public/img/products/diamant-55-n_8711f07a1b18ffa8c3d72fbbdc51a73e-e0709bf80893cebd.jpg",
+      "sha256": "adc5f7bbe1ceede40ce12884202581490ba572fc8486cc42753d63f08cc7dceb"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_7c2afab1e144cf0cf8a73b9e6097bf60-aefc1e4b7ff50eb3.jpg",
+      "retained": "public/img/products/diamant-55-n_7c2afab1e144cf0cf8a73b9e6097bf60-aefc1e4b7ff50eb3.jpg",
+      "sha256": "e524a34bf2e4b49a81592b8e036769a91524b59c60e5d6a4bfb3731b6a1a50df"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_c6db6bfed79687a296c593fb881e799e-242100d92599ecf3.jpg",
+      "retained": "public/img/products/diamant-55-n_c6db6bfed79687a296c593fb881e799e-242100d92599ecf3.jpg",
+      "sha256": "509d3da0a55b51c8e7bfd3bbe359f1451af6d25af097816db8734e7b0b1990c1"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_db813d5615a0246e50d8f32ed7a4156b-2e5c6758a274f635.png",
+      "retained": "public/img/products/diamant-55-n_db813d5615a0246e50d8f32ed7a4156b-2e5c6758a274f635.png",
+      "sha256": "822a7fd216fc7326716cdebe81d0a36563a1a2b0d9ea1f7b2444884b46c6caf2"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n_8711f07a1b18ffa8c3d72fbbdc51a73e-e0709bf80893cebd.jpg",
+      "retained": "public/img/products/diamant-55-n_8711f07a1b18ffa8c3d72fbbdc51a73e-e0709bf80893cebd.jpg",
+      "sha256": "adc5f7bbe1ceede40ce12884202581490ba572fc8486cc42753d63f08cc7dceb"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/55n-tilt-rear-raw.png",
+      "retained": "public/img/regen/diamant-55-n-frame-rear-tilt.png",
+      "sha256": "88f4b8be1bfd3eda07bd7acf7d0f23e0845977cd1f84bf9420d3e491d9e2c605"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n-frame-side-v2.png",
+      "retained": "public/img/regen/diamant-55-n-frame-side-v2.png",
+      "sha256": "837c973be94eb5a814398b58e69651748e9d0dad5f92e1d69686f89ba24c585f"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/official-rear.jpg",
+      "retained": "public/img/products/diamant-55-n_a2f7bea8899406da4bfbc0565aaa9d56-1f4fb39f22ba1527.jpg",
+      "sha256": "a8bb8930b8edd728b4404e94c809925b8a444c0caa9bf54132a5994329fb2f7b"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/55n-tilt-side-raw.png",
+      "retained": "public/img/regen/diamant-55-n-frame-side-tilt.png",
+      "sha256": "0a71572e896277ac5912345b765ae0892f6160b27b5c0f8aa365f730a4222092"
+    },
+    {
+      "removed": "tmp/ntables/out/55n-tilt/diamant-55-n-frame-rear-v2.png",
+      "retained": "public/img/regen/diamant-55-n-frame-rear-v2.png",
+      "sha256": "8f785c3c890796c26457bf7ad439e8c9f6d050381d0a8c0f3d5fc5c0a556e41b"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-3f4eb80d.jpg",
+      "retained": "public/img/products/apriori-19-print_3f4eb80d6f4508e138578530a56d0ee9-3792be9d5dbe45ed.jpg",
+      "sha256": "21709957625f9d7e57949e5de649b0743b0af62e1b820940fd470f940e6071b4"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-be4a07f8.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_be4a07f85f5bb81282decec9654903f6-903754ce008dbc15.jpg",
+      "sha256": "9d68fa5b13c6184ad76dd55d8f3a78060dd25e203df1020f69ddddc10232cc65"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-97d46a22.jpg",
+      "retained": "public/img/products/apriori-19-keyboard_97d46a22f810a3793ec607dd15b07cf5-d826245c1ee18306.jpg",
+      "sha256": "555f9a890cc51623919d9567a481ca4030c8667c1ef2c0014c229bb396c9468d"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-08.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-20.jpg",
+      "retained": "public/img/products/apriori-19-keyboard_97d46a22f810a3793ec607dd15b07cf5-d826245c1ee18306.jpg",
+      "sha256": "555f9a890cc51623919d9567a481ca4030c8667c1ef2c0014c229bb396c9468d"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-ece622d3.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_ece622d34085042b9621ac252c35cf4d-03dacacfbf2d405a.jpg",
+      "sha256": "edb6504e57c3e0c50397d8db0815d0c5d26cd3b73e84aa455f1b529738677eb3"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-21.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_f12d06832ff0ed209df18392870de341-53d1c4a2cd668ae5.jpg",
+      "sha256": "e73716e2994eb902f5196360e315371dd560ba74e192ac45c6acd7b62ba84ef1"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-09.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-23.jpg",
+      "retained": "public/img/products/apriori-19-keyboard_a9a5a22c250f5656bb1fb60b40d39794-5a3f71e2a89b50f9.jpg",
+      "sha256": "d65203ce694ffeb776fe4e6ae8f2800af33c5a0ee2d9665a0c76d5189d993f6a"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-22.jpg",
+      "retained": "public/img/products/apriori-19-print_e387029aeb7688b377d86e418ae2ef14-831c1b731075ca9f.jpg",
+      "sha256": "e4b8ff74b6c5e1bb5abdc176b6ef3eaeafe21ed3d2b0882602274a9a4dbda758"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-26.jpg",
+      "retained": "public/img/products/apriori-19-print_0d60dd85804345cbd8990f9670fe0ed9-db16261a34ae5aca.jpg",
+      "sha256": "4e1c6da30ee3e6843194e4c91de957845f324c1ff9180ad3936d7200f518e832"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-19.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_be4a07f85f5bb81282decec9654903f6-903754ce008dbc15.jpg",
+      "sha256": "9d68fa5b13c6184ad76dd55d8f3a78060dd25e203df1020f69ddddc10232cc65"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-25.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_c8f6691e62548d72c4d8816cb8280541-65dcb632770fdc22.jpg",
+      "sha256": "0b213a43e836d15567fe853096496e9627a32508ce872ae9e744597d1ce12ac5"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-c8f6691e.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_c8f6691e62548d72c4d8816cb8280541-65dcb632770fdc22.jpg",
+      "sha256": "0b213a43e836d15567fe853096496e9627a32508ce872ae9e744597d1ce12ac5"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-24.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_73ba6a2adcbc1d62f6289b610aa74b58-03b07cd27f3bfdea.jpg",
+      "sha256": "52ff9ec7d48be93d08c30d3ffc30ec4fbda4c1bd0ff33809c599a5fe0cfbda89"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-18.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_7b822f396c8dcc034f37b818323de97c-f6eb17aed5f0b997.jpg",
+      "sha256": "f50686e53884c3135346cb097ed34af43bf8b926c3aaa773b7048dd062cf8771"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-01.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-0d60dd85.jpg",
+      "retained": "public/img/products/apriori-19-print_0d60dd85804345cbd8990f9670fe0ed9-db16261a34ae5aca.jpg",
+      "sha256": "4e1c6da30ee3e6843194e4c91de957845f324c1ff9180ad3936d7200f518e832"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-00.png",
+      "retained": "public/img/pages/cat-napolnye_75ef7fec2d69d5e49a391307576d0bf6-628e59e7e50675cb.png",
+      "sha256": "f6a2ef0967fd49dcb03d4a0bdbb084bc2d55eed017ff5d039ea77771a33415ea"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-02.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-16.jpg",
+      "retained": "public/img/products/apriori-19-print_3f4eb80d6f4508e138578530a56d0ee9-3792be9d5dbe45ed.jpg",
+      "sha256": "21709957625f9d7e57949e5de649b0743b0af62e1b820940fd470f940e6071b4"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-7b822f39.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_7b822f396c8dcc034f37b818323de97c-f6eb17aed5f0b997.jpg",
+      "sha256": "f50686e53884c3135346cb097ed34af43bf8b926c3aaa773b7048dd062cf8771"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-17.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_ece622d34085042b9621ac252c35cf4d-03dacacfbf2d405a.jpg",
+      "sha256": "edb6504e57c3e0c50397d8db0815d0c5d26cd3b73e84aa455f1b529738677eb3"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-03.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-07.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-13.jpg",
+      "retained": "public/img/projects/sensornye-terminaly-dlya-aerop_a8257c26d4c2ff9d4868a5afe6b441da-7e26a89a25fc00a4.jpg",
+      "sha256": "332e63f2e6dde4ae424c820f827057ca2881779135381b78abfc2298e33e4db1"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-12.png",
+      "retained": "public/img/products/apriori-22_5fff46c9d1e6037a6037557e84ab26ca-0e62da2a043a249a.png",
+      "sha256": "84999235a1c2b05299f26eb4634e0a2e002409382c918fe381ae1bd1e62d4800"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-06.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-10.png",
+      "retained": "public/img/products/mono-32-fa-pin_8e7c29ece3c66e3dee7a13d4cb92378f-4eb607dffe9fe653.png",
+      "sha256": "c8812ce7bac959a3e9869a61192cfe9f1cf0eb9a42fd3617741f9ad476e3374c"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-04.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/img-11.png",
+      "retained": "public/img/pages/home_1u9jbdym7onkf1xblb2mjtdxwu9aazdl-7cc0bc2aab3a874e.png",
+      "sha256": "2e7d11efa4760d9b14a0301d4f637dd396fdc10073fba9ac9fd4fb4367a22406"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-f12d0683.jpg",
+      "retained": "public/img/products/interaktivnyy-kiosk-apriori-19-print_f12d06832ff0ed209df18392870de341-53d1c4a2cd668ae5.jpg",
+      "sha256": "e73716e2994eb902f5196360e315371dd560ba74e192ac45c6acd7b62ba84ef1"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-73ba6a2a.jpg",
+      "retained": "public/img/products/apriori-19-print-a4_73ba6a2adcbc1d62f6289b610aa74b58-03b07cd27f3bfdea.jpg",
+      "sha256": "52ff9ec7d48be93d08c30d3ffc30ec4fbda4c1bd0ff33809c599a5fe0cfbda89"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-e387029a.jpg",
+      "retained": "public/img/products/apriori-19-print_e387029aeb7688b377d86e418ae2ef14-831c1b731075ca9f.jpg",
+      "sha256": "e4b8ff74b6c5e1bb5abdc176b6ef3eaeafe21ed3d2b0882602274a9a4dbda758"
+    },
+    {
+      "removed": "tmp/ntables/out/apriori_etalon/thumb-a9a5a22c.jpg",
+      "retained": "public/img/products/apriori-19-keyboard_a9a5a22c250f5656bb1fb60b40d39794-5a3f71e2a89b50f9.jpg",
+      "sha256": "d65203ce694ffeb776fe4e6ae8f2800af33c5a0ee2d9665a0c76d5189d993f6a"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-1.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-0.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/full-5.png",
+      "retained": "public/img/pages/home_1u9jbdym7onkf1xblb2mjtdxwu9aazdl-7cc0bc2aab3a874e.png",
+      "sha256": "2e7d11efa4760d9b14a0301d4f637dd396fdc10073fba9ac9fd4fb4367a22406"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-2.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-3.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-7.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-6.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/full-3.png",
+      "retained": "public/img/pages/cat-napolnye_75ef7fec2d69d5e49a391307576d0bf6-628e59e7e50675cb.png",
+      "sha256": "f6a2ef0967fd49dcb03d4a0bdbb084bc2d55eed017ff5d039ea77771a33415ea"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-4.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/etalon-5.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/etalon_a22/full-0.jpg",
+      "retained": "public/img/projects/sensornye-terminaly-dlya-aerop_a8257c26d4c2ff9d4868a5afe6b441da-7e26a89a25fc00a4.jpg",
+      "sha256": "332e63f2e6dde4ae424c820f827057ca2881779135381b78abfc2298e33e4db1"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-07.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-06.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-04.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-05.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-55-n.png",
+      "retained": "public/img/products/diamant-55-n_db813d5615a0246e50d8f32ed7a4156b-2e5c6758a274f635.png",
+      "sha256": "822a7fd216fc7326716cdebe81d0a36563a1a2b0d9ea1f7b2444884b46c6caf2"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-01.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-00.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-02.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-55-t-03.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-mono-32-n.png",
+      "retained": "public/img/products/mono-32-n_d83227deb8da8c479ce9607515f722eb-9f8720c3bf3295ec.png",
+      "sha256": "2a7352f22a7ab26d7e7cfa40d8c4a6d254f3c6caff16d4dcffb95090377266a6"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-05.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-49-n.png",
+      "retained": "public/img/products/diamant-49-n_e1159d60dceb7f4c2cb38e8a77b651f1-fe8ad5113a5d9db5.png",
+      "sha256": "e928a3c5c02fca7b8406bb7c327c3baa4aa515da4b162ec1de01af76739abfc4"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-02.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-03.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-04.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-06.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-01.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-00.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-07.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-03.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-04.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-05.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-02.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-00.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-07.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/mono-32-n-06.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/diamant-22-n-01.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-06.png",
+      "retained": "public/img/pages/home_671e21c996d1af830fb9d942b6212616-87c5df9610691292.png",
+      "sha256": "3b29ef9500c85a23e7227a4f462d1f65b7ea69859dcba69f0e0739729064a0d2"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-07.png",
+      "retained": "public/img/pages/cat-detskie-stoliki_a343778627d801c800c90a7d7490e8dc-1d702ee8770c10f8.png",
+      "sha256": "669a5251155a556b7d0c40e2d087ff943d7beab5b77f114867cdcb2ef605c9b5"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-22-n.png",
+      "retained": "public/img/products/diamant-22-n_50318f7b2fc453c3f3943beb31df12c5-27dfbdf8549d0a6b.png",
+      "sha256": "e0ae2fda9638ac10776c60f582663482af15d229a85aa087707979205f8b90f0"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-05.png",
+      "retained": "public/img/pages/cat-dezinfektora-ruk_1674ed83a2ed82b1a35067151a639a9a-6fb95d69a20688d1.png",
+      "sha256": "85de292511a7966dea57680dfcc7c6e720bc330d84e9a2bc6713aea7377748f6"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-04.png",
+      "retained": "public/img/pages/home_f55cd2a216031413c44d78af50931df5-6a05c258369534ad.png",
+      "sha256": "0f247893165b25072626420a3b46c3efc43f7e348bb6984b6f27ebfaaffa1cef"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-43-n.png",
+      "retained": "public/img/products/diamant-43-n_73b8c1587874858415823acb7cd6dd67-6311de603746a124.png",
+      "sha256": "c0609c2f400eb2b7d3b65b53f118468bed3eee2ef50e89d2089e1889a5248afd"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-00.png",
+      "retained": "public/img/pages/home_492f5d17fbb270db2448dbddd353666e-c9cfe4534e05fdd1.png",
+      "sha256": "9b552301a1610228d717c57d15d22604a42df5f0b9214a5c8635993a33005486"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-01.png",
+      "retained": "public/img/pages/cat-nastennyy_773048475e6f50414288c5f4fe65c370-16ecefb1c1f3e198.png",
+      "sha256": "a090eb090c98e77db1208aaad28071625ee108cd5c505cdd360afaf5df25bedb"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-03.png",
+      "retained": "public/img/pages/cat-apriori_81c2d374749c6f96ddfc371bbd580997-f71d22bb7b791fd2.png",
+      "sha256": "6d652676f83bba571bbd5b924c66786dc1937b0c28418329daaca18dcbf72d59"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-55-ne.png",
+      "retained": "public/img/products/diamant-55-ne_0a6e8351b8e070903e95c410b9164418-4692afdbbc9cc868.png",
+      "sha256": "f84bf074d2b465ea08207195a8671ef056470976cb57b2220f4986b638969728"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/eco-kid-22-02.png",
+      "retained": "public/img/pages/home_9ab785864fc324e5aa6c49ce9b4e81f8-8c9ec8d33efdfd82.png",
+      "sha256": "7c3a72e3a7c41104b15d5179d51047a1871c04a2d103babf0daa501a4eaa6e5a"
+    },
+    {
+      "removed": "tmp/ntables/out/find_twin/stoly-diamant-32-ne.jpg",
+      "retained": "public/img/products/diamant-32-ne_3237aca09ed723d7a046ed891dd82182-f72e7fd6fd92258d.jpg",
+      "sha256": "0cb058d60a06bd6a4c651b91846bb1edb2418d9552d32f1b20c068a23eee8bb2"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/d22f-front.png",
+      "retained": "public/img/regen/diamant-22-f-frame-front.png",
+      "sha256": "3a263cf570efbd5bbcee4c543bc4724cb21033bb9d953c677a4ca54a64c3eb1c"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/intercon-front.png",
+      "retained": "public/img/regen/diamant-intercon-frame-front.png",
+      "sha256": "c0cf3e664bc489523c3acc7d29227b4b0168e8ef2f812c2fff56b1c08186b518"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/intercon-34.png",
+      "retained": "public/img/regen/diamant-intercon-frame-34.png",
+      "sha256": "d629ae70dc9520ead3057c78abd5877149047dd3bd8a26c1f65da79226383dc6"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/fe.png",
+      "retained": "public/img/home/hero-unit-fe-v1.png",
+      "sha256": "7267ee7a6ce889dc8480bdc6ba020d7b315cfb130a2ff0b793b80fc1a2756863"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/apriori.png",
+      "retained": "public/img/home/hero-unit-apriori-v3.png",
+      "sha256": "49fd1838f25b53f74429c8c010606f7847d8e9f013470c354b2ae103b6e2b769"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/mono32f-front.png",
+      "retained": "public/img/regen/mono-32-f-frame-front.png",
+      "sha256": "81b892ee2b954f687a1360297a846073ca5079ffbced02d82759785fc308240b"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/lineup-studio.png",
+      "retained": "public/img/home/hero-lineup-v1.png",
+      "sha256": "de17104bf0587223dbabff84da86d3f6a05fb392e3e112874f4c627b9739f293"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/mono32f-34.png",
+      "retained": "public/img/regen/mono-32-f-frame-34.png",
+      "sha256": "e0d73d80912455d467bbd4ba345ad6635ace51ca8a07c7215aabe4e306b94e5e"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/d22f-34.png",
+      "retained": "public/img/regen/diamant-22-f-frame-34.png",
+      "sha256": "076b54da329ffd3da55212ca03eb9d81c7b091e828627521d132537225318b70"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/d32f-34.png",
+      "retained": "public/img/regen/diamant-32-f-frame-34.png",
+      "sha256": "1ded25bf6c03bdcf19d06a42ab3eb97683e585be7a1c5f107a43bb51b546b277"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/table.png",
+      "retained": "public/img/home/hero-unit-table-v1.png",
+      "sha256": "3127868c69f6ddc439b0f174d61a54ec8a190f020795d0fc95207bbff2afdf19"
+    },
+    {
+      "removed": "tmp/ntables/out/hero-check/d32f-front.png",
+      "retained": "public/img/regen/diamant-32-f-frame-front.png",
+      "sha256": "b308028a3f371b35652ce007c8a9cdb9bb4171de0c78bf8e7e469269b501776f"
+    },
+    {
+      "removed": "tmp/ntables/out/ship/side.png",
+      "retained": "public/img/regen/diamant-22-n-frame-side-v3.png",
+      "sha256": "c29db1b8b59a8d708693bf0f08df0d7a99b0f3d62276043f786f523601537abd"
+    },
+    {
+      "removed": "tmp/ntables/out/ship/34.png",
+      "retained": "public/img/regen/diamant-22-n-frame-34-v3.png",
+      "sha256": "a6f9e483a220fdaec8a6d476905b3d610dc233e81d612a57cf3b39edd177686a"
+    },
+    {
+      "removed": "tmp/ntables/out/ship/front.png",
+      "retained": "public/img/regen/diamant-22-n-frame-front-v3.png",
+      "sha256": "5e0349fffaa0de742d1dcc35f4352b44ad8ac2510aa1d094f5268cd984a869f0"
+    },
+    {
+      "removed": "tmp/old32/diamant-32-fe-pro/76b1f01a5c738b052ae8545dcbbebea7.jpeg",
+      "retained": "public/img/products/diamant-32-fe-pro_76b1f01a5c738b052ae8545dcbbebea7-ebe93709d19ba6d7.jpeg",
+      "sha256": "2b58696a5ccea476570aabccc5bcb5027688634241e23a9e1b367862cc91c2df"
+    },
+    {
+      "removed": "tmp/old32/diamant-32-fe-pro/44322069e8535e6785f2e680cb039707.jpeg",
+      "retained": "public/img/products/diamant-32-fe-pro_44322069e8535e6785f2e680cb039707-98ccff044bfe110f.jpeg",
+      "sha256": "c492804952971b6d827043f477157873d749ef3391d71fedb27d36dad640c257"
+    },
+    {
+      "removed": "tmp/old32/diamant-32-fe-pro/da71a02132a9a41a01fe0e49360e42cb.png",
+      "retained": "public/img/products/diamant-32-fe-pro_da71a02132a9a41a01fe0e49360e42cb-a9831d6f0505be2d.png",
+      "sha256": "c6e89093bfb92ef24b6a16fb1435e32e12ec41d74611e021fa6b793361799c5b"
+    },
+    {
+      "removed": "tmp/old32/diamant-43-f/af20d8f6d33366097318d4df0544c52f.png",
+      "retained": "public/img/products/diamant-43-f_af20d8f6d33366097318d4df0544c52f-9cf100c80e589796.png",
+      "sha256": "63a13e5e73cffe28725b0e9db0d41f890e0f941aa63e3a3efa8bafa1c4a9c34d"
+    },
+    {
+      "removed": "tmp/old32/diamant-32-f/bc5453db1b870176f1619d4ed77a08b7.png",
+      "retained": "public/img/products/diamant-32-f_bc5453db1b870176f1619d4ed77a08b7-e0223f0ac5f42087.png",
+      "sha256": "b05abe49524c644a8eb5d6a90aee14e2b76728633e00eb80506ec4e708071d1e"
+    }
+  ]
+}

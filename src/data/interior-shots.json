@@ -1,0 +1,400 @@
+{
+  "diamant-22-f": [
+    {
+      "src": "/img/interior/diamant-22-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-22-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-32-f": [
+    {
+      "src": "/img/interior/diamant-32-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-32-f-general": [
+    {
+      "src": "/img/interior/diamant-32-f-general-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-f-general-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-32-f-key": [
+    {
+      "src": "/img/interior/diamant-32-f-key-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-f-key-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-32-f-print": [
+    {
+      "src": "/img/interior/diamant-32-f-print-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-f-print-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-32-fe": [
+    {
+      "src": "/img/interior/diamant-32-fe-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-fe-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-43-f": [
+    {
+      "src": "/img/interior/diamant-43-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-43-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-43-f-general": [
+    {
+      "src": "/img/interior/diamant-43-f-general-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-43-f-general-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-43-f-print": [
+    {
+      "src": "/img/interior/diamant-43-f-print-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-43-f-print-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-49-f": [
+    {
+      "src": "/img/interior/diamant-49-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-49-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-49-f-general": [
+    {
+      "src": "/img/interior/diamant-49-f-general-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-49-f-general-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-49-f-print": [
+    {
+      "src": "/img/interior/diamant-49-f-print-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-49-f-print-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-75-f": [
+    {
+      "src": "/img/interior/diamant-75-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-75-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-86-f-grand": [
+    {
+      "src": "/img/interior/diamant-86-f-grand-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-86-f-grand-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "mono-19-f": [
+    {
+      "src": "/img/interior/mono-19-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/mono-19-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "mono-43-f": [
+    {
+      "src": "/img/interior/mono-43-f-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/mono-43-f-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-22-n": [
+    {
+      "src": "/img/interior/diamant-22-n-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-22-n-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-43-n": [
+    {
+      "src": "/img/interior/diamant-43-n-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-43-n-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-49-n": [
+    {
+      "src": "/img/interior/diamant-49-n-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-49-n-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-55-n": [
+    {
+      "src": "/img/interior/diamant-55-n-1.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-22-w": [
+    {
+      "src": "/img/interior/diamant-22-w-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-22-w-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-32-w": [
+    {
+      "src": "/img/interior/diamant-32-w-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-w-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-32-w-print": [
+    {
+      "src": "/img/interior/diamant-32-w-print-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-w-print-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-43-w": [
+    {
+      "src": "/img/interior/diamant-43-w-1.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-55-w": [
+    {
+      "src": "/img/interior/diamant-55-w-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-55-w-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-32-wa-pay": [
+    {
+      "src": "/img/interior/diamant-32-wa-pay-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-wa-pay-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-32-wea-pay": [
+    {
+      "src": "/img/interior/diamant-32-wea-pay-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-wea-pay-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-32-we-pay": [
+    {
+      "src": "/img/interior/diamant-32-we-pay-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-32-we-pay-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "mono-32-fa-pin": [
+    {
+      "src": "/img/interior/mono-32-fa-pin-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/mono-32-fa-pin-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "beskontaktnyy-dezinfektor-agat-5": [
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-5-1.webp",
+      "w": 1152,
+      "h": 864
+    },
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-5-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "beskontaktnyy-dezinfektor-agat-7": [
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-7-1.webp",
+      "w": 1152,
+      "h": 864
+    },
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-7-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "beskontaktnyy-dezinfektor-agat-9": [
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-9-1.webp",
+      "w": 1152,
+      "h": 864
+    },
+    {
+      "src": "/img/interior/beskontaktnyy-dezinfektor-agat-9-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ],
+  "diamant-intercon": [
+    {
+      "src": "/img/interior/diamant-intercon-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-intercon-2.webp",
+      "w": 1152,
+      "h": 864
+    }
+  ],
+  "diamant-tmedical": [
+    {
+      "src": "/img/interior/diamant-tmedical-1.webp",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "src": "/img/interior/diamant-tmedical-2.webp",
+      "w": 1280,
+      "h": 720
+    }
+  ]
+}

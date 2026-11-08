@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ApplyDialog from './ApplyDialog';
 import homeBlocks from '../data/home-blocks.json';
 import { paths } from '../lib/paths.js';
 
@@ -10,19 +12,16 @@ function hasListedPrice(price) {
   return !/^цена\s+по\s+запросу$/iu.test(value);
 }
 
-/** Open phone + CTA on the product hero. */
-export default function ProductPriceForm({ title, slug, price }) {
-  const [sent, setSent] = useState(false);
-  const priced = hasListedPrice(price);
-  const submitLabel = priced ? 'Отправить заявку' : 'Запросить цену';
-  const subjectLabel = priced ? `Заявка: ${title || 'модель Zorgtech'}` : `Запрос цены: ${title || 'модель Zorgtech'}`;
-
+function PriceApplyForm({ title, slug, price, onSent }) {
   function onSubmit(event) {
     event.preventDefault();
     const phone = String(new FormData(event.currentTarget).get('phone') || '').trim();
     if (!phone) return;
 
-    const subject = encodeURIComponent(subjectLabel);
+    const priced = hasListedPrice(price);
+    const subject = encodeURIComponent(
+      priced ? `Заявка: ${title || 'модель Zorgtech'}` : `Запрос цены: ${title || 'модель Zorgtech'}`,
+    );
     const body = encodeURIComponent(
       [
         `Телефон: ${phone}`,
@@ -36,23 +35,13 @@ export default function ProductPriceForm({ title, slug, price }) {
         .join('\n'),
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
-  }
-
-  if (sent) {
-    return (
-      <p className="product-price-form-thanks" role="status">
-        Спасибо. Если почта не открылась — напишите на{' '}
-        <a href={`mailto:${EMAIL}`}>{EMAIL}</a> или позвоните{' '}
-        <a href="tel:88005502645">8 800 550 26 45</a>.
-      </p>
-    );
+    onSent();
   }
 
   return (
-    <form className="product-price-form" onSubmit={onSubmit}>
-      <label className="product-price-field">
-        <span className="product-price-field-label">Телефон</span>
+    <form className="apply-form" onSubmit={onSubmit}>
+      <label className="apply-field">
+        <span>Телефон</span>
         <input
           name="phone"
           type="tel"
@@ -62,9 +51,57 @@ export default function ProductPriceForm({ title, slug, price }) {
           placeholder="+7 …"
         />
       </label>
-      <button className="btn primary btn--lg product-price-submit" type="submit">
-        {submitLabel}
+      <button className="btn primary apply-submit" type="submit">
+        {hasListedPrice(price) ? 'Отправить заявку' : 'Запросить цену'}
       </button>
+      <p className="apply-consent">
+        Нажимая кнопку, вы даете согласие на обработку персональных данных.{' '}
+        <Link to="/policy">Политика конфиденциальности</Link>
+      </p>
     </form>
+  );
+}
+
+/** Price CTA — opens a phone popup on every product card. */
+export default function ProductPriceForm({ title, slug, price }) {
+  const [open, setOpen] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  return (
+    <>
+      <button
+        type="button"
+        className="btn primary btn--lg"
+        onClick={() => {
+          setSent(false);
+          setOpen(true);
+        }}
+      >
+        {price || 'Цена по запросу'}
+      </button>
+      {open ? (
+        <ApplyDialog
+          kicker="Запрос цены"
+          title={title || 'Модель Zorgtech'}
+          lead="Оставьте телефон — перезвоним и назовём стоимость."
+          onClose={() => setOpen(false)}
+        >
+          {sent ? (
+            <p className="apply-consent" role="status">
+              Спасибо. Если почта не открылась — напишите на{' '}
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a> или позвоните{' '}
+              <a href="tel:88005502645">8 800 550 26 45</a>.
+            </p>
+          ) : (
+            <PriceApplyForm
+              title={title}
+              slug={slug}
+              price={price}
+              onSent={() => setSent(true)}
+            />
+          )}
+        </ApplyDialog>
+      ) : null}
+    </>
   );
 }

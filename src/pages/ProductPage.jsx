@@ -129,7 +129,10 @@ export default function ProductPage() {
                 {family.variants.map((v) =>
                   v.slug === slug ? (
                     <span key={v.slug} className="product-variant is-active" aria-current="page">
-                      {v.diagonal}″
+                      <span className="product-variant-num">
+                        {v.diagonal}
+                        <sup>″</sup>
+                      </span>
                     </span>
                   ) : (
                     <Link
@@ -138,7 +141,10 @@ export default function ProductPage() {
                       to={paths.product(v.slug)}
                       title={v.title}
                     >
-                      {v.diagonal}″
+                      <span className="product-variant-num">
+                        {v.diagonal}
+                        <sup>″</sup>
+                      </span>
                     </Link>
                   ),
                 )}
@@ -147,11 +153,6 @@ export default function ProductPage() {
           ) : null}
 
           <div className="product-buy">
-            <div className="product-buy-meta">
-              <p className="price">
-                <span className="btn primary">{copy.price}</span>
-              </p>
-            </div>
             <ProductPriceForm title={product.title} slug={product.slug} price={copy.price} />
           </div>
 

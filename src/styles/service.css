@@ -434,10 +434,47 @@
 }
 
 .projects-feature-media img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   transition: transform 0.6s var(--ease-out);
+}
+
+.projects-page .shot-card {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.projects-page .shot-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #101317;
+}
+
+.projects-page .shot-card--xl .shot-card-media {
+  aspect-ratio: 16 / 10;
+}
+
+.projects-page .shot-card-media img {
+  object-fit: contain;
+  object-position: center center;
+}
+
+.projects-page .shot-card--portrait .shot-card-media img {
+  object-position: center center;
+}
+
+.projects-page .shot-card::after {
+  content: none;
+}
+
+.projects-page .shot-card-body {
+  position: relative;
+  inset: auto;
 }
 
 .projects-feature:hover .projects-feature-media img {

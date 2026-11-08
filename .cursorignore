@@ -1,0 +1,14 @@
+# Heavy binaries — never load into agent context
+public/img/**/*.png
+public/img/**/*.jpg
+public/img/**/*.jpeg
+public/img/**/*.webp
+public/img/**/*.gif
+public/img/blog/
+
+# Unused in app runtime (scraped only)
+src/data/blog.json
+
+# Build output
+dist/
+node_modules/

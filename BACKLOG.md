@@ -18,7 +18,6 @@
 | 3 | Our-boxes: обложки у 38/48 без картинок | high | **blocked** | Нет исходников скринов; на эталоне этих коробок нет. Нужны файлы/папка |
 | 4 | Дилер-портал: убрать фейк-логин / выровнять копирайт | critical | **done** | Раздел `/dealers/portal` снят целиком; URL редиректит на `/dealers` |
 | 5 | UX роутера: Suspense без мигания шапки + soft-404 → NotFound | high | **done** | Suspense в Layout вокруг Outlet; soft-404 → NotFoundPage |
-| 6 | Формы: не врать «отправлено» после mailto; валидация телефона | high | todo | |
 | 7 | Mobile: синхрон CTA / burger (721–960) | medium | todo | |
 | 8 | Новинки 1–9: привязать кадры, названия, раздел | high | later | Кадры `novinka-1…9` уже в `public/img/regen/` (+ webp). Черновик категории в локальном `categories.json` — не коммитить. Названия/характеристики уточняются. |
 | 9 | Столы: переснять старые галереи 22 N, 32 N, 32 NE, 43 N, 49 N | high | later | Как 55 N: эталон + новый съём, на сайт только после ок. 55 N / 55 NE / Mono 32 N / Mono 55 T уже трогали. |
@@ -46,7 +45,6 @@
 | H3 | Suspense вокруг всего роутера — мигает Layout; soft-404 без NotFound | → #5 **done** |
 | H4 | 2 проекта из sitemap нет в данных; legacy `/catalog/{alias}/` без редиректа | todo (контент/редиректы демо; CHPU живые не ломать) |
 | H5 | Area slug с `nbsp`: `dlya-bankov-nbsp-nbsp-…` | blocked | Менять slug = риск URL; только с 301 и явной ок |
-| H6 | Mailto-формы + мгновенный «успех» | → #6 |
 | H7 | OG/canonical/`VITE_SITE_URL` | wont | SEO — не трогаем |
 
 ### Medium

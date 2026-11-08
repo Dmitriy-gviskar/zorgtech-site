@@ -124,7 +124,7 @@ const REGEN_FRAMES = {
     '/img/regen/diamant-32-f-print-frame-rear.png',
   ],
   'diamant-32-fe': [
-    '/img/regen/diamant-32-fe-frame-front.png',
+    '/img/regen/diamant-32-fe-frame-front-v5.png',
     '/img/regen/diamant-32-fe-frame-34.png',
     '/img/regen/diamant-32-fe-frame-side.png',
     '/img/regen/diamant-32-fe-frame-rear-v11.png', // v11 — только сервисный лючок на 4 винтах, без планки разъёмов (правки)
@@ -209,8 +209,6 @@ const REGEN_FRAMES = {
   ],
   // v2 — v1 были пересвечены (правки); переэкспонированы в стиль Diamant 32 FE
   'diamant-43-fl': [
-    '/img/regen/diamant-43-fl-frame-front-v2.png',
-    '/img/regen/diamant-43-fl-frame-34-v2.png',
     '/img/regen/diamant-43-fl-frame-side-v2.png',
     '/img/regen/diamant-43-fl-frame-rear-v2.png',
     '/img/regen/diamant-43-fl-frame-detail-v2.png',
@@ -347,7 +345,6 @@ const REGEN_FRAMES = {
   ],
   'diamant-tmedical': [
     '/img/regen/diamant-tmedical-frame-34.png',
-    '/img/regen/diamant-tmedical-frame-front.png',
   ],
   // Интерактивные трибуны — рендеры из презентации zorgtech-deck-2026 (слайд 24)
   'diamant-v': ['/img/regen/diamant-v-frame-34.png'],
@@ -606,16 +603,16 @@ export function productGallery(productOrSlug) {
  * When studio regen frames own the hero, return all scrape images;
  * otherwise skip the first (already used as cover).
  *
- * Each item: { src, portrait }. The wide lead tile (21:9) gets the first landscape
- * photo — a portrait render cropped into it read as a random slice (правки №3/№7);
- * portrait shots are flagged so the grid shows them whole instead of cropping.
+ * Each item: { src, portrait }. A cinema lead is only for a photo wider than 2:1.
+ * A 16:9 or 4:3 frame forced into 21:9 reads as a cropped slice.
+ * Portrait shots are flagged so the grid shows them whole.
  *
  * Only real photos in situ: studio renders scraped from the reference site
  * (white/transparent background, listed in gallery-renders.json) are skipped.
  */
 const HIDE_LIVE_GALLERY = new Set(['apriori-19-print-a4']);
 const GALLERY_RENDERS = new Set(galleryRenders);
-const LEAD_MIN_ASPECT = 1.25;
+const LEAD_MIN_ASPECT = 2.05;
 
 function imageAspect(src) {
   const dims = mediaDims[src];
@@ -627,7 +624,6 @@ export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
   if (HIDE_LIVE_GALLERY.has(slug)) return [];
   const product = typeof productOrSlug === 'string' ? getProduct(slug) : productOrSlug;
   const images = product?.images || [];
-  if (!images.length) return [];
 
   const hasStudio = Boolean(REGEN_FRAMES[slug]?.length);
   const pool = hasStudio ? images : images.slice(1);
@@ -644,7 +640,7 @@ export function productLiveGallery(productOrSlug, { limit = 12 } = {}) {
     if (out.length >= limit) break;
   }
 
-  // Wide lead tile only when there is a landscape photo to fill it; otherwise a plain grid.
+  // Cinema tile only for a panoramic photo. Everything else stays a plain grid.
   const leadIndex = out.findIndex((shot) => shot.aspect !== null && shot.aspect >= LEAD_MIN_ASPECT);
   if (leadIndex > 0) out.unshift(...out.splice(leadIndex, 1));
   if (leadIndex >= 0) out[0].lead = true;

@@ -1,0 +1,80 @@
+[
+  {
+    "file": "novinka-1-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.472",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-1-frame-rear.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.527",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-2-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.469",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-3-frame-front.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.445",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-3-frame-rear.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.415",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-4-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.349",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-5-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.275",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-6-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.370",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-7-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.300",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-8-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.361",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-8-frame-rear.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.356",
+    "corner": 255.0
+  },
+  {
+    "file": "novinka-9-frame-34.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.359",
+    "corner": 254.8825
+  },
+  {
+    "file": "novinka-9-frame-side.png",
+    "status": "rembg",
+    "reason": "ok opaque=0.333",
+    "corner": 255.0
+  }
+]
